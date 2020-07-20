@@ -74,18 +74,25 @@ namespace TUChair
             }
         }
 
-       
+        public void OpenorCreateForm<T>() where T : Form, new()
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(T))
+                {
+                   
+                    form.Activate();
 
-      
-       
+                    form.WindowState = FormWindowState.Maximized;
+                    return;
+                }
+            }
+            T frm = new T();           
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
 
-       
-
-      
-
-      
-
-       
+            frm.Show();
+        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {

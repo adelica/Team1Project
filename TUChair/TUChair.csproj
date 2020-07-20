@@ -100,6 +100,9 @@
     <EmbeddedResource Include="CommonForm\POPUPForm3Line.resx">
       <DependentUpon>POPUPForm3Line.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\SearchCommomForm.resx">
+      <DependentUpon>SearchCommomForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="practice.resx">
       <DependentUpon>practice.cs</DependentUpon>
     </EmbeddedResource>
