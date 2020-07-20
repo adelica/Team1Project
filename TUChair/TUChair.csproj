@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\CommonUtil.cs" />
     <EmbeddedResource Include="CommonForm\POPUP1Line.resx">
       <DependentUpon>POPUP1Line.cs</DependentUpon>
     </EmbeddedResource>
