@@ -70,6 +70,12 @@
     <Compile Include="CommonForm\SearchCommomForm.Designer.cs">
       <DependentUpon>SearchCommomForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="practice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="practice.Designer.cs">
+      <DependentUpon>practice.cs</DependentUpon>
+    </Compile>
     <Compile Include="TUChairMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ucTabControl.Designer.cs">
+      <DependentUpon>ucTabControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <EmbeddedResource Include="CommonForm\POPUP1Line.resx">
       <DependentUpon>POPUP1Line.cs</DependentUpon>
@@ -87,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\POPUPForm3Line.resx">
       <DependentUpon>POPUPForm3Line.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="practice.resx">
+      <DependentUpon>practice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -100,6 +115,9 @@
     </Compile>
     <EmbeddedResource Include="TUChairMain.resx">
       <DependentUpon>TUChairMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucTabControl.resx">
+      <DependentUpon>ucTabControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
