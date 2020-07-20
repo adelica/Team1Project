@@ -83,7 +83,7 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.tabForms = new System.Windows.Forms.TabControl();
+            this.tabForms = new TUChair.ucTabControl();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -590,12 +590,13 @@
             // tabForms
             // 
             this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabForms.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabForms.Location = new System.Drawing.Point(132, 24);
             this.tabForms.Name = "tabForms";
             this.tabForms.SelectedIndex = 0;
             this.tabForms.Size = new System.Drawing.Size(1672, 22);
             this.tabForms.TabIndex = 4;
-            this.tabForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabForm_MouseDown);
+            this.tabForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabForms_MouseDown);
             // 
             // TUChairMain
             // 
@@ -681,7 +682,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TabControl tabForms;
+        private ucTabControl tabForms;
     }
 }
 

@@ -144,7 +144,7 @@ namespace TUChair
             ((sender as Form).Tag as TabPage).Dispose();
         }
 
-        private void tabForm_MouseDown(object sender, MouseEventArgs e)
+        private void tabForms_MouseDown(object sender, MouseEventArgs e)
         {
             for (var i = 0; i < tabForms.TabPages.Count; i++)
             {
