@@ -13,13 +13,13 @@ namespace TUChair
     public partial class TUChairMain : Form
     {
         bool pflag1 = true;
-        int inteval1 = 78;
+        int inteval1 = 60;
         bool pflag2 = true;
-        int inteval2 = 138;
+        int inteval2 = 118;
         bool pflag3 = true;
-        int inteval3 = 128;
+        int inteval3 = 118;
         bool pflag4 = true;
-        int inteval4 = 140;
+        int inteval4 = 157;
         public TUChairMain()
         {
             InitializeComponent();
@@ -27,22 +27,22 @@ namespace TUChair
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Slidingmenu(slide1, timer1, ref inteval1, ref pflag1, 78, 5);
+            Slidingmenu(slide1, timer1, ref inteval1, ref pflag1, 60);
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            Slidingmenu(slide2, timer2, ref inteval2, ref pflag2, 138, 3);
+            Slidingmenu(slide2, timer2, ref inteval2, ref pflag2, 118);
         }
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            Slidingmenu(slide3, timer3, ref inteval3, ref pflag3, 128);
+            Slidingmenu(slide3, timer3, ref inteval3, ref pflag3, 118);
         }
 
         private void timer4_Tick(object sender, EventArgs e)
         {
-            Slidingmenu(slide4, timer4, ref inteval4, ref pflag4, 140);
+            Slidingmenu(slide4, timer4, ref inteval4, ref pflag4,157);
         }
         private void Slidingmenu(Panel slide, Timer timer, ref int inteval, ref bool pflag, int intevalMax, int num = 2)
         {
@@ -74,39 +74,37 @@ namespace TUChair
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       
+
+      
+       
+
+       
+
+      
+
+      
+
+       
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             timer1.Start();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button27_Click(object sender, EventArgs e)
         {
             timer2.Start();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void button7_Click_1(object sender, EventArgs e)
         {
             timer3.Start();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void button10_Click_1(object sender, EventArgs e)
         {
             timer4.Start();
-        }
-
-        private void TUChairMain_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
