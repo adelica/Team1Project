@@ -64,6 +64,12 @@
     <Compile Include="CommonForm\POPUPForm3Line.Designer.cs">
       <DependentUpon>POPUPForm3Line.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonForm\SearchCommomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm\SearchCommomForm.Designer.cs">
+      <DependentUpon>SearchCommomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TUChairMain.cs">
       <SubType>Form</SubType>
     </Compile>
