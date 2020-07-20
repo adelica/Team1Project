@@ -43,13 +43,24 @@
             this.근무시간ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shift기준정보ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sgift스케줄관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.단가관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.자재단가관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.영업단가관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.환율관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.slide1 = new System.Windows.Forms.Panel();
             this.slide2 = new System.Windows.Forms.Panel();
+            this.slide3 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.slide4 = new System.Windows.Forms.Panel();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
@@ -57,15 +68,6 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.slide3 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.slide1 = new System.Windows.Forms.Panel();
             this.button27 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
@@ -73,22 +75,21 @@
             this.button28 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
-            this.slide4 = new System.Windows.Forms.Panel();
-            this.단가관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.자재단가관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.영업단가관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.환율관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.tabForms = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.slide1.SuspendLayout();
             this.slide2.SuspendLayout();
             this.slide3.SuspendLayout();
-            this.slide1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -126,25 +127,26 @@
             // 공장관리ToolStripMenuItem
             // 
             this.공장관리ToolStripMenuItem.Name = "공장관리ToolStripMenuItem";
-            this.공장관리ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.공장관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.공장관리ToolStripMenuItem.Text = "공장관리";
+            this.공장관리ToolStripMenuItem.Click += new System.EventHandler(this.공장관리ToolStripMenuItem_Click);
             // 
             // 설비관리ToolStripMenuItem
             // 
             this.설비관리ToolStripMenuItem.Name = "설비관리ToolStripMenuItem";
-            this.설비관리ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.설비관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.설비관리ToolStripMenuItem.Text = "설비관리";
             // 
             // 업체관리ToolStripMenuItem
             // 
             this.업체관리ToolStripMenuItem.Name = "업체관리ToolStripMenuItem";
-            this.업체관리ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.업체관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.업체관리ToolStripMenuItem.Text = "업체관리";
             // 
             // bORToolStripMenuItem
             // 
             this.bORToolStripMenuItem.Name = "bORToolStripMenuItem";
-            this.bORToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.bORToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bORToolStripMenuItem.Text = "BOR";
             // 
             // 품목관리ToolStripMenuItem
@@ -189,13 +191,42 @@
             this.sgift스케줄관리ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.sgift스케줄관리ToolStripMenuItem.Text = "shift스케줄 관리";
             // 
+            // 단가관리ToolStripMenuItem
+            // 
+            this.단가관리ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.자재단가관리ToolStripMenuItem,
+            this.영업단가관리ToolStripMenuItem,
+            this.환율관리ToolStripMenuItem});
+            this.단가관리ToolStripMenuItem.Name = "단가관리ToolStripMenuItem";
+            this.단가관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.단가관리ToolStripMenuItem.Text = "단가관리";
+            // 
+            // 자재단가관리ToolStripMenuItem
+            // 
+            this.자재단가관리ToolStripMenuItem.Name = "자재단가관리ToolStripMenuItem";
+            this.자재단가관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.자재단가관리ToolStripMenuItem.Text = "자재단가관리";
+            // 
+            // 영업단가관리ToolStripMenuItem
+            // 
+            this.영업단가관리ToolStripMenuItem.Name = "영업단가관리ToolStripMenuItem";
+            this.영업단가관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.영업단가관리ToolStripMenuItem.Text = "영업단가관리";
+            // 
+            // 환율관리ToolStripMenuItem
+            // 
+            this.환율관리ToolStripMenuItem.Name = "환율관리ToolStripMenuItem";
+            this.환율관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.환율관리ToolStripMenuItem.Text = "환율관리";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Location = new System.Drawing.Point(0, 26);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 24);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(132, 632);
+            this.panel2.Size = new System.Drawing.Size(132, 739);
             this.panel2.TabIndex = 2;
             // 
             // panel1
@@ -211,47 +242,21 @@
             this.panel1.Size = new System.Drawing.Size(128, 585);
             this.panel1.TabIndex = 0;
             // 
-            // button2
+            // slide1
             // 
-            this.button2.Location = new System.Drawing.Point(1, 21);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 21);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "영업업로드";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(1, 61);
-            this.button13.Margin = new System.Windows.Forms.Padding(2);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(126, 21);
-            this.button13.TabIndex = 7;
-            this.button13.Text = "수요계획";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1, 41);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 21);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "영업마스터";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(1, 1);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 21);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "영업";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.slide1.Controls.Add(this.slide2);
+            this.slide1.Controls.Add(this.button27);
+            this.slide1.Controls.Add(this.button32);
+            this.slide1.Controls.Add(this.button33);
+            this.slide1.Controls.Add(this.button30);
+            this.slide1.Controls.Add(this.button28);
+            this.slide1.Controls.Add(this.button31);
+            this.slide1.Controls.Add(this.button29);
+            this.slide1.Location = new System.Drawing.Point(0, 21);
+            this.slide1.Margin = new System.Windows.Forms.Padding(2);
+            this.slide1.Name = "slide1";
+            this.slide1.Size = new System.Drawing.Size(129, 510);
+            this.slide1.TabIndex = 6;
             // 
             // slide2
             // 
@@ -268,6 +273,113 @@
             this.slide2.Name = "slide2";
             this.slide2.Size = new System.Drawing.Size(129, 427);
             this.slide2.TabIndex = 3;
+            // 
+            // slide3
+            // 
+            this.slide3.Controls.Add(this.button10);
+            this.slide3.Controls.Add(this.slide4);
+            this.slide3.Controls.Add(this.button14);
+            this.slide3.Controls.Add(this.button11);
+            this.slide3.Controls.Add(this.button6);
+            this.slide3.Controls.Add(this.button12);
+            this.slide3.Controls.Add(this.button5);
+            this.slide3.Controls.Add(this.button4);
+            this.slide3.Controls.Add(this.button15);
+            this.slide3.Location = new System.Drawing.Point(2, 24);
+            this.slide3.Margin = new System.Windows.Forms.Padding(2);
+            this.slide3.Name = "slide3";
+            this.slide3.Size = new System.Drawing.Size(130, 316);
+            this.slide3.TabIndex = 3;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button10.Location = new System.Drawing.Point(0, 1);
+            this.button10.Margin = new System.Windows.Forms.Padding(2);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(126, 21);
+            this.button10.TabIndex = 5;
+            this.button10.Text = "현황조회";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click_1);
+            // 
+            // slide4
+            // 
+            this.slide4.Location = new System.Drawing.Point(2, 21);
+            this.slide4.Margin = new System.Windows.Forms.Padding(2);
+            this.slide4.Name = "slide4";
+            this.slide4.Size = new System.Drawing.Size(124, 214);
+            this.slide4.TabIndex = 3;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(0, 121);
+            this.button14.Margin = new System.Windows.Forms.Padding(2);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(126, 21);
+            this.button14.TabIndex = 11;
+            this.button14.Text = "매출마감";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(0, 21);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(126, 21);
+            this.button11.TabIndex = 6;
+            this.button11.Text = "공정재고현황";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(0, 101);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(126, 21);
+            this.button6.TabIndex = 10;
+            this.button6.Text = "출하현황";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(0, 41);
+            this.button12.Margin = new System.Windows.Forms.Padding(2);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(126, 21);
+            this.button12.TabIndex = 7;
+            this.button12.Text = "입출고현황";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(0, 81);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(126, 21);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "제품출하";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(0, 61);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(126, 21);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "고객주문별재고";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(0, 141);
+            this.button15.Margin = new System.Windows.Forms.Padding(2);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(126, 21);
+            this.button15.TabIndex = 12;
+            this.button15.Text = "거래처별월마감";
+            this.button15.UseVisualStyleBackColor = true;
             // 
             // button21
             // 
@@ -341,91 +453,6 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
-            // slide3
-            // 
-            this.slide3.Controls.Add(this.button10);
-            this.slide3.Controls.Add(this.slide4);
-            this.slide3.Controls.Add(this.button14);
-            this.slide3.Controls.Add(this.button11);
-            this.slide3.Controls.Add(this.button6);
-            this.slide3.Controls.Add(this.button12);
-            this.slide3.Controls.Add(this.button5);
-            this.slide3.Controls.Add(this.button4);
-            this.slide3.Controls.Add(this.button15);
-            this.slide3.Location = new System.Drawing.Point(2, 24);
-            this.slide3.Margin = new System.Windows.Forms.Padding(2);
-            this.slide3.Name = "slide3";
-            this.slide3.Size = new System.Drawing.Size(130, 316);
-            this.slide3.TabIndex = 3;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button10.Location = new System.Drawing.Point(0, 1);
-            this.button10.Margin = new System.Windows.Forms.Padding(2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(126, 21);
-            this.button10.TabIndex = 5;
-            this.button10.Text = "현황조회";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click_1);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(0, 21);
-            this.button11.Margin = new System.Windows.Forms.Padding(2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(126, 21);
-            this.button11.TabIndex = 6;
-            this.button11.Text = "공정재고현황";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(0, 41);
-            this.button12.Margin = new System.Windows.Forms.Padding(2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(126, 21);
-            this.button12.TabIndex = 7;
-            this.button12.Text = "입출고현황";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 2;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 2;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // timer3
-            // 
-            this.timer3.Interval = 2;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // timer4
-            // 
-            this.timer4.Interval = 2;
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
-            // 
-            // slide1
-            // 
-            this.slide1.Controls.Add(this.slide2);
-            this.slide1.Controls.Add(this.button27);
-            this.slide1.Controls.Add(this.button32);
-            this.slide1.Controls.Add(this.button33);
-            this.slide1.Controls.Add(this.button30);
-            this.slide1.Controls.Add(this.button28);
-            this.slide1.Controls.Add(this.button31);
-            this.slide1.Controls.Add(this.button29);
-            this.slide1.Location = new System.Drawing.Point(0, 21);
-            this.slide1.Margin = new System.Windows.Forms.Padding(2);
-            this.slide1.Name = "slide1";
-            this.slide1.Size = new System.Drawing.Size(129, 510);
-            this.slide1.TabIndex = 6;
-            // 
             // button27
             // 
             this.button27.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -498,97 +525,84 @@
             this.button29.Text = "자재입고현황";
             this.button29.UseVisualStyleBackColor = true;
             // 
-            // slide4
+            // button2
             // 
-            this.slide4.Location = new System.Drawing.Point(2, 21);
-            this.slide4.Margin = new System.Windows.Forms.Padding(2);
-            this.slide4.Name = "slide4";
-            this.slide4.Size = new System.Drawing.Size(124, 214);
-            this.slide4.TabIndex = 3;
+            this.button2.Location = new System.Drawing.Point(1, 21);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(126, 21);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "영업업로드";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // 단가관리ToolStripMenuItem
+            // button13
             // 
-            this.단가관리ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.자재단가관리ToolStripMenuItem,
-            this.영업단가관리ToolStripMenuItem,
-            this.환율관리ToolStripMenuItem});
-            this.단가관리ToolStripMenuItem.Name = "단가관리ToolStripMenuItem";
-            this.단가관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
-            this.단가관리ToolStripMenuItem.Text = "단가관리";
+            this.button13.Location = new System.Drawing.Point(1, 61);
+            this.button13.Margin = new System.Windows.Forms.Padding(2);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(126, 21);
+            this.button13.TabIndex = 7;
+            this.button13.Text = "수요계획";
+            this.button13.UseVisualStyleBackColor = true;
             // 
-            // 자재단가관리ToolStripMenuItem
+            // button3
             // 
-            this.자재단가관리ToolStripMenuItem.Name = "자재단가관리ToolStripMenuItem";
-            this.자재단가관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.자재단가관리ToolStripMenuItem.Text = "자재단가관리";
+            this.button3.Location = new System.Drawing.Point(1, 41);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(126, 21);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "영업마스터";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // 영업단가관리ToolStripMenuItem
+            // button1
             // 
-            this.영업단가관리ToolStripMenuItem.Name = "영업단가관리ToolStripMenuItem";
-            this.영업단가관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.영업단가관리ToolStripMenuItem.Text = "영업단가관리";
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Location = new System.Drawing.Point(1, 1);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 21);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "영업";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // 환율관리ToolStripMenuItem
+            // timer1
             // 
-            this.환율관리ToolStripMenuItem.Name = "환율관리ToolStripMenuItem";
-            this.환율관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.환율관리ToolStripMenuItem.Text = "환율관리";
+            this.timer1.Interval = 2;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button4
+            // timer2
             // 
-            this.button4.Location = new System.Drawing.Point(0, 61);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(126, 21);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "고객주문별재고";
-            this.button4.UseVisualStyleBackColor = true;
+            this.timer2.Interval = 2;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // button5
+            // timer3
             // 
-            this.button5.Location = new System.Drawing.Point(0, 81);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(126, 21);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "제품출하";
-            this.button5.UseVisualStyleBackColor = true;
+            this.timer3.Interval = 2;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // button6
+            // timer4
             // 
-            this.button6.Location = new System.Drawing.Point(0, 101);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(126, 21);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "출하현황";
-            this.button6.UseVisualStyleBackColor = true;
+            this.timer4.Interval = 2;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
-            // button14
+            // tabForms
             // 
-            this.button14.Location = new System.Drawing.Point(0, 121);
-            this.button14.Margin = new System.Windows.Forms.Padding(2);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(126, 21);
-            this.button14.TabIndex = 11;
-            this.button14.Text = "매출마감";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(0, 141);
-            this.button15.Margin = new System.Windows.Forms.Padding(2);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(126, 21);
-            this.button15.TabIndex = 12;
-            this.button15.Text = "거래처별월마감";
-            this.button15.UseVisualStyleBackColor = true;
+            this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabForms.Location = new System.Drawing.Point(132, 24);
+            this.tabForms.Name = "tabForms";
+            this.tabForms.SelectedIndex = 0;
+            this.tabForms.Size = new System.Drawing.Size(1672, 22);
+            this.tabForms.TabIndex = 4;
+            this.tabForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabForm_MouseDown);
             // 
             // TUChairMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1804, 763);
+            this.Controls.Add(this.tabForms);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -599,13 +613,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.MdiChildActivate += new System.EventHandler(this.TUChairMain_MdiChildActivate);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.slide1.ResumeLayout(false);
             this.slide2.ResumeLayout(false);
             this.slide3.ResumeLayout(false);
-            this.slide1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -666,6 +681,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TabControl tabForms;
     }
 }
 
