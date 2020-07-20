@@ -72,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ucTabControl.Designer.cs">
+      <DependentUpon>ucTabControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CommonForm\POPUP1Line.resx">
       <DependentUpon>POPUP1Line.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="TUChairMain.resx">
       <DependentUpon>TUChairMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucTabControl.resx">
+      <DependentUpon>ucTabControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
