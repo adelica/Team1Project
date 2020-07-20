@@ -78,6 +78,7 @@
     <Compile Include="ucTabControl.Designer.cs">
       <DependentUpon>ucTabControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util\CommonUtil.cs" />
     <EmbeddedResource Include="CommonForm\POPUP1Line.resx">
       <DependentUpon>POPUP1Line.cs</DependentUpon>
     </EmbeddedResource>
