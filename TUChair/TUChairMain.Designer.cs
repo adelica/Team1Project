@@ -182,13 +182,14 @@
             // shift기준정보ToolStripMenuItem
             // 
             this.shift기준정보ToolStripMenuItem.Name = "shift기준정보ToolStripMenuItem";
-            this.shift기준정보ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.shift기준정보ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.shift기준정보ToolStripMenuItem.Text = "shift기준정보";
+            this.shift기준정보ToolStripMenuItem.Click += new System.EventHandler(this.shift기준정보ToolStripMenuItem_Click);
             // 
             // sgift스케줄관리ToolStripMenuItem
             // 
             this.sgift스케줄관리ToolStripMenuItem.Name = "sgift스케줄관리ToolStripMenuItem";
-            this.sgift스케줄관리ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.sgift스케줄관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sgift스케줄관리ToolStripMenuItem.Text = "shift스케줄 관리";
             // 
             // 단가관리ToolStripMenuItem

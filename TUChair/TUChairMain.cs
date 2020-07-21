@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TUChair.MeilingForm;
 
 namespace TUChair
 {
@@ -170,5 +171,9 @@ namespace TUChair
             }
         }
 
+        private void shift기준정보ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenorCreateForm<ShiftsearchForm>();
+        }
     }
 }

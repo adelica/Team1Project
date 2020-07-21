@@ -70,6 +70,12 @@
     <Compile Include="CommonForm\SearchCommomForm.Designer.cs">
       <DependentUpon>SearchCommomForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MeilingForm\ShiftsearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\ShiftsearchForm.Designer.cs">
+      <DependentUpon>ShiftsearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="practice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\SearchCommomForm.resx">
       <DependentUpon>SearchCommomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\ShiftsearchForm.resx">
+      <DependentUpon>ShiftsearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="practice.resx">
       <DependentUpon>practice.cs</DependentUpon>
@@ -140,8 +149,6 @@
     <Content Include="Resources\close-grey.png" />
     <Content Include="Resources\close-red.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MeilingForm\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

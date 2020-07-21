@@ -183,18 +183,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label2;
+        protected System.Windows.Forms.Panel panel1;
+        protected System.Windows.Forms.Panel panel5;
+        protected System.Windows.Forms.Panel panel4;
+        protected System.Windows.Forms.Panel panel3;
+        protected System.Windows.Forms.Button button7;
+        protected System.Windows.Forms.Button button1;
+        protected System.Windows.Forms.Panel panel2;
+        protected System.Windows.Forms.Button button2;
+        protected System.Windows.Forms.Button button3;
+        protected System.Windows.Forms.Button button4;
+        protected System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.Panel panel6;
+        protected System.Windows.Forms.Label label2;
     }
 }
