@@ -70,6 +70,12 @@
     <Compile Include="CommonForm\SearchCommomForm.Designer.cs">
       <DependentUpon>SearchCommomForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="JeansGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="JeansGrid.designer.cs">
+      <DependentUpon>JeansGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="MeilingForm\ShiftsearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
