@@ -82,6 +82,7 @@
     <Compile Include="practice.Designer.cs">
       <DependentUpon>practice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\MeilingService.cs" />
     <Compile Include="TUChairMain.cs">
       <SubType>Form</SubType>
     </Compile>
