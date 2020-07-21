@@ -42,7 +42,7 @@ namespace TUChair
 
         private void timer4_Tick(object sender, EventArgs e)
         {
-            Slidingmenu(slide4, timer4, ref inteval4, ref pflag4,157);
+            Slidingmenu(slide4, timer4, ref inteval4, ref pflag4, 157);
         }
         private void Slidingmenu(Panel slide, Timer timer, ref int inteval, ref bool pflag, int intevalMax, int num = 2)
         {
@@ -80,16 +80,18 @@ namespace TUChair
             {
                 if (form.GetType() == typeof(T))
                 {
-                   
+
                     form.Activate();
 
-                    form.WindowState = FormWindowState.Maximized;
+                    form.FormBorderStyle = FormBorderStyle.None;
+                    form.Dock = DockStyle.Fill;
                     return;
                 }
             }
-            T frm = new T();           
+            T frm = new T();
             frm.MdiParent = this;
-            frm.WindowState = FormWindowState.Maximized;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
 
             frm.Show();
         }
@@ -116,11 +118,7 @@ namespace TUChair
 
         private void 공장관리ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            practice f1 = new practice();
-            f1.MdiParent = this;
-            f1.FormBorderStyle = FormBorderStyle.None;
-            f1.Dock = DockStyle.Fill;
-            f1.Show();
+            OpenorCreateForm<practice>();
         }
 
         private void TUChairMain_MdiChildActivate(object sender, EventArgs e)
@@ -171,5 +169,6 @@ namespace TUChair
                 }
             }
         }
+
     }
 }
