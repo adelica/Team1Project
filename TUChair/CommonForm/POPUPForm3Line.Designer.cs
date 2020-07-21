@@ -28,33 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(391, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "취소";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(300, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "저장";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -66,6 +50,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(767, 379);
             this.panel1.TabIndex = 6;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(515, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(255, 267);
+            this.panel5.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(259, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(255, 267);
+            this.panel3.TabIndex = 1;
             // 
             // panel4
             // 
@@ -81,43 +79,56 @@
             this.panel2.Size = new System.Drawing.Size(255, 267);
             this.panel2.TabIndex = 0;
             // 
-            // panel3
+            // panel6
             // 
-            this.panel3.Location = new System.Drawing.Point(259, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(255, 267);
-            this.panel3.TabIndex = 1;
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.button2);
+            this.panel6.Location = new System.Drawing.Point(199, 402);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(336, 40);
+            this.panel6.TabIndex = 9;
             // 
-            // panel5
+            // button1
             // 
-            this.panel5.Location = new System.Drawing.Point(515, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(255, 267);
-            this.panel5.TabIndex = 2;
+            this.button1.Location = new System.Drawing.Point(75, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "저장";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(197, 8);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "취소";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // POPUPForm3Line
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.Name = "POPUPForm3Line";
             this.Text = "POPUPForm3Line";
             this.panel1.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel6;
+        protected System.Windows.Forms.Button button1;
+        protected System.Windows.Forms.Button button2;
     }
 }

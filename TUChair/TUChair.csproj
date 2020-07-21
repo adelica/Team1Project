@@ -140,6 +140,8 @@
     <Content Include="Resources\close-grey.png" />
     <Content Include="Resources\close-red.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="MeilingForm\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
