@@ -76,6 +76,12 @@
     <Compile Include="HyunningForm\UnitPriceManager.Designer.cs">
       <DependentUpon>UnitPriceManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="InForm\FactoryInfoPopUP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\FactoryInfoPopUP.Designer.cs">
+      <DependentUpon>FactoryInfoPopUP.cs</DependentUpon>
+    </Compile>
     <Compile Include="InForm\FactoryManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\UnitPriceManager.resx">
       <DependentUpon>UnitPriceManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\FactoryInfoPopUP.resx">
+      <DependentUpon>FactoryInfoPopUP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\FactoryManage.resx">
       <DependentUpon>FactoryManage.cs</DependentUpon>
