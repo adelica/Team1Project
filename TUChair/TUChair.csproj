@@ -116,9 +116,6 @@
     <EmbeddedResource Include="CommonForm\SearchCommomForm.resx">
       <DependentUpon>SearchCommomForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MeilingForm\ShiftsearchForm.resx">
-      <DependentUpon>ShiftsearchForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="practice.resx">
       <DependentUpon>practice.cs</DependentUpon>
     </EmbeddedResource>

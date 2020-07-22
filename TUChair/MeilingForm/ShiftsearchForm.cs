@@ -14,10 +14,5 @@ namespace TUChair.MeilingForm
         {
             InitializeComponent();
         }
-
-        private void ShiftsearchForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

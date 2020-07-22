@@ -28,35 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(8, 39);
-            this.button7.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.Visible = false;
-            // 
-            // ShiftsearchForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.ClientSize = new System.Drawing.Size(1656, 685);
-            this.Name = "ShiftsearchForm";
-            this.Load += new System.EventHandler(this.ShiftsearchForm_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            this.components = new System.ComponentModel.Container();
         }
 
         #endregion
