@@ -34,18 +34,8 @@ namespace JeanForm
             this.DefaultCellStyle.SelectionBackColor = Color.Gray;
             this.DefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
 
-            //for (int i = 1; i < this.RowCount; i++)
-            //{
-            //    if (i % 2 != 0)
-            //    {
-            //        this.Rows[i].DefaultCellStyle.BackColor = Color.Indigo;
-
-            //    }
-            //    else
-            //    {
-            //        this.Rows[i].DefaultCellStyle.BackColor = Color.White;
-            //    }
-            //}
+            this.RowsDefaultCellStyle.BackColor = Color.Bisque;
+            this.AlternatingRowsDefaultCellStyle.BackColor =Color.Beige;
 
         }
         
