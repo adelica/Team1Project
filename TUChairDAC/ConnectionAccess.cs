@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace TUChairDAC
 {
-    class ConnectionAccess
+   public class ConnectionAccess
     {
         protected string ConnectionString
         {
@@ -28,8 +28,9 @@ namespace TUChairDAC
                         break;
                     }
                 }
-              
-                return connStr;
+                Amhuhua.Amhuhua amhuhua = new Amhuhua.Amhuhua();
+                
+                return amhuhua.Decrypt(connStr);
 
             }
         }
