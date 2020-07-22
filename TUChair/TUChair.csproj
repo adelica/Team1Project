@@ -88,12 +88,6 @@
     <Compile Include="MeilingForm\ShiftsearchForm.Designer.cs">
       <DependentUpon>ShiftsearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="practice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="practice.Designer.cs">
-      <DependentUpon>practice.cs</DependentUpon>
-    </Compile>
     <Compile Include="Service\MeilingService.cs" />
     <Compile Include="TUChairMain.cs">
       <SubType>Form</SubType>
@@ -124,9 +118,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\FactoryManage.resx">
       <DependentUpon>FactoryManage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="practice.resx">
-      <DependentUpon>practice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TUChair.InForm;
 using TUChair.MeilingForm;
 
 namespace TUChair
@@ -119,7 +120,7 @@ namespace TUChair
 
         private void 공장관리ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenorCreateForm<practice>();
+            OpenorCreateForm<FactoryManage>();
         }
 
         private void TUChairMain_MdiChildActivate(object sender, EventArgs e)
