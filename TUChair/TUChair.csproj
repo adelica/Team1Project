@@ -94,6 +94,12 @@
     <Compile Include="JeansGrid.designer.cs">
       <DependentUpon>JeansGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="MeilingForm\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service\MeilingService.cs" />
     <Compile Include="TUChairMain.cs">
       <SubType>Form</SubType>
@@ -131,6 +137,9 @@
     <EmbeddedResource Include="InForm\FactoryManage.resx">
       <DependentUpon>FactoryManage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -165,8 +174,16 @@
     <Content Include="Resources\close-grey.png" />
     <Content Include="Resources\close-red.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="MeilingForm\" />
+    <ProjectReference Include="..\TUChairDAC\TUChairDAC.csproj">
+      <Project>{78D08B8B-D504-453C-A530-0F168698CB2F}</Project>
+      <Name>TUChairDAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUChairVO\TUChairVO.csproj">
+      <Project>{86693719-2496-448E-B793-D9DC958823A4}</Project>
+      <Name>TUChairVO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
