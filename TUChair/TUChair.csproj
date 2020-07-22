@@ -70,6 +70,12 @@
     <Compile Include="CommonForm\SearchCommomForm.Designer.cs">
       <DependentUpon>SearchCommomForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InForm\FactoryManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\FactoryManage.Designer.cs">
+      <DependentUpon>FactoryManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="JeansGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\SearchCommomForm.resx">
       <DependentUpon>SearchCommomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\FactoryManage.resx">
+      <DependentUpon>FactoryManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="practice.resx">
       <DependentUpon>practice.cs</DependentUpon>
