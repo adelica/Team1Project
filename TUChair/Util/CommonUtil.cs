@@ -10,9 +10,9 @@ namespace TUChair.Util
 {
     public class CommonUtil
     {
-        CheckBox headerChk;
-        DataGridView dgv1;
-        public  void AddNewColumnToDataGridView(DataGridView dgv, string headerText, string dataPropertyName, bool visibility, int colWidth = 100, DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft)
+        static CheckBox headerChk;
+        static DataGridView dgv1;
+        public static void AddNewColumnToDataGridView(DataGridView dgv, string headerText, string dataPropertyName, bool visibility, int colWidth = 100, DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft)
         {
             dgv1 = dgv;
             DataGridViewTextBoxColumn gridCol = new DataGridViewTextBoxColumn();
@@ -41,7 +41,7 @@ namespace TUChair.Util
             dgv1.Controls.Add(headerChk);
         }
 
-        private void HeaderChk_Clicked(object sender, EventArgs e)
+        private static void HeaderChk_Clicked(object sender, EventArgs e)
         {
 
             dgv1.EndEdit();
