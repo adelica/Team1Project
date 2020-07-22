@@ -174,7 +174,7 @@ namespace TUChair
 
         private void shift기준정보ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenorCreateForm<ShiftsearchForm>();
+           
         }
     }
 }

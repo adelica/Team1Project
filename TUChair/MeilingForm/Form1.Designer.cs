@@ -1,6 +1,6 @@
 ﻿namespace TUChair.MeilingForm
 {
-    partial class ShiftsearchForm
+    partial class Form1
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.

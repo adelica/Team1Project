@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace TUChair.MeilingForm
 {
-    public partial class ShiftsearchForm : TUChair.CommonForm.SearchCommomForm
+    public partial class Form1 : TUChair.CommonForm.SearchCommomForm
     {
-        public ShiftsearchForm()
+        public Form1()
         {
             InitializeComponent();
         }
