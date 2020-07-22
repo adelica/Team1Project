@@ -24,21 +24,27 @@ namespace TUChair.Util
             gridCol.ReadOnly = true;
             gridCol.DefaultCellStyle.Alignment = textAlign;
             dgv.Columns.Add(gridCol);
-            DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
-            chk.Width = 30;
-            chk.Name = "chk";
-            dgv1.Columns.Add(chk); //0 - checkbox
 
-            //데이터그리드뷰의 헤더에 위치할 체크박스
-            headerChk = new CheckBox();
+        }
+      
+        public static void DgvCheckBox(DataGridView dgv)
+        {
+            
+                DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+                chk.Width = 30;
+                chk.Name = "";
+                dgv.Columns.Add(chk); //0 - checkbox
 
-            Point headerCell = dgv1.GetCellDisplayRectangle(0, -1, true).Location;
+                //데이터그리드뷰의 헤더에 위치할 체크박스
+                headerChk = new CheckBox();
 
-            headerChk.Location = new Point(headerCell.X + 8, headerCell.Y + 2);
-            headerChk.Size = new Size(18, 18);
-            headerChk.BackColor = Color.White;
-            headerChk.Click += HeaderChk_Clicked;
-            dgv1.Controls.Add(headerChk);
+                Point headerCell = dgv.GetCellDisplayRectangle(0, -1, true).Location;
+
+                headerChk.Location = new Point(headerCell.X + 8, headerCell.Y + 2);
+                headerChk.Size = new Size(18, 18);
+                headerChk.BackColor = Color.White;
+                headerChk.Click += HeaderChk_Clicked;
+                dgv.Controls.Add(headerChk);
         }
 
         private static void HeaderChk_Clicked(object sender, EventArgs e)
