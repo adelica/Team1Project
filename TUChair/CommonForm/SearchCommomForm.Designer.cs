@@ -142,6 +142,6 @@
         protected System.Windows.Forms.Panel panel7;
         protected System.Windows.Forms.Panel panel3;
         protected System.Windows.Forms.Panel panel4;
-        protected System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -28,7 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.panel1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // UnitPriceManager
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.ClientSize = new System.Drawing.Size(1116, 602);
+            this.Name = "UnitPriceManager";
+            this.Load += new System.EventHandler(this.UnitPriceManager_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
