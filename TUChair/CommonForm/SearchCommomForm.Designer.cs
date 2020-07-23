@@ -113,7 +113,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 99);
+            //this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 99);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // SearchCommomForm
@@ -139,9 +139,9 @@
         protected System.Windows.Forms.Panel panel1;
         protected System.Windows.Forms.Panel panel2;
         protected System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        protected System.Windows.Forms.Panel panel7;
+        protected System.Windows.Forms.Panel panel3;
+        protected System.Windows.Forms.Panel panel4;
+        protected System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
