@@ -1,6 +1,6 @@
 ﻿namespace TUChair.InForm
 {
-    partial class FactoryInfoPopUP
+    partial class FactoryInfoPopUp
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -101,6 +101,14 @@
             this.panel2.Controls.Add(this.cboFact_Group);
             this.panel2.Controls.Add(this.label1);
             // 
+            // button1
+            // 
+            this.button1.TabIndex = 9;
+            // 
+            // button2
+            // 
+            this.button2.TabIndex = 10;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -116,7 +124,7 @@
             this.cboFact_Group.Location = new System.Drawing.Point(122, 10);
             this.cboFact_Group.Name = "cboFact_Group";
             this.cboFact_Group.Size = new System.Drawing.Size(208, 20);
-            this.cboFact_Group.TabIndex = 1;
+            this.cboFact_Group.TabIndex = 0;
             // 
             // label2
             // 
@@ -162,7 +170,7 @@
             this.cboFact_Class.Location = new System.Drawing.Point(122, 145);
             this.cboFact_Class.Name = "cboFact_Class";
             this.cboFact_Class.Size = new System.Drawing.Size(208, 20);
-            this.cboFact_Class.TabIndex = 1;
+            this.cboFact_Class.TabIndex = 4;
             // 
             // label6
             // 
@@ -273,7 +281,7 @@
             this.cboFact_UseOrNot.Location = new System.Drawing.Point(133, 213);
             this.cboFact_UseOrNot.Name = "cboFact_UseOrNot";
             this.cboFact_UseOrNot.Size = new System.Drawing.Size(208, 20);
-            this.cboFact_UseOrNot.TabIndex = 1;
+            this.cboFact_UseOrNot.TabIndex = 7;
             // 
             // label16
             // 
@@ -309,14 +317,14 @@
             this.txtFact_ModifyDate.Location = new System.Drawing.Point(122, 212);
             this.txtFact_ModifyDate.Name = "txtFact_ModifyDate";
             this.txtFact_ModifyDate.Size = new System.Drawing.Size(208, 21);
-            this.txtFact_ModifyDate.TabIndex = 3;
+            this.txtFact_ModifyDate.TabIndex = 6;
             // 
             // txtFact_Modifier
             // 
             this.txtFact_Modifier.Location = new System.Drawing.Point(133, 145);
             this.txtFact_Modifier.Name = "txtFact_Modifier";
             this.txtFact_Modifier.Size = new System.Drawing.Size(208, 21);
-            this.txtFact_Modifier.TabIndex = 3;
+            this.txtFact_Modifier.TabIndex = 5;
             // 
             // txtFact_Name
             // 
@@ -330,7 +338,7 @@
             this.txtFact_Code.Location = new System.Drawing.Point(122, 77);
             this.txtFact_Code.Name = "txtFact_Code";
             this.txtFact_Code.Size = new System.Drawing.Size(208, 21);
-            this.txtFact_Code.TabIndex = 3;
+            this.txtFact_Code.TabIndex = 2;
             // 
             // txtFact_Information
             // 
@@ -338,13 +346,13 @@
             this.txtFact_Information.Multiline = true;
             this.txtFact_Information.Name = "txtFact_Information";
             this.txtFact_Information.Size = new System.Drawing.Size(602, 91);
-            this.txtFact_Information.TabIndex = 3;
+            this.txtFact_Information.TabIndex = 8;
             // 
-            // FactoryInfoPopUP
+            // FactoryInfoPopUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(776, 450);
-            this.Name = "FactoryInfoPopUP";
+            this.Name = "FactoryInfoPopUp";
             this.Text = "공장정보";
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
