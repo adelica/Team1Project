@@ -61,9 +61,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(12, 195);
+            this.panel2.Location = new System.Drawing.Point(12, 163);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1092, 395);
+            this.panel2.Size = new System.Drawing.Size(1092, 427);
             this.panel2.TabIndex = 1;
             // 
             // label1
@@ -85,7 +85,7 @@
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.label1);
             this.panel7.Controls.Add(this.panel1);
-            this.panel7.Location = new System.Drawing.Point(12, 151);
+            this.panel7.Location = new System.Drawing.Point(13, 119);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1092, 38);
             this.panel7.TabIndex = 2;
@@ -98,7 +98,7 @@
             this.panel4.Controls.Add(this.tableLayoutPanel1);
             this.panel4.Location = new System.Drawing.Point(12, 12);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1092, 133);
+            this.panel4.Size = new System.Drawing.Size(1092, 101);
             this.panel4.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -113,7 +113,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 131);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 99);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // SearchCommomForm
