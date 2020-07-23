@@ -17,7 +17,7 @@ namespace TUChair.HyunningForm
 
         private void UnitPriceManager_Load(object sender, EventArgs e)
         {
-            panel4.Size = new Size(1090, 50);
+            panel1.Size = new Size(1090, 50);
         }
     }
 }
