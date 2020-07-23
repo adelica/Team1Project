@@ -26,7 +26,15 @@ namespace TUChair.Util
             dgv.Columns.Add(gridCol);
 
         }
-      
+        public static int DataGridViewCheckBoxSet(string headerText, DataGridView dgv)
+        {
+            DataGridViewCheckBoxColumn chb1 = new DataGridViewCheckBoxColumn();
+            chb1.HeaderText = headerText;
+            chb1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            chb1.DefaultCellStyle.Padding = new Padding(0, 0, 0, 0);
+            chb1.FlatStyle = FlatStyle.Flat;
+            return dgv.Columns.Add(chb1);
+        }
         public static void DgvCheckBox(DataGridView dgv)
         {
             
@@ -64,17 +72,17 @@ namespace TUChair.Util
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 
-            dgv.ReadOnly = true;
+            //dgv.ReadOnly = true;
             dgv.AutoGenerateColumns = false;
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToResizeRows = false;
             dgv.AllowUserToResizeColumns = false;
             dgv.RowHeadersVisible = false;
             dgv.MultiSelect = false;
-            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+           dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+           dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 
         }
     }

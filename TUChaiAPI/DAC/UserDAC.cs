@@ -56,7 +56,7 @@ namespace TUChaiAPI.DAC
             using (SqlCommand cmd = new SqlCommand())
             {
                 cmd.Connection = new SqlConnection(strConn);
-                cmd.CommandText = @"select [a], [b], [c], [d] from [dbo].[Test]";
+                cmd.CommandText = @"select [a], [b], [c], [d], [e], [f], [g], [h], [i], [j], [k] from [dbo].[Test]";
                 cmd.Connection.Open();
                 list = Helper.DataReaderMapToList<TestVO>(cmd.ExecuteReader());
                 cmd.Connection.Close();
