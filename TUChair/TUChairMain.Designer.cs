@@ -84,6 +84,7 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.tabForms = new TUChair.ucTabControl();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -182,14 +183,14 @@
             // shift기준정보ToolStripMenuItem
             // 
             this.shift기준정보ToolStripMenuItem.Name = "shift기준정보ToolStripMenuItem";
-            this.shift기준정보ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shift기준정보ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.shift기준정보ToolStripMenuItem.Text = "shift기준정보";
             this.shift기준정보ToolStripMenuItem.Click += new System.EventHandler(this.shift기준정보ToolStripMenuItem_Click);
             // 
             // sgift스케줄관리ToolStripMenuItem
             // 
             this.sgift스케줄관리ToolStripMenuItem.Name = "sgift스케줄관리ToolStripMenuItem";
-            this.sgift스케줄관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sgift스케줄관리ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.sgift스케줄관리ToolStripMenuItem.Text = "shift스케줄 관리";
             // 
             // 단가관리ToolStripMenuItem
@@ -599,11 +600,20 @@
             this.tabForms.TabIndex = 4;
             this.tabForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabForms_MouseDown);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Location = new System.Drawing.Point(132, 46);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1672, 25);
+            this.toolStrip1.TabIndex = 6;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // TUChairMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1804, 763);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabForms);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
@@ -684,6 +694,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private ucTabControl tabForms;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }
 
