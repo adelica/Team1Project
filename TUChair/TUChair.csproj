@@ -101,6 +101,12 @@
     <Compile Include="InForm\FacilityManage.Designer.cs">
       <DependentUpon>FacilityManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="InForm\FacilityRegi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\FacilityRegi.Designer.cs">
+      <DependentUpon>FacilityRegi.cs</DependentUpon>
+    </Compile>
     <Compile Include="InForm\FactoryInfoPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\FacilityManage.resx">
       <DependentUpon>FacilityManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\FacilityRegi.resx">
+      <DependentUpon>FacilityRegi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\FactoryInfoPopUp.resx">
       <DependentUpon>FactoryInfoPopUp.cs</DependentUpon>
