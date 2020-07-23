@@ -85,16 +85,23 @@
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.tabForms = new TUChair.ucTabControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.slide1.SuspendLayout();
             this.slide2.SuspendLayout();
             this.slide3.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.AutoSize = false;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.메뉴ToolStripMenuItem,
             this.자원관리ToolStripMenuItem,
@@ -104,14 +111,14 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1804, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1804, 45);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 메뉴ToolStripMenuItem
             // 
             this.메뉴ToolStripMenuItem.Name = "메뉴ToolStripMenuItem";
-            this.메뉴ToolStripMenuItem.Size = new System.Drawing.Size(43, 22);
+            this.메뉴ToolStripMenuItem.Size = new System.Drawing.Size(43, 43);
             this.메뉴ToolStripMenuItem.Text = "메뉴";
             // 
             // 자원관리ToolStripMenuItem
@@ -122,32 +129,32 @@
             this.업체관리ToolStripMenuItem,
             this.bORToolStripMenuItem});
             this.자원관리ToolStripMenuItem.Name = "자원관리ToolStripMenuItem";
-            this.자원관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.자원관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 43);
             this.자원관리ToolStripMenuItem.Text = "자원관리";
             // 
             // 공장관리ToolStripMenuItem
             // 
             this.공장관리ToolStripMenuItem.Name = "공장관리ToolStripMenuItem";
-            this.공장관리ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.공장관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.공장관리ToolStripMenuItem.Text = "공장관리";
             this.공장관리ToolStripMenuItem.Click += new System.EventHandler(this.공장관리ToolStripMenuItem_Click);
             // 
             // 설비관리ToolStripMenuItem
             // 
             this.설비관리ToolStripMenuItem.Name = "설비관리ToolStripMenuItem";
-            this.설비관리ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.설비관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.설비관리ToolStripMenuItem.Text = "설비관리";
             // 
             // 업체관리ToolStripMenuItem
             // 
             this.업체관리ToolStripMenuItem.Name = "업체관리ToolStripMenuItem";
-            this.업체관리ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.업체관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.업체관리ToolStripMenuItem.Text = "업체관리";
             // 
             // bORToolStripMenuItem
             // 
             this.bORToolStripMenuItem.Name = "bORToolStripMenuItem";
-            this.bORToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.bORToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bORToolStripMenuItem.Text = "BOR";
             // 
             // 품목관리ToolStripMenuItem
@@ -156,7 +163,7 @@
             this.품목관리ToolStripMenuItem1,
             this.bOMToolStripMenuItem});
             this.품목관리ToolStripMenuItem.Name = "품목관리ToolStripMenuItem";
-            this.품목관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.품목관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 43);
             this.품목관리ToolStripMenuItem.Text = "품목관리";
             // 
             // 품목관리ToolStripMenuItem1
@@ -177,20 +184,20 @@
             this.shift기준정보ToolStripMenuItem,
             this.sgift스케줄관리ToolStripMenuItem});
             this.근무시간ToolStripMenuItem.Name = "근무시간ToolStripMenuItem";
-            this.근무시간ToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
+            this.근무시간ToolStripMenuItem.Size = new System.Drawing.Size(91, 43);
             this.근무시간ToolStripMenuItem.Text = "근무시간관리";
             // 
             // shift기준정보ToolStripMenuItem
             // 
             this.shift기준정보ToolStripMenuItem.Name = "shift기준정보ToolStripMenuItem";
-            this.shift기준정보ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.shift기준정보ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.shift기준정보ToolStripMenuItem.Text = "shift기준정보";
             this.shift기준정보ToolStripMenuItem.Click += new System.EventHandler(this.shift기준정보ToolStripMenuItem_Click);
             // 
             // sgift스케줄관리ToolStripMenuItem
             // 
             this.sgift스케줄관리ToolStripMenuItem.Name = "sgift스케줄관리ToolStripMenuItem";
-            this.sgift스케줄관리ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.sgift스케줄관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sgift스케줄관리ToolStripMenuItem.Text = "shift스케줄 관리";
             // 
             // 단가관리ToolStripMenuItem
@@ -200,35 +207,35 @@
             this.영업단가관리ToolStripMenuItem,
             this.환율관리ToolStripMenuItem});
             this.단가관리ToolStripMenuItem.Name = "단가관리ToolStripMenuItem";
-            this.단가관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.단가관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 43);
             this.단가관리ToolStripMenuItem.Text = "단가관리";
             // 
             // 자재단가관리ToolStripMenuItem
             // 
             this.자재단가관리ToolStripMenuItem.Name = "자재단가관리ToolStripMenuItem";
-            this.자재단가관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.자재단가관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.자재단가관리ToolStripMenuItem.Text = "자재단가관리";
             // 
             // 영업단가관리ToolStripMenuItem
             // 
             this.영업단가관리ToolStripMenuItem.Name = "영업단가관리ToolStripMenuItem";
-            this.영업단가관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.영업단가관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.영업단가관리ToolStripMenuItem.Text = "영업단가관리";
             // 
             // 환율관리ToolStripMenuItem
             // 
             this.환율관리ToolStripMenuItem.Name = "환율관리ToolStripMenuItem";
-            this.환율관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.환율관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.환율관리ToolStripMenuItem.Text = "환율관리";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 24);
+            this.panel2.Location = new System.Drawing.Point(0, 45);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(132, 739);
+            this.panel2.Size = new System.Drawing.Size(132, 718);
             this.panel2.TabIndex = 2;
             // 
             // panel1
@@ -593,7 +600,7 @@
             // 
             this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabForms.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabForms.Location = new System.Drawing.Point(132, 24);
+            this.tabForms.Location = new System.Drawing.Point(132, 45);
             this.tabForms.Name = "tabForms";
             this.tabForms.SelectedIndex = 0;
             this.tabForms.Size = new System.Drawing.Size(1672, 22);
@@ -602,17 +609,69 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Location = new System.Drawing.Point(132, 46);
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripButton4});
+            this.toolStrip1.Location = new System.Drawing.Point(488, 6);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1672, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(187, 39);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(132, 741);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1672, 22);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton4.Text = "toolStripButton4";
             // 
             // TUChairMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1804, 763);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabForms);
             this.Controls.Add(this.panel2);
@@ -633,6 +692,8 @@
             this.slide1.ResumeLayout(false);
             this.slide2.ResumeLayout(false);
             this.slide3.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -695,6 +756,11 @@
         private System.Windows.Forms.Button button4;
         private ucTabControl tabForms;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
 
