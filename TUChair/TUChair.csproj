@@ -191,6 +191,12 @@
     <Content Include="image\MainICON.ico" />
     <Content Include="Resources\close-grey.png" />
     <Content Include="Resources\close-red.png" />
+    <None Include="Resources\temp_1595397432993.-1320186095.png" />
+    <None Include="Resources\temp_1595397432989.-1320186095.png" />
+    <None Include="Resources\temp_1595397432963.-1320186095.png" />
+    <None Include="Resources\temp_1595397432935.-1320186095.png" />
+    <None Include="Resources\temp_1595397432927.-1320186095.png" />
+    <None Include="Resources\temp_1595397432977.-1320186095.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
