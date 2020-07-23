@@ -38,12 +38,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvFacilityG = new JeanForm.JeansGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnFGInsert = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvFacility = new JeanForm.JeansGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnFGInsert = new System.Windows.Forms.Button();
             this.btnFInsert = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacilityG)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacility)).BeginInit();
@@ -75,7 +75,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFacilityG.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFacilityG.EnableHeadersVisualStyles = false;
-            this.dgvFacilityG.Location = new System.Drawing.Point(7, 55);
+            this.dgvFacilityG.Location = new System.Drawing.Point(5, 55);
             this.dgvFacilityG.Name = "dgvFacilityG";
             this.dgvFacilityG.ReadOnly = true;
             this.dgvFacilityG.RowHeadersWidth = 30;
@@ -97,6 +97,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(315, 438);
             this.panel3.TabIndex = 0;
+            // 
+            // btnFGInsert
+            // 
+            this.btnFGInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFGInsert.Location = new System.Drawing.Point(233, 24);
+            this.btnFGInsert.Name = "btnFGInsert";
+            this.btnFGInsert.Size = new System.Drawing.Size(53, 23);
+            this.btnFGInsert.TabIndex = 2;
+            this.btnFGInsert.Text = "등록";
+            this.btnFGInsert.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -159,6 +169,16 @@
             this.panel4.Size = new System.Drawing.Size(519, 438);
             this.panel4.TabIndex = 0;
             // 
+            // btnFInsert
+            // 
+            this.btnFInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFInsert.Location = new System.Drawing.Point(438, 24);
+            this.btnFInsert.Name = "btnFInsert";
+            this.btnFInsert.Size = new System.Drawing.Size(53, 23);
+            this.btnFInsert.TabIndex = 2;
+            this.btnFInsert.Text = "등록";
+            this.btnFInsert.UseVisualStyleBackColor = true;
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -170,26 +190,6 @@
             this.label2.Size = new System.Drawing.Size(63, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "≡ 설비";
-            // 
-            // btnFGInsert
-            // 
-            this.btnFGInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFGInsert.Location = new System.Drawing.Point(233, 24);
-            this.btnFGInsert.Name = "btnFGInsert";
-            this.btnFGInsert.Size = new System.Drawing.Size(53, 23);
-            this.btnFGInsert.TabIndex = 2;
-            this.btnFGInsert.Text = "등록";
-            this.btnFGInsert.UseVisualStyleBackColor = true;
-            // 
-            // btnFInsert
-            // 
-            this.btnFInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFInsert.Location = new System.Drawing.Point(438, 24);
-            this.btnFInsert.Name = "btnFInsert";
-            this.btnFInsert.Size = new System.Drawing.Size(53, 23);
-            this.btnFInsert.TabIndex = 2;
-            this.btnFInsert.Text = "등록";
-            this.btnFInsert.UseVisualStyleBackColor = true;
             // 
             // FacilityManage
             // 
