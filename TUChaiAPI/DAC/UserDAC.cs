@@ -49,15 +49,15 @@ namespace TUChaiAPI.DAC
             }
 
         }
-        public List<UserVO> GetAllUsers()
+        public List<TestVO> GetAllUsers()
         {
-            List<UserVO> list = new List<UserVO>();
+            List<TestVO> list = new List<TestVO>();
             using (SqlCommand cmd = new SqlCommand())
             {
                 cmd.Connection = new SqlConnection(strConn);
-                cmd.CommandText = @"select [Id], [Name], [Email], [Mobile], [Address], [IsActive] from Users";
+                cmd.CommandText = @"select [a], [b], [c], [d] from [dbo].[Test]";
                 cmd.Connection.Open();
-                list = Helper.DataReaderMapToList<UserVO>(cmd.ExecuteReader());
+                list = Helper.DataReaderMapToList<TestVO>(cmd.ExecuteReader());
                 cmd.Connection.Close();
                 return list;
             }

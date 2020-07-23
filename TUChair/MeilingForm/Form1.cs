@@ -21,9 +21,9 @@ namespace TUChair.MeilingForm
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            List<UserVO> list = null;
+            List<TestVO> list = null;
             ServiceHelp service = new ServiceHelp("");
-            dataGridView1.DataSource = await service.GetListAsync("api/User/GetAllUser", list);
+            dataGridView1.DataSource = await service.GetListAsync("api/TUChair/GetAllUser", list);
         }
     }
 }

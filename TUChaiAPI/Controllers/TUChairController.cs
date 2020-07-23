@@ -11,12 +11,12 @@ using Message = TUChairVO.Message;
 
 namespace TUChaiAPI.Controllers
 {
-    [RoutePrefix("api/User")]
+    [RoutePrefix("api/TUChair")]
     public class TUChairController : ApiController
     {
         UserDAC uDac = new UserDAC();
         [Route("GetAllUser")]
-        public List<UserVO> GetAllUser()
+        public List<TestVO> GetAllUser()
         {
             return uDac.GetAllUsers();
 

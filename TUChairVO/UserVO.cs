@@ -15,4 +15,11 @@ namespace TUChairVO
         public string Address { get; set; }
         public bool IsActive { get; set; }
     }
+    public class TestVO
+    {
+         public string  a { get; set; }
+        public string  b { get; set; }
+        public string  c { get; set; }
+        public string  d { get; set; }
+    }
 }
