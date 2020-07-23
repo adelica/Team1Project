@@ -79,5 +79,65 @@ namespace TUChair.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap temp_1595397432927__1320186095 {
+            get {
+                object obj = ResourceManager.GetObject("temp_1595397432927__1320186095", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap temp_1595397432935__1320186095 {
+            get {
+                object obj = ResourceManager.GetObject("temp_1595397432935__1320186095", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap temp_1595397432963__1320186095 {
+            get {
+                object obj = ResourceManager.GetObject("temp_1595397432963__1320186095", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap temp_1595397432977__1320186095 {
+            get {
+                object obj = ResourceManager.GetObject("temp_1595397432977__1320186095", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap temp_1595397432989__1320186095 {
+            get {
+                object obj = ResourceManager.GetObject("temp_1595397432989__1320186095", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap temp_1595397432993__1320186095 {
+            get {
+                object obj = ResourceManager.GetObject("temp_1595397432993__1320186095", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -124,4 +124,22 @@
   <data name="close_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="temp_1595397432927__1320186095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\temp_1595397432927.-1320186095.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="temp_1595397432935__1320186095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\temp_1595397432935.-1320186095.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="temp_1595397432963__1320186095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\temp_1595397432963.-1320186095.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="temp_1595397432977__1320186095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\temp_1595397432977.-1320186095.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="temp_1595397432989__1320186095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\temp_1595397432989.-1320186095.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="temp_1595397432993__1320186095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\temp_1595397432993.-1320186095.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
