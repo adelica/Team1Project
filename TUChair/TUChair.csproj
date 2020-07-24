@@ -218,6 +218,12 @@
     <Content Include="image\MainICON.ico" />
     <Content Include="Resources\close-grey.png" />
     <Content Include="Resources\close-red.png" />
+    <Content Include="Resources\Delete.png" />
+    <Content Include="Resources\Excel.png" />
+    <Content Include="Resources\new.png" />
+    <Content Include="Resources\Search.png" />
+    <Content Include="Resources\SetUp.png" />
+    <Content Include="Resources\Upsert.png" />
     <Content Include="Resources\등록수정.png" />
   </ItemGroup>
   <ItemGroup />
