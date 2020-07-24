@@ -223,7 +223,6 @@
     <Content Include="Resources\new.png" />
     <Content Include="Resources\Search.png" />
     <Content Include="Resources\SetUp.png" />
-    <Content Include="Resources\temp_1595397432963.-1320186095.png" />
     <Content Include="Resources\Upsert.png" />
     <Content Include="Resources\등록수정.png" />
   </ItemGroup>
