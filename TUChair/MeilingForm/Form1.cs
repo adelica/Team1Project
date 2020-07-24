@@ -23,7 +23,28 @@ namespace TUChair.MeilingForm
         {
             List<TestVO> list = null;
             ServiceHelp service = new ServiceHelp("");
-            dataGridView1.DataSource = await service.GetListAsync("api/TUChair/GetAllUser", list);
+            list = await service.GetListAsync("api/TUChair/GetAllUser", list);
+            CommonUtil.InitSettingGridView(dataGridView1);
+
+            CommonUtil.DataGridViewCheckBoxSet("", dataGridView1);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "a", "a", true);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "b", "b", true);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "c", "c", true);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "d", "d", true);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "e", "e", true);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "f", "f", true);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "g", "g", true);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "h", "h", true);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "i", "i", true);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "j", "j", true);
+            CommonUtil.AddNewColumnToDataGridView(dataGridView1, "k", "k", true);
+
+            dataGridView1.DataSource = list;
+        }
+
+        private void dataGridView1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
