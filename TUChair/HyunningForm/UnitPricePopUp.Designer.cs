@@ -58,12 +58,12 @@
             this.label24 = new System.Windows.Forms.Label();
             this.comboBox11 = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.comboBox12 = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,6 +71,9 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.dateTimePicker1);
             this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.label19);
@@ -80,11 +83,8 @@
             this.panel3.Controls.Add(this.label24);
             this.panel3.Controls.Add(this.comboBox11);
             this.panel3.Controls.Add(this.label25);
-            this.panel3.Controls.Add(this.comboBox12);
             this.panel3.Controls.Add(this.label26);
-            this.panel3.Controls.Add(this.comboBox13);
             this.panel3.Controls.Add(this.label27);
-            this.panel3.Controls.Add(this.comboBox14);
             this.panel3.Controls.Add(this.label28);
             // 
             // panel2
@@ -397,14 +397,6 @@
             this.label25.TabIndex = 27;
             this.label25.Text = "종료일";
             // 
-            // comboBox12
-            // 
-            this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Location = new System.Drawing.Point(135, 86);
-            this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(208, 20);
-            this.comboBox12.TabIndex = 36;
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -414,14 +406,6 @@
             this.label26.Size = new System.Drawing.Size(41, 12);
             this.label26.TabIndex = 26;
             this.label26.Text = "시작일";
-            // 
-            // comboBox13
-            // 
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Location = new System.Drawing.Point(135, 49);
-            this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(208, 20);
-            this.comboBox13.TabIndex = 37;
             // 
             // label27
             // 
@@ -433,14 +417,6 @@
             this.label27.TabIndex = 25;
             this.label27.Text = "이전단가";
             // 
-            // comboBox14
-            // 
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Location = new System.Drawing.Point(135, 12);
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(208, 20);
-            this.comboBox14.TabIndex = 33;
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -450,6 +426,30 @@
             this.label28.Size = new System.Drawing.Size(53, 12);
             this.label28.TabIndex = 30;
             this.label28.Text = "현재단가";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Checked = false;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(135, 84);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(208, 21);
+            this.dateTimePicker1.TabIndex = 44;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 7, 24, 0, 0, 0, 0);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(135, 7);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(208, 21);
+            this.textBox1.TabIndex = 45;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(135, 48);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(208, 21);
+            this.textBox2.TabIndex = 46;
             // 
             // UnitPricePopUp
             // 
@@ -497,11 +497,11 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ComboBox comboBox11;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ComboBox comboBox12;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ComboBox comboBox13;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox comboBox14;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
