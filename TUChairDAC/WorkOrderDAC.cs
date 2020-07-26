@@ -17,7 +17,7 @@ namespace TUChairDAC
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select [Shift_ID], [Fac_Code], [Shift_StartTime] from [dbo].[Shift]";
+                string sql = @"select [Shift_ID], [Fac_Code], [Shift_StartTime], [Shift_EndTime], [Shift_StartDate], [Shift_EndDate], [Shift_InputPeople], [Shift_UserOrNot], [Shift_Modifier], [Shift_ModifierDate] from [dbo].[Shift]";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();

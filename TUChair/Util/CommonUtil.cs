@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TUChairVO;
 
 namespace TUChair.Util
 {
@@ -17,6 +18,7 @@ namespace TUChair.Util
             dgv1 = dgv;
             DataGridViewTextBoxColumn gridCol = new DataGridViewTextBoxColumn();
             gridCol.HeaderText = headerText;
+            
             gridCol.DataPropertyName = dataPropertyName;
             gridCol.Width = colWidth;
             gridCol.Visible = visibility;
@@ -73,10 +75,10 @@ namespace TUChair.Util
             DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 
             //dgv.ReadOnly = true;
-            dgv.AutoGenerateColumns = false;
+            dgv.AutoGenerateColumns = false;        
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToResizeRows = false;
-            dgv.AllowUserToResizeColumns = false;
+            dgv.AllowUserToResizeColumns = true;
             dgv.RowHeadersVisible = false;
             dgv.MultiSelect = false;
            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -93,6 +95,16 @@ namespace TUChair.Util
             combo.DataSource = list;
             combo.DisplayMember = CodeNm;
             combo.ValueMember = Code;
+        }
+        public static void ComboBinding(ComboBox combo, List<ComboItemVO> list, string blankText)
+        {
+            if (list == null)
+                list = new List<ComboItemVO>();
+
+            list.Insert(0, new ComboItemVO(blankText));
+            combo.DataSource = list;
+            combo.DisplayMember = "CodeNm";
+            combo.ValueMember = "Code";
         }
     }
 }
