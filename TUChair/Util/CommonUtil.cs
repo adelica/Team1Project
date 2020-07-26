@@ -85,5 +85,14 @@ namespace TUChair.Util
            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 
         }
+        public static void ComboBinding<T>(ComboBox combo, List<T> list, string Code, string CodeNm)
+        {
+            if (list == null)
+                list = new List<T>();
+
+            combo.DataSource = list;
+            combo.DisplayMember = CodeNm;
+            combo.ValueMember = Code;
+        }
     }
 }
