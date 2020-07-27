@@ -30,17 +30,17 @@ namespace JeanForm
         public JeansGridView()
         {
             InitializeComponent();
-            JeanGridDrawing();
+           JeanGridDrawing();
         }
         public void JeanGridDrawing()
         {
 
             this.DefaultCellStyle.Font = new Font("Calibri", 11, FontStyle.Bold);
 
-            this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+           // this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.RowHeadersWidth = 30;
-            this.EnableHeadersVisualStyles = false;
-            this.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            //this.EnableHeadersVisualStyles = false;
+            //this.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.ColumnHeadersHeight = 30;
 
             this.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 52, 52);
@@ -48,7 +48,7 @@ namespace JeanForm
             this.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(52, 52, 52);
             this.ColumnHeadersDefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
 
-            this.ReadOnly = true;
+            //this.ReadOnly = true;
             this.DefaultCellStyle.BackColor = Color.White;
             this.DefaultCellStyle.ForeColor = Color.FromArgb(52, 52, 52);
             this.DefaultCellStyle.SelectionBackColor = Color.Gray;

@@ -27,7 +27,7 @@ namespace TUChair.MeilingForm
             list = await service.GetListAsync("api/TUChair/GetAllUser", list);
             CommonUtil.InitSettingGridView(dataGridView1);
 
-            CommonUtil.DataGridViewCheckBoxSet("", dataGridView1);
+           // CommonUtil.DataGridViewCheckBoxSet("", dataGridView1);
             CommonUtil.AddNewColumnToDataGridView(dataGridView1, "a", "a", true);
             CommonUtil.AddNewColumnToDataGridView(dataGridView1, "b", "b", true);
             CommonUtil.AddNewColumnToDataGridView(dataGridView1, "c", "c", true);
