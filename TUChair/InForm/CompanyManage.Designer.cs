@@ -82,7 +82,7 @@
             this.txtFacG_Code.Location = new System.Drawing.Point(120, 16);
             this.txtFacG_Code.Name = "txtFacG_Code";
             this.txtFacG_Code.Size = new System.Drawing.Size(208, 21);
-            this.txtFacG_Code.TabIndex = 9;
+            this.txtFacG_Code.TabIndex = 0;
             // 
             // label8
             // 
@@ -131,7 +131,7 @@
             this.textBox1.Location = new System.Drawing.Point(120, 58);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(208, 21);
-            this.textBox1.TabIndex = 9;
+            this.textBox1.TabIndex = 3;
             // 
             // label4
             // 
@@ -159,7 +159,7 @@
             this.textBox2.Location = new System.Drawing.Point(461, 16);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(208, 21);
-            this.textBox2.TabIndex = 9;
+            this.textBox2.TabIndex = 1;
             // 
             // label6
             // 
@@ -188,14 +188,14 @@
             this.comboBox1.Location = new System.Drawing.Point(802, 17);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(162, 20);
-            this.comboBox1.TabIndex = 12;
+            this.comboBox1.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(979, 58);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 23);
-            this.button1.TabIndex = 13;
+            this.button1.TabIndex = 4;
             this.button1.Text = "조회";
             this.button1.UseVisualStyleBackColor = true;
             // 
