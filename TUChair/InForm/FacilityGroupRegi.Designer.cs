@@ -90,7 +90,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.TabIndex = 6;
+            this.btnInsert.TabIndex = 6;
             // 
             // btnCancel
             // 

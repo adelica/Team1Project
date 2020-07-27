@@ -19,6 +19,7 @@ namespace TUChair.MeilingForm
             InitializeComponent();
         }
         List<ShiftVO> list;
+        List<string> shiftCbolist;
         private void ShiftStandardForm_Load(object sender, EventArgs e)
         {
             // 폼 로드시 전체 데이타 보여주기
@@ -26,7 +27,7 @@ namespace TUChair.MeilingForm
             MeilingService service = new MeilingService();
             list = service.DBConnectionTEST();
             CommonUtil.InitSettingGridView(jeansGridView1);
-           // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
+           CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "ShiftID", "Shift_ID", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Fac_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작시간", "Shift_StartTime", true);
@@ -42,12 +43,14 @@ namespace TUChair.MeilingForm
 
 
             //콤보박스에 item넣기
-            List<string> shiftCbolist = new List<string>();
+            // 설비코드
+            shiftCbolist = new List<string>();
             for (int i = 0; i < jeansGridView1.RowCount; i++)
             {
                 shiftCbolist.Add(jeansGridView1.Rows[i].Cells[2].Value.ToString());
             };
             comboBox2.Items.AddRange(shiftCbolist.ToArray());
+            // shiftID
             List<string> FaciCbolist = new List<string>();
             for (int i = 0; i < jeansGridView1.RowCount ; i++)
             {
@@ -57,7 +60,7 @@ namespace TUChair.MeilingForm
 
 
 
-            MessageBox.Show("ok");
+            //MessageBox.Show("ok");
 
 
 
@@ -136,6 +139,8 @@ namespace TUChair.MeilingForm
         private void btnInsert_Click(object sender, EventArgs e)
         {
             ShiftPopUpForm shiftPop = new ShiftPopUpForm();
+            shiftPop.Owner = this;
+            shiftPop.sendlist = shiftCbolist;
             shiftPop.ShowDialog();
         }
 

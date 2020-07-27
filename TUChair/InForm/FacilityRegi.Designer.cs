@@ -51,11 +51,11 @@
             // 
             // button1
             // 
-            this.button1.TabIndex = 0;
+            this.btnInsert.TabIndex = 0;
             // 
             // button2
             // 
-            this.button2.TabIndex = 1;
+            this.btnCancle.TabIndex = 1;
             // 
             // FacilityRegi
             // 

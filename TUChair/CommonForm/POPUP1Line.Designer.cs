@@ -32,7 +32,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -66,21 +66,21 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.btnSave);
+            this.panel5.Controls.Add(this.btnInsert);
             this.panel5.Controls.Add(this.btnCancel);
             this.panel5.Location = new System.Drawing.Point(186, 398);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(336, 40);
             this.panel5.TabIndex = 8;
             // 
-            // btnSave
+            // btnInsert
             // 
-            this.btnSave.Location = new System.Drawing.Point(75, 8);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "저장";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnInsert.Location = new System.Drawing.Point(75, 8);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnInsert.TabIndex = 1;
+            this.btnInsert.Text = "저장";
+            this.btnInsert.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
@@ -114,7 +114,7 @@
         protected System.Windows.Forms.Panel panel4;
         protected System.Windows.Forms.Panel panel2;
         protected System.Windows.Forms.Panel panel5;
-        protected System.Windows.Forms.Button btnSave;
+        protected System.Windows.Forms.Button btnInsert;
         protected System.Windows.Forms.Button btnCancel;
     }
 }
