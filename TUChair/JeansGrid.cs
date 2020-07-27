@@ -34,6 +34,7 @@ namespace JeanForm
         }
         public void JeanGridDrawing()
         {
+
             this.DefaultCellStyle.Font = new Font("Calibri", 11, FontStyle.Bold);
 
             this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

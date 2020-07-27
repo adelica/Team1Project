@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JeanForm;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,6 +14,42 @@ namespace TUChair.Util
     {
         static CheckBox headerChk;
         static DataGridView dgv1;
+
+        #region JeansGridView
+        public static void AddNewColumnToDataGridView(JeansGridView dgv, string headerText, string dataPropertyName, bool visibility, int colWidth = 100, DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft)
+        {
+            dgv1 = dgv;
+            DataGridViewTextBoxColumn gridCol = new DataGridViewTextBoxColumn();
+            gridCol.HeaderText = headerText;
+
+            gridCol.DataPropertyName = dataPropertyName;
+            gridCol.Width = colWidth;
+            gridCol.Visible = visibility;
+            gridCol.ValueType = typeof(string);
+            gridCol.ReadOnly = true;
+            gridCol.DefaultCellStyle.Alignment = textAlign;
+            dgv.Columns.Add(gridCol);
+
+        }
+        public static void InitSettingGridView(JeansGridView dgv)
+        {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+
+            //dgv.ReadOnly = true;
+            dgv.AutoGenerateColumns = false;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToResizeRows = false;
+            dgv.AllowUserToResizeColumns = true;
+            dgv.RowHeadersVisible = false;
+            dgv.MultiSelect = false;
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+
+        }
+        #endregion
+
         public static void AddNewColumnToDataGridView(DataGridView dgv, string headerText, string dataPropertyName, bool visibility, int colWidth = 100, DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft)
         {
             dgv1 = dgv;
