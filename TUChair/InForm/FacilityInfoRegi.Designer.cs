@@ -127,11 +127,11 @@
             // 
             // button1
             // 
-            this.button1.TabIndex = 13;
+            this.btnInsert.TabIndex = 13;
             // 
             // button2
             // 
-            this.button2.TabIndex = 14;
+            this.btnCancle.TabIndex = 14;
             // 
             // label1
             // 

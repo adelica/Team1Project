@@ -171,11 +171,11 @@
             // 
             // button1
             // 
-            this.button1.TabIndex = 20;
+            this.btnInsert.TabIndex = 20;
             // 
             // button2
             // 
-            this.button2.TabIndex = 21;
+            this.btnCancle.TabIndex = 21;
             // 
             // txtCom_Code
             // 
