@@ -26,7 +26,7 @@ namespace TUChair.MeilingForm
             MeilingService service = new MeilingService();
             list = service.DBConnectionTEST();
             CommonUtil.InitSettingGridView(jeansGridView1);
-            CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
+           // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "ShiftID", "Shift_ID", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Fac_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작시간", "Shift_StartTime", true);
@@ -135,7 +135,8 @@ namespace TUChair.MeilingForm
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-
+            ShiftPopUpForm shiftPop = new ShiftPopUpForm();
+            shiftPop.ShowDialog();
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
