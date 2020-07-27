@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnPOUpLoad = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvPO = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
@@ -43,10 +43,23 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnPOUpLoad);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(12, 21);
+            this.panel2.Location = new System.Drawing.Point(14, 26);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1092, 38);
+            this.panel2.Size = new System.Drawing.Size(1248, 47);
             this.panel2.TabIndex = 3;
+            // 
+            // btnPOUpLoad
+            // 
+            this.btnPOUpLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPOUpLoad.Location = new System.Drawing.Point(1033, 10);
+            this.btnPOUpLoad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPOUpLoad.Name = "btnPOUpLoad";
+            this.btnPOUpLoad.Size = new System.Drawing.Size(146, 29);
+            this.btnPOUpLoad.TabIndex = 6;
+            this.btnPOUpLoad.Text = "영업마스터생성";
+            this.btnPOUpLoad.UseVisualStyleBackColor = true;
+            this.btnPOUpLoad.Click += new System.EventHandler(this.btnPOUpLoad_Click);
             // 
             // label1
             // 
@@ -54,22 +67,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 23);
+            this.label1.Size = new System.Drawing.Size(225, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "≡ 영업마스터업로드(PO)";
-            // 
-            // btnPOUpLoad
-            // 
-            this.btnPOUpLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPOUpLoad.Location = new System.Drawing.Point(904, 8);
-            this.btnPOUpLoad.Name = "btnPOUpLoad";
-            this.btnPOUpLoad.Size = new System.Drawing.Size(128, 23);
-            this.btnPOUpLoad.TabIndex = 6;
-            this.btnPOUpLoad.Text = "영업마스터생성";
-            this.btnPOUpLoad.UseVisualStyleBackColor = true;
-            this.btnPOUpLoad.Click += new System.EventHandler(this.btnPOUpLoad_Click);
             // 
             // dgvPO
             // 
@@ -77,21 +79,24 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPO.Location = new System.Drawing.Point(12, 76);
+            this.dgvPO.Location = new System.Drawing.Point(14, 95);
+            this.dgvPO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvPO.Name = "dgvPO";
+            this.dgvPO.RowHeadersWidth = 51;
             this.dgvPO.RowTemplate.Height = 23;
-            this.dgvPO.Size = new System.Drawing.Size(1092, 496);
+            this.dgvPO.Size = new System.Drawing.Size(1248, 620);
             this.dgvPO.TabIndex = 4;
             // 
             // POUpLoad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 602);
+            this.ClientSize = new System.Drawing.Size(1275, 752);
             this.Controls.Add(this.dgvPO);
             this.Controls.Add(this.panel2);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "POUpLoad";
-            this.Text = "POUpLoad";
+            this.Text = "영업마스터업로드(PO)";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).EndInit();
