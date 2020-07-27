@@ -49,6 +49,14 @@
             // 
             this.panel2.Size = new System.Drawing.Size(255, 165);
             // 
+            // button1
+            // 
+            this.button1.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.TabIndex = 1;
+            // 
             // FacilityRegi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);

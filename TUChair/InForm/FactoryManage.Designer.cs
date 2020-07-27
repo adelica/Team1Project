@@ -28,24 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cboFacGroup = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.txtFacName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvFactory = new JeanForm.JeansGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.dgvFactory = new JeanForm.JeansGridView();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactory)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,10 +78,11 @@
             // 
             this.cboFacGroup.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cboFacGroup.FormattingEnabled = true;
+            this.cboFacGroup.ItemHeight = 12;
             this.cboFacGroup.Location = new System.Drawing.Point(91, 10);
             this.cboFacGroup.Name = "cboFacGroup";
             this.cboFacGroup.Size = new System.Drawing.Size(116, 20);
-            this.cboFacGroup.TabIndex = 5;
+            this.cboFacGroup.TabIndex = 1;
             // 
             // label3
             // 
@@ -92,12 +95,22 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "≡ 시설군";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Location = new System.Drawing.Point(663, 21);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 33);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "조회";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // txtFacName
             // 
             this.txtFacName.Location = new System.Drawing.Point(123, 27);
             this.txtFacName.Name = "txtFacName";
             this.txtFacName.Size = new System.Drawing.Size(163, 21);
-            this.txtFacName.TabIndex = 2;
+            this.txtFacName.TabIndex = 0;
             // 
             // label2
             // 
@@ -121,6 +134,40 @@
             this.panel2.Size = new System.Drawing.Size(775, 339);
             this.panel2.TabIndex = 1;
             // 
+            // dgvFactory
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
+            this.dgvFactory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFactory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvFactory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFactory.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvFactory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvFactory.EnableHeadersVisualStyles = false;
+            this.dgvFactory.Location = new System.Drawing.Point(0, 49);
+            this.dgvFactory.Name = "dgvFactory";
+            this.dgvFactory.ReadOnly = true;
+            this.dgvFactory.RowHeadersWidth = 30;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
+            this.dgvFactory.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvFactory.RowTemplate.Height = 23;
+            this.dgvFactory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFactory.Size = new System.Drawing.Size(775, 290);
+            this.dgvFactory.TabIndex = 1;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.label1);
@@ -140,46 +187,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "≡ 공장정의";
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(663, 21);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 33);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "조회";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // dgvFactory
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFactory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvFactory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFactory.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvFactory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvFactory.EnableHeadersVisualStyles = false;
-            this.dgvFactory.Location = new System.Drawing.Point(0, 49);
-            this.dgvFactory.Name = "dgvFactory";
-            this.dgvFactory.ReadOnly = true;
-            this.dgvFactory.RowHeadersWidth = 30;
-            this.dgvFactory.RowTemplate.Height = 23;
-            this.dgvFactory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFactory.Size = new System.Drawing.Size(775, 290);
-            this.dgvFactory.TabIndex = 1;
-            // 
             // FactoryManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -195,9 +202,9 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFactory)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFactory)).EndInit();
             this.ResumeLayout(false);
 
         }
