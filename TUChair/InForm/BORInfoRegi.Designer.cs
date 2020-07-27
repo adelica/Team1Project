@@ -99,11 +99,11 @@
             // 
             // button1
             // 
-            this.button1.TabIndex = 9;
+            this.btnInsert.TabIndex = 9;
             // 
             // button2
             // 
-            this.button2.TabIndex = 10;
+            this.btnCancle.TabIndex = 10;
             // 
             // label4
             // 
