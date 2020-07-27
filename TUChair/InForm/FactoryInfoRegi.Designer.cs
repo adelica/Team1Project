@@ -1,6 +1,6 @@
 ﻿namespace TUChair.InForm
 {
-    partial class FactoryInfoPopUp
+    partial class FactoryInfoRegi
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
