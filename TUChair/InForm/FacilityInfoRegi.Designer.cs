@@ -136,7 +136,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(20, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
@@ -153,7 +153,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label2.Location = new System.Drawing.Point(20, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
@@ -163,7 +163,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(20, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
@@ -205,7 +205,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label7.Location = new System.Drawing.Point(26, 56);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
@@ -215,7 +215,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label8.Location = new System.Drawing.Point(26, 18);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
@@ -232,7 +232,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label9.Location = new System.Drawing.Point(22, 18);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 12);
@@ -318,7 +318,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("굴림", 5F);
-            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label12.Location = new System.Drawing.Point(10, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(10, 7);
@@ -329,7 +329,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("굴림", 5F);
-            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label13.Location = new System.Drawing.Point(10, 58);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(10, 7);
@@ -340,7 +340,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("굴림", 5F);
-            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label14.Location = new System.Drawing.Point(10, 96);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(10, 7);
@@ -373,7 +373,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("굴림", 5F);
-            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label18.Location = new System.Drawing.Point(14, 58);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(10, 7);
@@ -384,7 +384,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("굴림", 5F);
-            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label19.Location = new System.Drawing.Point(14, 20);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(10, 7);
@@ -395,7 +395,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("굴림", 5F);
-            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label20.Location = new System.Drawing.Point(11, 20);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(10, 7);
@@ -480,11 +480,11 @@
             this.label26.TabIndex = 11;
             this.label26.Text = "■";
             // 
-            // FacilityRegi
+            // FacilityInfoRegi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(776, 450);
-            this.Name = "FacilityRegi";
+            this.Name = "FacilityInfoRegi";
             this.Text = "설비";
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
