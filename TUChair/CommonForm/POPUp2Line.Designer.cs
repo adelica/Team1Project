@@ -32,8 +32,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnCancle = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -71,28 +71,28 @@
             this.panel2.Size = new System.Drawing.Size(377, 267);
             this.panel2.TabIndex = 0;
             // 
-            // button1
+            // btnInsert
             // 
-            this.button1.Location = new System.Drawing.Point(75, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "저장";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInsert.Location = new System.Drawing.Point(75, 8);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnInsert.TabIndex = 1;
+            this.btnInsert.Text = "저장";
+            this.btnInsert.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCancle
             // 
-            this.button2.Location = new System.Drawing.Point(197, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "취소";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancle.Location = new System.Drawing.Point(197, 8);
+            this.btnCancle.Name = "btnCancle";
+            this.btnCancle.Size = new System.Drawing.Size(75, 23);
+            this.btnCancle.TabIndex = 2;
+            this.btnCancle.Text = "취소";
+            this.btnCancle.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button1);
-            this.panel5.Controls.Add(this.button2);
+            this.panel5.Controls.Add(this.btnInsert);
+            this.panel5.Controls.Add(this.btnCancle);
             this.panel5.Location = new System.Drawing.Point(215, 397);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(336, 40);
@@ -122,8 +122,8 @@
         protected System.Windows.Forms.Panel panel4;
         protected System.Windows.Forms.Panel panel3;
         protected System.Windows.Forms.Panel panel2;
-        protected System.Windows.Forms.Button button1;
-        protected System.Windows.Forms.Button button2;
+        protected System.Windows.Forms.Button btnInsert;
+        protected System.Windows.Forms.Button btnCancle;
         private System.Windows.Forms.Panel panel5;
     }
 }
