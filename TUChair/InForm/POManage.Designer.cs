@@ -79,6 +79,7 @@
             this.dgvPO = new JeanForm.JeansGridView();
             this.btnPOUpLoad = new System.Windows.Forms.Button();
             this.btnSORegi = new System.Windows.Forms.Button();
+            this.inDTP1 = new TUChair.InDTP();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -136,12 +137,13 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.inDTP1);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Location = new System.Drawing.Point(19, 4);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(366, 42);
+            this.panel4.Size = new System.Drawing.Size(418, 42);
             this.panel4.TabIndex = 0;
             // 
             // label7
@@ -173,12 +175,12 @@
             this.panel5.Location = new System.Drawing.Point(19, 45);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(366, 42);
+            this.panel5.Size = new System.Drawing.Size(418, 42);
             this.panel5.TabIndex = 3;
             // 
             // txtModelSuffix
             // 
-            this.txtModelSuffix.Location = new System.Drawing.Point(117, 9);
+            this.txtModelSuffix.Location = new System.Drawing.Point(124, 7);
             this.txtModelSuffix.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtModelSuffix.Name = "txtModelSuffix";
             this.txtModelSuffix.Size = new System.Drawing.Size(237, 25);
@@ -213,7 +215,7 @@
             this.panel6.Location = new System.Drawing.Point(19, 85);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(366, 42);
+            this.panel6.Size = new System.Drawing.Size(418, 42);
             this.panel6.TabIndex = 6;
             // 
             // comboBox1
@@ -221,7 +223,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(117, 10);
+            this.comboBox1.Location = new System.Drawing.Point(124, 10);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(237, 23);
             this.comboBox1.TabIndex = 6;
@@ -255,7 +257,7 @@
             this.panel7.Location = new System.Drawing.Point(19, 127);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(366, 42);
+            this.panel7.Size = new System.Drawing.Size(418, 42);
             this.panel7.TabIndex = 9;
             // 
             // comboBox2
@@ -263,7 +265,7 @@
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(117, 11);
+            this.comboBox2.Location = new System.Drawing.Point(124, 11);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(237, 23);
             this.comboBox2.TabIndex = 9;
@@ -295,7 +297,7 @@
             this.panel8.Controls.Add(this.cboCustomer);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Controls.Add(this.label11);
-            this.panel8.Location = new System.Drawing.Point(408, 4);
+            this.panel8.Location = new System.Drawing.Point(443, 4);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(356, 42);
@@ -338,7 +340,7 @@
             this.panel9.Controls.Add(this.txtItem);
             this.panel9.Controls.Add(this.label12);
             this.panel9.Controls.Add(this.label13);
-            this.panel9.Location = new System.Drawing.Point(408, 45);
+            this.panel9.Location = new System.Drawing.Point(443, 45);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(356, 42);
@@ -379,7 +381,7 @@
             this.panel10.Controls.Add(this.dateTimePicker1);
             this.panel10.Controls.Add(this.label14);
             this.panel10.Controls.Add(this.label15);
-            this.panel10.Location = new System.Drawing.Point(408, 85);
+            this.panel10.Location = new System.Drawing.Point(443, 85);
             this.panel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(356, 42);
@@ -420,7 +422,7 @@
             this.panel11.Controls.Add(this.comboBox3);
             this.panel11.Controls.Add(this.label16);
             this.panel11.Controls.Add(this.label17);
-            this.panel11.Location = new System.Drawing.Point(408, 127);
+            this.panel11.Location = new System.Drawing.Point(443, 127);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(356, 42);
@@ -463,7 +465,7 @@
             this.panel12.Controls.Add(this.txtCusNumber);
             this.panel12.Controls.Add(this.label18);
             this.panel12.Controls.Add(this.label19);
-            this.panel12.Location = new System.Drawing.Point(781, 4);
+            this.panel12.Location = new System.Drawing.Point(824, 4);
             this.panel12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(357, 42);
@@ -504,7 +506,7 @@
             this.panel13.Controls.Add(this.cboCustomLoc);
             this.panel13.Controls.Add(this.label20);
             this.panel13.Controls.Add(this.label21);
-            this.panel13.Location = new System.Drawing.Point(781, 45);
+            this.panel13.Location = new System.Drawing.Point(824, 45);
             this.panel13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(357, 42);
@@ -547,7 +549,7 @@
             this.panel14.Controls.Add(this.comboBox6);
             this.panel14.Controls.Add(this.label22);
             this.panel14.Controls.Add(this.label23);
-            this.panel14.Location = new System.Drawing.Point(781, 85);
+            this.panel14.Location = new System.Drawing.Point(824, 85);
             this.panel14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(357, 42);
@@ -653,6 +655,15 @@
             this.btnSORegi.UseVisualStyleBackColor = true;
             this.btnSORegi.Click += new System.EventHandler(this.btnSORegi_Click);
             // 
+            // inDTP1
+            // 
+            this.inDTP1.End = new System.DateTime(2020, 7, 28, 0, 20, 6, 230);
+            this.inDTP1.Location = new System.Drawing.Point(120, 3);
+            this.inDTP1.Name = "inDTP1";
+            this.inDTP1.Size = new System.Drawing.Size(280, 32);
+            this.inDTP1.Start = new System.DateTime(2020, 7, 28, 0, 20, 6, 241);
+            this.inDTP1.TabIndex = 2;
+            // 
             // POManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -739,5 +750,6 @@
         private JeanForm.JeansGridView dgvPO;
         private System.Windows.Forms.Button btnSORegi;
         private System.Windows.Forms.Button btnPOUpLoad;
+        private InDTP inDTP1;
     }
 }
