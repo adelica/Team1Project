@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtModelSuffix = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -48,11 +48,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cboCustomer = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtItem = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -64,11 +64,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtCusNumber = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cboCustomLoc = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -167,7 +167,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.txtModelSuffix);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Location = new System.Drawing.Point(19, 45);
@@ -176,13 +176,13 @@
             this.panel5.Size = new System.Drawing.Size(366, 42);
             this.panel5.TabIndex = 3;
             // 
-            // textBox1
+            // txtModelSuffix
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 9);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 25);
-            this.textBox1.TabIndex = 3;
+            this.txtModelSuffix.Location = new System.Drawing.Point(117, 9);
+            this.txtModelSuffix.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtModelSuffix.Name = "txtModelSuffix";
+            this.txtModelSuffix.Size = new System.Drawing.Size(237, 25);
+            this.txtModelSuffix.TabIndex = 3;
             // 
             // label2
             // 
@@ -292,7 +292,7 @@
             // panel8
             // 
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panel8.Controls.Add(this.comboBox4);
+            this.panel8.Controls.Add(this.cboCustomer);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Controls.Add(this.label11);
             this.panel8.Location = new System.Drawing.Point(408, 4);
@@ -301,15 +301,15 @@
             this.panel8.Size = new System.Drawing.Size(356, 42);
             this.panel8.TabIndex = 1;
             // 
-            // comboBox4
+            // cboCustomer
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(113, 10);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(237, 23);
-            this.comboBox4.TabIndex = 1;
+            this.cboCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboCustomer.FormattingEnabled = true;
+            this.cboCustomer.Location = new System.Drawing.Point(113, 10);
+            this.cboCustomer.Name = "cboCustomer";
+            this.cboCustomer.Size = new System.Drawing.Size(237, 23);
+            this.cboCustomer.TabIndex = 1;
             // 
             // label10
             // 
@@ -335,7 +335,7 @@
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panel9.Controls.Add(this.textBox5);
+            this.panel9.Controls.Add(this.txtItem);
             this.panel9.Controls.Add(this.label12);
             this.panel9.Controls.Add(this.label13);
             this.panel9.Location = new System.Drawing.Point(408, 45);
@@ -344,13 +344,13 @@
             this.panel9.Size = new System.Drawing.Size(356, 42);
             this.panel9.TabIndex = 4;
             // 
-            // textBox5
+            // txtItem
             // 
-            this.textBox5.Location = new System.Drawing.Point(113, 9);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(237, 25);
-            this.textBox5.TabIndex = 4;
+            this.txtItem.Location = new System.Drawing.Point(113, 9);
+            this.txtItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtItem.Name = "txtItem";
+            this.txtItem.Size = new System.Drawing.Size(237, 25);
+            this.txtItem.TabIndex = 4;
             // 
             // label12
             // 
@@ -460,7 +460,7 @@
             // panel12
             // 
             this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel12.Controls.Add(this.textBox8);
+            this.panel12.Controls.Add(this.txtCusNumber);
             this.panel12.Controls.Add(this.label18);
             this.panel12.Controls.Add(this.label19);
             this.panel12.Location = new System.Drawing.Point(781, 4);
@@ -469,13 +469,13 @@
             this.panel12.Size = new System.Drawing.Size(357, 42);
             this.panel12.TabIndex = 2;
             // 
-            // textBox8
+            // txtCusNumber
             // 
-            this.textBox8.Location = new System.Drawing.Point(114, 9);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(237, 25);
-            this.textBox8.TabIndex = 2;
+            this.txtCusNumber.Location = new System.Drawing.Point(114, 9);
+            this.txtCusNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCusNumber.Name = "txtCusNumber";
+            this.txtCusNumber.Size = new System.Drawing.Size(237, 25);
+            this.txtCusNumber.TabIndex = 2;
             // 
             // label18
             // 
@@ -501,7 +501,7 @@
             // panel13
             // 
             this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel13.Controls.Add(this.comboBox5);
+            this.panel13.Controls.Add(this.cboCustomLoc);
             this.panel13.Controls.Add(this.label20);
             this.panel13.Controls.Add(this.label21);
             this.panel13.Location = new System.Drawing.Point(781, 45);
@@ -510,15 +510,15 @@
             this.panel13.Size = new System.Drawing.Size(357, 42);
             this.panel13.TabIndex = 5;
             // 
-            // comboBox5
+            // cboCustomLoc
             // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(114, 10);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(237, 23);
-            this.comboBox5.TabIndex = 5;
+            this.cboCustomLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCustomLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboCustomLoc.FormattingEnabled = true;
+            this.cboCustomLoc.Location = new System.Drawing.Point(114, 10);
+            this.cboCustomLoc.Name = "cboCustomLoc";
+            this.cboCustomLoc.Size = new System.Drawing.Size(237, 23);
+            this.cboCustomLoc.TabIndex = 5;
             // 
             // label20
             // 
@@ -596,25 +596,25 @@
             // 
             // dgvPO
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Beige;
-            this.dgvPO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPO.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Beige;
+            this.dgvPO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPO.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPO.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPO.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvPO.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPO.EnableHeadersVisualStyles = false;
             this.dgvPO.IsAllCheckColumnHeader = false;
@@ -622,8 +622,8 @@
             this.dgvPO.Name = "dgvPO";
             this.dgvPO.ReadOnly = true;
             this.dgvPO.RowHeadersWidth = 30;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Bisque;
-            this.dgvPO.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Bisque;
+            this.dgvPO.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvPO.RowTemplate.Height = 27;
             this.dgvPO.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPO.Size = new System.Drawing.Size(1246, 486);
@@ -706,7 +706,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cboCustomLoc;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel panel7;
@@ -714,11 +714,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtItem;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtCusNumber;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel6;
@@ -726,11 +726,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cboCustomer;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtModelSuffix;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
