@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace TUChair.InForm
 {
-    public partial class FacilityGroupRegi : TUChair.CommonForm.POPUP1Line
+    public partial class BORInfoRegi : TUChair.CommonForm.POPUp2Line
     {
-        public FacilityGroupRegi()
+        public BORInfoRegi()
         {
             InitializeComponent();
         }

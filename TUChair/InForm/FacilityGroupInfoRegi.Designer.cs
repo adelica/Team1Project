@@ -1,6 +1,6 @@
 ﻿namespace TUChair.InForm
 {
-    partial class FacilityGroupRegi
+    partial class FacilityGroupInfoRegi
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -54,7 +54,6 @@
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.None;
             this.panel1.Size = new System.Drawing.Size(353, 385);
             // 
             // panel4
@@ -62,8 +61,8 @@
             this.panel4.Controls.Add(this.txtFacG_Info);
             this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.label11);
-            this.panel4.Location = new System.Drawing.Point(8, 267);
-            this.panel4.Size = new System.Drawing.Size(341, 115);
+            this.panel4.Location = new System.Drawing.Point(0, 270);
+            this.panel4.Size = new System.Drawing.Size(353, 115);
             // 
             // panel2
             // 
@@ -82,11 +81,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Size = new System.Drawing.Size(346, 258);
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(7, 398);
+            this.panel2.Size = new System.Drawing.Size(353, 258);
             // 
             // btnSave
             // 
@@ -107,8 +102,8 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("굴림", 5F);
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(12, 31);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label8.Location = new System.Drawing.Point(12, 30);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(10, 7);
             this.label8.TabIndex = 8;
@@ -117,7 +112,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label7.Location = new System.Drawing.Point(23, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 12);
@@ -127,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(23, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 12);
@@ -138,8 +133,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 5F);
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(12, 82);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(12, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(10, 7);
             this.label2.TabIndex = 8;
@@ -155,7 +150,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(23, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
@@ -166,8 +161,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 5F);
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(12, 133);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(12, 132);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(10, 7);
             this.label4.TabIndex = 8;
@@ -186,7 +181,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("굴림", 5F);
-            this.label6.Location = new System.Drawing.Point(12, 184);
+            this.label6.Location = new System.Drawing.Point(12, 183);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(10, 7);
             this.label6.TabIndex = 8;
@@ -212,7 +207,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("굴림", 5F);
-            this.label10.Location = new System.Drawing.Point(12, 235);
+            this.label10.Location = new System.Drawing.Point(12, 234);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(10, 7);
             this.label10.TabIndex = 8;
@@ -260,12 +255,12 @@
             this.cboFacG_UseOrNot.Size = new System.Drawing.Size(208, 20);
             this.cboFacG_UseOrNot.TabIndex = 2;
             // 
-            // FacilityGroupRegi
+            // FacilityGroupInfoRegi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(359, 450);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "FacilityGroupRegi";
+            this.Name = "FacilityGroupInfoRegi";
             this.Text = "설비군";
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

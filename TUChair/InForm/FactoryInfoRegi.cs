@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace TUChair.InForm
 {
-    public partial class FactoryInfoPopUp : TUChair.CommonForm.POPUp2Line
+    public partial class FactoryInfoRegi : TUChair.CommonForm.POPUp2Line
     {
-        public FactoryInfoPopUp()
+        public FactoryInfoRegi()
         {
             InitializeComponent();
         }

@@ -89,11 +89,35 @@
     <Compile Include="HyunningForm\UnitPricePopUp.Designer.cs">
       <DependentUpon>UnitPricePopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\FacilityGroupRegi.cs">
+    <Compile Include="InForm\BORInfoRegi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InForm\FacilityGroupRegi.Designer.cs">
-      <DependentUpon>FacilityGroupRegi.cs</DependentUpon>
+    <Compile Include="InForm\BORInfoRegi.Designer.cs">
+      <DependentUpon>BORInfoRegi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InForm\BORManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\BORManage.Designer.cs">
+      <DependentUpon>BORManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InForm\CompanyInfoRegi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\CompanyInfoRegi.Designer.cs">
+      <DependentUpon>CompanyInfoRegi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InForm\CompanyManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\CompanyManage.Designer.cs">
+      <DependentUpon>CompanyManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InForm\FacilityGroupInfoRegi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\FacilityGroupInfoRegi.Designer.cs">
+      <DependentUpon>FacilityGroupInfoRegi.cs</DependentUpon>
     </Compile>
     <Compile Include="InForm\FacilityManage.cs">
       <SubType>Form</SubType>
@@ -101,17 +125,17 @@
     <Compile Include="InForm\FacilityManage.Designer.cs">
       <DependentUpon>FacilityManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\FacilityRegi.cs">
+    <Compile Include="InForm\FacilityInfoRegi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InForm\FacilityRegi.Designer.cs">
-      <DependentUpon>FacilityRegi.cs</DependentUpon>
+    <Compile Include="InForm\FacilityInfoRegi.Designer.cs">
+      <DependentUpon>FacilityInfoRegi.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\FactoryInfoPopUp.cs">
+    <Compile Include="InForm\FactoryInfoRegi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InForm\FactoryInfoPopUp.Designer.cs">
-      <DependentUpon>FactoryInfoPopUp.cs</DependentUpon>
+    <Compile Include="InForm\FactoryInfoRegi.Designer.cs">
+      <DependentUpon>FactoryInfoRegi.cs</DependentUpon>
     </Compile>
     <Compile Include="InForm\FactoryManage.cs">
       <SubType>Form</SubType>
@@ -178,17 +202,29 @@
     <EmbeddedResource Include="HyunningForm\UnitPricePopUp.resx">
       <DependentUpon>UnitPricePopUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InForm\FacilityGroupRegi.resx">
-      <DependentUpon>FacilityGroupRegi.cs</DependentUpon>
+    <EmbeddedResource Include="InForm\BORInfoRegi.resx">
+      <DependentUpon>BORInfoRegi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\BORManage.resx">
+      <DependentUpon>BORManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\CompanyInfoRegi.resx">
+      <DependentUpon>CompanyInfoRegi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\CompanyManage.resx">
+      <DependentUpon>CompanyManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\FacilityGroupInfoRegi.resx">
+      <DependentUpon>FacilityGroupInfoRegi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\FacilityManage.resx">
       <DependentUpon>FacilityManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InForm\FacilityRegi.resx">
-      <DependentUpon>FacilityRegi.cs</DependentUpon>
+    <EmbeddedResource Include="InForm\FacilityInfoRegi.resx">
+      <DependentUpon>FacilityInfoRegi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InForm\FactoryInfoPopUp.resx">
-      <DependentUpon>FactoryInfoPopUp.cs</DependentUpon>
+    <EmbeddedResource Include="InForm\FactoryInfoRegi.resx">
+      <DependentUpon>FactoryInfoRegi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\FactoryManage.resx">
       <DependentUpon>FactoryManage.cs</DependentUpon>
