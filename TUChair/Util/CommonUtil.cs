@@ -13,30 +13,22 @@ namespace TUChair.Util
     {
         static CheckBox headerChk;
         static DataGridView dgv1;
-        public static void AddNewColumnToDataGridView(DataGridView dgv, string headerText, string dataPropertyName, bool visibility, int colWidth = 100, DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft)
+        public static void AddNewColumnToDataGridView(DataGridView dgv, string headerText, string dataPropertyName, bool visibility, int colWidth = 100, DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft, bool fronzen = false)
         {
-            dgv1 = dgv;
             DataGridViewTextBoxColumn gridCol = new DataGridViewTextBoxColumn();
+            gridCol.Name = dataPropertyName; //추가 속성
             gridCol.HeaderText = headerText;
-            
             gridCol.DataPropertyName = dataPropertyName;
             gridCol.Width = colWidth;
             gridCol.Visible = visibility;
             gridCol.ValueType = typeof(string);
             gridCol.ReadOnly = true;
             gridCol.DefaultCellStyle.Alignment = textAlign;
+            gridCol.Frozen = fronzen;  //추가 속성
             dgv.Columns.Add(gridCol);
 
         }
-        public static int DataGridViewCheckBoxSet(string headerText, DataGridView dgv)
-        {
-            DataGridViewCheckBoxColumn chb1 = new DataGridViewCheckBoxColumn();
-            chb1.HeaderText = headerText;
-            chb1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            chb1.DefaultCellStyle.Padding = new Padding(0, 0, 0, 0);
-            chb1.FlatStyle = FlatStyle.Flat;
-            return dgv.Columns.Add(chb1);
-        }
+       
         public static void DgvCheckBox(DataGridView dgv)
         {
             
@@ -79,7 +71,7 @@ namespace TUChair.Util
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToResizeRows = false;
             dgv.AllowUserToResizeColumns = true;
-            dgv.RowHeadersVisible = false;
+            //dgv.RowHeadersVisible = false;
             dgv.MultiSelect = false;
            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
