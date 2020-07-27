@@ -143,6 +143,12 @@
     <Compile Include="InForm\FactoryManage.Designer.cs">
       <DependentUpon>FactoryManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="InForm\POManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\POManage.Designer.cs">
+      <DependentUpon>POManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="InForm\PORegi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,12 @@
     </Compile>
     <Compile Include="InForm\POUpLoad.Designer.cs">
       <DependentUpon>POUpLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InForm\SORegi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\SORegi.Designer.cs">
+      <DependentUpon>SORegi.cs</DependentUpon>
     </Compile>
     <Compile Include="JeansGrid.cs">
       <SubType>Component</SubType>
@@ -241,11 +253,17 @@
     <EmbeddedResource Include="InForm\FactoryManage.resx">
       <DependentUpon>FactoryManage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InForm\POManage.resx">
+      <DependentUpon>POManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InForm\PORegi.resx">
       <DependentUpon>PORegi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\POUpLoad.resx">
       <DependentUpon>POUpLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\SORegi.resx">
+      <DependentUpon>SORegi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
