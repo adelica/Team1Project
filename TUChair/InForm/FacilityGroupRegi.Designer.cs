@@ -88,12 +88,20 @@
             // 
             this.panel5.Location = new System.Drawing.Point(7, 398);
             // 
+            // btnSave
+            // 
+            this.btnSave.TabIndex = 6;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.TabIndex = 7;
+            // 
             // txtFacG_Code
             // 
             this.txtFacG_Code.Location = new System.Drawing.Point(113, 25);
             this.txtFacG_Code.Name = "txtFacG_Code";
             this.txtFacG_Code.Size = new System.Drawing.Size(208, 21);
-            this.txtFacG_Code.TabIndex = 9;
+            this.txtFacG_Code.TabIndex = 0;
             // 
             // label8
             // 
@@ -142,7 +150,7 @@
             this.txtFacG_Name.Location = new System.Drawing.Point(113, 76);
             this.txtFacG_Name.Name = "txtFacG_Name";
             this.txtFacG_Name.Size = new System.Drawing.Size(208, 21);
-            this.txtFacG_Name.TabIndex = 9;
+            this.txtFacG_Name.TabIndex = 1;
             // 
             // label3
             // 
@@ -189,7 +197,7 @@
             this.txtFacG_Modifier.Location = new System.Drawing.Point(113, 177);
             this.txtFacG_Modifier.Name = "txtFacG_Modifier";
             this.txtFacG_Modifier.Size = new System.Drawing.Size(208, 21);
-            this.txtFacG_Modifier.TabIndex = 9;
+            this.txtFacG_Modifier.TabIndex = 3;
             // 
             // label9
             // 
@@ -215,7 +223,7 @@
             this.txtFacG_ModifyDate.Location = new System.Drawing.Point(113, 228);
             this.txtFacG_ModifyDate.Name = "txtFacG_ModifyDate";
             this.txtFacG_ModifyDate.Size = new System.Drawing.Size(208, 21);
-            this.txtFacG_ModifyDate.TabIndex = 9;
+            this.txtFacG_ModifyDate.TabIndex = 4;
             // 
             // label11
             // 
@@ -242,7 +250,7 @@
             this.txtFacG_Info.Multiline = true;
             this.txtFacG_Info.Name = "txtFacG_Info";
             this.txtFacG_Info.Size = new System.Drawing.Size(331, 91);
-            this.txtFacG_Info.TabIndex = 9;
+            this.txtFacG_Info.TabIndex = 5;
             // 
             // cboFacG_UseOrNot
             // 
@@ -250,7 +258,7 @@
             this.cboFacG_UseOrNot.Location = new System.Drawing.Point(113, 127);
             this.cboFacG_UseOrNot.Name = "cboFacG_UseOrNot";
             this.cboFacG_UseOrNot.Size = new System.Drawing.Size(208, 20);
-            this.cboFacG_UseOrNot.TabIndex = 10;
+            this.cboFacG_UseOrNot.TabIndex = 2;
             // 
             // FacilityGroupRegi
             // 

@@ -104,7 +104,7 @@
             this.btnFGInsert.Location = new System.Drawing.Point(233, 24);
             this.btnFGInsert.Name = "btnFGInsert";
             this.btnFGInsert.Size = new System.Drawing.Size(53, 23);
-            this.btnFGInsert.TabIndex = 2;
+            this.btnFGInsert.TabIndex = 0;
             this.btnFGInsert.Text = "등록";
             this.btnFGInsert.UseVisualStyleBackColor = true;
             // 
@@ -175,7 +175,7 @@
             this.btnFInsert.Location = new System.Drawing.Point(438, 24);
             this.btnFInsert.Name = "btnFInsert";
             this.btnFInsert.Size = new System.Drawing.Size(53, 23);
-            this.btnFInsert.TabIndex = 2;
+            this.btnFInsert.TabIndex = 1;
             this.btnFInsert.Text = "등록";
             this.btnFInsert.UseVisualStyleBackColor = true;
             // 
