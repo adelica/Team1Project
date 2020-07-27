@@ -170,6 +170,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "수정";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // jeansGridView1
             // 
@@ -199,8 +200,10 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
             this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
+            this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jeansGridView1.Size = new System.Drawing.Size(1055, 389);
             this.jeansGridView1.TabIndex = 0;
+            this.jeansGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.jeansGridView1_CellClick);
             // 
             // ShiftStandardForm
             // 

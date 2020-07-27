@@ -37,7 +37,7 @@ namespace JeanForm
 
             this.DefaultCellStyle.Font = new Font("Calibri", 11, FontStyle.Bold);
 
-           // this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+           this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.RowHeadersWidth = 30;
             //this.EnableHeadersVisualStyles = false;
             //this.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
