@@ -26,8 +26,10 @@ namespace TUChair.MeilingForm
             
             MeilingService service = new MeilingService();
             list = service.DBConnectionTEST();
-            CommonUtil.InitSettingGridView(jeansGridView1);
-           CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
+            jeansGridView1.IsAllCheckColumnHeader = true;
+
+           // CommonUtil.InitSettingGridView(jeansGridView1);
+          // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "ShiftID", "Shift_ID", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Fac_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작시간", "Shift_StartTime", true);
@@ -38,7 +40,7 @@ namespace TUChair.MeilingForm
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Shift_UserOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Shift_Modifier", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "Shift_ModifierDate", true);
-
+            jeansGridView1.Columns["Shift_ID"].Frozen = true;
             jeansGridView1.DataSource = list;
 
 
