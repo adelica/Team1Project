@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JeanForm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -162,8 +163,60 @@ namespace TUChair.MeilingForm
         //엑셀 다운로드
         private void btnExcel_Click(object sender, EventArgs e)
         {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Save as Excel File";
+            sfd.Filter = "Excel Files(2003)|*.xls|Excel Files(2007)|*.xlsx";
+            sfd.FileName = "";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                dataGridView_ExportToExcel(sfd.FileName, jeansGridView1);
+            }
 
+       
         }
+
+        private void dataGridView_ExportToExcel(string fileName, JeansGridView jeansGridView1)
+        {
+            Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+            if (excelApp == null)
+            {
+                MessageBox.Show("엑셀이 설치되지 않았습니다");
+                return;
+            }
+            Microsoft.Office.Interop.Excel.Workbook wb = excelApp.Workbooks.Add(true);
+            Microsoft.Office.Interop.Excel._Worksheet workSheet = wb.Worksheets.get_Item(1) as Microsoft.Office.Interop.Excel._Worksheet;
+            workSheet.Name = "C#";
+
+            if (jeansGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("출력할 데이터가 없습니다");
+                return;
+            }
+
+            // 헤더 출력
+            for (int i = 0; i < jeansGridView1.Columns.Count - 1; i++)
+            {
+                workSheet.Cells[1, i + 1] = jeansGridView1.Columns[i].HeaderText;
+            }
+
+            //내용 출력
+            for (int r = 0; r < jeansGridView1.Rows.Count; r++)
+            {
+                for (int i = 0; i < jeansGridView1.Columns.Count - 1; i++)
+                {
+                    workSheet.Cells[r + 2, i + 1] = jeansGridView1.Rows[r].Cells[i].Value;
+                }
+            }
+
+
+
+            workSheet.Columns.AutoFit(); // 글자 크기에 맞게 셀 크기를 자동으로 조절
+
+
+
+      
+        }
+
         //수정 버튼 클릭
         private void button1_Click(object sender, EventArgs e)
         {
