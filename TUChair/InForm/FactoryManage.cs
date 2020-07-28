@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TUChair.Service;
 using TUChair.Util;
+using TUChairVO;
 
 namespace TUChair.InForm
 {
@@ -16,14 +18,11 @@ namespace TUChair.InForm
         public FactoryManage()
         {
             InitializeComponent();
-        }
 
-        private void FactoryManage_Load(object sender, EventArgs e)
-        {
             CommonUtil.InitSettingGridView(dgvFactory);
 
 
-            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "no", "number", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "no", "number", true,60);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설군", "Fact_Group", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설구분", "Fact_Class", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설코드", "Fact_Code", true);
@@ -36,6 +35,17 @@ namespace TUChair.InForm
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "수정자", "Fact_Modifier", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "수정시간", "Fact_ModifyDate", true);
         }
-      
+
+        private void FactoryManage_Load(object sender, EventArgs e)
+        {
+            DataLoad();
+        }
+        
+        private void DataLoad()
+        {
+            InService service = new InService();
+            List<FactoryVO> list = service.FactoryInfo();
+            dgvFactory.DataSource = list;
+        }
     }
 }
