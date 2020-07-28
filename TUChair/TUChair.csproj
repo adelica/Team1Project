@@ -125,6 +125,12 @@
     <Compile Include="HyunningForm\UnitPricePopUp.Designer.cs">
       <DependentUpon>UnitPricePopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="InDTP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InDTP.Designer.cs">
+      <DependentUpon>InDTP.cs</DependentUpon>
+    </Compile>
     <Compile Include="InForm\BORInfoRegi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\UnitPricePopUp.resx">
       <DependentUpon>UnitPricePopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InDTP.resx">
+      <DependentUpon>InDTP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\BORInfoRegi.resx">
       <DependentUpon>BORInfoRegi.cs</DependentUpon>
