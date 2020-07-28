@@ -153,6 +153,12 @@
     <Compile Include="InForm\CompanyInfoRegi.Designer.cs">
       <DependentUpon>CompanyInfoRegi.cs</DependentUpon>
     </Compile>
+    <Compile Include="InForm\CompanyManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\CompanyManage.Designer.cs">
+      <DependentUpon>CompanyManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="InForm\DemandManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,11 +177,29 @@
     <Compile Include="InForm\FacilityInfoRegi.Designer.cs">
       <DependentUpon>FacilityInfoRegi.cs</DependentUpon>
     </Compile>
+    <Compile Include="InForm\FacilityManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\FacilityManage.Designer.cs">
+      <DependentUpon>FacilityManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="InForm\FactoryInfoRegi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InForm\FactoryInfoRegi.Designer.cs">
       <DependentUpon>FactoryInfoRegi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InForm\FactoryManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\FactoryManage.Designer.cs">
+      <DependentUpon>FactoryManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InForm\MaterialRequirementManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\MaterialRequirementManage.Designer.cs">
+      <DependentUpon>MaterialRequirementManage.cs</DependentUpon>
     </Compile>
     <Compile Include="InForm\POManage.cs">
       <SubType>Form</SubType>
@@ -290,6 +314,9 @@
     <EmbeddedResource Include="InForm\CompanyInfoRegi.resx">
       <DependentUpon>CompanyInfoRegi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InForm\CompanyManage.resx">
+      <DependentUpon>CompanyManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InForm\DemandManage.resx">
       <DependentUpon>DemandManage.cs</DependentUpon>
     </EmbeddedResource>
@@ -299,8 +326,17 @@
     <EmbeddedResource Include="InForm\FacilityInfoRegi.resx">
       <DependentUpon>FacilityInfoRegi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InForm\FacilityManage.resx">
+      <DependentUpon>FacilityManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InForm\FactoryInfoRegi.resx">
       <DependentUpon>FactoryInfoRegi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\FactoryManage.resx">
+      <DependentUpon>FactoryManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\MaterialRequirementManage.resx">
+      <DependentUpon>MaterialRequirementManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\POManage.resx">
       <DependentUpon>POManage.cs</DependentUpon>
