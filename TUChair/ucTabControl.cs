@@ -43,7 +43,7 @@ namespace TUChair
                     e.Graphics.FillRectangle(new SolidBrush(Color.White), e.Bounds);
 
                 // 각 Tab별로 close button 에 대한 image값 
-                if (this.SelectedTab == this.TabPages[e.Index])
+                if (this.SelectedTab == this.TabPages[e.Index])               
                     img = Properties.Resources.close_red;
                 else
                     img = Properties.Resources.close_grey;
