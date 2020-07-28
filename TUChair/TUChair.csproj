@@ -99,6 +99,12 @@
     <Compile Include="HyunningForm\MarketingUnitPricePopUp.Designer.cs">
       <DependentUpon>MarketingUnitPricePopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="HyunningForm\MonthlyClosingByAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HyunningForm\MonthlyClosingByAccount.Designer.cs">
+      <DependentUpon>MonthlyClosingByAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="HyunningForm\ProcessShiftManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,18 @@
     </Compile>
     <Compile Include="HyunningForm\ProductShipmentManager.Designer.cs">
       <DependentUpon>ProductShipmentManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HyunningForm\SalesClosingStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HyunningForm\SalesClosingStatus.Designer.cs">
+      <DependentUpon>SalesClosingStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HyunningForm\SalesClosing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HyunningForm\SalesClosing.Designer.cs">
+      <DependentUpon>SalesClosing.cs</DependentUpon>
     </Compile>
     <Compile Include="HyunningForm\UnitPriceManager.cs">
       <SubType>Form</SubType>
@@ -281,6 +299,9 @@
     <EmbeddedResource Include="HyunningForm\MarketingUnitPricePopUp.resx">
       <DependentUpon>MarketingUnitPricePopUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HyunningForm\MonthlyClosingByAccount.resx">
+      <DependentUpon>MonthlyClosingByAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\ProcessShiftManager.resx">
       <DependentUpon>ProcessShiftManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\ProductShipmentManager.resx">
       <DependentUpon>ProductShipmentManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HyunningForm\SalesClosing.resx">
+      <DependentUpon>SalesClosing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\UnitPriceManager.resx">
       <DependentUpon>UnitPriceManager.cs</DependentUpon>
