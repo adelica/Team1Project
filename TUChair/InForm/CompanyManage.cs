@@ -25,7 +25,6 @@ namespace TUChair.InForm
         {
             CommonUtil.InitSettingGridView(dgvCompany);
 
-            CommonUtil.DgvCheckBox(dgvCompany);
             CommonUtil.AddNewColumnToDataGridView(dgvCompany, "No.", "No", true, 50, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvCompany, "업체코드", "Com_Code", true, 100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvCompany, "업체명", "Com_Name", true,150);

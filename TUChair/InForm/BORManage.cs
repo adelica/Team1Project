@@ -24,7 +24,7 @@ namespace TUChair.InForm
         private void DataLoad()
         {
             CommonUtil.InitSettingGridView(dgvBOR);
-            CommonUtil.DgvCheckBox(dgvBOR);
+
 
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "No.", "No", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "품목", "Item_Code", true);

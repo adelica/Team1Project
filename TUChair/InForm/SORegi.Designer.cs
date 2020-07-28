@@ -61,13 +61,21 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.None;
+            this.panel1.Location = new System.Drawing.Point(9, 4);
+            this.panel1.Size = new System.Drawing.Size(757, 391);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.textBox7);
             this.panel4.Controls.Add(this.label28);
             this.panel4.Controls.Add(this.label27);
+            this.panel4.Location = new System.Drawing.Point(5, 283);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Size = new System.Drawing.Size(756, 100);
+            this.panel4.Size = new System.Drawing.Size(747, 100);
             // 
             // panel3
             // 
@@ -83,6 +91,8 @@
             this.panel3.Controls.Add(this.comboBox4);
             this.panel3.Controls.Add(this.label22);
             this.panel3.Controls.Add(this.label21);
+            this.panel3.Location = new System.Drawing.Point(380, 10);
+            this.panel3.Size = new System.Drawing.Size(373, 267);
             // 
             // panel2
             // 
@@ -98,6 +108,8 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(5, 10);
+            this.panel2.Size = new System.Drawing.Size(372, 267);
             // 
             // btnInsert
             // 

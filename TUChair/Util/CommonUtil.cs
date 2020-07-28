@@ -11,8 +11,7 @@ namespace TUChair.Util
 {
     public class CommonUtil
     {
-        static CheckBox headerChk;
-        static DataGridView dgv1;
+
         public static void AddNewColumnToDataGridView(DataGridView dgv, string headerText, string dataPropertyName, bool visibility, int colWidth = 100, DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft, bool fronzen = false)
         {
             DataGridViewTextBoxColumn gridCol = new DataGridViewTextBoxColumn();
@@ -28,10 +27,8 @@ namespace TUChair.Util
             dgv.Columns.Add(gridCol);
 
         }
-       
-    
 
-     
+
         public static void InitSettingGridView(DataGridView dgv)
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
