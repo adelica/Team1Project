@@ -27,7 +27,7 @@ namespace TUChair.InForm
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객사명", "Com_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "도착지코드", "Com_Code", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "도착지명", "Com_Name", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객주문유형", "?", true);
+            //CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객주문유형", "?", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객사라인", "?", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "품목", "Item_Code", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "품명", "Item_Name", true);
