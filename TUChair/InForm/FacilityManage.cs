@@ -23,12 +23,11 @@ namespace TUChair.InForm
             CommonUtil.InitSettingGridView(dgvFacilityG);
             CommonUtil.InitSettingGridView(dgvFacility);
 
-            CommonUtil.DgvCheckBox(dgvFacilityG);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "설비군 코드", "FacG_Code", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "설비군 명", "FacG_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "사용유무", "FacG_UseOrNot", true,80);
 
-            CommonUtil.DgvCheckBox(dgvFacility);
+
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "No.", "no", true,50);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "설비코드", "Faci_Code", true,150);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "설비명", "Faci_Name", true,150);

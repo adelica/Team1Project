@@ -14,8 +14,7 @@ namespace TUChair
     {
         public InDTP()
         {
-            InitializeComponent();
-            
+            InitializeComponent();          
         }
         
         public DateTime Start

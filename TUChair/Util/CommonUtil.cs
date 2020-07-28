@@ -11,8 +11,7 @@ namespace TUChair.Util
 {
     public class CommonUtil
     {
-        static CheckBox headerChk;
-        static DataGridView dgv1;
+
         public static void AddNewColumnToDataGridView(DataGridView dgv, string headerText, string dataPropertyName, bool visibility, int colWidth = 100, DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft, bool fronzen = false)
         {
             DataGridViewTextBoxColumn gridCol = new DataGridViewTextBoxColumn();
@@ -28,39 +27,7 @@ namespace TUChair.Util
             dgv.Columns.Add(gridCol);
 
         }
-       
-        public static void DgvCheckBox(DataGridView dgv)
-        {
-            
-                DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
-                chk.Width = 30;
-                chk.Name = "";
-                dgv.Columns.Add(chk); //0 - checkbox
 
-                //데이터그리드뷰의 헤더에 위치할 체크박스
-                headerChk = new CheckBox();
-
-                Point headerCell = dgv.GetCellDisplayRectangle(0, -1, true).Location;
-
-                headerChk.Location = new Point(headerCell.X + 8, headerCell.Y + 2);
-                headerChk.Size = new Size(18, 18);
-                headerChk.BackColor = Color.White;
-                headerChk.Click += HeaderChk_Clicked;
-                dgv.Controls.Add(headerChk);
-        }
-
-        private static void HeaderChk_Clicked(object sender, EventArgs e)
-        {
-
-            dgv1.EndEdit();
-
-            //데이터그리드뷰의 전체 행의 체크를 체크 or 언체크
-            foreach (DataGridViewRow row in dgv1.Rows)
-            {
-                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells["chk"];
-                chk.Value = headerChk.Checked;
-            }
-        }
 
         public static void InitSettingGridView(DataGridView dgv)
         {
