@@ -176,5 +176,20 @@ namespace TUChair
         {
            
         }
+
+        private void 설비관리ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenorCreateForm<FacilityManage>();
+        }
+
+        private void 업체관리ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenorCreateForm<CompanyManage>();
+        }
+
+        private void bORToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenorCreateForm<BORManage>();
+        }
     }
 }

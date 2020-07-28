@@ -85,11 +85,11 @@
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.tabForms = new TUChair.ucTabControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -144,18 +144,21 @@
             this.설비관리ToolStripMenuItem.Name = "설비관리ToolStripMenuItem";
             this.설비관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.설비관리ToolStripMenuItem.Text = "설비관리";
+            this.설비관리ToolStripMenuItem.Click += new System.EventHandler(this.설비관리ToolStripMenuItem_Click);
             // 
             // 업체관리ToolStripMenuItem
             // 
             this.업체관리ToolStripMenuItem.Name = "업체관리ToolStripMenuItem";
             this.업체관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.업체관리ToolStripMenuItem.Text = "업체관리";
+            this.업체관리ToolStripMenuItem.Click += new System.EventHandler(this.업체관리ToolStripMenuItem_Click);
             // 
             // bORToolStripMenuItem
             // 
             this.bORToolStripMenuItem.Name = "bORToolStripMenuItem";
             this.bORToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bORToolStripMenuItem.Text = "BOR";
+            this.bORToolStripMenuItem.Click += new System.EventHandler(this.bORToolStripMenuItem_Click);
             // 
             // 품목관리ToolStripMenuItem
             // 
@@ -190,14 +193,14 @@
             // shift기준정보ToolStripMenuItem
             // 
             this.shift기준정보ToolStripMenuItem.Name = "shift기준정보ToolStripMenuItem";
-            this.shift기준정보ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shift기준정보ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.shift기준정보ToolStripMenuItem.Text = "shift기준정보";
             this.shift기준정보ToolStripMenuItem.Click += new System.EventHandler(this.shift기준정보ToolStripMenuItem_Click);
             // 
             // sgift스케줄관리ToolStripMenuItem
             // 
             this.sgift스케줄관리ToolStripMenuItem.Name = "sgift스케줄관리ToolStripMenuItem";
-            this.sgift스케줄관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sgift스케줄관리ToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.sgift스케줄관리ToolStripMenuItem.Text = "shift스케줄 관리";
             // 
             // 단가관리ToolStripMenuItem
@@ -213,19 +216,19 @@
             // 자재단가관리ToolStripMenuItem
             // 
             this.자재단가관리ToolStripMenuItem.Name = "자재단가관리ToolStripMenuItem";
-            this.자재단가관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.자재단가관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.자재단가관리ToolStripMenuItem.Text = "자재단가관리";
             // 
             // 영업단가관리ToolStripMenuItem
             // 
             this.영업단가관리ToolStripMenuItem.Name = "영업단가관리ToolStripMenuItem";
-            this.영업단가관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.영업단가관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.영업단가관리ToolStripMenuItem.Text = "영업단가관리";
             // 
             // 환율관리ToolStripMenuItem
             // 
             this.환율관리ToolStripMenuItem.Name = "환율관리ToolStripMenuItem";
-            this.환율관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.환율관리ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.환율관리ToolStripMenuItem.Text = "환율관리";
             // 
             // panel2
@@ -618,17 +621,9 @@
             this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(488, 6);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(187, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(156, 39);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(132, 741);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1672, 22);
-            this.statusStrip1.TabIndex = 7;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripButton1
             // 
@@ -665,6 +660,14 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton4.Text = "toolStripButton4";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(132, 741);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1672, 22);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // TUChairMain
             // 
