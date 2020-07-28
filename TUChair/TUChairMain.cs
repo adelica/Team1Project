@@ -187,9 +187,24 @@ namespace TUChair
             OpenorCreateForm<CompanyManage>();
         }
 
-        private void bORToolStripMenuItem_Click(object sender, EventArgs e)
+        private void bORToolStripMenuItem_Click(object sender, EventArgs e) //BOR관리
         {
             OpenorCreateForm<BORManage>();
+        }
+
+        private void button2_Click(object sender, EventArgs e) //영업업로드
+        {
+            OpenorCreateForm<POUpLoad>(); 
+        }
+
+        private void button3_Click(object sender, EventArgs e) //영업마스터
+        {
+            OpenorCreateForm<POManage>();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            OpenorCreateForm<DemandManage>();
         }
     }
 }
