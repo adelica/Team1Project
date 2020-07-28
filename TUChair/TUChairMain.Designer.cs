@@ -546,6 +546,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "영업업로드";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button13
             // 
@@ -556,6 +557,7 @@
             this.button13.TabIndex = 7;
             this.button13.Text = "수요계획";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button3
             // 
@@ -566,6 +568,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "영업마스터";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
