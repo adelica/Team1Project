@@ -457,6 +457,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(774, 450);
             this.Name = "MarketingUnitPricePopUp";
+            this.Text = "영업단가관리";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
