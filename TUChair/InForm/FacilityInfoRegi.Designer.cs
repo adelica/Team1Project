@@ -42,12 +42,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtFaci_Name = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.cboFaci_OutWareHouse = new System.Windows.Forms.ComboBox();
             this.cboFaci_UseOrNot = new System.Windows.Forms.ComboBox();
             this.cboFaci_InWareHouse = new System.Windows.Forms.ComboBox();
             this.cboFaci_BadWareHouse = new System.Windows.Forms.ComboBox();
-            this.cboOutOrder = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -57,7 +55,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.txtFaci_Detail = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -77,25 +74,25 @@
             this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.label20);
             this.panel5.Controls.Add(this.cboFaci_BadWareHouse);
+            this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.txtFaci_Name);
             this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.txtModifyDate);
+            this.panel5.Controls.Add(this.label5);
             this.panel5.Size = new System.Drawing.Size(255, 165);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label22);
+            this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label19);
             this.panel3.Controls.Add(this.label18);
-            this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.cboOutOrder);
             this.panel3.Controls.Add(this.cboFaci_InWareHouse);
-            this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.txtFaci_Code);
             this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.txtFaci_Modifier);
+            this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.txtModifyDate);
-            this.panel3.Controls.Add(this.label5);
             this.panel3.Size = new System.Drawing.Size(255, 165);
             // 
             // panel4
@@ -111,27 +108,24 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.cboFaci_UseOrNot);
             this.panel2.Controls.Add(this.cboFaci_OutWareHouse);
-            this.panel2.Controls.Add(this.txtFaci_Modifier);
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtFacG_Code);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Size = new System.Drawing.Size(255, 165);
             // 
-            // button1
+            // btnInsert
             // 
-            this.btnInsert.TabIndex = 13;
+            this.btnInsert.TabIndex = 11;
             // 
-            // button2
+            // btnCancle
             // 
-            this.btnCancle.TabIndex = 14;
+            this.btnCancle.TabIndex = 12;
             // 
             // label1
             // 
@@ -154,7 +148,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(20, 56);
+            this.label2.Location = new System.Drawing.Point(20, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 0;
@@ -164,7 +158,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(20, 94);
+            this.label3.Location = new System.Drawing.Point(20, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 0;
@@ -173,7 +167,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 136);
+            this.label4.Location = new System.Drawing.Point(26, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 0;
@@ -181,15 +175,15 @@
             // 
             // txtFaci_Modifier
             // 
-            this.txtFaci_Modifier.Location = new System.Drawing.Point(93, 132);
+            this.txtFaci_Modifier.Location = new System.Drawing.Point(90, 121);
             this.txtFaci_Modifier.Name = "txtFaci_Modifier";
             this.txtFaci_Modifier.Size = new System.Drawing.Size(143, 21);
-            this.txtFaci_Modifier.TabIndex = 9;
+            this.txtFaci_Modifier.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 136);
+            this.label5.Location = new System.Drawing.Point(22, 126);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 0;
@@ -197,16 +191,16 @@
             // 
             // txtModifyDate
             // 
-            this.txtModifyDate.Location = new System.Drawing.Point(90, 132);
+            this.txtModifyDate.Location = new System.Drawing.Point(86, 121);
             this.txtModifyDate.Name = "txtModifyDate";
             this.txtModifyDate.Size = new System.Drawing.Size(143, 21);
-            this.txtModifyDate.TabIndex = 10;
+            this.txtModifyDate.TabIndex = 8;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label7.Location = new System.Drawing.Point(26, 56);
+            this.label7.Location = new System.Drawing.Point(26, 72);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 0;
@@ -249,27 +243,18 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(22, 56);
+            this.label10.Location = new System.Drawing.Point(22, 72);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 0;
             this.label10.Text = "불량창고";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(26, 95);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "외주여부";
             // 
             // cboFaci_OutWareHouse
             // 
             this.cboFaci_OutWareHouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFaci_OutWareHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboFaci_OutWareHouse.FormattingEnabled = true;
-            this.cboFaci_OutWareHouse.Location = new System.Drawing.Point(93, 52);
+            this.cboFaci_OutWareHouse.Location = new System.Drawing.Point(93, 68);
             this.cboFaci_OutWareHouse.Name = "cboFaci_OutWareHouse";
             this.cboFaci_OutWareHouse.Size = new System.Drawing.Size(143, 20);
             this.cboFaci_OutWareHouse.TabIndex = 3;
@@ -279,7 +264,7 @@
             this.cboFaci_UseOrNot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFaci_UseOrNot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboFaci_UseOrNot.FormattingEnabled = true;
-            this.cboFaci_UseOrNot.Location = new System.Drawing.Point(93, 90);
+            this.cboFaci_UseOrNot.Location = new System.Drawing.Point(93, 121);
             this.cboFaci_UseOrNot.Name = "cboFaci_UseOrNot";
             this.cboFaci_UseOrNot.Size = new System.Drawing.Size(143, 20);
             this.cboFaci_UseOrNot.TabIndex = 6;
@@ -289,7 +274,7 @@
             this.cboFaci_InWareHouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFaci_InWareHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboFaci_InWareHouse.FormattingEnabled = true;
-            this.cboFaci_InWareHouse.Location = new System.Drawing.Point(90, 52);
+            this.cboFaci_InWareHouse.Location = new System.Drawing.Point(90, 68);
             this.cboFaci_InWareHouse.Name = "cboFaci_InWareHouse";
             this.cboFaci_InWareHouse.Size = new System.Drawing.Size(143, 20);
             this.cboFaci_InWareHouse.TabIndex = 4;
@@ -299,20 +284,10 @@
             this.cboFaci_BadWareHouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFaci_BadWareHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboFaci_BadWareHouse.FormattingEnabled = true;
-            this.cboFaci_BadWareHouse.Location = new System.Drawing.Point(86, 52);
+            this.cboFaci_BadWareHouse.Location = new System.Drawing.Point(86, 68);
             this.cboFaci_BadWareHouse.Name = "cboFaci_BadWareHouse";
             this.cboFaci_BadWareHouse.Size = new System.Drawing.Size(143, 20);
             this.cboFaci_BadWareHouse.TabIndex = 5;
-            // 
-            // cboOutOrder
-            // 
-            this.cboOutOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboOutOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cboOutOrder.FormattingEnabled = true;
-            this.cboOutOrder.Location = new System.Drawing.Point(90, 91);
-            this.cboOutOrder.Name = "cboOutOrder";
-            this.cboOutOrder.Size = new System.Drawing.Size(143, 20);
-            this.cboOutOrder.TabIndex = 8;
             // 
             // label12
             // 
@@ -330,7 +305,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("굴림", 5F);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label13.Location = new System.Drawing.Point(10, 58);
+            this.label13.Location = new System.Drawing.Point(10, 73);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(10, 7);
             this.label13.TabIndex = 11;
@@ -341,7 +316,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("굴림", 5F);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label14.Location = new System.Drawing.Point(10, 96);
+            this.label14.Location = new System.Drawing.Point(10, 126);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(10, 7);
             this.label14.TabIndex = 11;
@@ -352,7 +327,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("굴림", 5F);
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(10, 138);
+            this.label15.Location = new System.Drawing.Point(16, 128);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(10, 7);
             this.label15.TabIndex = 11;
@@ -363,7 +338,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("굴림", 5F);
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(14, 138);
+            this.label16.Location = new System.Drawing.Point(10, 128);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(10, 7);
             this.label16.TabIndex = 11;
@@ -374,7 +349,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("굴림", 5F);
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label18.Location = new System.Drawing.Point(14, 58);
+            this.label18.Location = new System.Drawing.Point(14, 74);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(10, 7);
             this.label18.TabIndex = 11;
@@ -407,22 +382,11 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("굴림", 5F);
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(11, 58);
+            this.label21.Location = new System.Drawing.Point(11, 74);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(10, 7);
             this.label21.TabIndex = 11;
             this.label21.Text = "■";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("굴림", 5F);
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(15, 97);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(10, 7);
-            this.label22.TabIndex = 11;
-            this.label22.Text = "■";
             // 
             // label23
             // 
@@ -439,7 +403,7 @@
             this.txtFaci_Detail.Multiline = true;
             this.txtFaci_Detail.Name = "txtFaci_Detail";
             this.txtFaci_Detail.Size = new System.Drawing.Size(648, 89);
-            this.txtFaci_Detail.TabIndex = 11;
+            this.txtFaci_Detail.TabIndex = 9;
             // 
             // label24
             // 
@@ -467,7 +431,7 @@
             this.txtFaci_Others.Multiline = true;
             this.txtFaci_Others.Name = "txtFaci_Others";
             this.txtFaci_Others.Size = new System.Drawing.Size(648, 101);
-            this.txtFaci_Others.TabIndex = 12;
+            this.txtFaci_Others.TabIndex = 10;
             // 
             // label26
             // 
@@ -501,10 +465,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cboOutOrder;
         private System.Windows.Forms.ComboBox cboFaci_BadWareHouse;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtFaci_Name;
         private System.Windows.Forms.Label label9;
@@ -522,7 +483,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFacG_Code;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;

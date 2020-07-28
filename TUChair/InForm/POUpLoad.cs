@@ -28,10 +28,10 @@ namespace TUChair.InForm
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "WORK-ORDER-ID", "WorkOrderNo", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "업체코드", "Com_Code", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "납품처", "Com_Type", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "MKT", "??", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "발주구분", "??", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "GROUP", "??", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "구분", "??", true);
+            //CommonUtil.AddNewColumnToDataGridView(dgvPO, "MKT", "??", true);
+            //CommonUtil.AddNewColumnToDataGridView(dgvPO, "발주구분", "??", true);
+            //CommonUtil.AddNewColumnToDataGridView(dgvPO, "GROUP", "??", true);
+            //CommonUtil.AddNewColumnToDataGridView(dgvPO, "구분", "??", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "SIZE", "??", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "입고P/NO", "??", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "품명", "Item_Name", true);

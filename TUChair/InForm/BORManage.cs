@@ -35,7 +35,7 @@ namespace TUChair.InForm
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "설비명", "Faci_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "Tact Time(Sec)", "BOR_TactTime", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "우선순위", "BOR_Priority", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "공정선행일(Day)", "??", true);
+            //CommonUtil.AddNewColumnToDataGridView(dgvBOR, "공정선행일(Day)", "??", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "수율", "BOR_Yeild", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "사용유무", "BOR_UseOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "비고", "BOR_Other", true);

@@ -32,7 +32,7 @@ namespace TUChair.InForm
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "상위시설", "Fact_Parent", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설설명", "Fact_Information", true);
  
-            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "업체명", "Com_Name", true);
+            //CommonUtil.AddNewColumnToDataGridView(dgvFactory, "업체명", "Com_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "사용유무", "Fact_UseOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "수정자", "Fact_Modifier", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "수정시간", "Fact_ModifyDate", true);
