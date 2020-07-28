@@ -77,11 +77,11 @@
     <Compile Include="CommonForm\SearchCommomForm.Designer.cs">
       <DependentUpon>SearchCommomForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\DemandManage.cs">
+    <Compile Include="HyunningForm\InOutManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InForm\DemandManage.Designer.cs">
-      <DependentUpon>DemandManage.cs</DependentUpon>
+    <Compile Include="HyunningForm\InOutManager.Designer.cs">
+      <DependentUpon>InOutManager.cs</DependentUpon>
     </Compile>
     <Compile Include="HyunningForm\MarketingUnitPriceManger.cs">
       <SubType>Form</SubType>
@@ -95,23 +95,23 @@
     <Compile Include="HyunningForm\MarketingUnitPricePopUp.Designer.cs">
       <DependentUpon>MarketingUnitPricePopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\ProcessShift.cs">
+    <Compile Include="HyunningForm\ProcessShiftManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HyunningForm\ProcessShift.Designer.cs">
-      <DependentUpon>ProcessShift.cs</DependentUpon>
+    <Compile Include="HyunningForm\ProcessShiftManager.Designer.cs">
+      <DependentUpon>ProcessShiftManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\ProcessStock.cs">
+    <Compile Include="HyunningForm\ProcessStockManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HyunningForm\ProcessStock.Designer.cs">
-      <DependentUpon>ProcessStock.cs</DependentUpon>
+    <Compile Include="HyunningForm\ProcessStockManager.Designer.cs">
+      <DependentUpon>ProcessStockManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\ProductShipment.cs">
+    <Compile Include="HyunningForm\ProductShipmentManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HyunningForm\ProductShipment.Designer.cs">
-      <DependentUpon>ProductShipment.cs</DependentUpon>
+    <Compile Include="HyunningForm\ProductShipmentManager.Designer.cs">
+      <DependentUpon>ProductShipmentManager.cs</DependentUpon>
     </Compile>
     <Compile Include="HyunningForm\UnitPriceManager.cs">
       <SubType>Form</SubType>
@@ -124,12 +124,6 @@
     </Compile>
     <Compile Include="HyunningForm\UnitPricePopUp.Designer.cs">
       <DependentUpon>UnitPricePopUp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InDTP.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InDTP.Designer.cs">
-      <DependentUpon>InDTP.cs</DependentUpon>
     </Compile>
     <Compile Include="InForm\BORInfoRegi.cs">
       <SubType>Form</SubType>
@@ -262,8 +256,8 @@
     <EmbeddedResource Include="CommonForm\SearchCommomForm.resx">
       <DependentUpon>SearchCommomForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InForm\DemandManage.resx">
-      <DependentUpon>DemandManage.cs</DependentUpon>
+    <EmbeddedResource Include="HyunningForm\InOutManager.resx">
+      <DependentUpon>InOutManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\MarketingUnitPriceManger.resx">
       <DependentUpon>MarketingUnitPriceManger.cs</DependentUpon>
@@ -271,23 +265,20 @@
     <EmbeddedResource Include="HyunningForm\MarketingUnitPricePopUp.resx">
       <DependentUpon>MarketingUnitPricePopUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HyunningForm\ProcessShift.resx">
-      <DependentUpon>ProcessShift.cs</DependentUpon>
+    <EmbeddedResource Include="HyunningForm\ProcessShiftManager.resx">
+      <DependentUpon>ProcessShiftManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HyunningForm\ProcessStock.resx">
-      <DependentUpon>ProcessStock.cs</DependentUpon>
+    <EmbeddedResource Include="HyunningForm\ProcessStockManager.resx">
+      <DependentUpon>ProcessStockManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HyunningForm\ProductShipment.resx">
-      <DependentUpon>ProductShipment.cs</DependentUpon>
+    <EmbeddedResource Include="HyunningForm\ProductShipmentManager.resx">
+      <DependentUpon>ProductShipmentManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\UnitPriceManager.resx">
       <DependentUpon>UnitPriceManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\UnitPricePopUp.resx">
       <DependentUpon>UnitPricePopUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InDTP.resx">
-      <DependentUpon>InDTP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\BORInfoRegi.resx">
       <DependentUpon>BORInfoRegi.cs</DependentUpon>

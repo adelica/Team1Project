@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace TUChair.HyunningForm
 {
-    public partial class ProcessStock : TUChair.CommonForm.SearchCommomForm
+    public partial class ProductShipmentManager : TUChair.CommonForm.SearchCommomForm
     {
-        public ProcessStock()
+        public ProductShipmentManager()
         {
             InitializeComponent();
         }
