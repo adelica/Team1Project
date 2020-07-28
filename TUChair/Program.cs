@@ -19,7 +19,7 @@ namespace TUChair
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new POManage());
+            Application.Run(new Form1());
         }
     }
 }

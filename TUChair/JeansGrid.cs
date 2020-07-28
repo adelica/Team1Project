@@ -32,6 +32,7 @@ namespace JeanForm
             InitializeComponent();
            JeanGridDrawing();
         }
+
         public void JeanGridDrawing()
         {
 
