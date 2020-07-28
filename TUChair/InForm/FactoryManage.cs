@@ -22,7 +22,7 @@ namespace TUChair.InForm
         {
             CommonUtil.InitSettingGridView(dgvFactory);
 
-            CommonUtil.DgvCheckBox(dgvFactory);
+
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "no", "number", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설군", "Fact_Group", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설구분", "Fact_Class", true);
