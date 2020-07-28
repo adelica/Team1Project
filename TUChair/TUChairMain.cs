@@ -206,5 +206,10 @@ namespace TUChair
         {
             OpenorCreateForm<DemandManage>();
         }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            OpenorCreateForm<MaterialRequirementManage>();
+        }
     }
 }
