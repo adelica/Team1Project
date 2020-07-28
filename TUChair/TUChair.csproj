@@ -155,6 +155,12 @@
     <Compile Include="InForm\CompanyManage.Designer.cs">
       <DependentUpon>CompanyManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="InForm\DemandManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\DemandManage.Designer.cs">
+      <DependentUpon>DemandManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="InForm\FacilityGroupInfoRegi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\CompanyManage.resx">
       <DependentUpon>CompanyManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\DemandManage.resx">
+      <DependentUpon>DemandManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\FacilityGroupInfoRegi.resx">
       <DependentUpon>FacilityGroupInfoRegi.cs</DependentUpon>
