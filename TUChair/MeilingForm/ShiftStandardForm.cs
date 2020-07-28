@@ -32,7 +32,7 @@ namespace TUChair.MeilingForm
             list = service.DBConnectionTEST();
             jeansGridView1.IsAllCheckColumnHeader = true;
 
-            // CommonUtil.InitSettingGridView(jeansGridView1);
+            CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "ShiftID", "Shift_ID", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Fac_Code", true);
@@ -159,7 +159,7 @@ namespace TUChair.MeilingForm
             shiftPop.uporInsert = upInsert;
             shiftPop.ShowDialog();
         }
-        
+        //엑셀 다운로드
         private void btnExcel_Click(object sender, EventArgs e)
         {
 
