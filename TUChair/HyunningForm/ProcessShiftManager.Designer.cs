@@ -1,6 +1,6 @@
 ﻿namespace TUChair.HyunningForm
 {
-    partial class ProcessShift
+    partial class ProcessShiftManager
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
