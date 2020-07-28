@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,16 +21,19 @@ namespace TUChair.MeilingForm
         }
         List<ShiftVO> list;
         List<string> shiftCbolist;
+        List<string> FaciCbolist;
+        Dictionary<String, String> updatedic;
+        string upInsert;
         private void ShiftStandardForm_Load(object sender, EventArgs e)
         {
             // 폼 로드시 전체 데이타 보여주기
-            
+
             MeilingService service = new MeilingService();
             list = service.DBConnectionTEST();
             jeansGridView1.IsAllCheckColumnHeader = true;
 
-           // CommonUtil.InitSettingGridView(jeansGridView1);
-          // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
+            // CommonUtil.InitSettingGridView(jeansGridView1);
+            // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "ShiftID", "Shift_ID", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Fac_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작시간", "Shift_StartTime", true);
@@ -45,24 +49,26 @@ namespace TUChair.MeilingForm
 
 
             //콤보박스에 item넣기
-            // 설비코드
+            // 설비코드 FaciCbolist
+            FaciCbolist = new List<string>();
+            for (int i = 0; i < jeansGridView1.RowCount; i++)
+            {
+                FaciCbolist.Add(jeansGridView1.Rows[i].Cells[2].Value.ToString());
+            };
+            comboBox2.Items.AddRange(FaciCbolist.ToArray());
+            // shiftID
             shiftCbolist = new List<string>();
             for (int i = 0; i < jeansGridView1.RowCount; i++)
             {
-                shiftCbolist.Add(jeansGridView1.Rows[i].Cells[2].Value.ToString());
+                shiftCbolist.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
             };
-            comboBox2.Items.AddRange(shiftCbolist.ToArray());
-            // shiftID
-            List<string> FaciCbolist = new List<string>();
-            for (int i = 0; i < jeansGridView1.RowCount ; i++)
-            {
-                FaciCbolist.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
-            };
-            cboShiftID.Items.AddRange(FaciCbolist.ToArray());
+            cboShiftID.Items.AddRange(shiftCbolist.ToArray());
 
 
 
             //MessageBox.Show("ok");
+
+
 
 
 
@@ -73,17 +79,21 @@ namespace TUChair.MeilingForm
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             //설비콤보박스 값변화시 datagridview binding 할 list
-            List<ShiftVO> list2 = (from item in list where item.Fac_Code == comboBox2.SelectedItem.ToString() select new ShiftVO { Shift_ID=item.Shift_ID,
-                Fac_Code =item.Fac_Code,
-                Shift_StartTime= item.Shift_StartTime,
-                Shift_EndTime= item.Shift_EndTime,
-                Shift_StartDate = item.Shift_StartDate,
-                Shift_EndDate = item.Shift_EndDate,
-                Shift_InputPeople = item.Shift_InputPeople,
-                Shift_UserOrNot = item.Shift_UserOrNot,
-                Shift_Modifier = item.Shift_Modifier,
-                Shift_ModifierDate = item.Shift_ModifierDate
-            }).ToList();
+            List<ShiftVO> list2 = (from item in list
+                                   where item.Fac_Code == comboBox2.SelectedItem.ToString()
+                                   select new ShiftVO
+                                   {
+                                       Shift_ID = item.Shift_ID,
+                                       Fac_Code = item.Fac_Code,
+                                       Shift_StartTime = item.Shift_StartTime,
+                                       Shift_EndTime = item.Shift_EndTime,
+                                       Shift_StartDate = item.Shift_StartDate,
+                                       Shift_EndDate = item.Shift_EndDate,
+                                       Shift_InputPeople = item.Shift_InputPeople,
+                                       Shift_UserOrNot = item.Shift_UserOrNot,
+                                       Shift_Modifier = item.Shift_Modifier,
+                                       Shift_ModifierDate = item.Shift_ModifierDate
+                                   }).ToList();
 
             jeansGridView1.DataSource = list2;
         }
@@ -140,15 +150,99 @@ namespace TUChair.MeilingForm
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
+            upInsert = "Insert";
             ShiftPopUpForm shiftPop = new ShiftPopUpForm();
             shiftPop.Owner = this;
-            shiftPop.sendlist = shiftCbolist;
+
+            shiftPop.sendlist = FaciCbolist;
+            shiftPop.sendshiftlist = shiftCbolist;
+            shiftPop.uporInsert = upInsert;
             shiftPop.ShowDialog();
         }
-
+        
         private void btnExcel_Click(object sender, EventArgs e)
         {
 
         }
+        //수정 버튼 클릭
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (jeansGridView1.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("수정할 항목을 선택하여 주새요");
+            }
+            else
+            {
+                upInsert = "Update";
+                ShiftPopUpForm shiftPop = new ShiftPopUpForm();
+                shiftPop.Owner = this;
+                shiftPop.uptdic = updatedic;
+                shiftPop.uporInsert = upInsert;
+                shiftPop.sendshiftlist = shiftCbolist;
+                shiftPop.sendlist = FaciCbolist;
+                shiftPop.ShowDialog();
+            }
+        }
+
+        private void jeansGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                updatedic = new Dictionary<string, string>()
+                {
+                    { "ShiftID", jeansGridView1.SelectedRows[0].Cells[1].Value.ToString() },
+                    { "설비명", jeansGridView1.SelectedRows[0].Cells[2].Value.ToString() },
+                    { "시작시간", jeansGridView1.SelectedRows[0].Cells[3].Value.ToString() },
+                    { "종료시간", jeansGridView1.SelectedRows[0].Cells[4].Value.ToString() },
+                    { "시작일", jeansGridView1.SelectedRows[0].Cells[5].Value.ToString() },
+                    { "종료일", jeansGridView1.SelectedRows[0].Cells[6].Value.ToString() }
+                };
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+            }
+            if (jeansGridView1.SelectedRows[0].Cells[7].Value.ToString() == null)
+            {
+                updatedic.Add("투입인원", null);
+            }
+            else
+            {
+                updatedic.Add("투입인원", jeansGridView1.SelectedRows[0].Cells[7].Value.ToString());
+            }
+            if (jeansGridView1.SelectedRows[0].Cells[8].Value == null)
+            {
+                updatedic.Add("사용유무", null);
+            }
+            else
+            {
+                updatedic.Add("사용유무", jeansGridView1.SelectedRows[0].Cells[8].Value.ToString());
+            }
+            if (jeansGridView1.SelectedRows[0].Cells[9].Value == null)
+            {
+                updatedic.Add("수정자", null);
+            }
+            else
+            {
+                updatedic.Add("수정자", jeansGridView1.SelectedRows[0].Cells[9].Value.ToString());
+            }
+            if (jeansGridView1.SelectedRows[0].Cells[10].Value == null)
+            {
+                updatedic.Add("수정일", null);
+            }
+            else
+            {
+                updatedic.Add("수정일", jeansGridView1.SelectedRows[0].Cells[10].Value.ToString());
+            }
+            if (jeansGridView1.SelectedRows[0].Cells[11].Value == null)
+            {
+                updatedic.Add("비고", null);
+            }
+            else
+            {
+                updatedic.Add("비고", jeansGridView1.SelectedRows[0].Cells[11].Value.ToString());
+            }
+        }
+
     }
 }

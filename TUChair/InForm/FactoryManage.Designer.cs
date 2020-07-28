@@ -40,14 +40,14 @@
             this.txtFacName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvFactory = new JeanForm.JeansGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgvFactory = new JeanForm.JeansGridView();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFactory)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFactory)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -134,6 +134,25 @@
             this.panel2.Size = new System.Drawing.Size(775, 339);
             this.panel2.TabIndex = 1;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(775, 49);
+            this.panel3.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(4, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "≡ 공장정의";
+            // 
             // dgvFactory
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
@@ -156,10 +175,9 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFactory.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFactory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvFactory.EnableHeadersVisualStyles = false;
+            this.dgvFactory.IsAllCheckColumnHeader = false;
             this.dgvFactory.Location = new System.Drawing.Point(0, 49);
             this.dgvFactory.Name = "dgvFactory";
-            this.dgvFactory.ReadOnly = true;
             this.dgvFactory.RowHeadersWidth = 30;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
             this.dgvFactory.RowsDefaultCellStyle = dataGridViewCellStyle4;
@@ -167,25 +185,6 @@
             this.dgvFactory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFactory.Size = new System.Drawing.Size(775, 290);
             this.dgvFactory.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(775, 49);
-            this.panel3.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(4, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "≡ 공장정의";
             // 
             // FactoryManage
             // 
@@ -195,16 +194,16 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FactoryManage";
-            this.Text = "FactoryManager";
+            this.Text = "공장관리";
             this.Load += new System.EventHandler(this.FactoryManage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFactory)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFactory)).EndInit();
             this.ResumeLayout(false);
 
         }
