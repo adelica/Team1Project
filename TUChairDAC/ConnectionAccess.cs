@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net.Core;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace TUChairDAC
 {
    public class ConnectionAccess
     {
+        public static LoggingUtility _log = new LoggingUtility("TheNutsError", Level.Debug, 30);
+
         protected string ConnectionString
         {
             get
