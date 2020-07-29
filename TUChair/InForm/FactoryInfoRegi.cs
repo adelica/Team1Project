@@ -23,10 +23,10 @@ namespace TUChair
 
         private void ComboBoxBinding() // 각 콤보박스에 선택지 바인딩
         {
-            List<string> cFactGroup = null;
-            List<string> cParent = null;
-            List<string> cClass = null;
-            List<string> cUseOrNot = null;
+            //List<string> cFactGroup = null;
+            //List<string> cParent = null;
+            //List<string> cClass = null;
+            //List<string> cUseOrNot = null;
 
             
 
