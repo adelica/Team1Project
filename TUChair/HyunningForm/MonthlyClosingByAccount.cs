@@ -6,9 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TUChair.HyunningForm
+namespace TUChair
 {
-    public partial class MonthlyClosingByAccount : TUChair.CommonForm.SearchCommomForm
+    public partial class MonthlyClosingByAccount : TUChair.SearchCommomForm
     {
         public MonthlyClosingByAccount()
         {

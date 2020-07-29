@@ -205,6 +205,12 @@
     <Compile Include="JeansGrid.designer.cs">
       <DependentUpon>JeansGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginFrm.Designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MeilingForm\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,9 +236,16 @@
       <DependentUpon>ShiftStandardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\InService.cs" />
+    <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MeilingService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TUChairMain2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TUChairMain2.designer.cs">
+      <DependentUpon>TUChairMain2.cs</DependentUpon>
+    </Compile>
     <Compile Include="TUChairMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\SalesClosing.resx">
       <DependentUpon>SalesClosing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HyunningForm\SalesClosingStatus.resx">
+      <DependentUpon>SalesClosingStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\UnitPriceManager.resx">
       <DependentUpon>UnitPriceManager.cs</DependentUpon>
@@ -337,6 +353,9 @@
     <EmbeddedResource Include="InForm\SORegi.resx">
       <DependentUpon>SORegi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +378,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TUChairMain2.resx">
+      <DependentUpon>TUChairMain2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TUChairMain.resx">
       <DependentUpon>TUChairMain.cs</DependentUpon>
     </EmbeddedResource>
