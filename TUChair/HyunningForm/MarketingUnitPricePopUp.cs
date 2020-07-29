@@ -6,9 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TUChair.HyunningForm
+namespace TUChair
 {
-    public partial class MarketingUnitPricePopUp : TUChair.CommonForm.POPUp2Line
+    public partial class MarketingUnitPricePopUp : TUChair.POPUp2Line
     {
         public MarketingUnitPricePopUp()
         {
