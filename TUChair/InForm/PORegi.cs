@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TUChair.InForm
+namespace TUChair
 {
     public partial class PORegi : Form
     {

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TUChair.InForm
+namespace TUChair
 {
     public partial class BORInfoRegi : TUChair.CommonForm.POPUp2Line
     {

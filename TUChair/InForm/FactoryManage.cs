@@ -11,7 +11,7 @@ using TUChair.Service;
 using TUChair.Util;
 using TUChairVO;
 
-namespace TUChair.InForm
+namespace TUChair
 {
     public partial class FactoryManage : Form
     {
@@ -59,11 +59,11 @@ namespace TUChair.InForm
 
         private void CboBinding() //콤보박스 바인딩용
         {
-            List<string> cboList =null;
-            cboList = (from cbo in list
+            List<string> cList =null;
+            cList = (from cbo in list
                        select cbo.Fact_Group).Distinct().ToList();
             cboFacGroup.Items.Add("전체");
-            foreach(var cbo in cboList)
+            foreach(var cbo in cList)
             {
                 cboFacGroup.Items.Add(cbo);
             }
@@ -72,7 +72,7 @@ namespace TUChair.InForm
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            FactoryInfoRegi frm = new FactoryInfoRegi();
+            FactoryInfoRegi frm = new FactoryInfoRegi(list);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TUChair.Util;
 
-namespace TUChair.InForm
+namespace TUChair
 {
     public partial class POUpLoad : Form
     {

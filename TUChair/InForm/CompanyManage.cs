@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using TUChair.Util;
 
-namespace TUChair.InForm
+namespace TUChair
 {
     public partial class CompanyManage : TUChair.CommonForm.SearchCommomForm
     {

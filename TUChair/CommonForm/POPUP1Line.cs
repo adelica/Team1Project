@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TUChair.CommonForm
+namespace TUChair
 {
     public partial class POPUP1Line : Form
     {

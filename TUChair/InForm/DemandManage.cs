@@ -9,7 +9,7 @@ using TUChair.Util;
 
 namespace TUChair
 {
-    public partial class DemandManage : TUChair.CommonForm.SearchCommomForm
+    public partial class DemandManage : TUChair.SearchCommomForm
     {
         public DemandManage()
         {

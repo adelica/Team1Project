@@ -7,9 +7,9 @@ using System.Text;
 using System.Windows.Forms;
 using TUChair.Util;
 
-namespace TUChair.InForm
+namespace TUChair
 {
-    public partial class BORManage : TUChair.CommonForm.SearchCommomForm
+    public partial class BORManage : TUChair.SearchCommomForm
     {
         public BORManage()
         {

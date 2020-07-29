@@ -7,9 +7,9 @@ using System.Text;
 using System.Windows.Forms;
 using TUChair.Util;
 
-namespace TUChair.InForm
+namespace TUChair
 {
-    public partial class POManage : TUChair.CommonForm.SearchCommomForm
+    public partial class POManage : TUChair.SearchCommomForm
     {
         public POManage()
         {

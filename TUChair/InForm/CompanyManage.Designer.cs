@@ -1,4 +1,4 @@
-﻿namespace TUChair.InForm
+﻿namespace TUChair
 {
     partial class CompanyManage
     {
