@@ -62,6 +62,7 @@
             this.tabForms.SelectedIndex = 0;
             this.tabForms.Size = new System.Drawing.Size(1554, 22);
             this.tabForms.TabIndex = 4;
+            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
             this.tabForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabForms_MouseDown);
             // 
             // toolStrip1

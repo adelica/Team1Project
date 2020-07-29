@@ -280,5 +280,10 @@ namespace TUChair
             frm.Show();
         }
 
+        private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((tabForms.SelectedTab != null) && (tabForms.SelectedTab.Tag != null))
+                (tabForms.SelectedTab.Tag as Form).Select();
+        }
     }
 }
