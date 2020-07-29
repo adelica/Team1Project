@@ -10,6 +10,7 @@ namespace TUChair.Service
 {
     class InService
     {
+       
         public List<FactoryVO> FactoryInfo()
         {
             FactoryDAC dac = new FactoryDAC();

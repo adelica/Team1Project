@@ -466,6 +466,7 @@
             this.ClientSize = new System.Drawing.Size(776, 450);
             this.Name = "UnitPricePopUp";
             this.Text = "자재단가관리";
+            this.Load += new System.EventHandler(this.UnitPricePopUp_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

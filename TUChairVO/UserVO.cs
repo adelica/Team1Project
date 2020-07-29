@@ -29,4 +29,13 @@ namespace TUChairVO
         public string j { get; set; }
         public string k { get; set; }
     }
+    public class CUserVO
+    {
+        public string CUser_ID           { get; set; }
+        public int    AuthorGroup_ID     { get; set; }
+        public string AuthorGroup_Name   { get; set; }
+        public string  CUser_Name        { get; set; }
+        public string  CUser_PWD         { get; set; }
+        public bool CUser_UseOrNot       { get; set; }
+    }   
 }
