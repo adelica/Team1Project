@@ -12,9 +12,9 @@ using TUChair.Service;
 using TUChair.Util;
 using TUChairVO;
 
-namespace TUChair.MeilingForm
+namespace TUChair
 {
-    public partial class ShiftStandardForm : TUChair.CommonForm.SearchCommomForm
+    public partial class ShiftStandardForm : TUChair.SearchCommomForm
     {
         public ShiftStandardForm()
         {

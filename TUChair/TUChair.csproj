@@ -81,69 +81,47 @@
     <Compile Include="CommonForm\SearchCommomForm.Designer.cs">
       <DependentUpon>SearchCommomForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\InOutManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\InOutManager.cs" />
     <Compile Include="HyunningForm\InOutManager.Designer.cs">
       <DependentUpon>InOutManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\MarketingUnitPriceManger.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\MarketingUnitPriceManger.cs" />
     <Compile Include="HyunningForm\MarketingUnitPriceManger.Designer.cs">
       <DependentUpon>MarketingUnitPriceManger.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\MarketingUnitPricePopUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\MarketingUnitPricePopUp.cs" />
     <Compile Include="HyunningForm\MarketingUnitPricePopUp.Designer.cs">
       <DependentUpon>MarketingUnitPricePopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\MonthlyClosingByAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\MonthlyClosingByAccount.cs" />
     <Compile Include="HyunningForm\MonthlyClosingByAccount.Designer.cs">
       <DependentUpon>MonthlyClosingByAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\ProcessShiftManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\ProcessShiftManager.cs" />
     <Compile Include="HyunningForm\ProcessShiftManager.Designer.cs">
       <DependentUpon>ProcessShiftManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\ProcessStockManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\ProcessStockManager.cs" />
     <Compile Include="HyunningForm\ProcessStockManager.Designer.cs">
       <DependentUpon>ProcessStockManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\ProductShipmentManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\ProductShipmentManager.cs" />
     <Compile Include="HyunningForm\ProductShipmentManager.Designer.cs">
       <DependentUpon>ProductShipmentManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\SalesClosingStatus.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\SalesClosingStatus.cs" />
     <Compile Include="HyunningForm\SalesClosingStatus.Designer.cs">
       <DependentUpon>SalesClosingStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\SalesClosing.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\SalesClosing.cs" />
     <Compile Include="HyunningForm\SalesClosing.Designer.cs">
       <DependentUpon>SalesClosing.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\UnitPriceManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\UnitPriceManager.cs" />
     <Compile Include="HyunningForm\UnitPriceManager.Designer.cs">
       <DependentUpon>UnitPriceManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\UnitPricePopUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="HyunningForm\UnitPricePopUp.cs" />
     <Compile Include="HyunningForm\UnitPricePopUp.Designer.cs">
       <DependentUpon>UnitPricePopUp.cs</DependentUpon>
     </Compile>
@@ -153,45 +131,31 @@
     <Compile Include="InDTP.Designer.cs">
       <DependentUpon>InDTP.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\BORInfoRegi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\BORInfoRegi.cs" />
     <Compile Include="InForm\BORInfoRegi.Designer.cs">
       <DependentUpon>BORInfoRegi.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\BORManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\BORManage.cs" />
     <Compile Include="InForm\BORManage.Designer.cs">
       <DependentUpon>BORManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\CompanyInfoRegi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\CompanyInfoRegi.cs" />
     <Compile Include="InForm\CompanyInfoRegi.Designer.cs">
       <DependentUpon>CompanyInfoRegi.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\CompanyManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\CompanyManage.cs" />
     <Compile Include="InForm\CompanyManage.Designer.cs">
       <DependentUpon>CompanyManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\DemandManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\DemandManage.cs" />
     <Compile Include="InForm\DemandManage.Designer.cs">
       <DependentUpon>DemandManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\FacilityGroupInfoRegi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\FacilityGroupInfoRegi.cs" />
     <Compile Include="InForm\FacilityGroupInfoRegi.Designer.cs">
       <DependentUpon>FacilityGroupInfoRegi.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\FacilityInfoRegi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\FacilityInfoRegi.cs" />
     <Compile Include="InForm\FacilityInfoRegi.Designer.cs">
       <DependentUpon>FacilityInfoRegi.cs</DependentUpon>
     </Compile>
@@ -201,9 +165,7 @@
     <Compile Include="InForm\FacilityManage.Designer.cs">
       <DependentUpon>FacilityManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\FactoryInfoRegi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\FactoryInfoRegi.cs" />
     <Compile Include="InForm\FactoryInfoRegi.Designer.cs">
       <DependentUpon>FactoryInfoRegi.cs</DependentUpon>
     </Compile>
@@ -213,15 +175,11 @@
     <Compile Include="InForm\FactoryManage.Designer.cs">
       <DependentUpon>FactoryManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\MaterialRequirementManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\MaterialRequirementManage.cs" />
     <Compile Include="InForm\MaterialRequirementManage.Designer.cs">
       <DependentUpon>MaterialRequirementManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\POManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\POManage.cs" />
     <Compile Include="InForm\POManage.Designer.cs">
       <DependentUpon>POManage.cs</DependentUpon>
     </Compile>
@@ -237,9 +195,7 @@
     <Compile Include="InForm\POUpLoad.Designer.cs">
       <DependentUpon>POUpLoad.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\SORegi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="InForm\SORegi.cs" />
     <Compile Include="InForm\SORegi.Designer.cs">
       <DependentUpon>SORegi.cs</DependentUpon>
     </Compile>
@@ -254,6 +210,12 @@
     </Compile>
     <Compile Include="MeilingForm\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MeilingForm\ShiftManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\ShiftManageForm.Designer.cs">
+      <DependentUpon>ShiftManageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MeilingForm\ShiftPopUpForm.cs">
       <SubType>Form</SubType>
@@ -377,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\ShiftManageForm.resx">
+      <DependentUpon>ShiftManageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\ShiftPopUpForm.resx">
       <DependentUpon>ShiftPopUpForm.cs</DependentUpon>
