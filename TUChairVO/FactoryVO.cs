@@ -13,6 +13,7 @@ namespace TUChairVO
         public string Fact_Class { get; set; }
         public string Fact_Type { get; set; }
         public string Fact_Code { get; set; }
+        public string Fact_BOM { get; set; }
         public string Fact_Name { get; set; }
         public string Fact_Parent { get; set; }
         public string Fact_MatDeducation { get; set; }
