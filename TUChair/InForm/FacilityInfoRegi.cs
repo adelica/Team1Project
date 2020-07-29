@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TUChair
 {
-    public partial class FacilityInfoRegi : TUChair.CommonForm.POPUPForm3Line
+    public partial class FacilityInfoRegi : TUChair.POPUPForm3Line
     {
         public FacilityInfoRegi()
         {

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TUChair
 {
-    public partial class BORInfoRegi : TUChair.CommonForm.POPUp2Line
+    public partial class BORInfoRegi : TUChair.POPUp2Line
     {
         public BORInfoRegi()
         {

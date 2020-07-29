@@ -9,7 +9,7 @@ using TUChairVO;
 
 namespace TUChair
 {
-    public partial class FactoryInfoRegi : TUChair.CommonForm.POPUp2Line
+    public partial class FactoryInfoRegi : TUChair.POPUp2Line
     {
         List<FactoryVO> list;
         public FactoryInfoRegi()

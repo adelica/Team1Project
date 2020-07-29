@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TUChair
 {
-    public partial class MaterialRequirementManage : TUChair.CommonForm.SearchCommomForm
+    public partial class MaterialRequirementManage : TUChair.SearchCommomForm
     {
         public MaterialRequirementManage()
         {
