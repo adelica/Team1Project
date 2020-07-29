@@ -8,7 +8,6 @@ namespace TUChairVO
 {
     public class FactoryVO
     {
-        public int Fact_No { get; set; }
         public string Fact_Group { get; set; }
         public string Fact_Class { get; set; }
         public string Fact_Type { get; set; }

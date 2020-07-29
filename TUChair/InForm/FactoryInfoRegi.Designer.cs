@@ -106,10 +106,12 @@
             // btnInsert
             // 
             this.btnInsert.TabIndex = 9;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnCancle
             // 
             this.btnCancle.TabIndex = 10;
+            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
             // 
             // label1
             // 
@@ -392,6 +394,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "FactoryInfoRegi";
             this.Text = "공장정보";
+            this.Load += new System.EventHandler(this.FactoryInfoRegi_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

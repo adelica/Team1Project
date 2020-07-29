@@ -15,7 +15,7 @@ namespace TUChair
     public partial class LoginFrm : Form
     {
        public CUserVO userinfo { get; set; }
-        
+        public static string userName; //로그인한 사원정보
 
 
         public LoginFrm()
@@ -42,8 +42,17 @@ namespace TUChair
                 {
                     MessageBox.Show($"환영합니다.{userinfo.CUser_Name}님 ");
                     this.DialogResult = DialogResult.OK;
+                    userName = userinfo.CUser_Name; //다른 폼에서 수정자 확인위해
                     this.Close();
                 }
+            }
+        }
+
+        private void Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar==13)
+            {
+                btnLogin.PerformClick();
             }
         }
     }
