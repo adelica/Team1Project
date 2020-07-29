@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TUChairVO
 {
-    class AuthorVO
+   public class AuthorVO
     {
         public string Program_ID { get; set; }
         public string Program_Name { get; set; }

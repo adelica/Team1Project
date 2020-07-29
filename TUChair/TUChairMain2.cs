@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TUChair.InForm;
-
+using TUChairVO;
 
 namespace TUChair
 {
@@ -91,7 +91,7 @@ namespace TUChair
                 }
             }
         }
-        private void ShowMethod(List<author> authors, string programName)
+        private void ShowMethod(List<AuthorVO> authors, string programName)
         { 
             
 
