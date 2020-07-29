@@ -35,7 +35,6 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "사용유무", "Fact_UseOrNot", true,100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "수정자", "Fact_Modifier", true,100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "수정시간", "Fact_ModifyDate", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "no", "Fact_No", false, 60);
         }
         private void dgvFactory_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -70,11 +69,13 @@ namespace TUChair
             cboFacGroup.SelectedIndex = 0; 
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void btnInsert_Click(object sender, EventArgs e) //임시 공장정보등록
         {
             FactoryInfoRegi frm = new FactoryInfoRegi(list);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+            if (frm.Check)
+                DataLoad();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

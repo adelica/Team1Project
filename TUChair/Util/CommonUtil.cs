@@ -65,5 +65,13 @@ namespace TUChair.Util
             combo.DisplayMember = "CodeNm";
             combo.ValueMember = "Code";
         }
+
+        public static void ComboSetting(ComboBox combo) //콤보박스 기본설정
+        {
+
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
+            combo.FlatStyle = FlatStyle.Flat;
+            combo.SelectedIndex = 0;
+        }
     }
 }

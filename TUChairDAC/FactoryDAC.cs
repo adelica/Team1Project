@@ -15,8 +15,10 @@ namespace TUChairDAC
         {
             try
             {
-                SqlConnection strConn = new SqlConnection(this.ConnectionString);
-                string sql = @"WITH A AS
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = @"WITH A AS
                                     (   SELECT f.Fact_Name,f.Fact_Code, 0 AS Lvl , convert(varchar(255), Fact_Code) sortOrder
                                          FROM Factory f
                                     	 WHERE f.Fact_parent = '*'
@@ -28,8 +30,7 @@ namespace TUChairDAC
                                                 ELSE SUBSTRING ('      ',1,A.LVL * 3) + '└ ' END + B.Fact_Name AS Fact_BOM, b.*
                                          
                                       FROM A JOIN Factory B ON A.Fact_Code = B.Fact_Code order by A.SortOrder";
-                using (SqlCommand cmd = new SqlCommand(sql,strConn))
-                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     List<FactoryVO> list = Helper.DataReaderMapToList<FactoryVO>(reader);
@@ -37,10 +38,45 @@ namespace TUChairDAC
                     return list;
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
-               MessageBox.Show(err.Message);
+                _log.WriteError(err.Message);
                 return null;
+            }
+        }
+
+        public bool FactoryInfoRegi(string fGroup, string fParent, string fClass, string fCode, string fName, string fModifier, DateTime fModifyDate, string fUseOrNot, string fInfo)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = @"insert into factory (Fact_Group, Fact_Class, Fact_Code, Fact_Name, Fact_Parent, Fact_Modifier, Fact_ModifyDate, Fact_UseOrNot,  Fact_Information)
+                                                        values(@fGroup, @fClass, @fCode, @fName, @fParent, @fModifier, @fModifyDate, @fUseOrNot, @fInfo)";
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.Parameters.AddWithValue("@fGroup", fGroup);
+                    cmd.Parameters.AddWithValue("@fClass", fClass);
+                    cmd.Parameters.AddWithValue("@fCode", fCode);
+                    cmd.Parameters.AddWithValue("@fName", fName);
+                    cmd.Parameters.AddWithValue("@fParent", fParent);
+                    cmd.Parameters.AddWithValue("@fModifier", fModifier);
+                    cmd.Parameters.AddWithValue("@fModifyDate", fModifyDate);
+                    cmd.Parameters.AddWithValue("@fUseOrNot", fUseOrNot);
+
+                    cmd.Parameters.AddWithValue("@fInfo", fInfo);
+
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                return false;
+                //_log.WriteError(err.Message);               
             }
         }
     }
