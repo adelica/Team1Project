@@ -14,7 +14,16 @@ namespace TUChair
 {
     public partial class TUChairMain2 : Form
     {
-      
+        List<Panel> uclist = new List<Panel>();
+        List<Timer> timers = new List<Timer>();
+        List<bool> slideFlags = new List<bool>();
+        List<int> intevals = new List<int>();
+        List<int> intevalMax = null;
+        List<MainMenu> list = null;
+        List<MainMenu> author = null;
+        Point point = new Point(0, 0);
+        int nTmp;
+
         public TUChairMain2()
         {
             InitializeComponent();
@@ -95,6 +104,35 @@ namespace TUChair
         { 
             
 
+        }
+        private void Slidingmenu(Panel slide, Timer timer, List<int> inteval, List<bool> pflag, int intevalMax, int ntmp, int num = 2)
+        {
+            if (pflag[ntmp])
+            {
+                if (inteval[ntmp] > 0)
+                {
+                    slide.Location = new Point(slide.Location.X, slide.Location.Y + num);
+                    inteval[ntmp] = inteval[ntmp] - num;
+                }
+                else
+                {
+                    pflag[ntmp] = false;
+                    timer.Stop();
+                }
+            }
+            else
+            {
+                if (inteval[ntmp] < intevalMax)
+                {
+                    slide.Location = new Point(slide.Location.X, slide.Location.Y - num);
+                    inteval[ntmp] = inteval[ntmp] + num;
+                }
+                else
+                {
+                    pflag[ntmp] = true;
+                    timer.Stop();
+                }
+            }
         }
     }
 }

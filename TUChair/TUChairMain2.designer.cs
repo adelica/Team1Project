@@ -32,12 +32,13 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tabForms = new TUChair.ucTabControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,15 +57,16 @@
             // 
             this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabForms.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabForms.Location = new System.Drawing.Point(132, 45);
+            this.tabForms.Location = new System.Drawing.Point(130, 45);
             this.tabForms.Name = "tabForms";
             this.tabForms.SelectedIndex = 0;
-            this.tabForms.Size = new System.Drawing.Size(1552, 22);
+            this.tabForms.Size = new System.Drawing.Size(1554, 22);
             this.tabForms.TabIndex = 4;
             this.tabForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabForms_MouseDown);
             // 
             // toolStrip1
             // 
+            this.toolStrip1.AutoSize = false;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -74,9 +76,27 @@
             this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(178, 6);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(156, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(1497, 39);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Location = new System.Drawing.Point(130, 741);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1554, 22);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 45);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(130, 718);
+            this.panel2.TabIndex = 2;
             // 
             // toolStripButton1
             // 
@@ -114,29 +134,22 @@
             this.toolStripButton4.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton4.Text = "toolStripButton4";
             // 
-            // statusStrip1
+            // label1
             // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(132, 741);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1552, 22);
-            this.statusStrip1.TabIndex = 7;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 45);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(132, 718);
-            this.panel2.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(12, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 37);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "TUChair";
             // 
             // TUChairMain2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1684, 763);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabForms);
@@ -169,6 +182,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

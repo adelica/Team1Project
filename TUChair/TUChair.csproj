@@ -274,6 +274,7 @@
       <DependentUpon>ShiftStandardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\InService.cs" />
+    <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MeilingService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
