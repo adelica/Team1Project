@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorVO.cs" />
     <Compile Include="ComboItemVO.cs" />
     <Compile Include="FactoryVO.cs" />
     <Compile Include="FilePathVO.cs" />
