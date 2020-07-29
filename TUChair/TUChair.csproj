@@ -320,6 +320,9 @@
     <EmbeddedResource Include="HyunningForm\SalesClosing.resx">
       <DependentUpon>SalesClosing.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HyunningForm\SalesClosingStatus.resx">
+      <DependentUpon>SalesClosingStatus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\UnitPriceManager.resx">
       <DependentUpon>UnitPriceManager.cs</DependentUpon>
     </EmbeddedResource>
