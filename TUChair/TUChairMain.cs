@@ -42,7 +42,7 @@ namespace TUChair
 
         private void timer4_Tick(object sender, EventArgs e)
         {
-            Slidingmenu(slide4, timer4, ref inteval4, ref pflag4, 157);
+        //    Slidingmenu(slide4, timer4, ref inteval4, ref pflag4, 157);
         }
         private void Slidingmenu(Panel slide, Timer timer, ref int inteval, ref bool pflag, int intevalMax, int num = 2)
         {
@@ -214,6 +214,11 @@ namespace TUChair
         {
             if ((tabForms.SelectedTab != null) && (tabForms.SelectedTab.Tag != null))
                 (tabForms.SelectedTab.Tag as Form).Select();
+        }
+
+        private void slide1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

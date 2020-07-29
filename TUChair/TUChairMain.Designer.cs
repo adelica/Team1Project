@@ -53,7 +53,6 @@
             this.slide2 = new System.Windows.Forms.Panel();
             this.slide3 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
-            this.slide4 = new System.Windows.Forms.Panel();
             this.button14 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -91,7 +90,6 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.slide1.SuspendLayout();
             this.slide2.SuspendLayout();
@@ -234,7 +232,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 45);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
@@ -244,12 +241,11 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.slide1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button13);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(2, 0);
+            this.panel1.Location = new System.Drawing.Point(792, 90);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(128, 585);
@@ -257,7 +253,6 @@
             // 
             // slide1
             // 
-            this.slide1.Controls.Add(this.slide2);
             this.slide1.Controls.Add(this.button27);
             this.slide1.Controls.Add(this.button32);
             this.slide1.Controls.Add(this.button33);
@@ -265,15 +260,15 @@
             this.slide1.Controls.Add(this.button28);
             this.slide1.Controls.Add(this.button31);
             this.slide1.Controls.Add(this.button29);
-            this.slide1.Location = new System.Drawing.Point(0, 21);
+            this.slide1.Location = new System.Drawing.Point(515, 89);
             this.slide1.Margin = new System.Windows.Forms.Padding(2);
             this.slide1.Name = "slide1";
             this.slide1.Size = new System.Drawing.Size(129, 510);
             this.slide1.TabIndex = 6;
+            this.slide1.Paint += new System.Windows.Forms.PaintEventHandler(this.slide1_Paint);
             // 
             // slide2
             // 
-            this.slide2.Controls.Add(this.slide3);
             this.slide2.Controls.Add(this.button21);
             this.slide2.Controls.Add(this.button20);
             this.slide2.Controls.Add(this.button19);
@@ -281,7 +276,7 @@
             this.slide2.Controls.Add(this.button9);
             this.slide2.Controls.Add(this.button8);
             this.slide2.Controls.Add(this.button7);
-            this.slide2.Location = new System.Drawing.Point(0, 20);
+            this.slide2.Location = new System.Drawing.Point(314, 86);
             this.slide2.Margin = new System.Windows.Forms.Padding(2);
             this.slide2.Name = "slide2";
             this.slide2.Size = new System.Drawing.Size(129, 427);
@@ -290,7 +285,6 @@
             // slide3
             // 
             this.slide3.Controls.Add(this.button10);
-            this.slide3.Controls.Add(this.slide4);
             this.slide3.Controls.Add(this.button14);
             this.slide3.Controls.Add(this.button11);
             this.slide3.Controls.Add(this.button6);
@@ -298,7 +292,7 @@
             this.slide3.Controls.Add(this.button5);
             this.slide3.Controls.Add(this.button4);
             this.slide3.Controls.Add(this.button15);
-            this.slide3.Location = new System.Drawing.Point(2, 24);
+            this.slide3.Location = new System.Drawing.Point(155, 88);
             this.slide3.Margin = new System.Windows.Forms.Padding(2);
             this.slide3.Name = "slide3";
             this.slide3.Size = new System.Drawing.Size(130, 316);
@@ -315,14 +309,6 @@
             this.button10.Text = "현황조회";
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click_1);
-            // 
-            // slide4
-            // 
-            this.slide4.Location = new System.Drawing.Point(2, 21);
-            this.slide4.Margin = new System.Windows.Forms.Padding(2);
-            this.slide4.Name = "slide4";
-            this.slide4.Size = new System.Drawing.Size(124, 214);
-            this.slide4.TabIndex = 3;
             // 
             // button14
             // 
@@ -681,6 +667,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1684, 763);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.slide1);
+            this.Controls.Add(this.slide2);
+            this.Controls.Add(this.slide3);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabForms);
@@ -697,7 +687,6 @@
             this.MdiChildActivate += new System.EventHandler(this.TUChairMain_MdiChildActivate);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.slide1.ResumeLayout(false);
             this.slide2.ResumeLayout(false);
@@ -754,7 +743,6 @@
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.Button button32;
         private System.Windows.Forms.Button button33;
-        private System.Windows.Forms.Panel slide4;
         private System.Windows.Forms.ToolStripMenuItem 단가관리ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 자재단가관리ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 영업단가관리ToolStripMenuItem;
