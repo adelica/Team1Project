@@ -8,7 +8,6 @@ namespace TUChairVO
 {
    public  class ShiftVO
     {
-  
 
         public string Shift_ID { get; set; }
         public string Fac_Code { get; set; }
