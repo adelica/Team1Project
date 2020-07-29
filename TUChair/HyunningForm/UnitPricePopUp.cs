@@ -14,5 +14,10 @@ namespace TUChair.HyunningForm
         {
             InitializeComponent();
         }
+
+        private void UnitPricePopUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,11 +36,13 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.login.SuspendLayout();
             this.SuspendLayout();
             // 
             // login
             // 
+            this.login.Controls.Add(this.label3);
             this.login.Controls.Add(this.checkBox1);
             this.login.Controls.Add(this.txtID);
             this.login.Controls.Add(this.label1);
@@ -51,13 +53,13 @@
             this.login.Dock = System.Windows.Forms.DockStyle.Fill;
             this.login.Location = new System.Drawing.Point(0, 0);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(393, 187);
+            this.login.Size = new System.Drawing.Size(393, 236);
             this.login.TabIndex = 1;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(272, 74);
+            this.checkBox1.Location = new System.Drawing.Point(282, 137);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(72, 16);
             this.checkBox1.TabIndex = 11;
@@ -66,7 +68,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(116, 41);
+            this.txtID.Location = new System.Drawing.Point(126, 104);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(153, 21);
             this.txtID.TabIndex = 0;
@@ -74,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 44);
+            this.label1.Location = new System.Drawing.Point(79, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 8;
@@ -83,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 75);
+            this.label2.Location = new System.Drawing.Point(59, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 12);
             this.label2.TabIndex = 10;
@@ -92,7 +94,7 @@
             // btnClose
             // 
             this.btnClose.CausesValidation = false;
-            this.btnClose.Location = new System.Drawing.Point(208, 112);
+            this.btnClose.Location = new System.Drawing.Point(218, 175);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(61, 23);
             this.btnClose.TabIndex = 3;
@@ -101,7 +103,7 @@
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(116, 72);
+            this.txtPwd.Location = new System.Drawing.Point(126, 135);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(153, 21);
@@ -109,20 +111,32 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(116, 112);
+            this.btnLogin.Location = new System.Drawing.Point(126, 175);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(61, 23);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "로그인";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("굴림", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(43, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(205, 48);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "TUChair";
             // 
             // LoginFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 187);
+            this.ClientSize = new System.Drawing.Size(393, 236);
             this.Controls.Add(this.login);
             this.Name = "LoginFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginFrm";
             this.login.ResumeLayout(false);
             this.login.PerformLayout();
@@ -140,5 +154,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Label label3;
     }
 }

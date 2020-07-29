@@ -31,11 +31,11 @@ namespace TUChairVO
     }
     public class CUserVO
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Mobile { get; set; }
-        public string Address { get; set; }
-        public bool IsActive { get; set; }
-    }
+        public string CUser_ID           { get; set; }
+        public int    AuthorGroup_ID     { get; set; }
+        public string AuthorGroup_Name   { get; set; }
+        public string  CUser_Name        { get; set; }
+        public string  CUser_PWD         { get; set; }
+        public bool CUser_UseOrNot       { get; set; }
+    }   
 }
