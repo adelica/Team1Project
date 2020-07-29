@@ -1,4 +1,4 @@
-﻿namespace TUChair.MeilingForm
+﻿namespace TUChair
 {
     partial class ShiftStandardForm
     {
@@ -193,15 +193,16 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.jeansGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jeansGridView1.IsAllCheckColumnHeader = false;
-            this.jeansGridView1.Location = new System.Drawing.Point(26, 18);
+            this.jeansGridView1.Location = new System.Drawing.Point(0, 0);
             this.jeansGridView1.Name = "jeansGridView1";
             this.jeansGridView1.RowHeadersWidth = 30;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
             this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView1.Size = new System.Drawing.Size(1055, 389);
+            this.jeansGridView1.Size = new System.Drawing.Size(1090, 425);
             this.jeansGridView1.TabIndex = 0;
             this.jeansGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.jeansGridView1_CellClick);
             // 

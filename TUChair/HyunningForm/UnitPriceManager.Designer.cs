@@ -1,4 +1,4 @@
-﻿namespace TUChair.HyunningForm
+﻿namespace TUChair
 {
     partial class UnitPriceManager
     {
@@ -43,6 +43,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -68,8 +69,12 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Location = new System.Drawing.Point(13, 61);
             this.panel2.Size = new System.Drawing.Size(1091, 38);
+            this.panel2.Controls.SetChildIndex(this.label1, 0);
+            this.panel2.Controls.SetChildIndex(this.button1, 0);
             // 
             // panel1
             // 
@@ -113,6 +118,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -130,6 +136,7 @@
             // 
             // panel6
             // 
+            this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Controls.Add(this.comboBox1);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Location = new System.Drawing.Point(729, 3);
@@ -158,6 +165,7 @@
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.dateTimePicker1);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Location = new System.Drawing.Point(3, 3);
@@ -187,6 +195,7 @@
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.textBox1);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Location = new System.Drawing.Point(366, 3);
@@ -212,9 +221,19 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "◆ 품목";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1010, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "조회";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // UnitPriceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "UnitPriceManager";
             this.Text = "자재단가관리";
@@ -248,5 +267,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

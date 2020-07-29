@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using TUChair.Util;
 using TUChairVO;
 
-namespace TUChair.MeilingForm
+namespace TUChair
 {
     public partial class Form1 : Form
     {

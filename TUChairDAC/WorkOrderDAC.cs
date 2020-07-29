@@ -17,7 +17,7 @@ namespace TUChairDAC
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select [Shift_ID], [Fac_Code], [Shift_StartTime], [Shift_EndTime], [Shift_StartDate], [Shift_EndDate], [Shift_InputPeople], [Shift_UserOrNot], [Shift_Modifier], [Shift_ModifierDate] from [dbo].[Shift]";
+                string sql = @"select [Shift_ID], [Faci_Code], [Shift_StartTime], [Shift_EndTime], [Shift_StartDate], [Shift_EndDate], [Shift_InputPeople], [Shift_UserOrNot], [Shift_Modifier], [Shift_ModifierDate] from [dbo].[Shift]";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
@@ -42,14 +42,14 @@ namespace TUChairDAC
                 Shift_ModifierDate = DateTime.Now;
 
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"insert into [dbo].[Shift]([Shift_ID], [Fac_Code], [Shift_StartTime], [Shift_EndTime], [Shift_StartDate], [Shift_EndDate], [Shift_InputPeople], [Shift_UserOrNot], [Shift_Modifier], [Shift_ModifierDate], [Shift_Others])
-                 values (@Shift_ID,@Fac_Code,@Shift_StartTime,@Shift_EndTime,
+                string sql = @"insert into [dbo].[Shift]([Shift_ID], [Faci_Code], [Shift_StartTime], [Shift_EndTime], [Shift_StartDate], [Shift_EndDate], [Shift_InputPeople], [Shift_UserOrNot], [Shift_Modifier], [Shift_ModifierDate], [Shift_Others])
+                 values (@Shift_ID,@Faci_Code,@Shift_StartTime,@Shift_EndTime,
                          @Shift_StartDate,@Shift_EndDate,@Shift_InputPeople,@Shift_UserOrNot,@Shift_Modifier,
                          @Shift_ModifierDate,@Shift_Others) ";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@Shift_ID", Shift_ID);
-                    cmd.Parameters.AddWithValue("@Fac_Code", Fac_Code);
+                    cmd.Parameters.AddWithValue("@Faci_Code", Fac_Code);
                     cmd.Parameters.AddWithValue("@Shift_StartTime", Shift_StartTime);
                     cmd.Parameters.AddWithValue("@Shift_EndTime", Shift_EndTime);
                     cmd.Parameters.AddWithValue("@Shift_StartDate", Shift_StartDate);
@@ -79,7 +79,7 @@ namespace TUChairDAC
                 Shift_ModifierDate = DateTime.Now;
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
                 string sql = @"update [dbo].[Shift] set 
-[Fac_Code]=@Fac_Code, [Shift_StartTime]=@Shift_StartTime, [Shift_EndTime]=@Shift_EndTime, 
+[Faci_Code]=@Faci_Code, [Shift_StartTime]=@Shift_StartTime, [Shift_EndTime]=@Shift_EndTime, 
 [Shift_StartDate]=@Shift_StartDate, [Shift_EndDate]=@Shift_EndDate, 
 [Shift_InputPeople]=@Shift_InputPeople, [Shift_UserOrNot]=@Shift_UserOrNot, 
 [Shift_Modifier]=@Shift_Modifier, [Shift_ModifierDate]=@Shift_ModifierDate,
@@ -87,7 +87,7 @@ namespace TUChairDAC
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@Shift_ID", Shift_ID);
-                    cmd.Parameters.AddWithValue("@Fac_Code", Fac_Code);
+                    cmd.Parameters.AddWithValue("@Faci_Code", Fac_Code);
                     cmd.Parameters.AddWithValue("@Shift_StartTime", Shift_StartTime);
                     cmd.Parameters.AddWithValue("@Shift_EndTime", Shift_EndTime);
                     cmd.Parameters.AddWithValue("@Shift_StartDate", Shift_StartDate);

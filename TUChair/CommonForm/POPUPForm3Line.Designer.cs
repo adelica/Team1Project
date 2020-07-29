@@ -1,4 +1,4 @@
-﻿namespace TUChair.CommonForm
+﻿namespace TUChair
 {
     partial class POPUPForm3Line
     {

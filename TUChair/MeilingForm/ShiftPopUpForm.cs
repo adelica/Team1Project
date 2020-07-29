@@ -7,9 +7,9 @@ using System.Text;
 using System.Windows.Forms;
 using TUChair.Service;
 
-namespace TUChair.MeilingForm
+namespace TUChair
 {
-    public partial class ShiftPopUpForm : TUChair.CommonForm.POPUPForm3Line
+    public partial class ShiftPopUpForm : TUChair.POPUPForm3Line
     {
         public List<string> sendlist { get; set; }
         public List<string> sendshiftlist { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace TUChair.HyunningForm
+﻿namespace TUChair
 {
     partial class ProcessShiftManager
     {
