@@ -46,7 +46,7 @@ namespace TUChairDAC
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = strConn;
-                    cmd.CommandText = @"select AuthorGroup_ID, Program_ID, Program_Name, Program_order, Module_ID, Module_Name, Module_order, Method_Search, Method_Save, Method_Insert, Method_Delete, Method_Excel from vm_AuthorbyAuthGroup where AuthorGroup_ID = @authorGroup_ID";
+                    cmd.CommandText = @"select AuthorGroup_ID, Program_ID, Program_Name, Program_order, Module_ID, Module_Name, Module_order, Method_Search, Method_Save, /*Method_Insert,*/ Method_Delete, Method_Excel from vm_AuthorbyAuthGroup where AuthorGroup_ID = @authorGroup_ID";
                     cmd.Parameters.AddWithValue("@authorGroup_ID", authorGroup_ID);
                     cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
