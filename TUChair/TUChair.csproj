@@ -261,6 +261,18 @@
     <Compile Include="MeilingForm\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MeilingForm\OutsourcingPlanningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\OutsourcingPlanningForm.Designer.cs">
+      <DependentUpon>OutsourcingPlanningForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MeilingForm\ProductionPlanningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\ProductionPlanningForm.Designer.cs">
+      <DependentUpon>ProductionPlanningForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MeilingForm\ShiftManageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -402,6 +414,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\OutsourcingPlanningForm.resx">
+      <DependentUpon>OutsourcingPlanningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\ProductionPlanningForm.resx">
+      <DependentUpon>ProductionPlanningForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\ShiftManageForm.resx">
       <DependentUpon>ShiftManageForm.cs</DependentUpon>
