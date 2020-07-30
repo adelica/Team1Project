@@ -17,10 +17,10 @@ namespace TUChair.Service
             return dac.FactoryInfo();
         }
 
-        public bool FactoryInfoRegi(string fGroup, string fParent, string fClass, string fCode, string fName, string fModifier, DateTime fModifyDate, string fUseOrNot, string fInfo) //공장정보등록
+        public bool FactoryInfoRegi(string fGroup, string fParent, string fClass, string fCode, string fName, string fModifier, DateTime fModifyDate, string fUseOrNot, string fInfo, string fType) //공장정보등록
         {
             FactoryDAC dac = new FactoryDAC();
-            return dac.FactoryInfoRegi(fGroup, fParent, fClass, fCode, fName, fModifier, fModifyDate, fUseOrNot, fInfo);
+            return dac.FactoryInfoRegi(fGroup, fParent, fClass, fCode, fName, fModifier, fModifyDate, fUseOrNot, fInfo, fType);
         }
     }
 }

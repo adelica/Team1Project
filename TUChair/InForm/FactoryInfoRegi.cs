@@ -32,13 +32,13 @@ namespace TUChair
         private void ComboBoxBinding() // 각 콤보박스에 선택지 바인딩
         {
 
-            string[] cFactGroup = { "회사", "공장", "창고" }; //설비군
-            string[] cClass = { "공장", "자재팀창고", "생산팀창고", "영업팀창고", "외주창고", "품질팀창고", "고객사창고" }; //시설구분
+            string[] cFactGroup = { "공장", "창고" }; //설비군
+            string[] cClass = {"공장", "자재팀창고",  "생산팀창고",  "영업팀창고", "외주창고",  "품질팀창고",  "고객사창고" }; //시설구분
             string[] cUseOrNot = { "사용", "미사용" }; //사용유무
             List<string> cParent=null;  //상위시설
             cParent = (from cp in list
                        where cp.Fact_Group != "창고"
-                       select cp.Fact_Group).ToList();
+                       select cp.Fact_Code).ToList();
 
             cboFact_Group.Items.AddRange(cFactGroup);
             cboClass.Items.AddRange(cClass);
@@ -79,11 +79,44 @@ namespace TUChair
             DateTime fModifyDate = DateTime.Now;
             string fUseOrNot = cboUseOrNot.SelectedItem.ToString();
             string fInfo = txtInformation.Text;
+            string fType;
+            switch (fClass)
+            {
+                case "공장":
+                    fType = "FAC100";
+                    break;
+                case "자재팀창고":
+                    fType = "FAC200";
+                    break;
+                case "생산팀창고":
+                    fType = "FAC300";
+                    break;
+                case "영업팀창고":
+                    fType = "FAC400";
+                    break;
+                case "외주창고":
+                    fType = "FAC500";
+                    break;
+                case "품질팀창고":
+                    fType = "FAC600";
+                    break;
+                case "고객사창고":
+                    fType = "FAC700";
+                    break;
+                default:
+                    fType = null;
+                    break;
+            }
 
 
             InService service = new InService();
-            check = service.FactoryInfoRegi(fGroup, fParent, fClass, fCode, fName, fModifier, fModifyDate, fUseOrNot, fInfo);
-           }
+            check = service.FactoryInfoRegi(fGroup, fParent, fClass, fCode, fName, fModifier, fModifyDate, fUseOrNot, fInfo, fType);
+            if (check)
+            {
+                MessageBox.Show("등록되었습니다.", "등록완료");
+                this.Close();
+            }
+            }
 
         private void btnCancle_Click(object sender, EventArgs e)
         {

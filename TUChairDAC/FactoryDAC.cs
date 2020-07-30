@@ -45,14 +45,14 @@ namespace TUChairDAC
             }
         }
 
-        public bool FactoryInfoRegi(string fGroup, string fParent, string fClass, string fCode, string fName, string fModifier, DateTime fModifyDate, string fUseOrNot, string fInfo)
+        public bool FactoryInfoRegi(string fGroup, string fParent, string fClass, string fCode, string fName, string fModifier, DateTime fModifyDate, string fUseOrNot, string fInfo, string fType)
         {
             try
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = @"insert into factory (Fact_Group, Fact_Class, Fact_Code, Fact_Name, Fact_Parent, Fact_Modifier, Fact_ModifyDate, Fact_UseOrNot,  Fact_Information)
-                                                        values(@fGroup, @fClass, @fCode, @fName, @fParent, @fModifier, @fModifyDate, @fUseOrNot, @fInfo)";
+                    cmd.CommandText = @"insert into factory (Fact_Group, Fact_Class, Fact_Code, Fact_Name, Fact_Parent, Fact_Modifier, Fact_ModifyDate, Fact_UseOrNot,  Fact_Information,Fact_Type)
+                                                        values(@fGroup, @fClass, @fCode, @fName, @fParent, @fModifier, @fModifyDate, @fUseOrNot, @fInfo, @fType)";
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Parameters.AddWithValue("@fGroup", fGroup);
                     cmd.Parameters.AddWithValue("@fClass", fClass);
@@ -64,6 +64,7 @@ namespace TUChairDAC
                     cmd.Parameters.AddWithValue("@fUseOrNot", fUseOrNot);
 
                     cmd.Parameters.AddWithValue("@fInfo", fInfo);
+                    cmd.Parameters.AddWithValue("@fType", fType);
 
                     cmd.Connection.Open();
                     cmd.ExecuteNonQuery();
