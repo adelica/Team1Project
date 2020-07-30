@@ -20,6 +20,7 @@ namespace TUChair
         {
 
 
+            jeansGridView1.IsAllCheckColumnHeader = true;
 
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);

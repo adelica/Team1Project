@@ -140,22 +140,30 @@ namespace TUChair
         }
         private void OpenOrCreateForm(string progName)
         {
-            string AppName = Assembly.GetEntryAssembly().GetName().Name;
-            Type frmType = Type.GetType($"{AppName}.{progName}");
-
-            foreach (Form form in Application.OpenForms)
+            try
             {
-                if (form.GetType() == frmType)
+                string AppName = Assembly.GetEntryAssembly().GetName().Name;
+
+                Type frmType = Type.GetType($"{AppName}.{progName}");
+
+                foreach (Form form in Application.OpenForms)
                 {
-                    form.Activate();
-                    return;
+                    if (form.GetType() == frmType)
+                    {
+                        form.Activate();
+                        return;
+                    }
                 }
+                Form frm = (Form)Activator.CreateInstance(frmType);
+                //T frm = new T();
+                frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Show();
             }
-            Form frm = (Form)Activator.CreateInstance(frmType);
-            //T frm = new T();
-            frm.MdiParent = this;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Show();
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -284,6 +292,16 @@ namespace TUChair
         {
             if ((tabForms.SelectedTab != null) && (tabForms.SelectedTab.Tag != null))
                 (tabForms.SelectedTab.Tag as Form).Select();
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
