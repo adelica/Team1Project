@@ -11,7 +11,7 @@ namespace TUChairDAC
 {
     public class UnitPriceDAC : ConnectionAccess
     {
-        public List<UnitPriceVO> UPBinding()
+        public List<UnitPriceVO> UPBinding() // 자재단가 관리 (전체)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace TUChairDAC
                 return null;
             }
         }
-        public List<UnitPriceVO> ProductUPBinding()
+        public List<UnitPriceVO> ProductUPBinding() // 영업단가 관리 (완제품)
         {
             try
             {
@@ -47,8 +47,6 @@ namespace TUChairDAC
                     cmd.Connection.Close();
                     return list;
                 }
-
-
             }
             catch (Exception err)
             {
