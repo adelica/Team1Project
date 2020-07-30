@@ -69,8 +69,13 @@
             this.label1.Size = new System.Drawing.Size(113, 23);
             this.label1.Text = "≡ 업체코드정의";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel7);
@@ -276,6 +281,7 @@
             // CompanyManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "CompanyManage";
             this.Text = "업체관리";

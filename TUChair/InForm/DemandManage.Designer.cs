@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.dtpDate = new TUChair.InDTP();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -49,7 +50,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnProductionPlan = new System.Windows.Forms.Button();
             this.dgvDemand = new JeanForm.JeansGridView();
-            this.dtpDate = new TUChair.InDTP();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -71,12 +71,14 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.btnProductionPlan);
             this.panel2.Controls.SetChildIndex(this.label1, 0);
             this.panel2.Controls.SetChildIndex(this.btnProductionPlan, 0);
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel4);
@@ -169,6 +171,16 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(345, 35);
             this.panel6.TabIndex = 3;
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.End = new System.DateTime(2020, 7, 30, 17, 4, 33, 353);
+            this.dtpDate.Location = new System.Drawing.Point(81, 1);
+            this.dtpDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(245, 26);
+            this.dtpDate.Start = new System.DateTime(2020, 7, 30, 17, 4, 33, 353);
+            this.dtpDate.TabIndex = 12;
             // 
             // label4
             // 
@@ -272,19 +284,10 @@
             this.dgvDemand.Size = new System.Drawing.Size(1090, 425);
             this.dgvDemand.TabIndex = 0;
             // 
-            // dtpDate
-            // 
-            this.dtpDate.End = new System.DateTime(2020, 7, 28, 9, 21, 20, 725);
-            this.dtpDate.Location = new System.Drawing.Point(81, 1);
-            this.dtpDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(245, 26);
-            this.dtpDate.Start = new System.DateTime(2020, 7, 28, 9, 21, 20, 725);
-            this.dtpDate.TabIndex = 12;
-            // 
             // DemandManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "DemandManage";
             this.Text = "수요계획";
