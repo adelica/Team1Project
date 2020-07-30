@@ -15,6 +15,12 @@ namespace TUChair.Service
             UnitPriceDAC dac = new UnitPriceDAC();
             return dac.UPBinding();
         }
+        public List<UnitPriceVO> ProductUPBinding()
+        {
+            UnitPriceDAC dac = new UnitPriceDAC();
+            return dac.ProductUPBinding();
+        }
+        
 
     }
 }

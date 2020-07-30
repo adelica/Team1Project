@@ -16,7 +16,29 @@ namespace TUChairDAC
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select [PriceNO], [Com_No], [Com_Code], [Com_Name], [Item_Code], [Item_Name], [Item_Size], [Item_Unit], [Price_Present], [Price_transfer], [Price_StartDate],[Price_EndDate],[Price_UserOrNot]  from [dbo].[Shift]";
+                string sql = @"select [PriceNO], [Com_No], [Com_Code], [Com_Name], [Item_Code], [Item_ Name], [Item_Size], [Item_Unit], [Price_Present], [Price_transfer], [Price_StartDate],[Price_EndDate],[Price_UserOrNot]  from [dbo].[UnitPrice]";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<UnitPriceVO> list = Helper.MeilingDataReaderMapToList<UnitPriceVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }               
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
+        public List<UnitPriceVO> ProductUPBinding()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                string sql = @"select [PriceNO], [Com_No], [Com_Code], [Com_Name], [Item_Code], [Item_ Name], [Item_Size], [Item_Unit], [Price_Present], [Price_transfer], [Price_StartDate],[Price_EndDate],[Price_UserOrNot]  from [dbo].[UnitPrice] where [Item_Code] = 'CHAIR_01'";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
@@ -25,7 +47,7 @@ namespace TUChairDAC
                     cmd.Connection.Close();
                     return list;
                 }
-                
+
 
             }
             catch (Exception err)
