@@ -15,6 +15,12 @@ namespace TUChair
 {
     public partial class TUChairMain2 : Form
     {
+        public event EventHandler New;
+        public event EventHandler Search;
+        public event EventHandler Save;
+        public event EventHandler Delete;
+        public event EventHandler Excel; 
+
         List<Panel> uclist = new List<Panel>();
         List<Timer> timers = new List<Timer>();
         List<bool> slideFlags = new List<bool>();
@@ -39,8 +45,9 @@ namespace TUChair
                 this.Show();
             }
             else
-            {
+           {
                 this.Close();
+                return;
             }
             LoginService service = new LoginService();
             author = service.GetAuthorInfo(userInfoVO.AuthorGroup_ID);
@@ -261,6 +268,9 @@ namespace TUChair
             slideFlags.Clear();
             intevals.Clear();
             intevalMax.Clear();
+            author.Clear();
+            menulist.Clear();
+
         }
         private void ReBindingMenu(object sender, EventArgs e)
         {
@@ -296,12 +306,115 @@ namespace TUChair
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
+            if (userInfoVO != null)
+            {
 
+                foreach (Form form in this.MdiChildren)
+                {
+                    form.Close();
+                }
+                ClearMenu();
+                userInfoVO = null;
+            }
+            else
+            {
+                LoginFrm frm = new LoginFrm();
+                
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    userInfoVO = frm.userinfo;
+                    this.Show();
+                }
+                else
+                {
+                    this.Close();
+                }
+                LoginService service = new LoginService();
+                author = service.GetAuthorInfo(userInfoVO.AuthorGroup_ID);
+                var item = (from A in author
+                            group A by A.Module_ID
+                            ).ToList();
+                foreach (var list in item)
+                {
+                    menulist.Add(Convert.ToInt32(list.Key));
+                }
+
+                BindingMenu();
+                requlUc();
+            }
+        }
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            if (New != null)
+            {
+                New(this, null);
+            }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (Search != null)
+            {
+                Search(this, null);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (Save != null)
+            {
+                Save(this, null);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (Delete != null)
+            {
+                Delete(this, null);
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            if (Excel != null)
+            {
+                Excel(this, null);
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+         
+            OpenorCreateForm<TestFrm1>();
+            //string AppName = Assembly.GetEntryAssembly().GetName().Name;
+
+            //Type frmType = Type.GetType($"{AppName}.{progName}");
+
+       
+
+
+            //MethodInfo.
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            OpenorCreateForm<TestFrm2>();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+           // var type = this.GetType();
+           //type.GetMethod("Save") != null;
+           
+
+            var flag = (typeof(TUChair.TestFrm1).GetMethod("Save", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+            if(flag)
+            MessageBox.Show("있다");
+            else
+            MessageBox.Show("없다");
 
         }
     }
 }
+
