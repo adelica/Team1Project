@@ -1,43 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TUChairVO;
 
 namespace TUChairDAC
 {
-    class UnitPriceDAC : ConnectionAccess
+    public class UnitPriceDAC : ConnectionAccess
     {
-        public List<FactoryVO> FactoryInfo()
+        public List<UnitPriceVO> UPBinding()
         {
             try
             {
-
-                using (SqlCommand cmd = new SqlCommand())
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                string sql = @"select [PriceNO], [Com_No], [Com_Code], [Com_Name], [Item_Code], [Item_Name], [Item_Size], [Item_Unit], [Price_Present], [Price_transfer], [Price_StartDate],[Price_EndDate],[Price_UserOrNot]  from [dbo].[Shift]";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.CommandText = @"WITH A AS
-                                    (   SELECT f.Fact_Name,f.Fact_Code, 0 AS Lvl , convert(varchar(255), Fact_Code) sortOrder
-                                         FROM Factory f
-                                    	 WHERE f.Fact_parent = '*'
-                                         UNION ALL 
-                                         SELECT F1.Fact_Name, F1.Fact_Code,  A.Lvl+1 as Lvl , convert(varchar(255), convert(nvarchar,A.sortOrder) + ' > ' + convert(varchar(255), F1.Fact_Code)) sortOrder
-                                          FROM A JOIN Factory F1 ON F1.Fact_Parent = A.Fact_Code
-                                    )
-                                    SELECT CASE WHEN A.Lvl = 0 THEN '▶'
-                                                ELSE SUBSTRING ('      ',1,A.LVL * 3) + '└ ' END + B.Fact_Name AS Fact_BOM, b.*
-                                         
-                                      FROM A JOIN Factory B ON A.Fact_Code = B.Fact_Code order by A.SortOrder";
-                    cmd.Connection = new SqlConnection(this.ConnectionString);
-                    cmd.Connection.Open();
+                    conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
-                    List<FactoryVO> list = Helper.DataReaderMapToList<FactoryVO>(reader);
+                    List<UnitPriceVO> list = Helper.MeilingDataReaderMapToList<UnitPriceVO>(reader);
                     cmd.Connection.Close();
                     return list;
                 }
+                
+
             }
             catch (Exception err)
             {
-                _log.WriteError(err.Message);
+                Debug.WriteLine(err.Message);
+
                 return null;
             }
         }
