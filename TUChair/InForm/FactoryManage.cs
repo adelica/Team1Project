@@ -25,11 +25,11 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "No.", "no.", true, 50, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설군", "Fact_Group", true,70,DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설구분", "Fact_Class", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설타입", "Fact_Type", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설코드", "Fact_Code", true,200);
+            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설타입", "Fact_Type", true,150);
+            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설코드", "Fact_Code", true,230);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설명", "Fact_Name", true,150);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설명", "Fact_BOM", true,150);
-            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "상위시설", "Fact_Parent", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "상위시설", "Fact_Parent", true,150);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설설명", "Fact_Information", true,200);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "자재차감", "Fact_MatDeducation", true,100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "사용유무", "Fact_UseOrNot", true,100, DataGridViewContentAlignment.MiddleCenter);

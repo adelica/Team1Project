@@ -36,7 +36,7 @@ namespace TUChair
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "ShiftID", "Shift_ID", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Fac_Code", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Faci_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작시간", "Shift_StartTime", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료시간", "Shift_EndTime", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Shift_StartDate", true);
@@ -54,14 +54,14 @@ namespace TUChair
             FaciCbolist = new List<string>();
             for (int i = 0; i < jeansGridView1.RowCount; i++)
             {
-                FaciCbolist.Add(jeansGridView1.Rows[i].Cells[2].Value.ToString());
+                FaciCbolist.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
             };
             comboBox2.Items.AddRange(FaciCbolist.ToArray());
             // shiftID
             shiftCbolist = new List<string>();
             for (int i = 0; i < jeansGridView1.RowCount; i++)
             {
-                shiftCbolist.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
+                shiftCbolist.Add(jeansGridView1.Rows[i].Cells[4].Value.ToString());
             };
             cboShiftID.Items.AddRange(shiftCbolist.ToArray());
 
@@ -81,11 +81,11 @@ namespace TUChair
         {
             //설비콤보박스 값변화시 datagridview binding 할 list
             List<ShiftVO> list2 = (from item in list
-                                   where item.Fac_Code == comboBox2.SelectedItem.ToString()
+                                   where item.Faci_Code == comboBox2.SelectedItem.ToString()
                                    select new ShiftVO
                                    {
                                        Shift_ID = item.Shift_ID,
-                                       Fac_Code = item.Fac_Code,
+                                       Faci_Code = item.Faci_Code,
                                        Shift_StartTime = item.Shift_StartTime,
                                        Shift_EndTime = item.Shift_EndTime,
                                        Shift_StartDate = item.Shift_StartDate,
@@ -105,12 +105,12 @@ namespace TUChair
             if (cboShiftID.SelectedItem != null || comboBox2.SelectedItem != null)
             {
                 List<ShiftVO> list2 = (from item in list
-                                       where item.Fac_Code == comboBox2.SelectedItem.ToString() &&
+                                       where item.Faci_Code == comboBox2.SelectedItem.ToString() &&
                     item.Shift_ID.ToString() == cboShiftID.SelectedItem.ToString()
                                        select new ShiftVO
                                        {
                                            Shift_ID = item.Shift_ID,
-                                           Fac_Code = item.Fac_Code,
+                                           Faci_Code = item.Faci_Code,
                                            Shift_StartTime = item.Shift_StartTime,
                                            Shift_EndTime = item.Shift_EndTime,
                                            Shift_StartDate = item.Shift_StartDate,
@@ -135,7 +135,7 @@ namespace TUChair
                                    select new ShiftVO
                                    {
                                        Shift_ID = item.Shift_ID,
-                                       Fac_Code = item.Fac_Code,
+                                       Faci_Code = item.Faci_Code,
                                        Shift_StartTime = item.Shift_StartTime,
                                        Shift_EndTime = item.Shift_EndTime,
                                        Shift_StartDate = item.Shift_StartDate,
