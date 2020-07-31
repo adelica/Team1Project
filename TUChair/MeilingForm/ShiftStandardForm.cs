@@ -52,6 +52,7 @@ namespace TUChair
             //콤보박스에 item넣기
             // 설비코드 FaciCbolist
             FaciCbolist = new List<string>();
+
             for (int i = 0; i < jeansGridView1.RowCount; i++)
             {
                 FaciCbolist.Add(jeansGridView1.Rows[i].Cells[2].Value.ToString());
