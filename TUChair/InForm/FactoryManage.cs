@@ -45,14 +45,14 @@ namespace TUChair
 
         private void FactoryManage_Load(object sender, EventArgs e)
         {
-            DataLoad();
+            LoadData();
             CboBinding();
         }
         
-        private void DataLoad() //전체데이터 바인딩
+        private void LoadData() //전체데이터 바인딩
         {
             InService service = new InService();
-            list = service.FactoryInfo();
+            list = service.GetFactoryData();
             dgvFactory.DataSource = list;
         }
 
@@ -75,29 +75,42 @@ namespace TUChair
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             if (frm.Check)
-                DataLoad();
+                LoadData();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             List<FactoryVO> groupList = null;
             if (cboFacGroup.SelectedItem.ToString() == "전체" && txtFacName.Text.Trim().Length < 1)
-                dgvFactory.DataSource = list;
+            {
+                groupList = (from gList in list
+                             select gList).ToList();
+                dgvFactory.DataSource = groupList;
+            }
 
             else if (cboFacGroup.SelectedItem.ToString() == "전체" && txtFacName.Text.Trim().Length > 0)
             {
                 groupList = (from gList in list
-                             where gList.Fact_Name.Contains(txtFacName.Text) || gList.Fact_Code.Contains(txtFacName.Text)
+                             where gList.Fact_Name.ToUpper().Contains(txtFacName.Text.ToUpper()) || gList.Fact_Code.Contains(txtFacName.Text.ToUpper())
                              select gList).ToList();
                 dgvFactory.DataSource = groupList;
             }
             else
             {
                 groupList = (from gList in list
-                             where (gList.Fact_Group == cboFacGroup.SelectedItem.ToString()) && ((gList.Fact_Name.Contains(txtFacName.Text)) || (gList.Fact_Code.Contains(txtFacName.Text)))
+                             where (gList.Fact_Group == cboFacGroup.SelectedItem.ToString()) && (((gList.Fact_Name.ToUpper().Contains(txtFacName.Text.ToUpper()))) || (gList.Fact_Code.ToUpper().Contains(txtFacName.Text.ToUpper())))
                              select gList).ToList();
                 dgvFactory.DataSource = groupList;
             }
+
+            if(groupList.Count<1)
+            { MessageBox.Show("검색한 데이터가 존재하지않습니다.","검색실패"); }
+        }
+
+        private void txtFacName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnSearch.PerformClick();
         }
     }
 }

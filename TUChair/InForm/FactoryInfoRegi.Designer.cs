@@ -105,13 +105,14 @@
             // 
             // btnInsert
             // 
+            this.btnInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnInsert.TabIndex = 9;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // btnCancle
+            // btnCancel
             // 
-            //this.btnCancle.TabIndex = 10;
-            //this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancel.TabIndex = 10;
             // 
             // label1
             // 

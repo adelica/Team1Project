@@ -11,7 +11,7 @@ namespace TUChairDAC
 {
     public class FactoryDAC : ConnectionAccess
     {
-        public List<FactoryVO> FactoryInfo()
+        public List<FactoryVO> GetFactoryData()
         {
             try
             {
