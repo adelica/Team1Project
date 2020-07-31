@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TUChair.MeilingForm
+namespace TUChair
 {
     public partial class RegistFormPopUp : TUChair.POPUPForm3Line
     {
