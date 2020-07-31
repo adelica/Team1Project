@@ -71,13 +71,17 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.jeansGridView1);
-            this.panel3.Location = new System.Drawing.Point(13, 163);
-            this.panel3.Size = new System.Drawing.Size(1092, 223);
+            this.panel3.Location = new System.Drawing.Point(12, 478);
+            this.panel3.Size = new System.Drawing.Size(1092, 112);
             // 
             // label1
             // 
             this.label1.Size = new System.Drawing.Size(83, 23);
-            this.label1.Text = "≡ 재고현황";
+            this.label1.Text = "≡ 공정이동";
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(12, 430);
             // 
             // panel1
             // 
@@ -86,15 +90,14 @@
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Location = new System.Drawing.Point(11, 392);
+            this.panel4.Location = new System.Drawing.Point(12, 108);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1091, 38);
+            this.panel4.Size = new System.Drawing.Size(1092, 38);
             this.panel4.TabIndex = 4;
             // 
             // label2
@@ -107,15 +110,17 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 23);
             this.label2.TabIndex = 0;
-            this.label2.Text = "≡ 공정이동";
+            this.label2.Text = "≡ 재고현황";
             // 
             // panel5
             // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.jeansGridView2);
-            this.panel5.Location = new System.Drawing.Point(11, 436);
+            this.panel5.Location = new System.Drawing.Point(12, 154);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1092, 154);
+            this.panel5.Size = new System.Drawing.Size(1092, 267);
             this.panel5.TabIndex = 5;
             // 
             // jeansGridView2
@@ -144,13 +149,12 @@
             this.jeansGridView2.IsAllCheckColumnHeader = false;
             this.jeansGridView2.Location = new System.Drawing.Point(0, 0);
             this.jeansGridView2.Name = "jeansGridView2";
-            this.jeansGridView2.ReadOnly = true;
             this.jeansGridView2.RowHeadersWidth = 30;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.Bisque;
             this.jeansGridView2.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.jeansGridView2.RowTemplate.Height = 23;
             this.jeansGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView2.Size = new System.Drawing.Size(1090, 152);
+            this.jeansGridView2.Size = new System.Drawing.Size(1090, 265);
             this.jeansGridView2.TabIndex = 0;
             // 
             // jeansGridView1
@@ -179,13 +183,12 @@
             this.jeansGridView1.IsAllCheckColumnHeader = false;
             this.jeansGridView1.Location = new System.Drawing.Point(0, 0);
             this.jeansGridView1.Name = "jeansGridView1";
-            this.jeansGridView1.ReadOnly = true;
             this.jeansGridView1.RowHeadersWidth = 30;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
             this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView1.Size = new System.Drawing.Size(1090, 221);
+            this.jeansGridView1.Size = new System.Drawing.Size(1090, 110);
             this.jeansGridView1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -330,11 +333,11 @@
             this.Controls.Add(this.panel4);
             this.Name = "ProcessShiftManager";
             this.Text = "공정이동";
+            this.Controls.SetChildIndex(this.panel4, 0);
+            this.Controls.SetChildIndex(this.panel5, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.panel4, 0);
-            this.Controls.SetChildIndex(this.panel5, 0);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
