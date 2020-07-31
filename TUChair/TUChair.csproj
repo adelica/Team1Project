@@ -57,6 +57,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WooForm\balzuDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\balzuDetail.Designer.cs">
+      <DependentUpon>balzuDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WooForm\BalzuManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\BalzuManager.Designer.cs">
+      <DependentUpon>BalzuManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WooForm\BalzuPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\BalzuPopUp.Designer.cs">
+      <DependentUpon>BalzuPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WooForm\BOMManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\BOMManage.Designer.cs">
+      <DependentUpon>BOMManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonForm\POPUP1Line.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +267,30 @@
     <Compile Include="InForm\SORegi.Designer.cs">
       <DependentUpon>SORegi.cs</DependentUpon>
     </Compile>
+    <Compile Include="WooForm\IpGoWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\IpGoWaiting.Designer.cs">
+      <DependentUpon>IpGoWaiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WooForm\ItemIpGo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\ItemIpGo.Designer.cs">
+      <DependentUpon>ItemIpGo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WooForm\ItemIpGoDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\ItemIpGoDetail.Designer.cs">
+      <DependentUpon>ItemIpGoDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WooForm\ItemManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\ItemManage.Designer.cs">
+      <DependentUpon>ItemManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="JeansGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -365,6 +413,18 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="WooForm\balzuDetail.resx">
+      <DependentUpon>balzuDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WooForm\BalzuManager.resx">
+      <DependentUpon>BalzuManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WooForm\BalzuPopUp.resx">
+      <DependentUpon>BalzuPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WooForm\BOMManage.resx">
+      <DependentUpon>BOMManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\POPUP1Line.resx">
       <DependentUpon>POPUP1Line.cs</DependentUpon>
     </EmbeddedResource>
@@ -457,6 +517,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InForm\SORegi.resx">
       <DependentUpon>SORegi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WooForm\IpGoWaiting.resx">
+      <DependentUpon>IpGoWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WooForm\ItemIpGo.resx">
+      <DependentUpon>ItemIpGo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WooForm\ItemIpGoDetail.resx">
+      <DependentUpon>ItemIpGoDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WooForm\ItemManage.resx">
+      <DependentUpon>ItemManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>

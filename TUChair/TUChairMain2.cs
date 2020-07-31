@@ -30,6 +30,7 @@ namespace TUChair
         List<AuthorVO> author = null;
         Point point = new Point(0, 0);
         CUserVO userInfoVO = null;
+        Button pribtn = null;
 
         public TUChairMain2()
         {
@@ -134,7 +135,19 @@ namespace TUChair
             Button btn = (Button)sender;
             //string strTmpNum = Regex.Replace(btn.Text, @"\D", "");
             timers[Convert.ToInt32(btn.Tag)].Tag = Convert.ToInt32(btn.Tag);
-            timers[Convert.ToInt32(btn.Tag)].Start();
+            if (pribtn == null)
+            {
+                timers[Convert.ToInt32(btn.Tag)].Start();
+            }
+            else
+            {
+                timers[Convert.ToInt32(btn.Tag)].Start();
+
+                timers[Convert.ToInt32(pribtn.Tag)].Tag = Convert.ToInt32(pribtn.Tag);
+
+                timers[Convert.ToInt32(pribtn.Tag)].Start();
+            }
+            pribtn = btn;
         }
         private void requlUc()
         {
@@ -270,6 +283,7 @@ namespace TUChair
             intevalMax.Clear();
             author.Clear();
             menulist.Clear();
+            pribtn = null;
 
         }
         private void ReBindingMenu(object sender, EventArgs e)
