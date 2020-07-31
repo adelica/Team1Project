@@ -111,7 +111,7 @@
             this.panel6.Location = new System.Drawing.Point(197, 401);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Size = new System.Drawing.Size(403, 40);
-            this.panel6.Controls.SetChildIndex(this.btnCancle, 0);
+            //this.panel6.Controls.SetChildIndex(this.btnCancle, 0);
             this.panel6.Controls.SetChildIndex(this.btnInsert, 0);
             this.panel6.Controls.SetChildIndex(this.button3, 0);
             // 
@@ -123,8 +123,8 @@
             // 
             // btnCancle
             // 
-            this.btnCancle.Location = new System.Drawing.Point(292, 8);
-            this.btnCancle.Margin = new System.Windows.Forms.Padding(2);
+            //this.btnCancle.Location = new System.Drawing.Point(292, 8);
+            //this.btnCancle.Margin = new System.Windows.Forms.Padding(2);
             // 
             // label1
             // 

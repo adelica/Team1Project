@@ -97,7 +97,7 @@
             // 
             // btnCancle
             // 
-            this.btnCancle.TabIndex = 10;
+           // this.btnCancle.TabIndex = 10;
             // 
             // label4
             // 

@@ -110,8 +110,8 @@
             // 
             // btnCancle
             // 
-            this.btnCancle.TabIndex = 10;
-            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
+            //this.btnCancle.TabIndex = 10;
+            //this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
             // 
             // label1
             // 

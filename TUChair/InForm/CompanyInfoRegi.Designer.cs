@@ -151,7 +151,7 @@
             // 
             // btnCancle
             // 
-            this.btnCancle.TabIndex = 21;
+            //this.btnCancle.TabIndex = 21;
             // 
             // txtCom_Code
             // 
