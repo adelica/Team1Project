@@ -45,23 +45,25 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(355, 379);
+            this.panel1.Size = new System.Drawing.Size(359, 379);
             this.panel1.TabIndex = 3;
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 264);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(355, 115);
+            this.panel4.Size = new System.Drawing.Size(359, 115);
             this.panel4.TabIndex = 2;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(355, 258);
+            this.panel2.Size = new System.Drawing.Size(359, 258);
             this.panel2.TabIndex = 0;
             // 
             // panel5
@@ -75,26 +77,37 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(75, 8);
+            this.btnInsert.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsert.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnInsert.ForeColor = System.Drawing.Color.LavenderBlush;
+            this.btnInsert.Location = new System.Drawing.Point(75, 5);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnInsert.Size = new System.Drawing.Size(75, 29);
             this.btnInsert.TabIndex = 1;
             this.btnInsert.Text = "저장";
-            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(197, 8);
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCancel.ForeColor = System.Drawing.Color.LavenderBlush;
+            this.btnCancel.Location = new System.Drawing.Point(197, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(75, 29);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "취소";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // POPUP1Line
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(359, 450);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
