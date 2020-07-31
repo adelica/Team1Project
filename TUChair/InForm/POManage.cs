@@ -40,12 +40,14 @@ namespace TUChair
         private void btnPOUpLoad_Click(object sender, EventArgs e) //영업마스터생성 팝엄
         {
             PORegi frm = new PORegi();
+            frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
 
         private void btnSORegi_Click(object sender, EventArgs e) //수요계획생성 팝업
         {
             SORegi frm = new SORegi();
+            frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
     }

@@ -40,5 +40,19 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "수정자", "Faci_Modifier", true,80);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "수정시간", "Faci_ModifyDate", true,150);
         }
+
+        private void btnFGInsert_Click(object sender, EventArgs e)
+        {
+            FacilityGroupInfoRegi frm = new FacilityGroupInfoRegi();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();        
+        }
+
+        private void btnFInsert_Click(object sender, EventArgs e)
+        {
+            FacilityInfoRegi frm = new FacilityInfoRegi();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

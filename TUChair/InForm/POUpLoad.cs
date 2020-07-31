@@ -42,6 +42,7 @@ namespace TUChair
         private void btnPOUpLoad_Click(object sender, EventArgs e)
         {
             PORegi frm = new PORegi();
+            frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
     }
