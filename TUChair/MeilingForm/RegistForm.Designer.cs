@@ -1,4 +1,4 @@
-﻿namespace TUChair.MeilingForm
+﻿namespace TUChair
 {
     partial class RegistForm
     {

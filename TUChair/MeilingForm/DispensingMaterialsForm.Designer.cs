@@ -1,4 +1,4 @@
-﻿namespace TUChair.MeilingForm
+﻿namespace TUChair
 {
     partial class DispensingMaterialsForm
     {
@@ -185,8 +185,8 @@
             // 
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Beige;
             this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.jeansGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.jeansGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
