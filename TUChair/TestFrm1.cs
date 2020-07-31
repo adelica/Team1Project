@@ -39,7 +39,9 @@ namespace TUChair
         private void Search(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("찾는다2");
+            { 
+                MessageBox.Show("찾는다2"); 
+            }
         }
         private void Delete(object sender, EventArgs e)
         {

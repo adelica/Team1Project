@@ -1,6 +1,6 @@
-﻿namespace TUChair
+﻿namespace TUChair.MeilingForm
 {
-    partial class ShiftStandardForm
+    partial class ProductionPlanningForm
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -33,15 +33,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnExcel = new System.Windows.Forms.Button();
-            this.cboShiftID = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.jeansGridView1 = new JeanForm.JeansGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -54,123 +57,111 @@
             // 
             // label1
             // 
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Size = new System.Drawing.Size(76, 23);
-            this.label1.Text = "Shift관리";
+            this.label1.Size = new System.Drawing.Size(70, 23);
+            this.label1.Text = "생산계획";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.btnExcel);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.btnInsert);
+            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.SetChildIndex(this.label1, 0);
-            this.panel2.Controls.SetChildIndex(this.btnInsert, 0);
-            this.panel2.Controls.SetChildIndex(this.button3, 0);
-            this.panel2.Controls.SetChildIndex(this.btnExcel, 0);
-            this.panel2.Controls.SetChildIndex(this.button1, 0);
+            this.panel2.Controls.SetChildIndex(this.button2, 0);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.cboShiftID);
-            this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.dateTimePicker2);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 38);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(31, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(48, 12);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Shift";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(461, 41);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(236, 20);
-            this.comboBox2.TabIndex = 3;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.label2.Text = "PlaneID";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(393, 41);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(50, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 2;
             this.label3.Text = "설비";
             // 
-            // btnSearch
+            // comboBox1
             // 
-            this.btnSearch.Location = new System.Drawing.Point(955, 33);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(104, 33);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "조회";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(95, 66);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 20);
+            this.comboBox1.TabIndex = 3;
             // 
-            // btnInsert
+            // label4
             // 
-            this.btnInsert.Location = new System.Drawing.Point(583, 9);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(2);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(104, 23);
-            this.btnInsert.TabIndex = 6;
-            this.btnInsert.Text = "등록";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(292, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 12);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Date";
             // 
-            // button3
+            // dateTimePicker1
             // 
-            this.button3.Location = new System.Drawing.Point(848, 7);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "삭제";
-            this.button3.UseVisualStyleBackColor = true;
+            this.dateTimePicker1.Location = new System.Drawing.Point(342, 20);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(153, 21);
+            this.dateTimePicker1.TabIndex = 5;
             // 
-            // btnExcel
+            // label5
             // 
-            this.btnExcel.Location = new System.Drawing.Point(976, 7);
-            this.btnExcel.Margin = new System.Windows.Forms.Padding(2);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(104, 23);
-            this.btnExcel.TabIndex = 8;
-            this.btnExcel.Text = "엑셀";
-            this.btnExcel.UseVisualStyleBackColor = true;
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(501, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(14, 12);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "~";
             // 
-            // cboShiftID
+            // dateTimePicker2
             // 
-            this.cboShiftID.FormattingEnabled = true;
-            this.cboShiftID.Location = new System.Drawing.Point(124, 39);
-            this.cboShiftID.Margin = new System.Windows.Forms.Padding(2);
-            this.cboShiftID.Name = "cboShiftID";
-            this.cboShiftID.Size = new System.Drawing.Size(236, 20);
-            this.cboShiftID.TabIndex = 5;
-            this.cboShiftID.SelectedIndexChanged += new System.EventHandler(this.cboShiftID_SelectedIndexChanged);
+            this.dateTimePicker2.Location = new System.Drawing.Point(521, 20);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(153, 21);
+            this.dateTimePicker2.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(292, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "품목";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(342, 60);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.TabIndex = 9;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(715, 9);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(1000, 58);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "수정";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "조회";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // jeansGridView1
             // 
@@ -197,24 +188,38 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.jeansGridView1.IsAllCheckColumnHeader = false;
-            this.jeansGridView1.Location = new System.Drawing.Point(0, 0);
+            this.jeansGridView1.Location = new System.Drawing.Point(8, 3);
             this.jeansGridView1.Name = "jeansGridView1";
             this.jeansGridView1.RowHeadersWidth = 30;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
             this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView1.Size = new System.Drawing.Size(1090, 425);
+            this.jeansGridView1.Size = new System.Drawing.Size(1079, 419);
             this.jeansGridView1.TabIndex = 0;
-            this.jeansGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.jeansGridView1_CellClick);
             // 
-            // ShiftStandardForm
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(999, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "엑셀";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(95, 17);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 20);
+            this.comboBox2.TabIndex = 11;
+            // 
+            // ProductionPlanningForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(1116, 602);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "ShiftStandardForm";
-            this.Load += new System.EventHandler(this.ShiftStandardForm_Load);
+            this.Name = "ProductionPlanningForm";
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -228,14 +233,17 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnExcel;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ComboBox cboShiftID;
-        private System.Windows.Forms.Button button1;
         private JeanForm.JeansGridView jeansGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
