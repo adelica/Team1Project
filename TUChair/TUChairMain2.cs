@@ -133,21 +133,27 @@ namespace TUChair
         private void button2_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            //string strTmpNum = Regex.Replace(btn.Text, @"\D", "");
+          
+            ////string strTmpNum = Regex.Replace(btn.Text, @"\D", "");
+            //timers[Convert.ToInt32(btn.Tag)].Tag = Convert.ToInt32(btn.Tag);
+            //if (pribtn == null)
+            //{
+            //    timers[Convert.ToInt32(btn.Tag)].Start();
+            //}
+            //else
+            //{
+            //    timers[Convert.ToInt32(btn.Tag)].Start();
+
+            //    timers[Convert.ToInt32(pribtn.Tag)].Tag = Convert.ToInt32(pribtn.Tag);
+
+            //    timers[Convert.ToInt32(pribtn.Tag)].Start();
+            //}
+            //pribtn = btn;
             timers[Convert.ToInt32(btn.Tag)].Tag = Convert.ToInt32(btn.Tag);
-            if (pribtn == null)
-            {
-                timers[Convert.ToInt32(btn.Tag)].Start();
-            }
-            else
-            {
+            
                 timers[Convert.ToInt32(btn.Tag)].Start();
 
-                timers[Convert.ToInt32(pribtn.Tag)].Tag = Convert.ToInt32(pribtn.Tag);
 
-                timers[Convert.ToInt32(pribtn.Tag)].Start();
-            }
-            pribtn = btn;
         }
         private void requlUc()
         {
