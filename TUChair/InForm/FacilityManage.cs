@@ -25,7 +25,7 @@ namespace TUChair
             CommonUtil.InitSettingGridView(dgvFacility);
             dgvFacilityG.AutoGenerateColumns = false;
             dgvFacility.AutoGenerateColumns = false;
-            //dgvFacility.Visible = false;
+            
 
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "설비군 코드", "FacG_Code", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "설비군 명", "FacG_Name", true);
@@ -35,9 +35,9 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "No.", "no", true, 40,DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "설비코드", "Faci_Code", true, 150);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "설비명", "Faci_Name", true, 150);
-            CommonUtil.AddNewColumnToDataGridView(dgvFacility, "소진창고", "Faci_OutWareHouse", true, 120);
-            CommonUtil.AddNewColumnToDataGridView(dgvFacility, "양품창고", "Faci_InWareHouse", true, 120);
-            CommonUtil.AddNewColumnToDataGridView(dgvFacility, "불량창고", "Faci_BadWareHouse", true, 120);
+            CommonUtil.AddNewColumnToDataGridView(dgvFacility, "소진창고", "Faci_OutWareHouse", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvFacility, "양품창고", "Faci_InWareHouse", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvFacility, "불량창고", "Faci_BadWareHouse", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "특이사항", "Faci_Detail", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "비고", "Faci_Others", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "사용유무", "Faci_UseOrNot", true, 80);
@@ -81,21 +81,17 @@ namespace TUChair
         {
             if (e.RowIndex < 0 || e.RowIndex > dgvFacility.Rows.Count)
                 return;
-            //dgvFacility.Visible = true;
+         
 
             string code = dgvFacilityG.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-            //var result = myDataTable.AsEnumerable().Where(row => row.Field<string>("id").Contains(values));
-            //DataTable tblClone = myDataTable.Clone();
-            //foreach (DataRow dr in result)
-            //    tblClone.ImportRow(dr);
-            var facility = dtFacility.AsEnumerable().Where(row => row.Field<string>("FacG_Code") == code);
-            DataTable tblClone = dtFacility.Clone();
-            foreach (DataRow dr in facility)
-                tblClone.ImportRow(dr);
+            var facliity = from fdata in dtFacility.AsEnumerable()
+                               where fdata.Field<string>("FacG_Code") == code
+                           //where fdata["FacG_Code"].ToString() == code
+                           select fdata;
 
-
-            dgvFacility.DataSource = tblClone;
+            dgvFacility.DataSource = facliity.CopyToDataTable();
+            
         }
     }
 }
