@@ -51,7 +51,7 @@ namespace TUChair
         
         private void LoadData() //전체데이터 바인딩
         {
-            InService service = new InService();
+            FactoryService service = new FactoryService();
             list = service.GetFactoryData();
             dgvFactory.DataSource = list;
         }

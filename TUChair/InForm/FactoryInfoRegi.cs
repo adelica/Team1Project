@@ -34,7 +34,7 @@ namespace TUChair
 
             string[] cFactGroup = { "공장", "창고" }; //설비군
             string[] cClass = {"공장", "자재팀창고",  "생산팀창고",  "영업팀창고", "외주창고",  "품질팀창고",  "고객사창고" }; //시설구분
-            string[] cUseOrNot = { "사용", "미사용" }; //사용유무
+          
             List<string> cParent=null;  //상위시설
             cParent = (from cp in list
                        where cp.Fact_Group != "창고"
@@ -42,22 +42,22 @@ namespace TUChair
 
             cboFact_Group.Items.AddRange(cFactGroup);
             cboClass.Items.AddRange(cClass);
-            cboUseOrNot.Items.AddRange(cUseOrNot);
+            CommonUtil.CboUseOrNot(cboUseOrNot); // 사용, 미사용 여부
             foreach (var cp in cParent)
             {
                 cboParent.Items.Add(cp);
             }
-            CommonUtil.ComboSetting(cboFact_Group);
-            CommonUtil.ComboSetting(cboClass);
-            CommonUtil.ComboSetting(cboUseOrNot);
-            CommonUtil.ComboSetting(cboParent);
+            CommonUtil.CboSetting(cboFact_Group);
+            CommonUtil.CboSetting(cboClass);
+            CommonUtil.CboSetting(cboUseOrNot);
+            CommonUtil.CboSetting(cboParent);
         }
 
         private void FactoryInfoRegi_Load(object sender, EventArgs e)
         {
             txtModifier.Enabled = false;
             txtModifyDate.Enabled = false;
-            txtModifyDate.Text = DateTime.Now.ToString();
+            //txtModifyDate.Text = DateTime.Now.ToString();
             txtModifier.Text = LoginFrm.userName;
             ComboBoxBinding();
 
@@ -67,7 +67,7 @@ namespace TUChair
         {
             if(txtFact_Code.Text.Trim().Length<1 || txtName.Text.Trim().Length<1)
             {
-                MessageBox.Show("필수 입력사항을 입력해주세요.", "등록실패");
+                CommonUtil.RequiredInfo();
                 return;
             }
             string fGroup = cboFact_Group.SelectedItem.ToString();
@@ -109,7 +109,7 @@ namespace TUChair
             }
 
 
-            InService service = new InService();
+            FactoryService service = new FactoryService();
             check = service.FactoryInfoRegi(fGroup, fParent, fClass, fCode, fName, fModifier, fModifyDate, fUseOrNot, fInfo, fType);
             if (check)
             {

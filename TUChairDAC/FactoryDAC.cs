@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace TUChairDAC
 {
     public class FactoryDAC : ConnectionAccess
     {
-        public List<FactoryVO> GetFactoryData()
+        public List<FactoryVO> GetFactoryData() // 공장정보 가져오기
         {
             try
             {
@@ -45,6 +46,29 @@ namespace TUChairDAC
             }
         }
 
+        public List<FactoryNameVO> GetCboData() //콤보박스 바인딩용 창고 이름 가져오기
+        {
+            try
+            {              
+                using(SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = @"select Fact_Name from Factory where Fact_Group='창고'";
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<FactoryNameVO> list = Helper.DataReaderMapToList<FactoryNameVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch(Exception err)
+            {
+                
+                return null;
+            }
+        }
+
+        //공장정보 입력
         public bool FactoryInfoRegi(string fGroup, string fParent, string fClass, string fCode, string fName, string fModifier, DateTime fModifyDate, string fUseOrNot, string fInfo, string fType)
         {
             try

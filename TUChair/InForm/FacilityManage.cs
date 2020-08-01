@@ -49,35 +49,40 @@ namespace TUChair
         {
             LoadData();
         }
-        private void LoadData()
+        private void LoadData() //데이터바인딩
         {
-            InService service = new InService();
+            FacilityService service = new FacilityService();
             DataSet ds = service.GetFacilityData();
             dtFacility = ds.Tables["facility"];
             dtFacilityG = ds.Tables["facilityGroup"];
             dgvFacility.DataSource = dtFacility;
             dgvFacilityG.DataSource = dtFacilityG;
         }
-        private void btnFGInsert_Click(object sender, EventArgs e)
+        private void btnFGInsert_Click(object sender, EventArgs e) //설비군 등록
         {
             FacilityGroupInfoRegi frm = new FacilityGroupInfoRegi();
             frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();        
+            frm.ShowDialog();
+            if(frm.Check)
+            {
+                MessageBox.Show("등록되었습니다.", "등록완료");
+                LoadData();
+            }
         }
 
-        private void btnFInsert_Click(object sender, EventArgs e)
+        private void btnFInsert_Click(object sender, EventArgs e) //설비 등록
         {
             FacilityInfoRegi frm = new FacilityInfoRegi();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
 
-        private void dgvFacility_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        private void dgvFacility_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e) //그리드뷰 맨 앞에 no 자동 생성
         {
             this.dgvFacility.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
         }
 
-        private void dgvFacilityG_CellClick(object sender, DataGridViewCellEventArgs e) //안됨
+        private void dgvFacilityG_CellClick(object sender, DataGridViewCellEventArgs e) //설비군에 등록된 설비 없을 시 안됨
         {
             if (e.RowIndex < 0 || e.RowIndex > dgvFacility.Rows.Count)
                 return;
@@ -85,12 +90,17 @@ namespace TUChair
 
             string code = dgvFacilityG.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-            var facliity = from fdata in dtFacility.AsEnumerable()
+            var facility = (from fdata in dtFacility.AsEnumerable()
                                where fdata.Field<string>("FacG_Code") == code
                            //where fdata["FacG_Code"].ToString() == code
-                           select fdata;
+                           select fdata).CopyToDataTable();
 
-            dgvFacility.DataSource = facliity.CopyToDataTable();
+            if (facility.Rows.Count < 1)
+            {
+                MessageBox.Show("X");
+            }
+            else
+                dgvFacility.DataSource = facility;
             
         }
     }

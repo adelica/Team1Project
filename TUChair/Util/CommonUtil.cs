@@ -4,8 +4,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using TUChairVO;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace TUChair.Util
 {
@@ -65,13 +67,24 @@ namespace TUChair.Util
             combo.DisplayMember = "CodeNm";
             combo.ValueMember = "Code";
         }
-
-        public static void ComboSetting(ComboBox combo) //콤보박스 기본설정
+        //---------------------------------------------------------
+        public static void CboSetting(ComboBox combo) //콤보박스 기본설정
         {
 
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
             combo.FlatStyle = FlatStyle.Flat;
             combo.SelectedIndex = 0;
+        }
+
+        public static void CboUseOrNot(ComboBox combo)
+        {
+            string[] cUseOrNot = { "사용", "미사용" };
+            combo.Items.AddRange(cUseOrNot);
+        }
+
+        public static void RequiredInfo()
+        {
+            MessageBox.Show("필수 입력사항을 입력해주세요.", "등록실패");
         }
     }
 }

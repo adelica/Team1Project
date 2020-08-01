@@ -11,6 +11,7 @@ namespace TUChairDAC
 {
     public class FacilityDAC : ConnectionAccess
     {
+        //모든 데이터 가져오기
         public DataSet GetFacilityData()
         {
             DataSet ds = new DataSet();
@@ -27,6 +28,36 @@ namespace TUChairDAC
                 conn.Close();
             }
             return ds;
+        }
+        //설비군 등록
+        public bool FacilityGInfoRegi(string facG_Code, string facG_Name, string facG_UserOrNot, string facG_Modifier, DateTime facG_ModifyDate, string facG_Info)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = @"insert into FacilityGroup(FacG_Code, FacG_Name, FacG_UseOrNot, FacG_Modifier, FacG_ModifyDate, FacG_Information)
+                                                        values(@facG_Code, @facG_Name, @facG_UserOrNot, @facG_Modifier, @facG_ModifyDate, @facG_Info)";
+
+                    cmd.Parameters.AddWithValue("@facG_Code", facG_Code);
+                    cmd.Parameters.AddWithValue("@facG_Name", facG_Name);
+                    cmd.Parameters.AddWithValue("@facG_UserOrNot", facG_UserOrNot);
+                    cmd.Parameters.AddWithValue("@facG_Modifier", facG_Modifier);
+                    cmd.Parameters.AddWithValue("@facG_ModifyDate", facG_ModifyDate);
+                    cmd.Parameters.AddWithValue("@facG_Info", facG_Info);
+
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                }
+                    return true;
+            }
+            catch(Exception err)
+            {
+                _log.WriteError(err.Message);
+                return false;
+            }
         }
     }
 }

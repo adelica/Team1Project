@@ -22,4 +22,9 @@ namespace TUChairVO
         public string Fact_Information { get; set; }
 
     }
+
+    public class FactoryNameVO
+    {
+        public string Fact_Name { get; set; }
+    }
 }

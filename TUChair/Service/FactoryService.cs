@@ -9,7 +9,7 @@ using TUChairVO;
 
 namespace TUChair.Service
 {
-    class InService
+    class FactoryService
     {
        
         public List<FactoryVO> GetFactoryData()
@@ -24,10 +24,10 @@ namespace TUChair.Service
             return dac.FactoryInfoRegi(fGroup, fParent, fClass, fCode, fName, fModifier, fModifyDate, fUseOrNot, fInfo, fType);
         }
 
-        public DataSet GetFacilityData()
+        internal List<FactoryNameVO> GetCboData()
         {
-            FacilityDAC dac = new FacilityDAC();
-            return dac.GetFacilityData();
+            FactoryDAC dac = new FactoryDAC();
+            return dac.GetCboData();
         }
     }
 }

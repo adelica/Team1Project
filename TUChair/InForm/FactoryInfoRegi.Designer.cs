@@ -76,32 +76,32 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.txtName);
-            this.panel3.Controls.Add(this.txtModifier);
+            this.panel3.Controls.Add(this.txtModifyDate);
+            this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.cboUseOrNot);
             this.panel3.Controls.Add(this.cboParent);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.label9);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txtFact_Code);
-            this.panel2.Controls.Add(this.txtModifyDate);
-            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.txtModifier);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.cboClass);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.cboFact_Group);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label9);
             // 
             // btnInsert
             // 
@@ -205,7 +205,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(37, 269);
+            this.label7.Location = new System.Drawing.Point(50, 266);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 15);
             this.label7.TabIndex = 0;
@@ -215,7 +215,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("굴림", 5F);
-            this.label8.Location = new System.Drawing.Point(24, 272);
+            this.label8.Location = new System.Drawing.Point(37, 269);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(13, 9);
             this.label8.TabIndex = 2;
@@ -224,7 +224,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(49, 185);
+            this.label9.Location = new System.Drawing.Point(36, 270);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 15);
             this.label9.TabIndex = 0;
@@ -234,7 +234,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("굴림", 5F);
-            this.label10.Location = new System.Drawing.Point(37, 189);
+            this.label10.Location = new System.Drawing.Point(24, 274);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(13, 9);
             this.label10.TabIndex = 2;
@@ -299,7 +299,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label15.Location = new System.Drawing.Point(49, 269);
+            this.label15.Location = new System.Drawing.Point(49, 185);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(67, 15);
             this.label15.TabIndex = 0;
@@ -310,11 +310,11 @@
             this.cboUseOrNot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUseOrNot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboUseOrNot.FormattingEnabled = true;
-            this.cboUseOrNot.Location = new System.Drawing.Point(152, 266);
+            this.cboUseOrNot.Location = new System.Drawing.Point(152, 182);
             this.cboUseOrNot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboUseOrNot.Name = "cboUseOrNot";
             this.cboUseOrNot.Size = new System.Drawing.Size(237, 23);
-            this.cboUseOrNot.TabIndex = 7;
+            this.cboUseOrNot.TabIndex = 5;
             // 
             // label16
             // 
@@ -322,7 +322,7 @@
             this.label16.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label16.Font = new System.Drawing.Font("굴림", 5F);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label16.Location = new System.Drawing.Point(37, 272);
+            this.label16.Location = new System.Drawing.Point(37, 188);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(13, 9);
             this.label16.TabIndex = 2;
@@ -349,19 +349,19 @@
             // 
             // txtModifyDate
             // 
-            this.txtModifyDate.Location = new System.Drawing.Point(139, 265);
+            this.txtModifyDate.Location = new System.Drawing.Point(152, 262);
             this.txtModifyDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtModifyDate.Name = "txtModifyDate";
             this.txtModifyDate.Size = new System.Drawing.Size(237, 25);
-            this.txtModifyDate.TabIndex = 6;
+            this.txtModifyDate.TabIndex = 7;
             // 
             // txtModifier
             // 
-            this.txtModifier.Location = new System.Drawing.Point(152, 181);
+            this.txtModifier.Location = new System.Drawing.Point(139, 266);
             this.txtModifier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtModifier.Name = "txtModifier";
             this.txtModifier.Size = new System.Drawing.Size(237, 25);
-            this.txtModifier.TabIndex = 5;
+            this.txtModifier.TabIndex = 6;
             // 
             // txtName
             // 
