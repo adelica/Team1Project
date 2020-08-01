@@ -58,6 +58,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonForm\SearchTwoGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm\SearchTwoGridForm.Designer.cs">
+      <DependentUpon>SearchTwoGridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm\SearchTwoGridLeftRightFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm\SearchTwoGridLeftRightFrom.Designer.cs">
+      <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service\FacilityService.cs" />
     <Compile Include="WooForm\balzuDetail.cs">
       <SubType>Form</SubType>
@@ -415,6 +427,12 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="CommonForm\SearchTwoGridForm.resx">
+      <DependentUpon>SearchTwoGridForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\SearchTwoGridLeftRightFrom.resx">
+      <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WooForm\balzuDetail.resx">
       <DependentUpon>balzuDetail.cs</DependentUpon>
     </EmbeddedResource>
