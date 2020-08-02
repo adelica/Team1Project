@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TUChairVO;
 using System.Reflection;
+using TUChair.Service;
 
 namespace TUChair
 {
     public partial class ItemManage : TUChair.SearchCommomForm
     {
-        List<ItemVO> items = new List<ItemVO>();
+        
+        List<ItemVO> items = null;
+        List<ComboItemVO> comboItems = null;
 
         public ItemManage()
         {
@@ -29,6 +32,11 @@ namespace TUChair
             frm.Delete += Delete;
             frm.New += New;
             frm.Excel += Excel;
+            commonService service = new commonService();
+            service.getCommonCode("발주업체@창고@고객사@User@사용여부@품목유형");
+
+            List<ComboItemVO> item = new List<ComboItemVO>();
+
         }
         private void Save(object sender, EventArgs e)
         {
@@ -45,7 +53,6 @@ namespace TUChair
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
                 GetSearchCondition();
-
             }
         }
 
@@ -81,5 +88,6 @@ namespace TUChair
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
                 MessageBox.Show("엑셀만들어");
         }
+        
     }
 }
