@@ -24,7 +24,7 @@ namespace TUChairDAC
                     List<UnitPriceVO> list = Helper.MeilingDataReaderMapToList<UnitPriceVO>(reader);
                     cmd.Connection.Close();
                     return list;
-                }               
+                }
             }
             catch (Exception err)
             {
@@ -55,5 +55,47 @@ namespace TUChairDAC
                 return null;
             }
         }
+
+        public bool InsertOrUpdate(UnitPriceVO upv)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_InsertUnitPrice";
+
+                    cmd.Parameters.AddWithValue("@PriceNO", (object)upv.PriceNO ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Com_No", (object)upv.Com_No ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Com_Code", (object)upv.Com_Code ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Com_Name", upv.Com_Name);
+                    cmd.Parameters.AddWithValue("@Item_Code", upv.Item_Code);
+                    cmd.Parameters.AddWithValue("@Item_Name", upv.Item_Name);
+                    cmd.Parameters.AddWithValue("@Item_Size", (object)upv.Item_Size ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Unit", (object)upv.Item_Unit ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Price_Present", upv.Price_Present);
+                    cmd.Parameters.AddWithValue("@Price_transfer", upv.Price_transfer);
+                    cmd.Parameters.AddWithValue("@Price_StartDate", upv.Price_StartDate);
+                    cmd.Parameters.AddWithValue("@Price_EndDate", (object)upv.Price_EndDate ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Price_UserOrNot", (object)upv.Price_UserOrNot ?? DBNull.Value);
+
+
+
+
+                    
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception e)
+            {
+                _log.WriteError(e.Message, e);
+                throw e;
+            }
+        }
+
     }
 }
