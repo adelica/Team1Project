@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TUChairVO;
 using System.Reflection;
 using TUChair.Service;
+using TUChair.Util;
 
 namespace TUChair
 {
@@ -33,9 +34,59 @@ namespace TUChair
             frm.New += New;
             frm.Excel += Excel;
             commonService service = new commonService();
-            service.getCommonCode("발주업체@창고@고객사@User@사용여부@품목유형");
+            comboItems= service.getCommonCode("발주업체@창고@User@사용여부@품목유형");
+           
 
-            List<ComboItemVO> item = new List<ComboItemVO>();
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                    where item.CodeType == "발주업체"
+                                       select item).ToList();
+            CommonUtil.ComboBinding(cboCompany1, cList, "선택");
+
+            cList = (from item in comboItems
+                     where item.CodeType == "창고"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboInWherehouse, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "창고"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboOutWherehouse, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "User"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboUser, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "사용여부"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboUseOrNot, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "품목유형"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboItemType, cList, "선택");
+
+            CommonUtil.InitSettingGridView(jeansGridView1);
+            // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목유형", "Item_Type", true);
+
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "Item_Name", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
+
+
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체고유번호", "Com_No", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체코드", "Com_Code", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체명", "Com_Name", true);
+            
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "현재단가", "Price_Present", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "이전단가", "Price_transfer", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Price_StartDate", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Price_EndDate", true);
+
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
+            //jeansGridView1.DataSource = items;
+
+           //  [Item_Qty], [Faci_Code], [Item_OrderComp], [Item_InWarehouse], [Item_OutWarehouse], [Item_MinOrderQuantity], [Item_SafeQuantity], [Item_Unit], [Item_Importins], [Item_Processins], [Item_Shipmentins], [Item_Grade], [Item_Manager], [Item_Modifier], [Item_ModiflyDate], [Item_UserOrNot], [Item_OrderMethod], [Item_Other]
 
         }
         private void Save(object sender, EventArgs e)
@@ -52,30 +103,41 @@ namespace TUChair
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                GetSearchCondition();
+              string sg =    GetSearchCondition(panel1);
+                MessageBox.Show(sg);
             }
         }
 
-        private void GetSearchCondition()
+        private string GetSearchCondition(Panel panel1)
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (Control item in panel1.Controls)
+            List<string> sb = new List<string>();
+            foreach (Control Pitem in panel1.Controls)
             {
-                if (item is TextBox || item is ComboBox)
+                foreach (Control item in Pitem.Controls)
                 {
-                    if (item.Text != "")
-                        sb.Append($"{item.Tag.ToString()}={item.Text}" + "and");
-                }
-                else if (item is InDTP)
-                {
-                    if (item.Text != "")
-                        sb.Append($"between{((InDTP)item).Start.ToString()}and {((InDTP)item).End.ToString()}" + "and");
-                }
-                else
-                {
-                    continue;
+
+                    if (item is ComboBox)
+                    {
+                        if (item.Text !="선택")
+                            sb.Add($"{item.Tag.ToString()}='{((ComboBox)item).Text}'");
+                    }
+                    else if (item is TextBox)
+                    {
+                        if (item.Text != "")
+                            sb.Add($"{item.Tag.ToString()} like '%{item.Text}%'");
+                    }
+                    else if (item is InDTP)
+                    {
+                        if (item.Text != "")
+                            sb.Add($"between{((InDTP)item).Start.ToString()}and {((InDTP)item).End.ToString()}");
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
             }
+            return String.Join(" and ", sb);
         }
 
         private void Delete(object sender, EventArgs e)
