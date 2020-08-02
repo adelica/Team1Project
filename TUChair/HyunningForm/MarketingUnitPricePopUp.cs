@@ -18,20 +18,23 @@ namespace TUChair
     {
         List<UnitPriceVO> list;
 
-        public List<string> Combolist { get; set; }
+        public List<string> Comname;
+        public List<string> Comicode;
+        public List<string> Cominame;
+
 
         public Dictionary<string, string> uptdic { get; set; }
         public string uporInsert { get; set; }
         public MarketingUnitPricePopUp()
         {
             InitializeComponent();
+            
         }
         
         private void MarketingUnitPricePopUp_Load(object sender, EventArgs e)
         {
             JeanService service = new JeanService();
             list = service.ProductUPBinding();
-         
 
             ComboBoxBinding();
             //if (uporInsert == "Update")
@@ -54,27 +57,24 @@ namespace TUChair
         {
             for (int i = 0; i < list.Count; i++)
             {
-                if (Combolist.Contains(list[i].Com_Name))
-                    Combolist.Add(list[i].Com_Name);
+                if (Comname.Contains(list[i].Com_Name))
+                    Comname.Add(list[i].Com_Name);
             }
-            x.Items.AddRange(Combolist.ToArray());
-            Combolist.Clear();
+            cboComName.Items.AddRange(Comname.ToArray());
 
             for (int i = 0; i < list.Count; i++)
             {
-                if (Combolist.Contains(list[i].Item_Code))
-                    Combolist.Add(list[i].Item_Code);
+                if (Comicode.Contains(list[i].Item_Code))
+                    Comicode.Add(list[i].Item_Code);
             }
-            cboItemCode.Items.AddRange(Combolist.ToArray());
-            Combolist.Clear();
+            cboItemCode.Items.AddRange(Comicode.ToArray());
 
             for (int i = 0; i < list.Count; i++)
             {
-                if (Combolist.Contains(list[i].Item_Name))
-                    Combolist.Add(list[i].Item_Name);
+                if (Cominame.Contains(list[i].Item_Name))
+                    Cominame.Add(list[i].Item_Name);
             }
-            cboItemName.Items.AddRange(Combolist.ToArray());
-            Combolist.Clear();
+            cboItemName.Items.AddRange(Cominame.ToArray());
 
 
 
@@ -84,14 +84,14 @@ namespace TUChair
 
             cboUseOrNot.Items.AddRange(UseOrNot);
 
-            CommonUtil.CboSetting(cboComCode);
+            //CommonUtil.CboSetting(cboComCode);
             CommonUtil.CboSetting(cboComName);
-            CommonUtil.CboSetting(cboComno);
+            //CommonUtil.CboSetting(cboComno);
             CommonUtil.CboSetting(cboItemCode);
             CommonUtil.CboSetting(cboItemName);
-            CommonUtil.CboSetting(cboItemSize);
-            CommonUtil.CboSetting(cboItemUnit);
-            CommonUtil.CboSetting(cboUseOrNot);
+           // CommonUtil.CboSetting(cboItemSize);
+           // CommonUtil.CboSetting(cboItemUnit);
+            //CommonUtil.CboSetting(cboUseOrNot);
 
 
         }
@@ -111,11 +111,11 @@ namespace TUChair
             upv.Item_Code = cboItemCode.SelectedItem.ToString();
             upv.Item_Name = cboItemName.SelectedItem.ToString();
             upv.Price_Present = int.Parse(txtPriceP.Text);
-            upv.Price_StartDate = dtpStart.Value;
+            upv.Price_StartDate = dtpStart.Value.ToShortDateString();
 
             JeanService service = new JeanService();
             bool Result = service.InsertOrUpdate(upv);
-            if (check)
+            if (Result)
             {
                 MessageBox.Show("등록되었습니다.", "등록완료");
                 this.Close();

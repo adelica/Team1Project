@@ -21,11 +21,16 @@ namespace TUChair
 
         private void UnitPriceManager_Load(object sender, EventArgs e)
         {
+            jeansGridView1.IsAllCheckColumnHeader = true;
+            DataLoad();
+
+
+
+        }
+        private void DataLoad()
+        {
             JeanService service = new JeanService();
             list = service.UPBinding();
-
-            jeansGridView1.IsAllCheckColumnHeader = true;
-
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "PriceNO", "PriceNO", true);
@@ -42,7 +47,15 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Price_EndDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
             jeansGridView1.DataSource = list;
+        }
 
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            UnitPricePopUp frm = new UnitPricePopUp();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            
+                DataLoad();
         }
     }
 }
