@@ -20,8 +20,8 @@ namespace TUChairVO
         public string Item_Unit { get; set; }
         public int Price_Present { get; set; }
         public int Price_transfer { get; set; }
-        public DateTime Price_StartDate { get; set; }
-        public DateTime Price_EndDate { get; set; }
+        public string Price_StartDate { get; set; }
+        public string Price_EndDate { get; set; }
         public string Price_UserOrNot { get; set; }
 
     }
