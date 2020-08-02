@@ -36,11 +36,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -53,8 +55,6 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -171,6 +171,15 @@
             this.panel9.Size = new System.Drawing.Size(408, 42);
             this.panel9.TabIndex = 28;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(136, 6);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(250, 32);
+            this.textBox1.TabIndex = 8;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -202,6 +211,15 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "◆ 품목";
             // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(135, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(250, 32);
+            this.textBox2.TabIndex = 7;
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.comboBox8);
@@ -212,14 +230,15 @@
             this.panel7.Size = new System.Drawing.Size(408, 42);
             this.panel7.TabIndex = 26;
             // 
-            // textBox2
+            // comboBox8
             // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(135, 4);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 32);
-            this.textBox2.TabIndex = 7;
+            this.comboBox8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(139, 5);
+            this.comboBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(250, 32);
+            this.comboBox8.TabIndex = 8;
             // 
             // label4
             // 
@@ -341,25 +360,6 @@
             this.label11.TabIndex = 6;
             this.label11.Text = "◆ 사용유무";
             // 
-            // comboBox8
-            // 
-            this.comboBox8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(139, 5);
-            this.comboBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(250, 32);
-            this.comboBox8.TabIndex = 8;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(136, 6);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 32);
-            this.textBox1.TabIndex = 8;
-            // 
             // ItemManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -368,6 +368,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "ItemManage";
             this.Text = "ItemManger";
+            this.Load += new System.EventHandler(this.ItemManage_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
