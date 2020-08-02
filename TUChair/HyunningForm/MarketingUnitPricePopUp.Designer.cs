@@ -51,7 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtpEnd = new System.Windows.Forms.TextBox();
             this.CboPriceT = new System.Windows.Forms.TextBox();
-            this.CboPriceP = new System.Windows.Forms.TextBox();
+            this.txtPriceP = new System.Windows.Forms.TextBox();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@
             // 
             this.panel3.Controls.Add(this.dtpEnd);
             this.panel3.Controls.Add(this.CboPriceT);
-            this.panel3.Controls.Add(this.CboPriceP);
+            this.panel3.Controls.Add(this.txtPriceP);
             this.panel3.Controls.Add(this.dtpStart);
             this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.label18);
@@ -114,6 +114,7 @@
             // btnInsert
             // 
             this.btnInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnCancel
             // 
@@ -335,12 +336,13 @@
             this.CboPriceT.Size = new System.Drawing.Size(208, 21);
             this.CboPriceT.TabIndex = 61;
             // 
-            // CboPriceP
+            // txtPriceP
             // 
-            this.CboPriceP.Location = new System.Drawing.Point(124, 10);
-            this.CboPriceP.Name = "CboPriceP";
-            this.CboPriceP.Size = new System.Drawing.Size(208, 21);
-            this.CboPriceP.TabIndex = 60;
+            this.txtPriceP.Location = new System.Drawing.Point(124, 10);
+            this.txtPriceP.Name = "txtPriceP";
+            this.txtPriceP.Size = new System.Drawing.Size(208, 21);
+            this.txtPriceP.TabIndex = 60;
+            this.txtPriceP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPriceP_KeyPress);
             // 
             // dtpStart
             // 
@@ -502,7 +504,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox dtpEnd;
         private System.Windows.Forms.TextBox CboPriceT;
-        private System.Windows.Forms.TextBox CboPriceP;
+        private System.Windows.Forms.TextBox txtPriceP;
         private System.Windows.Forms.DateTimePicker dtpStart;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;

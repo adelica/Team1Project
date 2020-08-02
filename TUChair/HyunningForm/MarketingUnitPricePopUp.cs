@@ -96,6 +96,39 @@ namespace TUChair
 
         }
 
-   
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            if (cboComCode.Text.Trim().Length < 1 || cboItemCode.Text.Trim().Length < 1 || cboItemName.Text.Trim().Length < 1 || txtPriceP.Text.Trim().Length < 1)
+            {
+                CommonUtil.RequiredInfo();
+                return;
+            }
+
+           
+
+            UnitPriceVO upv = new UnitPriceVO();
+            upv.Com_Code = cboComCode.SelectedItem.ToString();
+            upv.Item_Code = cboItemCode.SelectedItem.ToString();
+            upv.Item_Name = cboItemName.SelectedItem.ToString();
+            upv.Price_Present = int.Parse(txtPriceP.Text);
+            upv.Price_StartDate = dtpStart.Value;
+
+            JeanService service = new JeanService();
+            bool Result = service.InsertOrUpdate(upv);
+            if (check)
+            {
+                MessageBox.Show("등록되었습니다.", "등록완료");
+                this.Close();
+            }
+        }
+    
+
+        private void txtPriceP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
