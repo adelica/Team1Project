@@ -35,30 +35,30 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cboItemUnit = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cboItemSize = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cboItemName = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cboItemCode = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cboComName = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboComCode = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboComno = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpEnd = new System.Windows.Forms.TextBox();
+            this.CboPriceT = new System.Windows.Forms.TextBox();
+            this.CboPriceP = new System.Windows.Forms.TextBox();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.cboUseOrNot = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -71,16 +71,16 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.dateTimePicker1);
+            this.panel3.Controls.Add(this.dtpEnd);
+            this.panel3.Controls.Add(this.CboPriceT);
+            this.panel3.Controls.Add(this.CboPriceP);
+            this.panel3.Controls.Add(this.dtpStart);
             this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.label19);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.label21);
-            this.panel3.Controls.Add(this.comboBox10);
+            this.panel3.Controls.Add(this.cboUseOrNot);
             this.panel3.Controls.Add(this.label24);
             this.panel3.Controls.Add(this.label25);
             this.panel3.Controls.Add(this.label26);
@@ -96,20 +96,29 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.comboBox7);
+            this.panel2.Controls.Add(this.cboItemUnit);
             this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.comboBox6);
+            this.panel2.Controls.Add(this.cboItemSize);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.comboBox5);
+            this.panel2.Controls.Add(this.cboItemName);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.comboBox4);
+            this.panel2.Controls.Add(this.cboItemCode);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.comboBox3);
+            this.panel2.Controls.Add(this.cboComName);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.cboComCode);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.cboComno);
             this.panel2.Controls.Add(this.label1);
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
             // 
             // label14
             // 
@@ -186,13 +195,13 @@
             this.label2.TabIndex = 43;
             this.label2.Text = "■";
             // 
-            // comboBox7
+            // cboItemUnit
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(135, 234);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(208, 20);
-            this.comboBox7.TabIndex = 31;
+            this.cboItemUnit.FormattingEnabled = true;
+            this.cboItemUnit.Location = new System.Drawing.Point(135, 234);
+            this.cboItemUnit.Name = "cboItemUnit";
+            this.cboItemUnit.Size = new System.Drawing.Size(208, 20);
+            this.cboItemUnit.TabIndex = 31;
             // 
             // label13
             // 
@@ -203,13 +212,13 @@
             this.label13.TabIndex = 29;
             this.label13.Text = "단위";
             // 
-            // comboBox6
+            // cboItemSize
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(135, 197);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(208, 20);
-            this.comboBox6.TabIndex = 32;
+            this.cboItemSize.FormattingEnabled = true;
+            this.cboItemSize.Location = new System.Drawing.Point(135, 197);
+            this.cboItemSize.Name = "cboItemSize";
+            this.cboItemSize.Size = new System.Drawing.Size(208, 20);
+            this.cboItemSize.TabIndex = 32;
             // 
             // label11
             // 
@@ -220,13 +229,13 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "규격";
             // 
-            // comboBox5
+            // cboItemName
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(135, 160);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(208, 20);
-            this.comboBox5.TabIndex = 34;
+            this.cboItemName.FormattingEnabled = true;
+            this.cboItemName.Location = new System.Drawing.Point(135, 160);
+            this.cboItemName.Name = "cboItemName";
+            this.cboItemName.Size = new System.Drawing.Size(208, 20);
+            this.cboItemName.TabIndex = 34;
             // 
             // label9
             // 
@@ -238,13 +247,13 @@
             this.label9.TabIndex = 28;
             this.label9.Text = "품명";
             // 
-            // comboBox4
+            // cboItemCode
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(135, 123);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(208, 20);
-            this.comboBox4.TabIndex = 35;
+            this.cboItemCode.FormattingEnabled = true;
+            this.cboItemCode.Location = new System.Drawing.Point(135, 123);
+            this.cboItemCode.Name = "cboItemCode";
+            this.cboItemCode.Size = new System.Drawing.Size(208, 20);
+            this.cboItemCode.TabIndex = 35;
             // 
             // label7
             // 
@@ -256,13 +265,13 @@
             this.label7.TabIndex = 27;
             this.label7.Text = "품목";
             // 
-            // comboBox3
+            // cboComName
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(135, 86);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(208, 20);
-            this.comboBox3.TabIndex = 36;
+            this.cboComName.FormattingEnabled = true;
+            this.cboComName.Location = new System.Drawing.Point(135, 86);
+            this.cboComName.Name = "cboComName";
+            this.cboComName.Size = new System.Drawing.Size(208, 20);
+            this.cboComName.TabIndex = 36;
             // 
             // label5
             // 
@@ -274,13 +283,13 @@
             this.label5.TabIndex = 26;
             this.label5.Text = "업체명";
             // 
-            // comboBox2
+            // cboComCode
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(135, 49);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(208, 20);
-            this.comboBox2.TabIndex = 37;
+            this.cboComCode.FormattingEnabled = true;
+            this.cboComCode.Location = new System.Drawing.Point(135, 49);
+            this.cboComCode.Name = "cboComCode";
+            this.cboComCode.Size = new System.Drawing.Size(208, 20);
+            this.cboComCode.TabIndex = 37;
             // 
             // label3
             // 
@@ -292,13 +301,13 @@
             this.label3.TabIndex = 25;
             this.label3.Text = "업체코드";
             // 
-            // comboBox1
+            // cboComno
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(135, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 20);
-            this.comboBox1.TabIndex = 33;
+            this.cboComno.FormattingEnabled = true;
+            this.cboComno.Location = new System.Drawing.Point(135, 12);
+            this.cboComno.Name = "cboComno";
+            this.cboComno.Size = new System.Drawing.Size(208, 20);
+            this.cboComno.TabIndex = 33;
             // 
             // label1
             // 
@@ -310,38 +319,38 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "업체고유번호";
             // 
-            // textBox3
+            // dtpEnd
             // 
-            this.textBox3.Location = new System.Drawing.Point(124, 125);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(208, 21);
-            this.textBox3.TabIndex = 62;
+            this.dtpEnd.Location = new System.Drawing.Point(124, 125);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.ReadOnly = true;
+            this.dtpEnd.Size = new System.Drawing.Size(208, 21);
+            this.dtpEnd.TabIndex = 62;
             // 
-            // textBox2
+            // CboPriceT
             // 
-            this.textBox2.Location = new System.Drawing.Point(124, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(208, 21);
-            this.textBox2.TabIndex = 61;
+            this.CboPriceT.Location = new System.Drawing.Point(124, 51);
+            this.CboPriceT.Name = "CboPriceT";
+            this.CboPriceT.ReadOnly = true;
+            this.CboPriceT.Size = new System.Drawing.Size(208, 21);
+            this.CboPriceT.TabIndex = 61;
             // 
-            // textBox1
+            // CboPriceP
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 21);
-            this.textBox1.TabIndex = 60;
+            this.CboPriceP.Location = new System.Drawing.Point(124, 10);
+            this.CboPriceP.Name = "CboPriceP";
+            this.CboPriceP.Size = new System.Drawing.Size(208, 21);
+            this.CboPriceP.TabIndex = 60;
             // 
-            // dateTimePicker1
+            // dtpStart
             // 
-            this.dateTimePicker1.Checked = false;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(124, 87);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(208, 21);
-            this.dateTimePicker1.TabIndex = 59;
-            this.dateTimePicker1.Value = new System.DateTime(2020, 7, 24, 0, 0, 0, 0);
+            this.dtpStart.Checked = false;
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStart.Location = new System.Drawing.Point(124, 87);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(208, 21);
+            this.dtpStart.TabIndex = 59;
+            this.dtpStart.Value = new System.DateTime(2020, 7, 24, 0, 0, 0, 0);
             // 
             // label17
             // 
@@ -396,13 +405,13 @@
             this.label21.TabIndex = 58;
             this.label21.Text = "■";
             // 
-            // comboBox10
+            // cboUseOrNot
             // 
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(124, 163);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(208, 20);
-            this.comboBox10.TabIndex = 53;
+            this.cboUseOrNot.FormattingEnabled = true;
+            this.cboUseOrNot.Location = new System.Drawing.Point(124, 163);
+            this.cboUseOrNot.Name = "cboUseOrNot";
+            this.cboUseOrNot.Size = new System.Drawing.Size(208, 20);
+            this.cboUseOrNot.TabIndex = 53;
             // 
             // label24
             // 
@@ -458,6 +467,7 @@
             this.ClientSize = new System.Drawing.Size(774, 450);
             this.Name = "MarketingUnitPricePopUp";
             this.Text = "영업단가관리";
+            this.Load += new System.EventHandler(this.MarketingUnitPricePopUp_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -476,30 +486,30 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cboItemUnit;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cboItemSize;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cboItemName;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cboItemCode;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboComName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboComCode;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboComno;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox dtpEnd;
+        private System.Windows.Forms.TextBox CboPriceT;
+        private System.Windows.Forms.TextBox CboPriceP;
+        private System.Windows.Forms.DateTimePicker dtpStart;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox10;
+        private System.Windows.Forms.ComboBox cboUseOrNot;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
