@@ -67,6 +67,12 @@ namespace TUChair.Util
             combo.DisplayMember = "CodeNm";
             combo.ValueMember = "Code";
         }
+        public static void ComboBinding(ComboBox combo, List<ComboItemVO> list)
+        {
+            combo.ValueMember = "Code";
+            combo.DisplayMember = "CodeNm";
+            combo.DataSource = list;
+        }
         //---------------------------------------------------------
         public static void CboSetting(ComboBox combo) //콤보박스 기본설정
         {
