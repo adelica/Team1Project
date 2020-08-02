@@ -70,6 +70,7 @@
     <Compile Include="CommonForm\SearchTwoGridLeftRightFrom.Designer.cs">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\commonService.cs" />
     <Compile Include="Service\FacilityService.cs" />
     <Compile Include="WooForm\balzuDetail.cs">
       <SubType>Form</SubType>
