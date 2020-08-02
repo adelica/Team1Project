@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel8 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cboCompany1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -40,7 +40,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtItem = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -72,6 +72,7 @@
             // 
             this.panel3.Location = new System.Drawing.Point(14, 219);
             this.panel3.Size = new System.Drawing.Size(1248, 518);
+            this.panel3.Tag = "Item_Name";
             // 
             // panel2
             // 
@@ -93,7 +94,7 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.comboBox3);
+            this.panel8.Controls.Add(this.cboCompany1);
             this.panel8.Controls.Add(this.label5);
             this.panel8.Location = new System.Drawing.Point(4, 49);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -101,15 +102,15 @@
             this.panel8.Size = new System.Drawing.Size(408, 42);
             this.panel8.TabIndex = 27;
             // 
-            // comboBox3
+            // cboCompany1
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(136, 4);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(250, 32);
-            this.comboBox3.TabIndex = 7;
+            this.cboCompany1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCompany1.FormattingEnabled = true;
+            this.cboCompany1.Location = new System.Drawing.Point(134, 4);
+            this.cboCompany1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboCompany1.Name = "cboCompany1";
+            this.cboCompany1.Size = new System.Drawing.Size(250, 32);
+            this.cboCompany1.TabIndex = 7;
             // 
             // label5
             // 
@@ -193,7 +194,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.txtItem);
             this.panel4.Location = new System.Drawing.Point(4, 4);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
@@ -211,14 +212,14 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "◆ 품목";
             // 
-            // textBox2
+            // txtItem
             // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(135, 4);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 32);
-            this.textBox2.TabIndex = 7;
+            this.txtItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItem.Location = new System.Drawing.Point(135, 4);
+            this.txtItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtItem.Name = "txtItem";
+            this.txtItem.Size = new System.Drawing.Size(250, 32);
+            this.txtItem.TabIndex = 7;
             // 
             // panel7
             // 
@@ -403,7 +404,7 @@
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboCompany1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -413,7 +414,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtItem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox comboBox1;

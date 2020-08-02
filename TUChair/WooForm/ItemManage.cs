@@ -33,8 +33,7 @@ namespace TUChair
             frm.New += New;
             frm.Excel += Excel;
             commonService service = new commonService();
-            service.getCommonCode("발주업체@창고@고객사@User@사용여부@품목유형");
-
+            comboItems= service.getCommonCode("발주업체@창고@고객사@User@사용여부@품목유형");
             List<ComboItemVO> item = new List<ComboItemVO>();
 
         }
