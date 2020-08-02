@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -64,15 +65,18 @@ namespace TUChairDAC
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.CommandText = "SP_InsertUnitPrice";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@PriceNO", (object)upv.PriceNO ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Com_No", /*(object)upv.Com_No ?? */DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Com_Code", (object)upv.Com_Code ?? DBNull.Value);
+                    
+
+                    //cmd.Parameters.AddWithValue("@PriceNO", /*(object)upv.PriceNO ??*/ DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Com_No", (object)upv.Com_No != null ? (object)upv.Com_No : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Com_Code", /*(object)upv.Com_Code ??*/ DBNull.Value);
                     cmd.Parameters.AddWithValue("@Com_Name", upv.Com_Name);
-                    cmd.Parameters.AddWithValue("@Item_Code", upv.Item_Code);
-                    cmd.Parameters.AddWithValue("@Item_Name", upv.Item_Name);
-                    cmd.Parameters.AddWithValue("@Item_Size", (object)upv.Item_Size ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Item_Unit", (object)upv.Item_Unit ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Code", upv.Item_Code.ToString());
+                    cmd.Parameters.AddWithValue("@Item_Name", upv.Item_Name.ToString());
+                    cmd.Parameters.AddWithValue("@Item_Size", /*(object)upv.Item_Size ??*/ DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Unit", /*(object)upv.Item_Unit ??*/ DBNull.Value);
                     cmd.Parameters.AddWithValue("@Price_Present", upv.Price_Present);
                     cmd.Parameters.AddWithValue("@Price_transfer", (object)upv.Price_transfer ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Price_StartDate", upv.Price_StartDate);
@@ -80,9 +84,9 @@ namespace TUChairDAC
                     cmd.Parameters.AddWithValue("@Price_UserOrNot", (object)upv.Price_UserOrNot ?? DBNull.Value);
 
 
+                  
 
 
-                    
                     cmd.Connection.Open();
                     var rowsAffected = cmd.ExecuteNonQuery();
                     cmd.Connection.Close();

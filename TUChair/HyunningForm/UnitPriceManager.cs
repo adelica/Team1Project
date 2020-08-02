@@ -46,6 +46,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Price_StartDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Price_EndDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
+            jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = list;
         }
 
@@ -55,7 +56,7 @@ namespace TUChair
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             
-                DataLoad();
+              DataLoad();
         }
     }
 }
