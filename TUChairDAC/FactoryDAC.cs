@@ -46,19 +46,32 @@ namespace TUChairDAC
             }
         }
 
-        public List<FactoryNameVO> GetCboData() //콤보박스 바인딩용 창고 이름 가져오기
+        public DataTable GetCboData() //콤보박스 바인딩용 창고 이름 가져오기
         {
             try
-            {              
-                using(SqlCommand cmd = new SqlCommand())
+            {           
+                //using (SqlCommand cmd = new SqlCommand())
+                //{
+                //    cmd.Connection = new SqlConnection(this.ConnectionString);
+                //    cmd.CommandText = @"select Fact_Name from Factory where Fact_Group='창고'";
+                //    cmd.Connection.Open();
+
+                //    SqlDataReader reader = cmd.ExecuteReader();
+                //    List<FactoryNameVO> list = Helper.DataReaderMapToList<FactoryNameVO>(reader);
+
+                //    cmd.Connection.Close();
+                //    return list;
+                //}
+
+                using(SqlConnection conn = new SqlConnection(this.ConnectionString))
                 {
-                    cmd.Connection = new SqlConnection(this.ConnectionString);
-                    cmd.CommandText = @"select Fact_Name from Factory where Fact_Group='창고'";
-                    cmd.Connection.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    List<FactoryNameVO> list = Helper.DataReaderMapToList<FactoryNameVO>(reader);
-                    cmd.Connection.Close();
-                    return list;
+                    DataTable dt = new DataTable();
+                    string sql= @"select distinct Fact_Name from Factory where Fact_Group='창고'";
+                    SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                    conn.Open();
+                    da.Fill(dt);
+                    conn.Close();
+                    return dt;
                 }
             }
             catch(Exception err)

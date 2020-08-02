@@ -24,7 +24,7 @@ namespace TUChair.Service
             return dac.FactoryInfoRegi(fGroup, fParent, fClass, fCode, fName, fModifier, fModifyDate, fUseOrNot, fInfo, fType);
         }
 
-        internal List<FactoryNameVO> GetCboData()
+        public DataTable GetCboData()
         {
             FactoryDAC dac = new FactoryDAC();
             return dac.GetCboData();

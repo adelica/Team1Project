@@ -46,7 +46,12 @@ namespace TUChair
 
             FacilityService service = new FacilityService();
             check = service.FacilityGInfoRegi(facG_Code, facG_Name, facG_UserOrNot, facG_Modifier, facG_ModifyDate, facG_Info);
-            this.Close();
+            if(check)
+            {
+                MessageBox.Show("등록되었습니다.", "등록완료");
+                this.Close();
+            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

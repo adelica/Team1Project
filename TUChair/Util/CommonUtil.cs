@@ -80,6 +80,7 @@ namespace TUChair.Util
         {
             string[] cUseOrNot = { "사용", "미사용" };
             combo.Items.AddRange(cUseOrNot);
+            combo.SelectedIndex = 0;
         }
 
         public static void RequiredInfo()
