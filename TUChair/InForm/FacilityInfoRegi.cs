@@ -8,11 +8,13 @@ using System.Windows.Forms;
 using TUChair.Service;
 using TUChairVO;
 using TUChair.Util;
+using System.Linq;
 
 namespace TUChair
 {
     public partial class FacilityInfoRegi : TUChair.POPUPForm3Line
     {
+        List<ComboItemVO> comboItems = null;
         bool check=false;
         public bool Check{ get { return check; } }
         public FacilityInfoRegi()
@@ -28,20 +30,7 @@ namespace TUChair
             cboFacG_Code.ValueMember = "FacG_Code";
             cboFacG_Code.DataSource = dt;
         }
-        private void GetCboData(ComboBox combo) //콤보박스에 바인딩할 창고 데이터 가져오기
-        {
-            FactoryService service = new FactoryService();
-            DataTable dt = service.GetCboData();
 
-            combo.DisplayMember = "Fact_Name";
-            combo.ValueMember = "Fact_Name";
-            DataRow dr = dt.NewRow();
-            dr["Fact_Name"] = "선택";
-
-
-            dt.Rows.InsertAt(dr, 0);
-            combo.DataSource = dt;
-        }
         private void btnInsert_Click(object sender, EventArgs e) //등록
         {
             if (txtFaci_Code.Text.Trim().Length < 1 || txtFaci_Name.Text.Trim().Length < 1)
@@ -49,7 +38,7 @@ namespace TUChair
                 CommonUtil.RequiredInfo();
                 return;
             }
-            else if (cboFaci_InWareHouse.SelectedIndex == 0 || cboFaci_OutWareHouse.SelectedIndex == 0)
+            else if (cboFaci_InWareHouse.SelectedIndex == 0 || cboFaci_OutWareHouse.SelectedIndex == 0||cboFaci_UseOrNot.SelectedIndex==0)
             {
                 MessageBox.Show("필수 입력사항을 선택해주세요", "등록실패");
                 return;
@@ -60,10 +49,10 @@ namespace TUChair
             string faci_Modifier = txtFaci_Modifier.Text;
             string faci_Detail = txtFaci_Detail.Text;
             string faci_Others = txtFaci_Others.Text;
-            string faci_In = cboFaci_InWareHouse.SelectedValue.ToString();
-            string faci_Out = cboFaci_OutWareHouse.SelectedValue.ToString();
-            string faci_Bad;
-            string faci_UseOrNot = cboFaci_UseOrNot.SelectedItem.ToString();
+            string faci_In = cboFaci_InWareHouse.Text;
+            string faci_Out = cboFaci_OutWareHouse.Text;
+            string faci_Bad= cboFaci_BadWareHouse.Text;
+            string faci_UseOrNot = cboFaci_UseOrNot.Text;
             if (cboFaci_BadWareHouse.SelectedIndex == 0)
             {
                 faci_Bad = string.Empty;
@@ -89,12 +78,30 @@ namespace TUChair
 
         private void FacilityInfoRegi_Load(object sender, EventArgs e)
         {
-            GetCboData(cboFaci_BadWareHouse);
-            GetCboData(cboFaci_InWareHouse);
-            GetCboData(cboFaci_OutWareHouse);
             CommonUtil.CboSetting(cboFacG_Code);
 
-            CommonUtil.CboUseOrNot(cboFaci_UseOrNot);
+
+            commonService service = new commonService();
+           
+            comboItems = service.getCommonCode("사용여부@시설");
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "사용여부"
+                                       select item).ToList();
+            CommonUtil.ComboBinding(cboFaci_UseOrNot, cList, "선택");
+             cList = (from item in comboItems
+                     where item.CodeType == "시설"
+                      select item).ToList();
+            CommonUtil.ComboBinding(cboFaci_BadWareHouse, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "시설"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboFaci_InWareHouse, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "시설"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboFaci_OutWareHouse, cList, "선택");
+
 
         }
     }

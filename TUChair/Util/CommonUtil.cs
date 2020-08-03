@@ -36,7 +36,7 @@ namespace TUChair.Util
             DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 
             //dgv.ReadOnly = true;
-           // dgv.AutoGenerateColumns = false;        
+            dgv.AutoGenerateColumns = false;        
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToResizeRows = false;
             dgv.AllowUserToResizeColumns = true;
