@@ -67,6 +67,16 @@ namespace TUChair.Util
             combo.DisplayMember = "CodeNm";
             combo.ValueMember = "Code";
         }
+        public static void ReComboBinding(ComboBox combo, List<ComboItemVO> list, string blankText)
+        {
+            if (list == null)
+                list = new List<ComboItemVO>();
+
+            list.Insert(0, new ComboItemVO(blankText,"R"));
+            combo.DataSource = list;
+            combo.DisplayMember = "Code";
+            combo.ValueMember = "CodeNm";
+        }
         public static void ComboBinding(ComboBox combo, List<ComboItemVO> list)
         {
             combo.ValueMember = "Code";
