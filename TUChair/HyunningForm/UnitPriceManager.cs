@@ -13,7 +13,7 @@ namespace TUChair
 {
     public partial class UnitPriceManager : TUChair.SearchCommomForm
     {
-        List<UnitPriceVO> list;
+        List<ViewUnitPriceVO> list;
         public UnitPriceManager()
         {
             InitializeComponent();
@@ -34,7 +34,6 @@ namespace TUChair
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "PriceNO", "PriceNO", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체고유번호", "Com_No", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체코드", "Com_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체명", "Com_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true);
@@ -46,6 +45,10 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Price_StartDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Price_EndDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Modifier", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "ModifierDate", true);
+
+
             jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = list;
         }
@@ -55,8 +58,8 @@ namespace TUChair
             UnitPricePopUp frm = new UnitPricePopUp();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            
-              DataLoad();
+
+            DataLoad();
         }
     }
 }

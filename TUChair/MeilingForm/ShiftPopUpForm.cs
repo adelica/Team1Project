@@ -35,7 +35,7 @@ namespace TUChair
             else
             {
                 MeilingService service = new MeilingService();
-                service.InsertShiftInfo(txtShiftID.Text, cboShift.SelectedItem.ToString(), txtStartTime.Text, txtEndTime.Text, dtpStartDate.Value, dtpEndDate.Value, Convert.ToInt32(txtPeople.Text), cboUseOrNot.Text, txtModifyName.Text, dtpModifyDate.Value, txtRemark.Text);
+                service.InsertShiftInfo(txtShiftID.Text, cboShift.SelectedItem.ToString(), txtStartTime.Text, txtEndTime.Text, dtpStartDate.Value, dtpEndDate.Value, Convert.ToInt32((txtPeople.Text.Length > 0) ? txtPeople.Text:"0"), cboUseOrNot.Text, txtModifyName.Text, dtpModifyDate.Value, txtRemark.Text);
 
             }
 

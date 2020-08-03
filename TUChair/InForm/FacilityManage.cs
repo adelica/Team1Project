@@ -17,6 +17,8 @@ namespace TUChair
         DataTable dtFacility = new DataTable();
         DataTable dtFacilityG = new DataTable();
 
+        bool typeCheck = true;
+
         public FacilityManage()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "설비군 코드", "FacG_Code", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "설비군 명", "FacG_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "사용유무", "FacG_UseOrNot", true, 80);
+            CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "정보", "FacG_Information", false);
 
 
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "No.", "no", true, 40,DataGridViewContentAlignment.MiddleCenter);
@@ -107,6 +110,71 @@ namespace TUChair
             else
                 dgvFacility.DataSource = facility.CopyToDataTable();
             
+        }
+
+        private void dgvFacilityG_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.RowIndex<0||e.RowIndex>dgvFacilityG.Rows.Count)
+            {
+                return;
+            }
+            if(e.Button==MouseButtons.Right)
+            {
+                typeCheck = true;
+                dgvFacilityG.Rows[e.RowIndex].Selected = true;
+                dgvFacilityG.CurrentCell = dgvFacilityG.Rows[e.RowIndex].Cells[0];
+                contextMenuStrip1.Show(dgvFacilityG, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
+            }
+        }
+
+        private void dgvFacility_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.RowIndex<0 || e.RowIndex>dgvFacility.Rows.Count)
+            {
+                return;
+            }
+            if(e.Button==MouseButtons.Right)
+            {
+                typeCheck = false;
+                dgvFacility.Rows[e.RowIndex].Selected = true;
+                dgvFacility.CurrentCell = dgvFacility.Rows[e.RowIndex].Cells[0];
+                contextMenuStrip1.Show(dgvFacility, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
+            }
+        }
+
+        private void 수정ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(typeCheck) //설비군 수정
+            {
+                var row = dgvFacilityG.CurrentRow;
+
+                string facG_Code = row.Cells[0].Value.ToString();
+                string facG_Name= row.Cells[1].Value.ToString();
+                string facGUseOrNot = row.Cells[2].Value.ToString();
+                string facG_Info= row.Cells[3].Value.ToString();
+
+                FacilityGroupInfoRegi frm = new FacilityGroupInfoRegi(facG_Code, facG_Name, facGUseOrNot, facG_Info);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                if(frm.Check)
+                {
+                    LoadData();
+                }
+            }
+            else //설비수정
+            {
+
+            }
+        }
+
+        private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(typeCheck)
+            {
+
+            }
         }
     }
 }

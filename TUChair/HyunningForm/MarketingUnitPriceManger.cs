@@ -13,7 +13,7 @@ namespace TUChair
 {
     public partial class MarketingUnitPriceManger : TUChair.SearchCommomForm
     {
-        List<UnitPriceVO> list;
+        List<ViewUnitPriceVO> list;
 
         public MarketingUnitPriceManger()
         {
