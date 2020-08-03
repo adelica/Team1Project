@@ -80,7 +80,6 @@ namespace TUChair
             CommonUtil.CboSetting(cboComName);
             //CommonUtil.CboSetting(cboComno);
             CommonUtil.CboSetting(cboItemCode);
-            CommonUtil.CboSetting(cboItemName);
            // CommonUtil.CboSetting(cboItemSize);
            // CommonUtil.CboSetting(cboItemUnit);
             //CommonUtil.CboSetting(cboUseOrNot);
@@ -90,7 +89,7 @@ namespace TUChair
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (cboComCode.Text.Trim().Length < 1 || cboItemCode.Text.Trim().Length < 1 || cboItemName.Text.Trim().Length < 1 || txtPriceP.Text.Trim().Length < 1)
+            if (cboComCode.Text.Trim().Length < 1 || cboItemCode.Text.Trim().Length < 1 ||  txtPriceP.Text.Trim().Length < 1)
             {
                 CommonUtil.RequiredInfo();
                 return;
