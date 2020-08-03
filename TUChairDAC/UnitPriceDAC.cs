@@ -12,17 +12,19 @@ namespace TUChairDAC
 {
     public class UnitPriceDAC : ConnectionAccess
     {
-        public List<UnitPriceVO> UPBinding() // 자재단가 관리 (전체)
+        public List<ViewUnitPriceVO> UPBinding() // 자재단가 관리 (전체)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select [PriceNO], [Com_No], [Com_Code], [Com_Name], [Item_Code], [Item_Name], [Item_Size], [Item_Unit], [Price_Present], [Price_transfer], convert(varchar(10), Price_StartDate, 23) Price_StartDate,convert(varchar(10), Price_EndDate, 23) Price_EndDate,[Price_UserOrNot]  from [dbo].[UnitPrice]";
+                string sql = @"SELECT [PriceNO], u.[Com_Code] [Com_Code],c.[Com_Name] [Com_Name], u.[Item_Code] [Item_Code], i.[Item_Name] [Item_Name], i.[Item_Size] [Item_Size],
+	                             i.[Item_Unit] [Item_Unit], [Price_Present], [Price_transfer],convert(nvarchar, [Price_StartDate],23)[Price_StartDate], convert(nvarchar, [Price_EndDate],23)[Price_EndDate], [Price_UserOrNot], [Modifier], [ModifierDate]
+                              from [dbo].[UnitPrice] u left join [dbo].[Company] c  on u.Com_Code = c.Com_Code  left join  [dbo].[Item] i on u.Item_Code = i.Item_Code";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
-                    List<UnitPriceVO> list = Helper.DataReaderMapToList<UnitPriceVO>(reader);
+                    List<ViewUnitPriceVO> list = Helper.DataReaderMapToList<ViewUnitPriceVO>(reader);
                     cmd.Connection.Close();
                     return list;
                 }
@@ -34,17 +36,19 @@ namespace TUChairDAC
                 return null;
             }
         }
-        public List<UnitPriceVO> ProductUPBinding() // 영업단가 관리 (완제품)
+        public List<ViewUnitPriceVO> ProductUPBinding() // 영업단가 관리 (완제품)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select [PriceNO], [Com_No], [Com_Code], [Com_Name], [Item_Code], [Item_ Name], [Item_Size], [Item_Unit], [Price_Present], [Price_transfer], [Price_StartDate],[Price_EndDate],[Price_UserOrNot]  from [dbo].[UnitPrice] where [Item_Code] = 'CHAIR_01'";
+                string sql = @"SELECT [PriceNO], u.[Com_Code] [Com_Code],c.[Com_Name] [Com_Name], u.[Item_Code] [Item_Code], i.[Item_Name] [Item_Name], i.[Item_Size] [Item_Size],
+	                             i.[Item_Unit] [Item_Unit], [Price_Present], [Price_transfer],convert(nvarchar, [Price_StartDate],23)[Price_StartDate], convert(nvarchar, [Price_EndDate],23)[Price_EndDate], [Price_UserOrNot], [Modifier], [ModifierDate]
+                              from [dbo].[UnitPrice] u left join [dbo].[Company] c  on u.Com_Code = c.Com_Code  left join  [dbo].[Item] i on u.Item_Code = i.Item_Code where u.[Item_Code] = 'CHAIR_01'";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
-                    List<UnitPriceVO> list = Helper.MeilingDataReaderMapToList<UnitPriceVO>(reader);
+                    List<ViewUnitPriceVO> list = Helper.MeilingDataReaderMapToList<ViewUnitPriceVO>(reader);
                     cmd.Connection.Close();
                     return list;
                 }
@@ -70,21 +74,19 @@ namespace TUChairDAC
                     
 
                     //cmd.Parameters.AddWithValue("@PriceNO", /*(object)upv.PriceNO ??*/ DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Com_No", (object)upv.Com_No != null ? (object)upv.Com_No : DBNull.Value);
                     cmd.Parameters.AddWithValue("@Com_Code", /*(object)upv.Com_Code ??*/ DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Com_Name", upv.Com_Name);
                     cmd.Parameters.AddWithValue("@Item_Code", upv.Item_Code.ToString());
-                    cmd.Parameters.AddWithValue("@Item_Name", upv.Item_Name.ToString());
-                    cmd.Parameters.AddWithValue("@Item_Size", /*(object)upv.Item_Size ??*/ DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Item_Unit", /*(object)upv.Item_Unit ??*/ DBNull.Value);
                     cmd.Parameters.AddWithValue("@Price_Present", upv.Price_Present);
                     cmd.Parameters.AddWithValue("@Price_transfer", (object)upv.Price_transfer ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Price_StartDate", upv.Price_StartDate);
                     cmd.Parameters.AddWithValue("@Price_EndDate", upv.Price_EndDate ?? DBNull.Value.ToString());
                     cmd.Parameters.AddWithValue("@Price_UserOrNot", (object)upv.Price_UserOrNot ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Modifier", upv.Modifier);
+                    cmd.Parameters.AddWithValue("@ModifierDate", upv.ModifierDate);
 
 
-                  
+
+
 
 
                     cmd.Connection.Open();

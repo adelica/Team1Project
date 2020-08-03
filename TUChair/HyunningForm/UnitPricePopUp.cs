@@ -14,6 +14,7 @@ namespace TUChair
 {
     public partial class UnitPricePopUp : TUChair.POPUp2Line
     {
+       
         List<UnitPriceVO> list;
 
         public List<string> Comname = new List<string>();
@@ -31,7 +32,7 @@ namespace TUChair
         private void UnitPricePopUp_Load(object sender, EventArgs e)
         {
 
-
+            MessageBox.Show(LoginFrm.userName);
             ComboBoxBinding();
             //if (uporInsert == "Update")
             //{
@@ -50,31 +51,37 @@ namespace TUChair
         }
         private void ComboBoxBinding() // 각 콤보박스에 선택지 바인딩
         {
+            //commonService service = new commonService();
+            //List<ComboItemVO> allList = service.getCommonCode("");
+
+            //cList = (from item in allList
+            //         where item.CodeType == "Categories"
+            //         select item).ToList();
+            //CommonUtil.ComboBinding(cboCategories, cList, "선택");
 
 
+            //JeanService service = new JeanService();
+            //list = service.UPBinding();
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    Comname.Add(list[i].Com_Name);
+            //}
+            //Comname = Comname.Distinct().ToList();
+            //cboComName.Items.AddRange(Comname.ToArray());
 
-            JeanService service = new JeanService();
-            list = service.UPBinding();
-            for (int i = 0; i < list.Count; i++)
-            {
-                Comname.Add(list[i].Com_Name);
-            }
-            Comname = Comname.Distinct().ToList();
-            cboComName.Items.AddRange(Comname.ToArray());
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    Comicode.Add(list[i].Item_Code);
+            //}
+            //Comicode = Comicode.Distinct().ToList();
+            //cboItemCode.Items.AddRange(Comicode.ToArray());
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                Comicode.Add(list[i].Item_Code);
-            }
-            Comicode = Comicode.Distinct().ToList();
-            cboItemCode.Items.AddRange(Comicode.ToArray());
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                Cominame.Add(list[i].Item_Name);
-            }
-            Cominame = Cominame.Distinct().ToList();
-            cboItemName.Items.AddRange(Cominame.ToArray());
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    Cominame.Add(list[i].Item_Name);
+            //}
+            //Cominame = Cominame.Distinct().ToList();
+            //cboItemName.Items.AddRange(Cominame.ToArray());
 
 
 
@@ -93,13 +100,14 @@ namespace TUChair
             //// CommonUtil.CboSetting(cboItemSize);
             //// CommonUtil.CboSetting(cboItemUnit);
             //CommonUtil.CboSetting(cboUseOrNot);
-
+            txtModifier.Text = LoginFrm.userName;
+            txtModifierdate.Text = DateTime.Now.ToString();
 
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (cboComName.Text.Trim().Length < 1 || cboItemCode.Text.Trim().Length < 1 || cboItemName.Text.Trim().Length < 1 || txtPriceP.Text.Trim().Length < 1)
+            if (cboComName.Text.Trim().Length < 1 || cboItemCode.Text.Trim().Length < 1 ||  txtPriceP.Text.Trim().Length < 1)
             {
                 CommonUtil.RequiredInfo();
                 return;
@@ -108,11 +116,11 @@ namespace TUChair
 
 
             UnitPriceVO upv = new UnitPriceVO();
-            upv.Com_Name = cboComName.SelectedItem.ToString();
             upv.Item_Code = cboItemCode.SelectedItem.ToString();
-            upv.Item_Name = cboItemName.SelectedItem.ToString();
             upv.Price_Present = int.Parse(txtPriceP.Text);
-            upv.Price_StartDate = dtpStart.Value.ToShortDateString() ;
+            upv.Price_StartDate = dtpStart.Value.ToShortDateString();
+            upv.Modifier = txtModifier.Text;
+            upv.ModifierDate = txtModifierdate.Text;
 
             JeanService service = new JeanService();
             bool Result = service.InsertOrUpdate(upv);
