@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TUChair.Service;
@@ -14,10 +15,13 @@ namespace TUChair
     public partial class MarketingUnitPriceManger : TUChair.SearchCommomForm
     {
         List<ViewUnitPriceVO> list;
+        List<ComboItemVO> comboItems = null;
 
         public MarketingUnitPriceManger()
         {
             InitializeComponent();
+            jeansGridView1.IsAllCheckColumnHeader = true;
+
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "PriceNO", "PriceNO", true);
@@ -35,9 +39,16 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Modifier", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "ModifierDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Unit_Other", true);
-            
 
-            jeansGridView1.IsAllCheckColumnHeader = true;
+            commonService service = new commonService();
+            comboItems = service.getCommonCode("완제품");
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "완제품"
+                                       select item).ToList();
+            CommonUtil.ReComboBinding(cboCompany, cList, "선택");
+
+
             DataLoad();
         }
         private void DataLoad()
@@ -49,6 +60,20 @@ namespace TUChair
 
             jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = list;
+        }
+        private void chbDate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbDate.Checked == true)
+            {
+                dateTimePicker1.Enabled = true;
+                dateTimePicker1.Format = DateTimePickerFormat.Short;
+            }
+            else
+            {
+                dateTimePicker1.Enabled = false;
+                dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                dateTimePicker1.CustomFormat = " ";
+            }
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
