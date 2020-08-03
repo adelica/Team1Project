@@ -20,6 +20,8 @@ namespace TUChairVO
         public string Price_UserOrNot { get; set; }
         public string Modifier { get; set; }
         public string ModifierDate { get; set; }
+        public string Unit_Other { get; set; }
+
 
     }
     public class ViewUnitPriceVO
@@ -39,5 +41,7 @@ namespace TUChairVO
         public string Price_UserOrNot { get; set; }
         public string Modifier { get; set; }
         public string ModifierDate { get; set; }
+        public string Unit_Other { get; set; }
+
     }
 }

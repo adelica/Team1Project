@@ -18,17 +18,6 @@ namespace TUChair
         public MarketingUnitPriceManger()
         {
             InitializeComponent();
-
-            JeanService service = new JeanService();
-            list = service.ProductUPBinding();
-
-            jeansGridView1.IsAllCheckColumnHeader = true;
-            DataLoad();
-        }
-        private void DataLoad()
-        {
-            JeanService service = new JeanService();
-            list = service.UPBinding();
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "PriceNO", "PriceNO", true);
@@ -45,6 +34,17 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Modifier", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "ModifierDate", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Unit_Other", true);
+            
+
+            jeansGridView1.IsAllCheckColumnHeader = true;
+            DataLoad();
+        }
+        private void DataLoad()
+        {
+            JeanService service = new JeanService();
+            list = service.ProductUPBinding();
+
 
 
             jeansGridView1.DataSource = null;

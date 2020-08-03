@@ -32,26 +32,27 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.jeansGridView1 = new JeanForm.JeansGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboCompany = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtItemCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelect = new System.Windows.Forms.Button();
+            this.chbDate = new System.Windows.Forms.CheckBox();
+            this.jeansGridView1 = new JeanForm.JeansGridView();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -72,13 +73,142 @@
             this.panel2.Controls.Add(this.btnSelect);
             this.panel2.Location = new System.Drawing.Point(13, 61);
             this.panel2.Size = new System.Drawing.Size(1091, 38);
-            this.panel2.Controls.SetChildIndex(this.label1, 0);
             this.panel2.Controls.SetChildIndex(this.btnSelect, 0);
+            this.panel2.Controls.SetChildIndex(this.label1, 0);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Size = new System.Drawing.Size(1092, 43);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.panel6, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 41);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.cboCompany);
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Location = new System.Drawing.Point(729, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(357, 35);
+            this.panel6.TabIndex = 8;
+            // 
+            // cboCompany
+            // 
+            this.cboCompany.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCompany.FormattingEnabled = true;
+            this.cboCompany.Location = new System.Drawing.Point(81, 5);
+            this.cboCompany.Name = "cboCompany";
+            this.cboCompany.Size = new System.Drawing.Size(158, 27);
+            this.cboCompany.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "◆ 업체";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.chbDate);
+            this.panel4.Controls.Add(this.dateTimePicker1);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(357, 35);
+            this.panel4.TabIndex = 1;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = " ";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(90, 4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(158, 27);
+            this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 7);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 19);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "◆ 기준일자";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.txtItemCode);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Location = new System.Drawing.Point(366, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(357, 35);
+            this.panel5.TabIndex = 2;
+            // 
+            // txtItemCode
+            // 
+            this.txtItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemCode.Location = new System.Drawing.Point(83, 4);
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.Size = new System.Drawing.Size(158, 27);
+            this.txtItemCode.TabIndex = 7;
+            this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 19);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "◆ 품목";
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(1010, 8);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 6;
+            this.btnSelect.Text = "popup";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // chbDate
+            // 
+            this.chbDate.AutoSize = true;
+            this.chbDate.Location = new System.Drawing.Point(266, 10);
+            this.chbDate.Name = "chbDate";
+            this.chbDate.Size = new System.Drawing.Size(60, 16);
+            this.chbDate.TabIndex = 8;
+            this.chbDate.Text = "활성화";
+            this.chbDate.UseVisualStyleBackColor = true;
+            this.chbDate.CheckedChanged += new System.EventHandler(this.chbDate_CheckedChanged);
             // 
             // jeansGridView1
             // 
@@ -102,7 +232,6 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.jeansGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jeansGridView1.EnableHeadersVisualStyles = false;
             this.jeansGridView1.IsAllCheckColumnHeader = false;
             this.jeansGridView1.Location = new System.Drawing.Point(0, 0);
             this.jeansGridView1.Name = "jeansGridView1";
@@ -113,121 +242,6 @@
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jeansGridView1.Size = new System.Drawing.Size(1090, 483);
             this.jeansGridView1.TabIndex = 0;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.panel6, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 41);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.comboBox1);
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(729, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(357, 35);
-            this.panel6.TabIndex = 8;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(81, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 27);
-            this.comboBox1.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 19);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "◆ 업체";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.dateTimePicker1);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(357, 35);
-            this.panel4.TabIndex = 1;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(103, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(158, 27);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 7);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 19);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "◆ 기준일자";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.textBox1);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(366, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(357, 35);
-            this.panel5.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(83, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 27);
-            this.textBox1.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 19);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "◆ 품목";
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Location = new System.Drawing.Point(1010, 8);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(75, 23);
-            this.btnSelect.TabIndex = 6;
-            this.btnSelect.Text = "popup";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // UnitPriceManager
             // 
@@ -241,7 +255,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -249,23 +262,24 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private JeanForm.JeansGridView jeansGridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboCompany;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox chbDate;
+        private JeanForm.JeansGridView jeansGridView1;
     }
 }
