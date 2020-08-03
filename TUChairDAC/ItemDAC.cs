@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +39,33 @@ Item";
             {
                 throw err;
             }
+        }
+
+        public List<ItemVO> SearchItem(string sg)
+        {
+            try
+            {
+                SqlConnection strConn = new SqlConnection(this.ConnectionString);
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = strConn;
+                    cmd.CommandText = @"SearchItem";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Condition", sg);
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<ItemVO> list = Helper.MeilingDataReaderMapToList<ItemVO>(reader);
+                    cmd.Connection.Close();
+
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+
         }
     }
 }
