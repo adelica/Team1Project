@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using TUChair.Util;
 using TUChair.Service;
+using TUChairVO;
+using System.Linq;
 
 namespace TUChair
 {
@@ -25,8 +27,15 @@ namespace TUChair
         private void FacilityGroupInfoRegi_Load(object sender, EventArgs e)
         {
             txtFacG_Modifier.Text = LoginFrm.userName;
-            //txtFacG_ModifyDate.Text = DateTime.Now.ToString();
-            CommonUtil.CboUseOrNot(cboFacG_UseOrNot);
+
+            commonService service = new commonService();
+
+            List<ComboItemVO> comboItems = service.getCommonCode("사용여부");
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "사용여부"
+                                       select item).ToList();
+            CommonUtil.ComboBinding(cboFacG_UseOrNot, cList, "선택");
             CommonUtil.CboSetting(cboFacG_UseOrNot);
         }
 
@@ -39,14 +48,19 @@ namespace TUChair
             }
             string facG_Code = txtFacG_Code.Text;
             string facG_Name = txtFacG_Name.Text;
-            string facG_UserOrNot = cboFacG_UseOrNot.SelectedItem.ToString();
+            string facG_UserOrNot = cboFacG_UseOrNot.Text;
             string facG_Modifier = txtFacG_Modifier.Text;
             DateTime facG_ModifyDate = DateTime.Now;
             string facG_Info = txtFacG_Info.Text;
 
             FacilityService service = new FacilityService();
             check = service.FacilityGInfoRegi(facG_Code, facG_Name, facG_UserOrNot, facG_Modifier, facG_ModifyDate, facG_Info);
-            this.Close();
+            if(check)
+            {
+                MessageBox.Show("등록되었습니다.", "등록완료");
+                this.Close();
+            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

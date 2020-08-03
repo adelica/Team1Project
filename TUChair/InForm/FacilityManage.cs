@@ -65,16 +65,20 @@ namespace TUChair
             frm.ShowDialog();
             if(frm.Check)
             {
-                MessageBox.Show("등록되었습니다.", "등록완료");
                 LoadData();
             }
         }
 
         private void btnFInsert_Click(object sender, EventArgs e) //설비 등록
         {
-            FacilityInfoRegi frm = new FacilityInfoRegi();
+            DataTable dt = dtFacilityG.DefaultView.ToTable(false, "FacG_Code");
+            FacilityInfoRegi frm = new FacilityInfoRegi(dt);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+            if(frm.Check)
+            {
+                LoadData();
+            }
         }
 
         private void dgvFacility_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e) //그리드뷰 맨 앞에 no 자동 생성
@@ -84,23 +88,24 @@ namespace TUChair
 
         private void dgvFacilityG_CellClick(object sender, DataGridViewCellEventArgs e) //설비군에 등록된 설비 없을 시 안됨
         {
-            if (e.RowIndex < 0 || e.RowIndex > dgvFacility.Rows.Count)
+            if (e.RowIndex < 0 || e.RowIndex > dgvFacilityG.Rows.Count)
                 return;
          
 
             string code = dgvFacilityG.Rows[e.RowIndex].Cells[0].Value.ToString();
 
             var facility = (from fdata in dtFacility.AsEnumerable()
-                               where fdata.Field<string>("FacG_Code") == code
-                           //where fdata["FacG_Code"].ToString() == code
-                           select fdata).CopyToDataTable();
+                            where fdata.Field<string>("FacG_Code") == code
+                            //where fdata["FacG_Code"].ToString() == code
+                            select fdata);
 
-            if (facility.Rows.Count < 1)
+            if (facility.Count() < 1)
             {
-                MessageBox.Show("X");
+                MessageBox.Show("등록된 설비가 없습니다");
+                dgvFacility.DataSource = null;
             }
             else
-                dgvFacility.DataSource = facility;
+                dgvFacility.DataSource = facility.CopyToDataTable();
             
         }
     }

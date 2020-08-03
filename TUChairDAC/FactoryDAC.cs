@@ -46,27 +46,27 @@ namespace TUChairDAC
             }
         }
 
-        public List<FactoryNameVO> GetCboData() //콤보박스 바인딩용 창고 이름 가져오기
+        public bool DeleteFactoryInfo(string fact_Code) //설비정보 삭제
         {
             try
-            {              
-                using(SqlCommand cmd = new SqlCommand())
+            {
+                using (SqlCommand cmd = new SqlCommand())
                 {
+                    cmd.CommandText = "Delete from Factory where Fact_Code=@fCode";
+                    cmd.Parameters.AddWithValue("@fCode", fact_Code);
                     cmd.Connection = new SqlConnection(this.ConnectionString);
-                    cmd.CommandText = @"select Fact_Name from Factory where Fact_Group='창고'";
                     cmd.Connection.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    List<FactoryNameVO> list = Helper.DataReaderMapToList<FactoryNameVO>(reader);
+                    cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
-                    return list;
                 }
+                    return true;
             }
             catch(Exception err)
             {
-                
-                return null;
+                return false;
             }
         }
+
 
         //공장정보 입력
         public bool FactoryInfoRegi(string fGroup, string fParent, string fClass, string fCode, string fName, string fModifier, DateTime fModifyDate, string fUseOrNot, string fInfo, string fType)
@@ -75,8 +75,10 @@ namespace TUChairDAC
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = @"insert into factory (Fact_Group, Fact_Class, Fact_Code, Fact_Name, Fact_Parent, Fact_Modifier, Fact_ModifyDate, Fact_UseOrNot,  Fact_Information,Fact_Type)
-                                                        values(@fGroup, @fClass, @fCode, @fName, @fParent, @fModifier, @fModifyDate, @fUseOrNot, @fInfo, @fType)";
+                    //cmd.CommandText = @"insert into factory (Fact_Group, Fact_Class, Fact_Code, Fact_Name, Fact_Parent, Fact_Modifier, Fact_ModifyDate, Fact_UseOrNot,  Fact_Information,Fact_Type)
+                    //                                    values(@fGroup, @fClass, @fCode, @fName, @fParent, @fModifier, @fModifyDate, @fUseOrNot, @fInfo, @fType)";
+                    cmd.CommandText = "SP_SetFactoryInfo";
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Parameters.AddWithValue("@fGroup", fGroup);
                     cmd.Parameters.AddWithValue("@fClass", fClass);

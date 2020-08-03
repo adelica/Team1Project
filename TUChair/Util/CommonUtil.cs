@@ -36,7 +36,7 @@ namespace TUChair.Util
             DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 
             //dgv.ReadOnly = true;
-           // dgv.AutoGenerateColumns = false;        
+            dgv.AutoGenerateColumns = false;        
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToResizeRows = false;
             dgv.AllowUserToResizeColumns = true;
@@ -67,6 +67,16 @@ namespace TUChair.Util
             combo.DisplayMember = "CodeNm";
             combo.ValueMember = "Code";
         }
+        public static void ReComboBinding(ComboBox combo, List<ComboItemVO> list, string blankText)
+        {
+            if (list == null)
+                list = new List<ComboItemVO>();
+
+            list.Insert(0, new ComboItemVO(blankText,"R"));
+            combo.DataSource = list;
+            combo.DisplayMember = "Code";
+            combo.ValueMember = "CodeNm";
+        }
         public static void ComboBinding(ComboBox combo, List<ComboItemVO> list)
         {
             combo.ValueMember = "Code";
@@ -86,6 +96,7 @@ namespace TUChair.Util
         {
             string[] cUseOrNot = { "사용", "미사용" };
             combo.Items.AddRange(cUseOrNot);
+            combo.SelectedIndex = 0;
         }
 
         public static void RequiredInfo()

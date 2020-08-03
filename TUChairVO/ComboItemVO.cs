@@ -13,10 +13,19 @@ namespace TUChairVO
         public string CodeNm { get; set; }
 
         public ComboItemVO() { }
-        public ComboItemVO(string blankText)
+        public ComboItemVO(string blankText, string mode = "Y")
         {
-            Code = "";
-            CodeNm = blankText;
+            if (mode == "Y")
+            {
+                Code = "";
+                CodeNm = blankText;
+            }
+            else if(mode =="R")
+            {
+                Code = blankText;
+                CodeNm ="" ;
+            }
+
         }
     }
 }

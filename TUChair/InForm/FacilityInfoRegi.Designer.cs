@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFacG_Code = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.txtFaci_Others = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
+            this.cboFacG_Code = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -111,6 +111,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cboFacG_Code);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
@@ -118,7 +119,6 @@
             this.panel2.Controls.Add(this.cboFaci_OutWareHouse);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.txtFacG_Code);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel2.Size = new System.Drawing.Size(291, 206);
@@ -143,14 +143,6 @@
             this.label1.Size = new System.Drawing.Size(82, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "설비군코드";
-            // 
-            // txtFacG_Code
-            // 
-            this.txtFacG_Code.Location = new System.Drawing.Point(106, 18);
-            this.txtFacG_Code.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtFacG_Code.Name = "txtFacG_Code";
-            this.txtFacG_Code.Size = new System.Drawing.Size(163, 25);
-            this.txtFacG_Code.TabIndex = 0;
             // 
             // label2
             // 
@@ -462,6 +454,14 @@
             this.label26.TabIndex = 11;
             this.label26.Text = "■";
             // 
+            // cboFacG_Code
+            // 
+            this.cboFacG_Code.FormattingEnabled = true;
+            this.cboFacG_Code.Location = new System.Drawing.Point(106, 18);
+            this.cboFacG_Code.Name = "cboFacG_Code";
+            this.cboFacG_Code.Size = new System.Drawing.Size(163, 23);
+            this.cboFacG_Code.TabIndex = 0;
+            // 
             // FacilityInfoRegi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -501,7 +501,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtFacG_Code;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
@@ -518,5 +517,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cboFacG_Code;
     }
 }

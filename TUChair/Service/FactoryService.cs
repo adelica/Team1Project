@@ -24,10 +24,10 @@ namespace TUChair.Service
             return dac.FactoryInfoRegi(fGroup, fParent, fClass, fCode, fName, fModifier, fModifyDate, fUseOrNot, fInfo, fType);
         }
 
-        internal List<FactoryNameVO> GetCboData()
+        internal bool DeleteFactoryInfo(string fact_Code)
         {
             FactoryDAC dac = new FactoryDAC();
-            return dac.GetCboData();
+            return dac.DeleteFactoryInfo(fact_Code);
         }
     }
 }

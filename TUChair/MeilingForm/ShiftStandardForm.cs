@@ -55,14 +55,15 @@ namespace TUChair
 
             for (int i = 0; i < jeansGridView1.RowCount; i++)
             {
-                FaciCbolist.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
+                FaciCbolist.Add(jeansGridView1.Rows[i].Cells[2].Value.ToString());
+                
             };
             comboBox2.Items.AddRange(FaciCbolist.ToArray());
             // shiftID
             shiftCbolist = new List<string>();
             for (int i = 0; i < jeansGridView1.RowCount; i++)
             {
-                shiftCbolist.Add(jeansGridView1.Rows[i].Cells[4].Value.ToString());
+                shiftCbolist.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
             };
             cboShiftID.Items.AddRange(shiftCbolist.ToArray());
 
@@ -288,14 +289,14 @@ namespace TUChair
             {
                 updatedic.Add("수정일", jeansGridView1.SelectedRows[0].Cells[10].Value.ToString());
             }
-            if (jeansGridView1.SelectedRows[0].Cells[11].Value == null)
-            {
-                updatedic.Add("비고", null);
-            }
-            else
-            {
-                updatedic.Add("비고", jeansGridView1.SelectedRows[0].Cells[11].Value.ToString());
-            }
+            //if (jeansGridView1.SelectedRows[0].Cells[11].Value == null)
+            //{
+            //    updatedic.Add("비고", null);
+            //}
+            //else
+            //{
+            //    updatedic.Add("비고", jeansGridView1.SelectedRows[0].Cells[11].Value.ToString());
+            //}
         }
 
     }
