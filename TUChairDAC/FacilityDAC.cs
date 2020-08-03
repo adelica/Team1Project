@@ -31,18 +31,63 @@ namespace TUChairDAC
                 }
                 return ds;
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 _log.WriteError(err.Message);
                 return null;
             }
         }
-        //설비등록
-        public bool FacilityInfoRegi(string facG_Code, string faci_Code, string faci_Name, string faci_Modifier, string faci_Detail, string faci_Others, string faci_In, string faci_Out, string faci_Bad, DateTime faci_ModifyDate,string faci_UseOrNot)
+        //설비군 삭제
+        public bool DeleteFacilityGInfo(string facG_Code)
         {
             try
             {
-                using(SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = @"Delete from FacilityGroup where FacG_Code=@facG_Code";
+                    cmd.Parameters.AddWithValue("@facG_Code", facG_Code);
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                }
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+        //설비 삭제
+        public bool DeleteFacilityInfo(string faci_Code)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = @"Delete from Facility where Faci_Code=@faci_Code";
+                    cmd.Parameters.AddWithValue("@faci_Code", faci_Code);
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                }
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+
+        //설비등록
+        public bool FacilityInfoRegi(string facG_Code, string faci_Code, string faci_Name, string faci_Modifier, string faci_Detail, string faci_Others, string faci_In, string faci_Out, string faci_Bad, DateTime faci_ModifyDate, string faci_UseOrNot)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.CommandText = @"insert into Facility(Faci_Code, FacG_Code, Faci_Name, Faci_OutWareHouse, Faci_InWareHouse, Faci_BadWareHouse, Faci_UseOrNot, Faci_Modifier, Faci_ModifyDate, Faci_Detail, Faci_Others)
@@ -66,8 +111,9 @@ namespace TUChairDAC
                 }
                 return true;
             }
-            catch(Exception err)
+            catch (Exception err)
             {
+                _log.WriteError(err.Message);
                 return false;
             }
         }
@@ -93,9 +139,9 @@ namespace TUChairDAC
                     cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
                 }
-                    return true;
+                return true;
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 _log.WriteError(err.Message);
                 return false;

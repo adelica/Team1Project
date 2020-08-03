@@ -16,19 +16,58 @@ namespace TUChair
     {
         List<ComboItemVO> comboItems = null;
         bool check=false;
+        DataTable dt;
         public bool Check{ get { return check; } }
+
         public FacilityInfoRegi()
         {
-            InitializeComponent();     
+            InitializeComponent();
+            commonService service = new commonService();
+
+            comboItems = service.getCommonCode("사용여부@시설");
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "사용여부"
+                                       select item).ToList();
+            CommonUtil.ComboBinding(cboFaci_UseOrNot, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "시설"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboFaci_BadWareHouse, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "시설"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboFaci_InWareHouse, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "시설"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboFaci_OutWareHouse, cList, "선택");
+            txtFaci_Modifier.Text = LoginFrm.userName;
+            txtFaci_Modifier.Enabled = false;
+            txtModifyDate.Enabled = false;
         }
         public FacilityInfoRegi(DataTable dt):this()
         {
-            txtFaci_Modifier.Enabled = false;
-            txtFaci_Modifier.Text = LoginFrm.userName;
-            txtModifyDate.Enabled = false;
+            this.dt = dt;       
             cboFacG_Code.DisplayMember = "FacG_Code";
             cboFacG_Code.ValueMember = "FacG_Code";
-            cboFacG_Code.DataSource = dt;
+            cboFacG_Code.DataSource = this.dt;
+
+        }
+
+        public FacilityInfoRegi(string faci_Code, string faci_Name, string faci_Out, string faci_In, string faci_Bad, string faci_Detail, string faci_Others, string faci_UseOrNot, string faci_ModifyDate, string facG_Code, DataTable dt) :this(dt)
+        {
+            txtFaci_Code.Enabled = false;
+            txtFaci_Code.Text = faci_Code;
+            txtFaci_Name.Text = faci_Name;
+            cboFaci_OutWareHouse.Text = faci_Out;
+            cboFaci_InWareHouse.Text= faci_In;
+            cboFaci_BadWareHouse.Text= faci_Bad;
+           txtFaci_Detail.Text = faci_Detail;
+            txtFaci_Others.Text = faci_Others;
+            cboFaci_UseOrNot.Text = faci_UseOrNot;
+           cboFacG_Code.Text= facG_Code;
+            txtModifyDate.Text = faci_ModifyDate;
         }
 
         private void btnInsert_Click(object sender, EventArgs e) //등록
@@ -78,29 +117,9 @@ namespace TUChair
 
         private void FacilityInfoRegi_Load(object sender, EventArgs e)
         {
-            CommonUtil.CboSetting(cboFacG_Code);
 
+            
 
-            commonService service = new commonService();
-           
-            comboItems = service.getCommonCode("사용여부@시설");
-
-            List<ComboItemVO> cList = (from item in comboItems
-                                       where item.CodeType == "사용여부"
-                                       select item).ToList();
-            CommonUtil.ComboBinding(cboFaci_UseOrNot, cList, "선택");
-             cList = (from item in comboItems
-                     where item.CodeType == "시설"
-                      select item).ToList();
-            CommonUtil.ComboBinding(cboFaci_BadWareHouse, cList, "선택");
-            cList = (from item in comboItems
-                     where item.CodeType == "시설"
-                     select item).ToList();
-            CommonUtil.ComboBinding(cboFaci_InWareHouse, cList, "선택");
-            cList = (from item in comboItems
-                     where item.CodeType == "시설"
-                     select item).ToList();
-            CommonUtil.ComboBinding(cboFaci_OutWareHouse, cList, "선택");
 
 
         }

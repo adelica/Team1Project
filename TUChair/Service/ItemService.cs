@@ -15,5 +15,11 @@ namespace TUChair.Service
             ItemDAC dac = new ItemDAC();
            return dac.GetAllItem();
         }
+
+        internal List<ItemVO> SearchItem(string sg)
+        {
+            ItemDAC dac = new ItemDAC();
+            return dac.SearchItem(sg);
+        }
     }
 }
