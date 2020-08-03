@@ -88,23 +88,24 @@ namespace TUChair
 
         private void dgvFacilityG_CellClick(object sender, DataGridViewCellEventArgs e) //설비군에 등록된 설비 없을 시 안됨
         {
-            if (e.RowIndex < 0 || e.RowIndex > dgvFacility.Rows.Count)
+            if (e.RowIndex < 0 || e.RowIndex > dgvFacilityG.Rows.Count)
                 return;
          
 
             string code = dgvFacilityG.Rows[e.RowIndex].Cells[0].Value.ToString();
 
             var facility = (from fdata in dtFacility.AsEnumerable()
-                               where fdata.Field<string>("FacG_Code") == code
-                           //where fdata["FacG_Code"].ToString() == code
-                           select fdata).CopyToDataTable();
+                            where fdata.Field<string>("FacG_Code") == code
+                            //where fdata["FacG_Code"].ToString() == code
+                            select fdata);
 
-            if (facility.Rows.Count < 1)
+            if (facility.Count() < 1)
             {
                 MessageBox.Show("등록된 설비가 없습니다");
+                dgvFacility.DataSource = null;
             }
             else
-                dgvFacility.DataSource = facility;
+                dgvFacility.DataSource = facility.CopyToDataTable();
             
         }
     }
