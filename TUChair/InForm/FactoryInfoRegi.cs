@@ -16,6 +16,8 @@ namespace TUChair
     {
         List<FactoryVO> list;
         bool check = false;
+
+
         public bool Check 
         {
             get {return check; }
@@ -27,6 +29,23 @@ namespace TUChair
         public FactoryInfoRegi(List<FactoryVO> list) : this()
         {
             this.list = list;
+            ComboBoxBinding();
+        }
+
+        public FactoryInfoRegi(string facG_Code, string fact_Class, string fact_Code, string fact_Name, string fact_Parent, string fact_Info, string useOrNot, List<FactoryVO> list):this()
+        {
+            txtFact_Code.Enabled = false;
+            this.list = list;
+            ComboBoxBinding();
+            cboFact_Group.Text= facG_Code;
+            cboClass.Text= fact_Class;
+            txtFact_Code.Text = fact_Code;
+            txtName.Text = fact_Name;;
+           cboParent.Text = fact_Parent;
+           txtInformation.Text = fact_Info;
+            cboUseOrNot.Text = useOrNot;
+
+          
         }
 
         private void ComboBoxBinding() // 각 콤보박스에 선택지 바인딩
@@ -42,7 +61,16 @@ namespace TUChair
 
             cboFact_Group.Items.AddRange(cFactGroup);
             cboClass.Items.AddRange(cClass);
-            CommonUtil.CboUseOrNot(cboUseOrNot); // 사용, 미사용 여부
+
+            commonService service = new commonService();
+
+            List<ComboItemVO> comboItems = service.getCommonCode("사용여부");
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "사용여부"
+                                       select item).ToList();
+            CommonUtil.ComboBinding(cboUseOrNot, cList, "선택");
+
             foreach (var cp in cParent)
             {
                 cboParent.Items.Add(cp);
@@ -59,17 +87,18 @@ namespace TUChair
             txtModifyDate.Enabled = false;
             //txtModifyDate.Text = DateTime.Now.ToString();
             txtModifier.Text = LoginFrm.userName;
-            ComboBoxBinding();
+           
 
         }
 
         private void btnInsert_Click(object sender, EventArgs e) //정보등록
         {
-            if(txtFact_Code.Text.Trim().Length<1 || txtName.Text.Trim().Length<1)
+            if(txtFact_Code.Text.Trim().Length<1 || txtName.Text.Trim().Length<1||cboUseOrNot.SelectedIndex==0)
             {
                 CommonUtil.RequiredInfo();
                 return;
             }
+
             string fGroup = cboFact_Group.SelectedItem.ToString();
             string fParent = cboParent.SelectedItem.ToString();
             string fClass = cboClass.SelectedItem.ToString();
@@ -77,7 +106,7 @@ namespace TUChair
             string fName = txtName.Text;
             string fModifier= txtModifier.Text;
             DateTime fModifyDate = DateTime.Now;
-            string fUseOrNot = cboUseOrNot.SelectedItem.ToString();
+            string fUseOrNot = cboUseOrNot.Text;
             string fInfo = txtInformation.Text;
             string fType;
             switch (fClass)
@@ -122,5 +151,6 @@ namespace TUChair
         {
             this.Close();
         }
+
     }
 }
