@@ -34,10 +34,10 @@ namespace TUChair
             frm.New += New;
             frm.Excel += Excel;
             commonService service = new commonService();
-            comboItems= service.getCommonCode("발주업체@창고@User@사용여부@품목유형");
+            comboItems= service.getCommonCode("고객사@창고@User@사용여부@품목유형");
 
             List<ComboItemVO> cList = (from item in comboItems
-                                    where item.CodeType == "발주업체"
+                                    where item.CodeType == "고객사"
                                        select item).ToList();
             CommonUtil.ReComboBinding(cboCompany1, cList, "선택");
 
@@ -115,6 +115,7 @@ namespace TUChair
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
               string sg =    GetSearchCondition(panel1);
+              
                 MessageBox.Show(sg);
             }
         }

@@ -22,12 +22,6 @@ namespace TUChair
             InitializeComponent();
             txtFacG_Modifier.Enabled = false;
             txtFacG_ModifyDate.Enabled = false;
-        }
-
-        private void FacilityGroupInfoRegi_Load(object sender, EventArgs e)
-        {
-            txtFacG_Modifier.Text = LoginFrm.userName;
-
             commonService service = new commonService();
 
             List<ComboItemVO> comboItems = service.getCommonCode("사용여부");
@@ -39,9 +33,24 @@ namespace TUChair
             CommonUtil.CboSetting(cboFacG_UseOrNot);
         }
 
+        public FacilityGroupInfoRegi(string facG_Code, string facG_Name, string facGUseOrNot, string facG_Info):this()
+        {
+            txtFacG_Code.Enabled = false;
+            txtFacG_Code.Text = facG_Code;
+            txtFacG_Name.Text = facG_Name;
+            cboFacG_UseOrNot.Text = facGUseOrNot;
+            txtFacG_Info.Text = facG_Info;
+        }
+
+        private void FacilityGroupInfoRegi_Load(object sender, EventArgs e)
+        {
+            txtFacG_Modifier.Text = LoginFrm.userName;
+          
+        }
+
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if(txtFacG_Code.Text.Trim().Length<1 || txtFacG_Name.Text.Trim().Length<1 || txtFacG_Info.Text.Trim().Length<1)
+            if(txtFacG_Code.Text.Trim().Length<1 || txtFacG_Name.Text.Trim().Length<1 || txtFacG_Info.Text.Trim().Length<1||cboFacG_UseOrNot.SelectedIndex==0)
             {
                 CommonUtil.RequiredInfo();
                 return;

@@ -37,7 +37,7 @@ namespace TUChairDAC
                 return null;
             }
         }
-
+        //설비등록
         public bool FacilityInfoRegi(string facG_Code, string faci_Code, string faci_Name, string faci_Modifier, string faci_Detail, string faci_Others, string faci_In, string faci_Out, string faci_Bad, DateTime faci_ModifyDate,string faci_UseOrNot)
         {
             try
@@ -80,9 +80,8 @@ namespace TUChairDAC
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
-                    cmd.CommandText = @"insert into FacilityGroup(FacG_Code, FacG_Name, FacG_UseOrNot, FacG_Modifier, FacG_ModifyDate, FacG_Information)
-                                                        values(@facG_Code, @facG_Name, @facG_UserOrNot, @facG_Modifier, @facG_ModifyDate, @facG_Info)";
-
+                    cmd.CommandText = "SP_SetFacilityGroupInfo";
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@facG_Code", facG_Code);
                     cmd.Parameters.AddWithValue("@facG_Name", facG_Name);
                     cmd.Parameters.AddWithValue("@facG_UserOrNot", facG_UserOrNot);

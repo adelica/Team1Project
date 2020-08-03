@@ -25,6 +25,7 @@ namespace TUChair
         public FactoryInfoRegi()
         {
             InitializeComponent();
+            
         }
         public FactoryInfoRegi(List<FactoryVO> list) : this()
         {
@@ -32,11 +33,10 @@ namespace TUChair
             ComboBoxBinding();
         }
 
-        public FactoryInfoRegi(string facG_Code, string fact_Class, string fact_Code, string fact_Name, string fact_Parent, string fact_Info, string useOrNot, List<FactoryVO> list):this()
+        public FactoryInfoRegi(string facG_Code, string fact_Class, string fact_Code, string fact_Name, string fact_Parent, string fact_Info, string useOrNot, List<FactoryVO> list):this(list)
         {
             txtFact_Code.Enabled = false;
-            this.list = list;
-            ComboBoxBinding();
+
             cboFact_Group.Text= facG_Code;
             cboClass.Text= fact_Class;
             txtFact_Code.Text = fact_Code;
