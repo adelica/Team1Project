@@ -62,6 +62,7 @@ namespace TUChair
                      select item).ToList();
             CommonUtil.ComboBinding(cboItemType, cList, "선택");
 
+            jeansGridView1.IsAllCheckColumnHeader = true;
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목유형", "Item_Type", true);
@@ -76,14 +77,27 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "입고창고", "Item_InWarehouse", true);
             
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출고창고", "Item_OutWarehouse", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "이전단가", "Price_transfer", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Price_StartDate", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Price_EndDate", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "안전재고", "Item_SafeQuantity", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수입검사여부", "Item_Importins", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "공정검사여부", "Item_Processins", true);
+
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출하검사여부", "Item_Shipmentins", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "담당자", "Item_Manager", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Item_Modifier", true);
+
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일자", "Item_ModiflyDate", true);
+            
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Item_Modifier", true);
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Item_Other", true);
             //jeansGridView1.DataSource = items;
 
-           //  [Item_Qty], [], [], [], [], [Item_MinOrderQuantity], [Item_SafeQuantity], [], [Item_Importins], [Item_Processins], [Item_Shipmentins], [Item_Grade], [Item_Manager], [Item_Modifier], [Item_ModiflyDate], [Item_UserOrNot], [Item_OrderMethod], [Item_Other]
+            ItemService service1 = new ItemService();
+           items= service1.GetAllItem();
+            jeansGridView1.DataSource = items;
+
+
 
         }
         private void Save(object sender, EventArgs e)
@@ -136,7 +150,6 @@ namespace TUChair
             }
             return String.Join(" and ", sb);
         }
-
         private void Delete(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
@@ -147,6 +160,7 @@ namespace TUChair
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
                 MessageBox.Show("엑셀만들어");
         }
-        
+
+       
     }
 }
