@@ -16,7 +16,7 @@ namespace TUChair
 {
     public partial class MarketingUnitPricePopUp : TUChair.POPUp2Line
     {
-        List<UnitPriceVO> list;
+        List<ViewUnitPriceVO> list;
 
         public List<string> Comname;
         public List<string> Comicode;
@@ -55,11 +55,7 @@ namespace TUChair
 
         private void ComboBoxBinding() // 각 콤보박스에 선택지 바인딩
         {
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (Comname.Contains(list[i].Com_Name))
-                    Comname.Add(list[i].Com_Name);
-            }
+           
             cboComName.Items.AddRange(Comname.ToArray());
 
             for (int i = 0; i < list.Count; i++)
@@ -69,12 +65,8 @@ namespace TUChair
             }
             cboItemCode.Items.AddRange(Comicode.ToArray());
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (Cominame.Contains(list[i].Item_Name))
-                    Cominame.Add(list[i].Item_Name);
-            }
-            cboItemName.Items.AddRange(Cominame.ToArray());
+            
+           
 
 
 
@@ -109,7 +101,6 @@ namespace TUChair
             UnitPriceVO upv = new UnitPriceVO();
             upv.Com_Code = cboComCode.SelectedItem.ToString();
             upv.Item_Code = cboItemCode.SelectedItem.ToString();
-            upv.Item_Name = cboItemName.SelectedItem.ToString();
             upv.Price_Present = int.Parse(txtPriceP.Text);
             upv.Price_StartDate = dtpStart.Value.ToShortDateString();
 

@@ -10,12 +10,12 @@ namespace TUChair.Service
 {
     public class JeanService
     {
-        public List<UnitPriceVO> UPBinding()
+        public List<ViewUnitPriceVO> UPBinding()
         {
             UnitPriceDAC dac = new UnitPriceDAC();
             return dac.UPBinding();
         }
-        public List<UnitPriceVO> ProductUPBinding()
+        public List<ViewUnitPriceVO> ProductUPBinding()
         {
             UnitPriceDAC dac = new UnitPriceDAC();
             return dac.ProductUPBinding();
