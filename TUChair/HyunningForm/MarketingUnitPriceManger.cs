@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TUChair.Service;
@@ -14,20 +15,16 @@ namespace TUChair
     public partial class MarketingUnitPriceManger : TUChair.SearchCommomForm
     {
         List<ViewUnitPriceVO> list;
+        List<ComboItemVO> comboItems = null;
 
         public MarketingUnitPriceManger()
         {
             InitializeComponent();
-
-            JeanService service = new JeanService();
-            list = service.ProductUPBinding();
-
             jeansGridView1.IsAllCheckColumnHeader = true;
 
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "PriceNO", "PriceNO", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체고유번호", "Com_No", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체코드", "Com_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체명", "Com_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true);
@@ -39,7 +36,54 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Price_StartDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Price_EndDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Modifier", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "ModifierDate", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Unit_Other", true);
+
+            commonService service = new commonService();
+            comboItems = service.getCommonCode("완제품");
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "완제품"
+                                       select item).ToList();
+            CommonUtil.ReComboBinding(cboCompany, cList, "선택");
+
+
+            DataLoad();
+        }
+        private void DataLoad()
+        {
+            JeanService service = new JeanService();
+            list = service.ProductUPBinding();
+
+
+
+            jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = list;
+        }
+        private void chbDate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbDate.Checked == true)
+            {
+                dateTimePicker1.Enabled = true;
+                dateTimePicker1.Format = DateTimePickerFormat.Short;
+            }
+            else
+            {
+                dateTimePicker1.Enabled = false;
+                dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                dateTimePicker1.CustomFormat = " ";
+            }
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+             UnitPricePopUp frm = new UnitPricePopUp();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+
+                DataLoad();
+            
         }
     }
 }

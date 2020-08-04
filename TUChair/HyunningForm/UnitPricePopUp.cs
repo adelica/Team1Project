@@ -16,14 +16,11 @@ namespace TUChair
     {
        
         List<UnitPriceVO> list;
-
-        public List<string> Comname = new List<string>();
-        public List<string> Comicode = new List<string>();
-        public List<string> Cominame = new List<string>();
+        List<ComboItemVO> comboItems = null;
 
 
-        public Dictionary<string, string> uptdic { get; set; }
-        public string uporInsert { get; set; }
+
+
         public UnitPricePopUp()
         {
             InitializeComponent();
@@ -34,72 +31,33 @@ namespace TUChair
 
             MessageBox.Show(LoginFrm.userName);
             ComboBoxBinding();
-            //if (uporInsert == "Update")
-            //{
-            //    c.Text = uptdic["ShiftID"];
-            //    cboShift.SelectedItem = uptdic["설비명"];
-            //    txtStartTime.Text = uptdic["시작시간"];
-            //    txtEndTime.Text = uptdic["종료시간"];
-            //    dtpStartDate.Value = Convert.ToDateTime(uptdic["시작일"]);
-            //    dtpEndDate.Value = Convert.ToDateTime(uptdic["종료일"]);
-            //    txtPeople.Text = uptdic["투입인원"];
-            //    cboUseOrNot.SelectedItem = uptdic["사용유무"];
-            //    txtModifyName.Text = uptdic["수정자"];
-            //    dtpModifyDate.Value = Convert.ToDateTime(uptdic["수정일"]);
-            //    txtRemark.Text = uptdic["비고"];
-            //}
+
+          
         }
         private void ComboBoxBinding() // 각 콤보박스에 선택지 바인딩
         {
-            //commonService service = new commonService();
-            //List<ComboItemVO> allList = service.getCommonCode("");
+            commonService service = new commonService();
+            comboItems = service.getCommonCode("업체@Item@사용여부");
 
-            //cList = (from item in allList
-            //         where item.CodeType == "Categories"
-            //         select item).ToList();
-            //CommonUtil.ComboBinding(cboCategories, cList, "선택");
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "업체"
+                                       select item).ToList();
+            CommonUtil.ReComboBinding(cboComCode, cList, "선택");
 
+            cList = (from item in comboItems
+                     where item.CodeType == "Item"
+                     select item).ToList();
+            CommonUtil.ReComboBinding(cboItemCode, cList, "선택");
 
-            //JeanService service = new JeanService();
-            //list = service.UPBinding();
-            //for (int i = 0; i < list.Count; i++)
-            //{
-            //    Comname.Add(list[i].Com_Name);
-            //}
-            //Comname = Comname.Distinct().ToList();
-            //cboComName.Items.AddRange(Comname.ToArray());
-
-            //for (int i = 0; i < list.Count; i++)
-            //{
-            //    Comicode.Add(list[i].Item_Code);
-            //}
-            //Comicode = Comicode.Distinct().ToList();
-            //cboItemCode.Items.AddRange(Comicode.ToArray());
-
-            //for (int i = 0; i < list.Count; i++)
-            //{
-            //    Cominame.Add(list[i].Item_Name);
-            //}
-            //Cominame = Cominame.Distinct().ToList();
-            //cboItemName.Items.AddRange(Cominame.ToArray());
+            cList = (from item in comboItems
+                     where item.CodeType == "사용여부"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboUseOrNot, cList, "선택");
 
 
 
-            string[] UseOrNot = new string[2] { "사용", "미사용" };
 
 
-
-            cboUseOrNot.Items.AddRange(UseOrNot);
-
-
-            ////CommonUtil.CboSetting(cboComCode);
-            //CommonUtil.CboSetting(cboComName);
-            ////CommonUtil.CboSetting(cboComno);
-            //CommonUtil.CboSetting(cboItemCode);
-            //CommonUtil.CboSetting(cboItemName);
-            //// CommonUtil.CboSetting(cboItemSize);
-            //// CommonUtil.CboSetting(cboItemUnit);
-            //CommonUtil.CboSetting(cboUseOrNot);
             txtModifier.Text = LoginFrm.userName;
             txtModifierdate.Text = DateTime.Now.ToString();
 
@@ -107,7 +65,7 @@ namespace TUChair
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (cboComName.Text.Trim().Length < 1 || cboItemCode.Text.Trim().Length < 1 ||  txtPriceP.Text.Trim().Length < 1)
+            if (cboComCode.Text.Length<1||cboItemCode.Text.Trim().Length < 1 ||  txtPriceP.Text.Trim().Length < 1)
             {
                 CommonUtil.RequiredInfo();
                 return;

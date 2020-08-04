@@ -34,15 +34,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboCompany = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtItemCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.jeansGridView1 = new JeanForm.JeansGridView();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.chbDate = new System.Windows.Forms.CheckBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -66,7 +68,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnSelect);
             this.panel2.Location = new System.Drawing.Point(13, 71);
+            this.panel2.Controls.SetChildIndex(this.label1, 0);
+            this.panel2.Controls.SetChildIndex(this.btnSelect, 0);
             // 
             // panel1
             // 
@@ -92,21 +97,21 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.comboBox1);
+            this.panel6.Controls.Add(this.cboCompany);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Location = new System.Drawing.Point(729, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(357, 36);
             this.panel6.TabIndex = 11;
             // 
-            // comboBox1
+            // cboCompany
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(78, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 27);
-            this.comboBox1.TabIndex = 7;
+            this.cboCompany.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCompany.FormattingEnabled = true;
+            this.cboCompany.Location = new System.Drawing.Point(78, 5);
+            this.cboCompany.Name = "cboCompany";
+            this.cboCompany.Size = new System.Drawing.Size(158, 27);
+            this.cboCompany.TabIndex = 7;
             // 
             // label3
             // 
@@ -120,6 +125,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.chbDate);
             this.panel4.Controls.Add(this.dateTimePicker1);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Location = new System.Drawing.Point(3, 3);
@@ -149,20 +155,20 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.txtItemCode);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Location = new System.Drawing.Point(366, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(357, 36);
             this.panel5.TabIndex = 10;
             // 
-            // textBox1
+            // txtItemCode
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(83, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 27);
-            this.textBox1.TabIndex = 7;
+            this.txtItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemCode.Location = new System.Drawing.Point(83, 5);
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.Size = new System.Drawing.Size(158, 27);
+            this.txtItemCode.TabIndex = 7;
             // 
             // label2
             // 
@@ -209,6 +215,27 @@
             this.jeansGridView1.Size = new System.Drawing.Size(1090, 473);
             this.jeansGridView1.TabIndex = 0;
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(1010, 10);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 7;
+            this.btnSelect.Text = "popup";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // chbDate
+            // 
+            this.chbDate.AutoSize = true;
+            this.chbDate.Location = new System.Drawing.Point(271, 12);
+            this.chbDate.Name = "chbDate";
+            this.chbDate.Size = new System.Drawing.Size(60, 16);
+            this.chbDate.TabIndex = 9;
+            this.chbDate.Text = "활성화";
+            this.chbDate.UseVisualStyleBackColor = true;
+            this.chbDate.CheckedChanged += new System.EventHandler(this.chbDate_CheckedChanged);
+            // 
             // MarketingUnitPriceManger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -235,14 +262,16 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboCompany;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.Label label2;
         private JeanForm.JeansGridView jeansGridView1;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.CheckBox chbDate;
     }
 }

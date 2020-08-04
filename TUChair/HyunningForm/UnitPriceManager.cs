@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TUChair.Service;
@@ -14,6 +15,8 @@ namespace TUChair
     public partial class UnitPriceManager : TUChair.SearchCommomForm
     {
         List<ViewUnitPriceVO> list;
+        List<ComboItemVO> comboItems = null;
+
         public UnitPriceManager()
         {
             InitializeComponent();
@@ -21,16 +24,11 @@ namespace TUChair
 
         private void UnitPriceManager_Load(object sender, EventArgs e)
         {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+
+            frm.Search += Search;
+
             jeansGridView1.IsAllCheckColumnHeader = true;
-            DataLoad();
-
-
-
-        }
-        private void DataLoad()
-        {
-            JeanService service = new JeanService();
-            list = service.UPBinding();
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "PriceNO", "PriceNO", true);
@@ -47,7 +45,67 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Modifier", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "ModifierDate", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Unit_Other", true);
 
+
+            commonService service = new commonService();
+            comboItems = service.getCommonCode("업체");
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "업체"
+                                       select item).ToList();
+            CommonUtil.ReComboBinding(cboCompany, cList, "선택");
+
+            DataLoad();
+
+
+
+        }
+        private void Search(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                string sg = GetSearchCondition(panel1);
+
+                MessageBox.Show(sg);
+            }
+        }
+        private string GetSearchCondition(Panel panel1)
+        {
+            List<string> sb = new List<string>();
+            foreach (Control Pitem in panel1.Controls)
+            {
+                foreach (Control item in Pitem.Controls)
+                {
+
+                    if (item is ComboBox)
+                    {
+                        if (item.Text != "선택")
+                            sb.Add($"{item.Tag.ToString()}='{((ComboBox)item).Text}'");
+                    }
+                    else if (item is TextBox)
+                    {
+                        if (item.Text != "")
+                            sb.Add($"{item.Tag.ToString()} like '%{item.Text}%'");
+                    }
+                    else if (item is DateTimePicker)
+                    {
+                        if (item.Text != "")
+                            sb.Add($"{((DateTimePicker)item).ToString()}");
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+            return String.Join(" and ", sb);
+        }
+        private void DataLoad()
+        {
+            JeanService service = new JeanService();
+            list = service.UPBinding();
+            
 
             jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = list;
@@ -60,6 +118,35 @@ namespace TUChair
             frm.ShowDialog();
 
             DataLoad();
+        }
+
+
+        private void chbDate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbDate.Checked == true)
+            {
+                dateTimePicker1.Enabled = true;
+                dateTimePicker1.Format = DateTimePickerFormat.Short;
+            }
+            else
+            {
+                dateTimePicker1.Enabled = false;
+                dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                dateTimePicker1.CustomFormat = " ";
+            }
+        }
+
+        private void txtItemCode_TextChanged(object sender, EventArgs e)
+        {
+            JeanService jean = new JeanService();
+            List<ViewUnitPriceVO> Searchlist = new List<ViewUnitPriceVO>();
+            if (txtItemCode.Text.Length > 0)
+            {
+                Searchlist = jean.SearchText(txtItemCode.Text);
+                jeansGridView1.DataSource = Searchlist;
+            }
+            else
+                jeansGridView1.DataSource = list;
         }
     }
 }

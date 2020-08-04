@@ -26,12 +26,12 @@ namespace TUChair.Service
             return dac.InsertOrUpdate(upv);
         }
 
-        #region CBO_Binding
-        //public List<UnitPriceVO> GetCbo() //자재단가관리 POPUP창
-        //{
-        //    UnitPriceDAC dac = new UnitPriceDAC();
-        //    return dac.GetCbo();
-        //}
+        #region 검색조건
+        public List<ViewUnitPriceVO> SearchText(string txt)
+        {
+            UnitPriceDAC dac = new UnitPriceDAC();
+            return dac.SearchText(txt);
+        }
 
         #endregion
     }
