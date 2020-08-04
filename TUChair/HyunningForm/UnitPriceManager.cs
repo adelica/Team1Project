@@ -25,8 +25,11 @@ namespace TUChair
         private void UnitPriceManager_Load(object sender, EventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-
+            frm.Save += Save;
             frm.Search += Search;
+            frm.Delete += Delete;
+            frm.New += New;
+            frm.Excel += Excel;
 
             jeansGridView1.IsAllCheckColumnHeader = true;
             CommonUtil.InitSettingGridView(jeansGridView1);
@@ -61,6 +64,16 @@ namespace TUChair
 
 
         }
+        private void Save(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("저장이다2.");
+        }
+        private void New(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("새로고쳐.");
+        }
         private void Search(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
@@ -69,6 +82,16 @@ namespace TUChair
 
                 MessageBox.Show(sg);
             }
+        }
+        private void Delete(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("지워");
+        }
+        private void Excel(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("엑셀만들어");
         }
         private string GetSearchCondition(Panel panel1)
         {

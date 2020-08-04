@@ -78,7 +78,7 @@ namespace TUChair
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-             UnitPricePopUp frm = new UnitPricePopUp();
+                MarketingUnitPricePopUp frm = new MarketingUnitPricePopUp();
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
 

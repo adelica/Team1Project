@@ -17,10 +17,7 @@ namespace TUChair
     public partial class MarketingUnitPricePopUp : TUChair.POPUp2Line
     {
         List<ViewUnitPriceVO> list;
-
-        public List<string> Comname;
-        public List<string> Comicode;
-        public List<string> Cominame;
+        List<ComboItemVO> comboItems = null;
 
 
         public Dictionary<string, string> uptdic { get; set; }
@@ -33,76 +30,59 @@ namespace TUChair
         
         private void MarketingUnitPricePopUp_Load(object sender, EventArgs e)
         {
-            JeanService service = new JeanService();
-            list = service.ProductUPBinding();
+            //JeanService service = new JeanService();
+            //list = service.ProductUPBinding();
 
             ComboBoxBinding();
-            //if (uporInsert == "Update")
-            //{
-            //    c.Text = uptdic["ShiftID"];
-            //    cboShift.SelectedItem = uptdic["설비명"];
-            //    txtStartTime.Text = uptdic["시작시간"];
-            //    txtEndTime.Text = uptdic["종료시간"];
-            //    dtpStartDate.Value = Convert.ToDateTime(uptdic["시작일"]);
-            //    dtpEndDate.Value = Convert.ToDateTime(uptdic["종료일"]);
-            //    txtPeople.Text = uptdic["투입인원"];
-            //    cboUseOrNot.SelectedItem = uptdic["사용유무"];
-            //    txtModifyName.Text = uptdic["수정자"];
-            //    dtpModifyDate.Value = Convert.ToDateTime(uptdic["수정일"]);
-            //    txtRemark.Text = uptdic["비고"];
-            //}
+          
         }
-
         private void ComboBoxBinding() // 각 콤보박스에 선택지 바인딩
         {
-           
-            cboComName.Items.AddRange(Comname.ToArray());
+            commonService service = new commonService();
+            comboItems = service.getCommonCode("완제품@고객사@사용여부");
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (Comicode.Contains(list[i].Item_Code))
-                    Comicode.Add(list[i].Item_Code);
-            }
-            cboItemCode.Items.AddRange(Comicode.ToArray());
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "고객사"
+                                       select item).ToList();
+            CommonUtil.ReComboBinding(cboComCode, cList, "선택");
 
-            
-           
+            cList = (from item in comboItems
+                     where item.CodeType == "완제품"
+                     select item).ToList();
+            CommonUtil.ReComboBinding(cboItemCode, cList, "선택");
+
+            cList = (from item in comboItems
+                     where item.CodeType == "사용여부"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboUseOrNot, cList, "선택");
 
 
 
-            string[] UseOrNot = new string[2] { "사용", "미사용" };
 
 
-
-            cboUseOrNot.Items.AddRange(UseOrNot);
-
-            //CommonUtil.CboSetting(cboComCode);
-            CommonUtil.CboSetting(cboComName);
-            //CommonUtil.CboSetting(cboComno);
-            CommonUtil.CboSetting(cboItemCode);
-           // CommonUtil.CboSetting(cboItemSize);
-           // CommonUtil.CboSetting(cboItemUnit);
-            //CommonUtil.CboSetting(cboUseOrNot);
-
+            txtModifier.Text = LoginFrm.userName;
+            txtModifierdate.Text = DateTime.Now.ToString();
 
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (cboComCode.Text.Trim().Length < 1 || cboItemCode.Text.Trim().Length < 1 ||  txtPriceP.Text.Trim().Length < 1)
+            if (cboComCode.SelectedIndex == 0 || cboItemCode.SelectedIndex == 0 || txtPriceP.Text.Trim().Length < 1)
             {
                 CommonUtil.RequiredInfo();
                 return;
             }
 
-           
+
 
             UnitPriceVO upv = new UnitPriceVO();
-            upv.Com_Code = cboComCode.SelectedItem.ToString();
-            upv.Item_Code = cboItemCode.SelectedItem.ToString();
+            upv.Com_Code = cboComCode.Text.ToString();
+            upv.Item_Code = cboItemCode.Text.ToString();
             upv.Price_Present = int.Parse(txtPriceP.Text);
             upv.Price_StartDate = dtpStart.Value.ToShortDateString();
-
+            upv.Modifier = txtModifier.Text;
+            upv.ModifierDate = txtModifierdate.Text;
+            upv.Unit_Other = txtUnitOther.Text;
             JeanService service = new JeanService();
             bool Result = service.InsertOrUpdate(upv);
             if (Result)
@@ -115,7 +95,10 @@ namespace TUChair
 
         private void txtPriceP_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
         }
     }
 }

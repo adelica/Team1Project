@@ -154,16 +154,29 @@ namespace TUChair
             {
                 var row = dgvFactory.CurrentRow;
                 string fact_Code = row.Cells[4].Value.ToString();
-                FactoryService service = new FactoryService();
-                bool check= service.DeleteFactoryInfo(fact_Code);
-                if (check)
+
+                List<FactoryVO> parentCheck = null;
+                parentCheck = (from pCheck in list
+                               where pCheck.Fact_Parent == fact_Code
+                               select pCheck).ToList();
+
+                if (parentCheck.Count > 0)
                 {
-                    MessageBox.Show("삭제되었습니다.", "삭제완료");
-                    LoadData();
+                    MessageBox.Show("하위시설군이 존재합니다.", "삭제실패");
+                    return;
+                }
+                else
+                {
+                    FactoryService service = new FactoryService();
+                    bool check = service.DeleteFactoryInfo(fact_Code);
+                    if (check)
+                    {
+                        MessageBox.Show("삭제되었습니다.", "삭제완료");
+                        LoadData();
+                    }
                 }
             }
             return;
-
 
         }
     }
