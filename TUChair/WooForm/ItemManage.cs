@@ -97,8 +97,6 @@ namespace TUChair
            items= service1.GetAllItem();
             jeansGridView1.DataSource = items;
 
-
-
         }
         private void Save(object sender, EventArgs e)
         {
@@ -119,7 +117,6 @@ namespace TUChair
                 MessageBox.Show(sg);
             }
         }
-
         private string GetSearchCondition(Panel panel1)
         {
             List<string> sb = new List<string>();
