@@ -39,43 +39,43 @@
             this.jeansGridView1 = new JeanForm.JeansGridView();
             this.jeansGridView2 = new JeanForm.JeansGridView();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -101,8 +101,8 @@
             // 
             this.panel3.Controls.Add(this.jeansGridView2);
             this.panel3.Controls.Add(this.jeansGridView1);
-            this.panel3.Location = new System.Drawing.Point(11, 250);
-            this.panel3.Size = new System.Drawing.Size(1092, 340);
+            this.panel3.Location = new System.Drawing.Point(11, 229);
+            this.panel3.Size = new System.Drawing.Size(1092, 361);
             // 
             // label1
             // 
@@ -112,7 +112,7 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(12, 206);
+            this.panel2.Location = new System.Drawing.Point(10, 185);
             // 
             // panel1
             // 
@@ -151,7 +151,7 @@
             this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView1.Size = new System.Drawing.Size(1090, 338);
+            this.jeansGridView1.Size = new System.Drawing.Size(1090, 359);
             this.jeansGridView1.TabIndex = 0;
             // 
             // jeansGridView2
@@ -186,7 +186,7 @@
             this.jeansGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView2.RowTemplate.Height = 23;
             this.jeansGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView2.Size = new System.Drawing.Size(1090, 338);
+            this.jeansGridView2.Size = new System.Drawing.Size(1090, 359);
             this.jeansGridView2.TabIndex = 17;
             // 
             // panel10
@@ -198,6 +198,14 @@
             this.panel10.Size = new System.Drawing.Size(357, 35);
             this.panel10.TabIndex = 23;
             // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(107, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(219, 27);
+            this.textBox2.TabIndex = 7;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -208,14 +216,6 @@
             this.label9.TabIndex = 6;
             this.label9.Text = "◆ 고객주문번호";
             // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(107, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(219, 27);
-            this.textBox2.TabIndex = 7;
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.textBox1);
@@ -224,6 +224,14 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(357, 35);
             this.panel5.TabIndex = 19;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(119, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(219, 27);
+            this.textBox1.TabIndex = 7;
             // 
             // label2
             // 
@@ -235,14 +243,6 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "◆ 품목";
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(119, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 27);
-            this.textBox1.TabIndex = 7;
-            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.comboBox1);
@@ -251,6 +251,15 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(357, 35);
             this.panel6.TabIndex = 22;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(119, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(219, 27);
+            this.comboBox1.TabIndex = 7;
             // 
             // label3
             // 
@@ -262,15 +271,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "◆ 주문상태";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(119, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(219, 27);
-            this.comboBox1.TabIndex = 7;
-            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.comboBox2);
@@ -279,6 +279,15 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(357, 35);
             this.panel7.TabIndex = 20;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(107, 4);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(219, 27);
+            this.comboBox2.TabIndex = 7;
             // 
             // label4
             // 
@@ -290,15 +299,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "◆ 도착지";
             // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(107, 4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(219, 27);
-            this.comboBox2.TabIndex = 7;
-            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.comboBox3);
@@ -307,6 +307,15 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(357, 35);
             this.panel8.TabIndex = 21;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(119, 3);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(219, 27);
+            this.comboBox3.TabIndex = 7;
             // 
             // label5
             // 
@@ -317,15 +326,6 @@
             this.label5.Size = new System.Drawing.Size(72, 19);
             this.label5.TabIndex = 6;
             this.label5.Text = "◆ 출하창고";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(119, 3);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(219, 27);
-            this.comboBox3.TabIndex = 7;
             // 
             // panel4
             // 
@@ -338,25 +338,15 @@
             this.panel4.Size = new System.Drawing.Size(357, 35);
             this.panel4.TabIndex = 18;
             // 
-            // label7
+            // dateTimePicker2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 19);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "◆ 납기일";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(119, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(95, 27);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
+            this.dateTimePicker2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(243, 4);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(95, 27);
+            this.dateTimePicker2.TabIndex = 10;
+            this.dateTimePicker2.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -368,15 +358,25 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "~";
             // 
-            // dateTimePicker2
+            // dateTimePicker1
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(243, 4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(95, 27);
-            this.dateTimePicker2.TabIndex = 10;
-            this.dateTimePicker2.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(119, 4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(95, 27);
+            this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 19);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "◆ 납기일";
             // 
             // panel9
             // 
@@ -386,6 +386,15 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(357, 35);
             this.panel9.TabIndex = 22;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(119, 3);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(219, 27);
+            this.comboBox4.TabIndex = 7;
             // 
             // label6
             // 
@@ -397,15 +406,6 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "◆ 고객사";
             // 
-            // comboBox4
-            // 
-            this.comboBox4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(119, 3);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(219, 27);
-            this.comboBox4.TabIndex = 7;
-            // 
             // panel11
             // 
             this.panel11.Controls.Add(this.textBox3);
@@ -414,6 +414,14 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(357, 35);
             this.panel11.TabIndex = 20;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(107, 4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(219, 27);
+            this.textBox3.TabIndex = 7;
             // 
             // label10
             // 
@@ -425,14 +433,6 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "◆ 혼류군";
             // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(107, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(219, 27);
-            this.textBox3.TabIndex = 7;
-            // 
             // panel12
             // 
             this.panel12.Controls.Add(this.textBox4);
@@ -441,6 +441,14 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(357, 35);
             this.panel12.TabIndex = 20;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(119, 5);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(219, 27);
+            this.textBox4.TabIndex = 7;
             // 
             // label11
             // 
@@ -452,14 +460,6 @@
             this.label11.TabIndex = 6;
             this.label11.Text = "◆ 품목";
             // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(119, 5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(219, 27);
-            this.textBox4.TabIndex = 7;
-            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.comboBox5);
@@ -468,6 +468,15 @@
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(357, 35);
             this.panel13.TabIndex = 23;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(119, 3);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(219, 27);
+            this.comboBox5.TabIndex = 7;
             // 
             // label12
             // 
@@ -479,15 +488,6 @@
             this.label12.TabIndex = 6;
             this.label12.Text = "◆ 단가정보";
             // 
-            // comboBox5
-            // 
-            this.comboBox5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(119, 3);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(219, 27);
-            this.comboBox5.TabIndex = 7;
-            // 
             // panel14
             // 
             this.panel14.Controls.Add(this.comboBox6);
@@ -496,6 +496,15 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(357, 35);
             this.panel14.TabIndex = 23;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(119, 3);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(219, 27);
+            this.comboBox6.TabIndex = 7;
             // 
             // label13
             // 
@@ -507,15 +516,6 @@
             this.label13.TabIndex = 6;
             this.label13.Text = "◆ B2BI출하수량";
             // 
-            // comboBox6
-            // 
-            this.comboBox6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(119, 3);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(219, 27);
-            this.comboBox6.TabIndex = 7;
-            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.comboBox7);
@@ -524,6 +524,15 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(357, 35);
             this.panel15.TabIndex = 23;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(107, 5);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(219, 27);
+            this.comboBox7.TabIndex = 7;
             // 
             // label14
             // 
@@ -534,15 +543,6 @@
             this.label14.Size = new System.Drawing.Size(72, 19);
             this.label14.TabIndex = 6;
             this.label14.Text = "◆ 주문구분";
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(107, 5);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(219, 27);
-            this.comboBox7.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
