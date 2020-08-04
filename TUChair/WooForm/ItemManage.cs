@@ -24,7 +24,6 @@ namespace TUChair
         {
             InitializeComponent();
         }
-
         private void ItemManage_Load(object sender, EventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
@@ -34,10 +33,10 @@ namespace TUChair
             frm.New += New;
             frm.Excel += Excel;
             commonService service = new commonService();
-            comboItems= service.getCommonCode("고객사@창고@User@사용여부@품목유형");
+            comboItems = service.getCommonCode("고객사@창고@User@사용여부@품목유형");
 
             List<ComboItemVO> cList = (from item in comboItems
-                                    where item.CodeType == "고객사"
+                                       where item.CodeType == "고객사"
                                        select item).ToList();
             CommonUtil.ReComboBinding(cboCompany1, cList, "선택");
 
@@ -75,7 +74,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "발주업체", "Item_OrderComp", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비코드", "Faci_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "입고창고", "Item_InWarehouse", true);
-            
+
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출고창고", "Item_OutWarehouse", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "안전재고", "Item_SafeQuantity", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수입검사여부", "Item_Importins", true);
@@ -86,35 +85,92 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Item_Modifier", true);
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일자", "Item_ModiflyDate", true);
-            
+
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Item_Modifier", true);
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Item_Other", true);
             //jeansGridView1.DataSource = items;
 
-            ItemService service1 = new ItemService();
-           items= service1.GetAllItem();
-            jeansGridView1.DataSource = items;
+            BindingData();
 
         }
+
+        private void BindingData()
+        {
+            ItemService service1 = new ItemService();
+            items = service1.GetAllItem();
+            jeansGridView1.DataSource = null;
+            jeansGridView1.DataSource = items;
+        }
+
         private void Save(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("저장이다2.");
+            {
+                int cnt = 0;
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.Rows.Count; i++)
+                {
+                    bool isbool = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isbool)
+                        cnt++;
+                }
+                if (cnt == 0)
+                {
+                    ItemPopUp frm = new ItemPopUp();
+                    frm.ShowDialog();
+                }
+                else if (cnt > 1)
+                {
+                    MessageBox.Show("수정은 하나씩만 가능합니다.");
+                }
+                else
+                {
+                    MessageBox.Show("수정");
+                }
+           
+            }
+
         }
         private void New(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("새로고쳐.");
+                BindingData();
         }
         private void Search(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
               string sg =    GetSearchCondition(panel1);
-              
-                MessageBox.Show(sg);
+                if (sg.Length < 1)
+                    return;
+                ItemService service = new ItemService();
+                items = service.SearchItem(sg);
+                jeansGridView1.DataSource = null;
+                jeansGridView1.DataSource = items;
+
+                if (items.Count != 0)
+                {
+                    foreach (Control Pitem in panel1.Controls)
+                    {
+                        foreach (Control item in Pitem.Controls)
+                        {
+                            if (item is ComboBox)
+                            {
+                                ((ComboBox)item).SelectedValue = "";
+                            }
+                            else if (item is TextBox)
+                            {
+                                item.Text = "";
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    }
+                }
             }
         }
         private string GetSearchCondition(Panel panel1)

@@ -17,18 +17,15 @@ namespace TUChairVO
       public string  Item_OrderComp         {get; set;}
       public string  Item_InWarehouse       {get; set;}
       public string  Item_OutWarehouse      {get; set;}
-    
       public int     Item_SafeQuantity      {get; set;}
       public string  Item_Unit              {get; set;}
       public string  Item_Importins         {get; set;}
       public string  Item_Processins        {get; set;}
       public string  Item_Shipmentins       {get; set;}
- 
       public string  Item_Manager           {get; set;}
       public string  Item_Modifier          {get; set;}
       public string  Item_ModiflyDate       {get; set;}
       public string  Item_UserOrNot         {get; set;}
-
-        public string Item_Other              {get; set;} 
+      public string Item_Other              {get; set;} 
     }
 }

@@ -57,7 +57,6 @@ Item";
                     SqlDataReader reader = cmd.ExecuteReader();
                     List<ItemVO> list = Helper.MeilingDataReaderMapToList<ItemVO>(reader);
                     cmd.Connection.Close();
-
                     return list;
                 }
             }

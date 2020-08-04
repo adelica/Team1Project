@@ -46,12 +46,12 @@ namespace TUChair
         private void Delete(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("지워");
+            { MessageBox.Show("지워"); }
         }
         private void Excel(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("엑셀만들어");
+            { MessageBox.Show("엑셀만들어"); }
         }
     }
 }
