@@ -90,8 +90,9 @@ namespace TUChairDAC
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
-                    cmd.CommandText = @"insert into Facility(Faci_Code, FacG_Code, Faci_Name, Faci_OutWareHouse, Faci_InWareHouse, Faci_BadWareHouse, Faci_UseOrNot, Faci_Modifier, Faci_ModifyDate, Faci_Detail, Faci_Others)
-                                                    values(@faci_Code,@facG_Code,@faci_Name,@faci_Out,@faci_In,@faci_Bad,@faci_UseOrNot,@faci_Modifier,@faci_ModifyDate,@faci_Detail,@faci_Others)";
+                    cmd.CommandText = @"SP_SetFacilityInfo";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("@faci_Code", faci_Code);
                     cmd.Parameters.AddWithValue("@facG_Code", facG_Code);
                     cmd.Parameters.AddWithValue("@faci_Name", faci_Name);
