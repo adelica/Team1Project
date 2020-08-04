@@ -37,10 +37,10 @@ namespace TUChair
         private void ComboBoxBinding() // 각 콤보박스에 선택지 바인딩
         {
             commonService service = new commonService();
-            comboItems = service.getCommonCode("업체@Item@사용여부");
+            comboItems = service.getCommonCode("협력업체@Item@사용여부");
 
             List<ComboItemVO> cList = (from item in comboItems
-                                       where item.CodeType == "업체"
+                                       where item.CodeType == "협력업체"
                                        select item).ToList();
             CommonUtil.ReComboBinding(cboComCode, cList, "선택");
 
@@ -65,7 +65,7 @@ namespace TUChair
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (cboComCode.Text.Length<1||cboItemCode.Text.Trim().Length < 1 ||  txtPriceP.Text.Trim().Length < 1)
+            if (cboComCode.SelectedIndex ==0 ||cboItemCode.SelectedIndex == 0 ||  txtPriceP.Text.Trim().Length < 1)
             {
                 CommonUtil.RequiredInfo();
                 return;
@@ -74,12 +74,13 @@ namespace TUChair
 
 
             UnitPriceVO upv = new UnitPriceVO();
-            upv.Item_Code = cboItemCode.SelectedItem.ToString();
+            upv.Com_Code = cboComCode.Text.ToString();
+            upv.Item_Code = cboItemCode.Text.ToString();
             upv.Price_Present = int.Parse(txtPriceP.Text);
             upv.Price_StartDate = dtpStart.Value.ToShortDateString();
             upv.Modifier = txtModifier.Text;
             upv.ModifierDate = txtModifierdate.Text;
-
+            upv.Unit_Other = txtUnitOther.Text;
             JeanService service = new JeanService();
             bool Result = service.InsertOrUpdate(upv);
             if (Result)
