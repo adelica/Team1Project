@@ -74,7 +74,7 @@ namespace TUChairDAC
                     
 
                     //cmd.Parameters.AddWithValue("@PriceNO", /*(object)upv.PriceNO ??*/ DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Com_Code", /*(object)upv.Com_Code ??*/ DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Com_Code", upv.Com_Code);
                     cmd.Parameters.AddWithValue("@Item_Code", upv.Item_Code.ToString());
                     cmd.Parameters.AddWithValue("@Price_Present", upv.Price_Present);
                     cmd.Parameters.AddWithValue("@Price_transfer", (object)upv.Price_transfer ?? DBNull.Value);
@@ -83,7 +83,7 @@ namespace TUChairDAC
                     cmd.Parameters.AddWithValue("@Price_UserOrNot", (object)upv.Price_UserOrNot ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Modifier", upv.Modifier);
                     cmd.Parameters.AddWithValue("@ModifierDate", upv.ModifierDate);
-                    cmd.Parameters.AddWithValue("@Unit_Other", upv.Unit_Other);
+                    cmd.Parameters.AddWithValue("@Unit_Other", (object)upv.Unit_Other ?? DBNull.Value);
 
 
 

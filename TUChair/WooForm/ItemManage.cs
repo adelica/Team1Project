@@ -96,6 +96,7 @@ namespace TUChair
             ItemService service1 = new ItemService();
            items= service1.GetAllItem();
             jeansGridView1.DataSource = items;
+
         }
         private void Save(object sender, EventArgs e)
         {
@@ -112,15 +113,10 @@ namespace TUChair
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
               string sg =    GetSearchCondition(panel1);
-
-                ItemService service = new ItemService();
-              items  =  service.SearchItem(sg);
+              
+                MessageBox.Show(sg);
             }
-            jeansGridView1.DataSource = null;
-            jeansGridView1.DataSource = items;
-
         }
-
         private string GetSearchCondition(Panel panel1)
         {
             List<string> sb = new List<string>();
@@ -132,7 +128,7 @@ namespace TUChair
                     if (item is ComboBox)
                     {
                         if (item.Text !="선택")
-                            sb.Add($"{item.Tag.ToString().Trim()}='{((ComboBox)item).Text.Trim()}'");
+                            sb.Add($"{item.Tag.ToString()}='{((ComboBox)item).Text}'");
                     }
                     else if (item is TextBox)
                     {
