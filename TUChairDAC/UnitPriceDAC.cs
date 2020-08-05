@@ -19,7 +19,8 @@ namespace TUChairDAC
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
                 string sql = @"SELECT [PriceNO], u.[Com_Code] [Com_Code],c.[Com_Name] [Com_Name], u.[Item_Code] [Item_Code], i.[Item_Name] [Item_Name], i.[Item_Size] [Item_Size],
 	                             i.[Item_Unit] [Item_Unit], [Price_Present], [Price_transfer],convert(nvarchar, [Price_StartDate],23)[Price_StartDate], convert(nvarchar, [Price_EndDate],23)[Price_EndDate], [Price_UserOrNot], [Modifier], [ModifierDate], [Unit_Other]
-                              from [dbo].[UnitPrice] u left join [dbo].[Company] c  on u.Com_Code = c.Com_Code  left join  [dbo].[Item] i on u.Item_Code = i.Item_Code";
+                              from [dbo].[UnitPrice] u left join [dbo].[Company] c  on u.Com_Code = c.Com_Code  left join  [dbo].[Item] i on u.Item_Code = i.Item_Code
+                                where i.[Item_Name] <> '의자'";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
@@ -43,7 +44,8 @@ namespace TUChairDAC
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
                 string sql = @"SELECT [PriceNO], u.[Com_Code] [Com_Code],c.[Com_Name] [Com_Name], u.[Item_Code] [Item_Code], i.[Item_Name] [Item_Name], i.[Item_Size] [Item_Size],
 	                             i.[Item_Unit] [Item_Unit], [Price_Present], [Price_transfer],convert(nvarchar, [Price_StartDate],23)[Price_StartDate], convert(nvarchar, [Price_EndDate],23)[Price_EndDate], [Price_UserOrNot], [Modifier], [ModifierDate],[Unit_Other]
-                              from [dbo].[UnitPrice] u left join [dbo].[Company] c  on u.Com_Code = c.Com_Code  left join  [dbo].[Item] i on u.Item_Code = i.Item_Code where u.[Item_Code] = 'CHAIR_01'";
+                              from [dbo].[UnitPrice] u left join [dbo].[Company] c  on u.Com_Code = c.Com_Code  left join  [dbo].[Item] i on u.Item_Code = i.Item_Code 
+                              where i.[Item_Name]  = '의자'";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
@@ -105,17 +107,51 @@ namespace TUChairDAC
             }
         }
         #region 검색조건
-        public List<ViewUnitPriceVO> SearchText(string txt) // 영업단가 관리 (완제품)
+        public List<ViewUnitPriceVO> Search(string date, string txt, string cbo) // 자재단가 관리
         {
             try
             {
-                SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = $@"SELECT [PriceNO], u.[Com_Code] [Com_Code],c.[Com_Name] [Com_Name], u.[Item_Code] [Item_Code], i.[Item_Name] [Item_Name], i.[Item_Size] [Item_Size],
-	                             i.[Item_Unit] [Item_Unit], [Price_Present], [Price_transfer],convert(nvarchar, [Price_StartDate],23)[Price_StartDate], convert(nvarchar, [Price_EndDate],23)[Price_EndDate], [Price_UserOrNot], [Modifier], [ModifierDate],[Unit_Other]
-                              from [dbo].[UnitPrice] u left join [dbo].[Company] c  on u.Com_Code = c.Com_Code  left join  [dbo].[Item] i on u.Item_Code = i.Item_Code where u.[Item_Code] like '%{txt}%'";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlCommand cmd = new SqlCommand())
                 {
-                    conn.Open();
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_GetSearchPriceInfo";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@ThisDate", (object)date ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Code", (object)txt ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Com_Code", (object)cbo ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<ViewUnitPriceVO> list = Helper.MeilingDataReaderMapToList<ViewUnitPriceVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
+        public List<ViewUnitPriceVO> Search1(string date, string txt, string cbo) // 영업단가 관리 (완제품)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_GetSearchMarketingPriceInfo";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@ThisDate", (object)date ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Code", (object)txt ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Com_Code", (object)cbo ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
                     SqlDataReader reader = cmd.ExecuteReader();
                     List<ViewUnitPriceVO> list = Helper.MeilingDataReaderMapToList<ViewUnitPriceVO>(reader);
                     cmd.Connection.Close();

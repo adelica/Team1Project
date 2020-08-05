@@ -27,10 +27,15 @@ namespace TUChair.Service
         }
 
         #region 검색조건
-        public List<ViewUnitPriceVO> SearchText(string txt)
+        public List<ViewUnitPriceVO> Search(string date,string txt,string cbo)
         {
             UnitPriceDAC dac = new UnitPriceDAC();
-            return dac.SearchText(txt);
+            return dac.Search(date, txt, cbo);
+        }
+        public List<ViewUnitPriceVO> Search1(string date, string txt, string cbo)
+        {
+            UnitPriceDAC dac = new UnitPriceDAC();
+            return dac.Search1(date, txt, cbo);
         }
 
         #endregion
