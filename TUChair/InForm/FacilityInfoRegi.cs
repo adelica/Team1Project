@@ -42,6 +42,7 @@ namespace TUChair
         {
 
             txtFaci_Code.Enabled = false;
+            cboFacG_Code.Enabled = false;
             txtFaci_Code.Text = faci_Code;
             txtFaci_Name.Text = faci_Name;
             cboFaci_OutWareHouse.Text = faci_Out;

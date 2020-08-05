@@ -76,6 +76,7 @@
     <Compile Include="ItemPopUp.Designer.cs">
       <DependentUpon>ItemPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\BORService.cs" />
     <Compile Include="Service\commonService.cs" />
     <Compile Include="Service\FacilityService.cs" />
     <Compile Include="Service\ItemService.cs" />

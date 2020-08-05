@@ -93,11 +93,14 @@
             // 
             // btnInsert
             // 
+            this.btnInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnInsert.TabIndex = 9;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // btnCancle
+            // btnCancel
             // 
-           // this.btnCancle.TabIndex = 10;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label4
             // 
@@ -171,6 +174,7 @@
             this.txtYeild.Name = "txtYeild";
             this.txtYeild.Size = new System.Drawing.Size(208, 21);
             this.txtYeild.TabIndex = 6;
+            this.txtYeild.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIntervalPlus_KeyPress);
             // 
             // label9
             // 
@@ -222,6 +226,7 @@
             this.txtTactTime.Name = "txtTactTime";
             this.txtTactTime.Size = new System.Drawing.Size(208, 21);
             this.txtTactTime.TabIndex = 5;
+            this.txtTactTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInterval_KeyPress);
             // 
             // label13
             // 
@@ -251,6 +256,7 @@
             this.txtPriority.Name = "txtPriority";
             this.txtPriority.Size = new System.Drawing.Size(208, 21);
             this.txtPriority.TabIndex = 2;
+            this.txtPriority.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInterval_KeyPress);
             // 
             // label15
             // 
