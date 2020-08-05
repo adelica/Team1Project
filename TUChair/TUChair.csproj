@@ -70,12 +70,13 @@
     <Compile Include="CommonForm\SearchTwoGridLeftRightFrom.Designer.cs">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemPopUp.cs">
+    <Compile Include="WooForm\ItemPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ItemPopUp.Designer.cs">
+    <Compile Include="WooForm\ItemPopUp.Designer.cs">
       <DependentUpon>ItemPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\BORService.cs" />
     <Compile Include="Service\commonService.cs" />
     <Compile Include="Service\FacilityService.cs" />
     <Compile Include="Service\ItemService.cs" />
@@ -441,7 +442,7 @@
     <EmbeddedResource Include="CommonForm\SearchTwoGridLeftRightFrom.resx">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ItemPopUp.resx">
+    <EmbeddedResource Include="WooForm\ItemPopUp.resx">
       <DependentUpon>ItemPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WooForm\balzuDetail.resx">

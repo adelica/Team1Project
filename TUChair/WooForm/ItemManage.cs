@@ -33,7 +33,7 @@ namespace TUChair
             frm.New += New;
             frm.Excel += Excel;
             commonService service = new commonService();
-            comboItems = service.getCommonCode("고객사@창고@User@사용여부@품목유형");
+            comboItems = service.getCommonCode("고객사@창고@User@사용여부@품목유형@공정구분");
 
             List<ComboItemVO> cList = (from item in comboItems
                                        where item.CodeType == "고객사"
@@ -72,7 +72,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "발주업체", "Item_OrderComp", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비코드", "Faci_Code", true);
+         
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "입고창고", "Item_InWarehouse", true);
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출고창고", "Item_OutWarehouse", true);
@@ -86,7 +86,7 @@ namespace TUChair
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일자", "Item_ModiflyDate", true);
 
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Item_Modifier", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "공정구분", "Item_OutSourcing", true);
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Item_Other", true);
@@ -109,27 +109,55 @@ namespace TUChair
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
                 int cnt = 0;
+                int row = 0;
                 jeansGridView1.EndEdit();
                 for (int i = 0; i < jeansGridView1.Rows.Count; i++)
                 {
                     bool isbool = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
                     if (isbool)
-                        cnt++;
+                    { cnt++; row = i; }
                 }
+                string userID = ((TUChairMain2)this.MdiParent).userInfoVO.CUser_ID;
                 if (cnt == 0)
                 {
-                    ItemPopUp frm = new ItemPopUp();
-                    frm.ShowDialog();
+                    ItemPopUp frm = new ItemPopUp(userID);
+                   if( frm.ShowDialog()==DialogResult.OK)
+                    {
+                        BindingData();
+                    }
                 }
                 else if (cnt > 1)
                 {
                     MessageBox.Show("수정은 하나씩만 가능합니다.");
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("수정");
+                    ItemVO pItem = new ItemVO();
+                     pItem.Item_Code                 = jeansGridView1.Rows[row].Cells[2].Value.ToString();
+                     pItem.Item_Importins          =  jeansGridView1.Rows[row].Cells[10].Value==null ? "" : jeansGridView1.Rows[row].Cells[10].Value.ToString();
+                     pItem.Item_InWarehouse        =  jeansGridView1.Rows[row].Cells[7].Value          ==null ? "" : jeansGridView1.Rows[row].Cells[7].Value.ToString();
+                     pItem.Item_Manager            =  jeansGridView1.Rows[row].Cells[13].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[13].Value.ToString();
+                     pItem.Item_Name               =  jeansGridView1.Rows[row].Cells[3].Value          ==null ? "" : jeansGridView1.Rows[row].Cells[3].Value.ToString();
+                     pItem.Item_OrderComp          =  jeansGridView1.Rows[row].Cells[6].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[6].Value.ToString();
+                     pItem.Item_Other              =  jeansGridView1.Rows[row].Cells[18].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[18].Value.ToString();
+                     pItem.Item_OutWarehouse       =  jeansGridView1.Rows[row].Cells[8].Value          ==null ? "" : jeansGridView1.Rows[row].Cells[8].Value.ToString();
+                     pItem.Item_Processins         =  jeansGridView1.Rows[row].Cells[11].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[11].Value.ToString();
+                    pItem.Item_SafeQuantity         = Convert.ToInt32(jeansGridView1.Rows[row].Cells[9].Value);     
+                     pItem.Item_Shipmentins        =  jeansGridView1.Rows[row].Cells[12].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[12].Value.ToString();
+                     pItem.Item_Size               =  jeansGridView1.Rows[row].Cells[4].Value        ==null ? "" : jeansGridView1.Rows[row].Cells[4].Value.ToString();
+                     pItem.Item_Type               =  jeansGridView1.Rows[row].Cells[1].Value        ==null ? "" : jeansGridView1.Rows[row].Cells[1].Value.ToString();
+                     pItem.Item_Unit               =  jeansGridView1.Rows[row].Cells[5].Value         ==null ? "" : jeansGridView1.Rows[row].Cells[5].Value.ToString();
+                     pItem.Item_UserOrNot          =  jeansGridView1.Rows[row].Cells[17].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[17].Value.ToString();
+                     pItem.Item_OutSourcing        = jeansGridView1.Rows[row].Cells[16].Value        == null ? "" : jeansGridView1.Rows[row].Cells[16].Value.ToString();
+
+                    ItemPopUp frm = new ItemPopUp(userID);
+                    frm.Item = pItem;
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        BindingData();
+                    }
                 }
-           
             }
 
         }
@@ -207,7 +235,33 @@ namespace TUChair
         private void Delete(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("지워");
+            {
+                List<string> sb = new List<string>();
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.RowCount; i++)
+                {
+                    bool isn = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isn)
+                    {
+                        sb.Add(jeansGridView1.Rows[i].Cells[2].Value.ToString());
+                    }
+                }
+                if (sb.Count < 1)
+                {
+                    MessageBox.Show("삭제할 항목을 선택해주세요");
+                    return;
+                }
+                string condition = string.Join("@", sb);
+                ItemService service = new ItemService();
+                if (service.DeleteItem(condition))
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                }
+                else
+                    MessageBox.Show("삭제에 실패하였습니다.");
+
+                BindingData();
+            }
         }
         private void Excel(object sender, EventArgs e)
         {

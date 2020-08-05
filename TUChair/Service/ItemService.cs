@@ -21,5 +21,17 @@ namespace TUChair.Service
             ItemDAC dac = new ItemDAC();
             return dac.SearchItem(sg);
         }
+
+        internal bool SaveItem(ItemVO item)
+        {
+            ItemDAC dac = new ItemDAC();
+            return dac.SaveItem(item);
+        }
+
+        internal bool DeleteItem(string condition)
+        {
+            ItemDAC dac = new ItemDAC();
+            return dac.DeleteItem(condition);
+        }
     }
 }
