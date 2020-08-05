@@ -37,13 +37,13 @@
             this.cboCompany = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.chbDate = new System.Windows.Forms.CheckBox();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtItemCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelect = new System.Windows.Forms.Button();
-            this.chbDate = new System.Windows.Forms.CheckBox();
             this.jeansGridView1 = new JeanForm.JeansGridView();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -132,23 +132,34 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.chbDate);
-            this.panel4.Controls.Add(this.dateTimePicker1);
+            this.panel4.Controls.Add(this.dtpDate);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(357, 35);
             this.panel4.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // chbDate
             // 
-            this.dateTimePicker1.CustomFormat = " ";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(90, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(158, 27);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
+            this.chbDate.AutoSize = true;
+            this.chbDate.Location = new System.Drawing.Point(266, 10);
+            this.chbDate.Name = "chbDate";
+            this.chbDate.Size = new System.Drawing.Size(60, 16);
+            this.chbDate.TabIndex = 8;
+            this.chbDate.Text = "활성화";
+            this.chbDate.UseVisualStyleBackColor = true;
+            this.chbDate.CheckedChanged += new System.EventHandler(this.chbDate_CheckedChanged);
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.CustomFormat = " ";
+            this.dtpDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDate.Location = new System.Drawing.Point(90, 4);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(158, 27);
+            this.dtpDate.TabIndex = 7;
+            this.dtpDate.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
             // 
             // label7
             // 
@@ -177,7 +188,7 @@
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.Size = new System.Drawing.Size(158, 27);
             this.txtItemCode.TabIndex = 7;
-            this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
+            //this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
             // 
             // label2
             // 
@@ -198,17 +209,6 @@
             this.btnSelect.Text = "popup";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // chbDate
-            // 
-            this.chbDate.AutoSize = true;
-            this.chbDate.Location = new System.Drawing.Point(266, 10);
-            this.chbDate.Name = "chbDate";
-            this.chbDate.Size = new System.Drawing.Size(60, 16);
-            this.chbDate.TabIndex = 8;
-            this.chbDate.Text = "활성화";
-            this.chbDate.UseVisualStyleBackColor = true;
-            this.chbDate.CheckedChanged += new System.EventHandler(this.chbDate_CheckedChanged);
             // 
             // jeansGridView1
             // 
@@ -278,7 +278,7 @@
         private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.CheckBox chbDate;
         private JeanForm.JeansGridView jeansGridView1;
     }

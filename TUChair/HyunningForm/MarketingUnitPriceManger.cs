@@ -41,18 +41,76 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Unit_Other", true);
 
             commonService service = new commonService();
-            comboItems = service.getCommonCode("완제품");
+            comboItems = service.getCommonCode("고객사");
 
             List<ComboItemVO> cList = (from item in comboItems
-                                       where item.CodeType == "완제품"
+                                       where item.CodeType == "고객사"
                                        select item).ToList();
             CommonUtil.ReComboBinding(cboCompany, cList, "선택");
 
 
             DataLoad();
         }
+        private void MarketingUnitPriceManger_Load(object sender, EventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save += Save;
+            frm.Search += Search;
+            frm.Delete += Delete;
+            frm.New += New;
+            frm.Excel += Excel;
+        }
+        private void Save(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("저장이다2.");
+        }
+        private void New(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                DataLoad();
+        }
+        private void Search(object sender, EventArgs e)
+        {
+            string date;
+            if (chbDate.Checked == false)
+                date = string.Empty;
+            else
+                date = dtpDate.Value.ToShortDateString().Trim();
+            string cbo;
+            if (cboCompany.SelectedIndex == 0)
+                cbo = string.Empty;
+            else
+                cbo = cboCompany.Text;
+            string txt = txtItemCode.Text.Trim();
+
+            if (date.ToString().Trim().Length < 1 && txt.ToString().Trim().Length < 1 && cboCompany.SelectedIndex == 0)
+                return;
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+
+
+                JeanService service = new JeanService();
+                list = service.Search1(date, txt, cbo);
+                jeansGridView1.DataSource = null;
+                jeansGridView1.DataSource = list;
+
+            }
+        }
+        private void Delete(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("지워");
+        }
+        private void Excel(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("엑셀만들어");
+        }
         private void DataLoad()
         {
+
+           
             JeanService service = new JeanService();
             list = service.ProductUPBinding();
 
@@ -65,14 +123,14 @@ namespace TUChair
         {
             if (chbDate.Checked == true)
             {
-                dateTimePicker1.Enabled = true;
-                dateTimePicker1.Format = DateTimePickerFormat.Short;
+                dtpDate.Enabled = true;
+                dtpDate.Format = DateTimePickerFormat.Short;
             }
             else
             {
-                dateTimePicker1.Enabled = false;
-                dateTimePicker1.Format = DateTimePickerFormat.Custom;
-                dateTimePicker1.CustomFormat = " ";
+                dtpDate.Enabled = false;
+                dtpDate.Format = DateTimePickerFormat.Custom;
+                dtpDate.CustomFormat = " ";
             }
         }
 
@@ -85,5 +143,7 @@ namespace TUChair
                 DataLoad();
             
         }
+
+        
     }
 }
