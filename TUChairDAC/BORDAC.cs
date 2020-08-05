@@ -11,7 +11,7 @@ namespace TUChairDAC
 {
     public class BORDAC:ConnectionAccess
     {
-        public List<BORVO> GetBORData()
+        public List<BORVO> GetBORData() // BOR 데이터 바인딩
         {
             try
             {
@@ -33,6 +33,61 @@ from BOR b left outer join FacilityGroup fg on b.FacG_Code=fg.FacG_Code
             catch(Exception err)
             {
                 return null;
+            }
+        }
+
+        public bool BORInfoRegi(string itemCode, string facgCode, string faciCode, int tactT, int priority, decimal yeild, string useOrNot, string other)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SP_SETBORInfo";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.Parameters.AddWithValue("@itemCode", itemCode);
+                    cmd.Parameters.AddWithValue("@facgCode", facgCode);
+                    cmd.Parameters.AddWithValue("@faciCode", faciCode);
+                    cmd.Parameters.AddWithValue("@tactT", tactT);
+                    cmd.Parameters.AddWithValue("@priority", priority);
+                    cmd.Parameters.AddWithValue("@yeild", yeild);
+                    cmd.Parameters.AddWithValue("@useOrNot", useOrNot);
+                    cmd.Parameters.AddWithValue("@other", other);
+
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return true;
+                }
+            }
+            catch(Exception err)
+            {
+                _log.WriteError(err.Message);
+                return false;
+            }
+        }
+
+        public bool DeleteBORInfo(int code) //BOR정보 삭제
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = @"Delete from BOR where BOR_Code=@code";
+                    cmd.Parameters.AddWithValue("@code", code);
+
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                    return true;
+                }
+            }
+            catch(Exception err)
+            {
+                _log.WriteError(err.Message);
+                return false;
             }
         }
     }

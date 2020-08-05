@@ -52,10 +52,10 @@ namespace TUChair
 
 
             commonService service = new commonService();
-            comboItems = service.getCommonCode("업체");
+            comboItems = service.getCommonCode("협력업체");
 
             List<ComboItemVO> cList = (from item in comboItems
-                                       where item.CodeType == "업체"
+                                       where item.CodeType == "협력업체"
                                        select item).ToList();
             CommonUtil.ReComboBinding(cboCompany, cList, "선택");
 
@@ -72,15 +72,56 @@ namespace TUChair
         private void New(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("새로고쳐.");
+                DataLoad();
         }
         private void Search(object sender, EventArgs e)
         {
+            string date;
+            if (chbDate.Checked == false)
+                date = string.Empty;
+            else
+                date = dtpDate.Value.ToShortDateString().Trim();
+            string cbo;
+            if (cboCompany.SelectedIndex == 0)
+                cbo = string.Empty;
+            else
+                cbo = cboCompany.Text;
+            string txt = txtItemCode.Text.Trim();
+
+            if (date.ToString().Trim().Length < 1 && txt.ToString().Trim().Length < 1 && cboCompany.SelectedIndex == 0)
+                return;
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                string sg = GetSearchCondition(panel1);
+               
+                
+                JeanService service = new JeanService();
+                list = service.Search(date,txt,cbo);
+                jeansGridView1.DataSource = null;
+                jeansGridView1.DataSource = list;
 
-                MessageBox.Show(sg);
+                //if (list.Count != 0)
+                //{
+                //    foreach (Control Pitem in panel1.Controls)
+                //    {
+                //        foreach (Control item in Pitem.Controls)
+                //        {
+                //            if (item is ComboBox)
+                //            {
+                //                ((ComboBox)item).SelectedValue = "";
+                //            }
+                //            else if (item is TextBox)
+                //            {
+                //                item.Text = "";
+                //            }
+                //            else
+                //            {
+                //                continue;
+                //            }
+                //        }
+                //    }
+                //}
+                //else
+                //    return;
             }
         }
         private void Delete(object sender, EventArgs e)
@@ -93,37 +134,7 @@ namespace TUChair
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
                 MessageBox.Show("엑셀만들어");
         }
-        private string GetSearchCondition(Panel panel1)
-        {
-            List<string> sb = new List<string>();
-            foreach (Control Pitem in panel1.Controls)
-            {
-                foreach (Control item in Pitem.Controls)
-                {
-
-                    if (item is ComboBox)
-                    {
-                        if (item.Text != "선택")
-                            sb.Add($"{item.Tag.ToString()}='{((ComboBox)item).Text}'");
-                    }
-                    else if (item is TextBox)
-                    {
-                        if (item.Text != "")
-                            sb.Add($"{item.Tag.ToString()} like '%{item.Text}%'");
-                    }
-                    else if (item is DateTimePicker)
-                    {
-                        if (item.Text != "")
-                            sb.Add($"{((DateTimePicker)item).ToString()}");
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-            }
-            return String.Join(" and ", sb);
-        }
+     
         private void DataLoad()
         {
             JeanService service = new JeanService();
@@ -148,28 +159,28 @@ namespace TUChair
         {
             if (chbDate.Checked == true)
             {
-                dateTimePicker1.Enabled = true;
-                dateTimePicker1.Format = DateTimePickerFormat.Short;
+                dtpDate.Enabled = true;
+                dtpDate.Format = DateTimePickerFormat.Short;
             }
             else
             {
-                dateTimePicker1.Enabled = false;
-                dateTimePicker1.Format = DateTimePickerFormat.Custom;
-                dateTimePicker1.CustomFormat = " ";
+                dtpDate.Enabled = false;
+                dtpDate.Format = DateTimePickerFormat.Custom;
+                dtpDate.CustomFormat = " ";
             }
         }
 
-        private void txtItemCode_TextChanged(object sender, EventArgs e)
-        {
-            JeanService jean = new JeanService();
-            List<ViewUnitPriceVO> Searchlist = new List<ViewUnitPriceVO>();
-            if (txtItemCode.Text.Length > 0)
-            {
-                Searchlist = jean.SearchText(txtItemCode.Text);
-                jeansGridView1.DataSource = Searchlist;
-            }
-            else
-                jeansGridView1.DataSource = list;
-        }
+        //private void txtItemCode_TextChanged(object sender, EventArgs e)
+        //{
+        //    JeanService jean = new JeanService();
+        //    List<ViewUnitPriceVO> Searchlist = new List<ViewUnitPriceVO>();
+        //    if (txtItemCode.Text.Length > 0)
+        //    {
+        //        Searchlist = jean.Search(txtItemCode.Text);
+        //        jeansGridView1.DataSource = Searchlist;
+        //    }
+        //    else
+        //        jeansGridView1.DataSource = list;
+        //}
     }
 }
