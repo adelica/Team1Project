@@ -121,7 +121,26 @@
     <Compile Include="PortSettingform.Designer.cs">
       <DependentUpon>PortSettingform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\balzuService.cs" />
     <Compile Include="Service\JeanServicePShift.cs" />
+    <Compile Include="WooForm\IpGoCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\IpGoCheck.Designer.cs">
+      <DependentUpon>IpGoCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WooForm\IpGoPreveiw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\IpGoPreveiw.Designer.cs">
+      <DependentUpon>IpGoPreveiw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WooForm\IpGoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WooForm\IpGoReport.Designer.cs">
+      <DependentUpon>IpGoReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="WooForm\ItemPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -510,6 +529,12 @@
       <DependentUpon>PortSettingform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="WooForm\IpGoCheck.resx">
+      <DependentUpon>IpGoCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WooForm\IpGoReport.resx">
+      <DependentUpon>IpGoReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WooForm\ItemPopUp.resx">
       <DependentUpon>ItemPopUp.cs</DependentUpon>
     </EmbeddedResource>
