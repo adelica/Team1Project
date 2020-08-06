@@ -47,6 +47,7 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,6 +70,12 @@
     </Compile>
     <Compile Include="CommonForm\SearchTwoGridLeftRightFrom.Designer.cs">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PortSettingform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PortSettingform.Designer.cs">
+      <DependentUpon>PortSettingform.cs</DependentUpon>
     </Compile>
     <Compile Include="WooForm\ItemPopUp.cs">
       <SubType>Form</SubType>
@@ -441,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\SearchTwoGridLeftRightFrom.resx">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PortSettingform.resx">
+      <DependentUpon>PortSettingform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WooForm\ItemPopUp.resx">
       <DependentUpon>ItemPopUp.cs</DependentUpon>

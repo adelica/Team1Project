@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Services.Description;
 using System.Windows.Forms;
 using TUChair.Service;
 using TUChairVO;
+using Timer = System.Windows.Forms.Timer;
 
 namespace TUChair
 {
@@ -19,8 +23,9 @@ namespace TUChair
         public event EventHandler Search;
         public event EventHandler Save;
         public event EventHandler Delete;
-        public event EventHandler Excel; 
-
+        public event EventHandler Excel;
+        public delegate void BarCodeReadComplete(object sender, ReadEventArgs e);
+        public event BarCodeReadComplete Readed;
         List<Panel> uclist = new List<Panel>();
         List<Timer> timers = new List<Timer>();
         List<bool> slideFlags = new List<bool>();
@@ -31,6 +36,44 @@ namespace TUChair
         Point point = new Point(0, 0);
        public  CUserVO userInfoVO = null;
         Button pribtn = null;
+        SerialPort _port;
+
+        public SerialPort Port
+        {
+            get
+            {
+                if (_port == null)
+                {
+                    _port = new SerialPort();
+                    _port.DataReceived += Port_DataReceived;
+                }
+                return _port;
+            }
+        }
+        private StringBuilder _strings;
+        public String Strings
+        {
+            set
+            {
+                if (_strings == null)
+                    _strings = new StringBuilder(1024);
+
+                _strings.AppendLine(value);
+
+                if (Readed != null)
+                {
+                    ReadEventArgs args = new ReadEventArgs();
+                    args.ReadMsg = _strings.ToString();
+                    Readed(this, args);
+                }
+            }
+        }
+        private bool _isopen;
+        public bool IsOpen
+        {
+            get { return _isopen; }
+            set { _isopen = value; }
+        }
 
         public TUChairMain2()
         {
@@ -60,10 +103,63 @@ namespace TUChair
                 menulist.Add(Convert.ToInt32(list.Key));
             }
 
+            if (Properties.Settings.Default.PortName.Length > 0)
+                SerialPortConnecting();
+
             BindingMenu();
             requlUc();
         }
-      
+        public void Clearstrings()
+        {
+            _strings.Clear();
+
+        }
+        private void Port_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            Thread.Sleep(500);
+
+            string msg = Port.ReadExisting();
+            this.Invoke(new EventHandler(delegate
+            {
+                Strings = msg;
+            }));
+        }
+
+        private void SerialPortConnecting()
+        {
+            if (!Port.IsOpen) //연결
+            {
+                Port.PortName = Properties.Settings.Default.PortName;
+                Port.BaudRate = Convert.ToInt32(Properties.Settings.Default.BaudRate);
+                Port.DataBits = Convert.ToInt32(Properties.Settings.Default.DataSize);
+
+                Parity par = Parity.None;
+                if (Properties.Settings.Default.Parity == "even")
+                    par = Parity.Even;
+                else if (Properties.Settings.Default.Parity == "odd")
+                    par = Parity.Odd;
+                Port.Parity = par;
+
+                Handshake hands = Handshake.None;
+                Port.Handshake = hands;
+
+                try
+                {
+                    Port.Open();
+
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
+            }
+            else
+            {
+                Port.Close();
+            }
+            IsOpen = _port.IsOpen;
+        }
+        #region 메뉴바인딩
         private void BindingMenu()
         {
             for (int i = 0; i < menulist.Count + 1; i++)
@@ -196,6 +292,7 @@ namespace TUChair
             int ntr = Convert.ToInt32(((Timer)sender).Tag);
             Slidingmenu(uclist[ntr + 1], timers[ntr], intevals, slideFlags, intevalMax[ntr], ntr);
         }
+        #endregion
         #region TabForm만드는 부분
         private void TUChairMain_MdiChildActivate(object sender, EventArgs e)
         {
@@ -363,6 +460,20 @@ namespace TUChair
                 requlUc();
             }
         }
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            // var type = this.GetType();
+            //type.GetMethod("Save") != null;
+
+
+            var flag = (typeof(TUChair.TestFrm1).GetMethod("Save", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+            if (flag)
+                MessageBox.Show("있다");
+            else
+                MessageBox.Show("없다");
+
+        }
+        #region Methode 이벤트 발생
         private void btnNew_Click(object sender, EventArgs e)
         {
             if (New != null)
@@ -412,28 +523,30 @@ namespace TUChair
             //Type frmType = Type.GetType($"{AppName}.{progName}");
 
        
-
-
             //MethodInfo.
         }
+        #endregion
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            OpenorCreateForm<TestFrm2>();
+            if (Port.IsOpen)
+                Port.Close();
+
+            PortSettingform frm = new PortSettingform();
+            frm.ShowDialog();
+            if (Properties.Settings.Default.PortName.Length > 0)
+            { SerialPortConnecting(); }
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+    }
+    public class ReadEventArgs : EventArgs
+    {
+        private string msg;
+
+        public string ReadMsg
         {
-           // var type = this.GetType();
-           //type.GetMethod("Save") != null;
-           
-
-            var flag = (typeof(TUChair.TestFrm1).GetMethod("Save", BindingFlags.NonPublic | BindingFlags.Instance) != null);
-            if(flag)
-            MessageBox.Show("있다");
-            else
-            MessageBox.Show("없다");
-
+            get { return msg; }
+            set { msg = value; }
         }
     }
 }
