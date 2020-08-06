@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TUChair
+namespace TUChair.MeilingForm
 {
-    public partial class SearchTwoGridForm : Form
+    public partial class BarcodeOut : TUChair.SearchCommomForm
     {
-        public SearchTwoGridForm()
+        public BarcodeOut()
         {
             InitializeComponent();
         }

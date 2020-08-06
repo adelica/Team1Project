@@ -89,10 +89,6 @@ namespace TUChairDAC
 
 
 
-
-
-
-
                     cmd.Connection.Open();
                     var rowsAffected = cmd.ExecuteNonQuery();
                     cmd.Connection.Close();

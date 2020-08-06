@@ -68,7 +68,6 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,29 +91,55 @@
     <Compile Include="CommonForm\SearchTwoGridLeftRightFrom.Designer.cs">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\FacilityInfo.cs">
-      <SubType>Form</SubType>
+    <Compile Include="HyunningForm\ReportPreviewForm.cs" />
+    <Compile Include="HyunningForm\ReportPreviewForm.Designer.cs">
+      <DependentUpon>ReportPreviewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\FacilityInfo.Designer.cs">
-      <DependentUpon>FacilityInfo.cs</DependentUpon>
+    <Compile Include="HyunningForm\XtraReport1.cs" />
+    <Compile Include="HyunningForm\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\FacilityReport.cs">
+    <Compile Include="HyunningForm\XtraReport2.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="InForm\FacilityReport.Designer.cs">
-      <DependentUpon>FacilityReport.cs</DependentUpon>
+    <Compile Include="HyunningForm\XtraReport2.Designer.cs">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\PreviewForm.cs">
+    <Compile Include="MeilingForm\BarcodeOut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InForm\PreviewForm.Designer.cs">
-      <DependentUpon>PreviewForm.cs</DependentUpon>
+    <Compile Include="MeilingForm\BarcodeOut.Designer.cs">
+      <DependentUpon>BarcodeOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="PortSettingform.cs">
-      <SubType>Form</SubType>
+    <Compile Include="MeilingForm\XtraReportBarc.cs">
+      <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MeilingForm\XtraReportBarc.Designer.cs">
+      <DependentUpon>XtraReportBarc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PortSettingform.cs" />
     <Compile Include="PortSettingform.Designer.cs">
       <DependentUpon>PortSettingform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service\balzuService.cs" />
+    <Compile Include="Service\JeanServicePShift.cs" />
+    <Compile Include="WooForm\IpGoCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\IpGoCheck.Designer.cs">
+      <DependentUpon>IpGoCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WooForm\IpGoPreveiw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\IpGoPreveiw.Designer.cs">
+      <DependentUpon>IpGoPreveiw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WooForm\IpGoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WooForm\IpGoReport.Designer.cs">
+      <DependentUpon>IpGoReport.cs</DependentUpon>
     </Compile>
     <Compile Include="WooForm\ItemPopUp.cs">
       <SubType>Form</SubType>
@@ -126,7 +151,6 @@
     <Compile Include="Service\commonService.cs" />
     <Compile Include="Service\FacilityService.cs" />
     <Compile Include="Service\ItemService.cs" />
-    <Compile Include="Service\JeanServicePShift.cs" />
     <Compile Include="WooForm\balzuDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -489,16 +513,28 @@
     <EmbeddedResource Include="CommonForm\SearchTwoGridLeftRightFrom.resx">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InForm\FacilityInfo.resx">
-      <DependentUpon>FacilityInfo.cs</DependentUpon>
+    <EmbeddedResource Include="HyunningForm\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InForm\FacilityReport.resx">
-      <DependentUpon>FacilityReport.cs</DependentUpon>
+    <EmbeddedResource Include="HyunningForm\XtraReport2.resx">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\BarcodeOut.resx">
+      <DependentUpon>BarcodeOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\XtraReportBarc.resx">
+      <DependentUpon>XtraReportBarc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PortSettingform.resx">
       <DependentUpon>PortSettingform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="WooForm\IpGoCheck.resx">
+      <DependentUpon>IpGoCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WooForm\IpGoReport.resx">
+      <DependentUpon>IpGoReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WooForm\ItemPopUp.resx">
       <DependentUpon>ItemPopUp.cs</DependentUpon>
     </EmbeddedResource>

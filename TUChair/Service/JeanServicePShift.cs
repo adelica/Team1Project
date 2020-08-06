@@ -15,6 +15,20 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.PSBinding();
         }
-        
+        public List<EXProcessShiftVO> Bacode()
+        {
+            ProcessShiftDAC dac = new ProcessShiftDAC();
+            return dac.Bacode();
+        }
+        public bool PSShiftInsert(ProcessShiftVO sht)
+        {
+            ProcessShiftDAC dac = new ProcessShiftDAC();
+            return dac.PSShiftInsert(sht);
+        }
+        public bool PSShiftInsert(string a, string b, string c)
+        {
+            ProcessShiftDAC dac = new ProcessShiftDAC();
+            return dac.PSShiftInsert(a,b,c);
+        }
     }
 }

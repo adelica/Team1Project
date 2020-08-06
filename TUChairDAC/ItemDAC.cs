@@ -41,6 +41,20 @@ Item";
             }
         }
 
+		public void IpGoUpdate(int barID)
+		{
+			using (SqlCommand cmd = new SqlCommand())
+			{
+				cmd.Connection = new SqlConnection(this.ConnectionString);
+				cmd.CommandText = @"update VendorOrder set Materail_Order_State='입고', Vo_InDate= getdate() where Vo_ID=@barID";
+				cmd.Parameters.AddWithValue("@barID", barID);
+
+				cmd.Connection.Open();
+				var rowsAffected = cmd.ExecuteNonQuery();
+				cmd.Connection.Close();
+
+			}
+		}
 		public bool DeleteItem(string condition)
 		{
 			try

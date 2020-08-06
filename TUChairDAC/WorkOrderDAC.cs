@@ -110,5 +110,53 @@ namespace TUChairDAC
                 Debug.WriteLine(err.Message);
             }
         }
+
+        public List<WorkOrderVO> selectworkOrder()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                string sql = @"select [WorkOrderID], [So_WorkOrderID], [Item_Code], [Plan_Qty], [Plan_Date], [Prd_Date], [Wo_State], [Wo_Order], [Plan_StartTime], [Plan_EndTime], [In_Qty_Main], [Out_Qty_Main], [Prd_Qty], [Wo_Req_No], [Remark], [Up_Date], [Up_Emp] from [dbo].[WorkOrder]";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<WorkOrderVO> list = Helper.MeilingDataReaderMapToList<WorkOrderVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
+        public List<WorkOrderVO> SelectBarcode(string checklist )
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                string sql = @"select [WorkOrderID], [Item_Code],[Out_Qty_Main],[Prd_Qty]from [dbo].[WorkOrder]
+                              where WorkOrderID in(@Checklist)";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Checklist", checklist);
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<WorkOrderVO> list = Helper.MeilingDataReaderMapToList<WorkOrderVO>(reader);
+
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
     }
 }

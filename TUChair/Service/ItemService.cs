@@ -33,5 +33,12 @@ namespace TUChair.Service
             ItemDAC dac = new ItemDAC();
             return dac.DeleteItem(condition);
         }
+
+        internal void IpGoUpdate(int barID)
+        {
+
+            ItemDAC dac = new ItemDAC();
+             dac.IpGoUpdate(barID);
+        }
     }
 }
