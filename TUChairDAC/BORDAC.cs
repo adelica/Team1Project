@@ -32,6 +32,7 @@ from BOR b left outer join FacilityGroup fg on b.FacG_Code=fg.FacG_Code
             }
             catch(Exception err)
             {
+                _log.WriteError(err.Message);
                 return null;
             }
         }

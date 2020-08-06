@@ -56,9 +56,46 @@ namespace TUChairDAC
             }
             catch (Exception err)
             {
+                _log.WriteError(err.Message);
                 return false;
             }
         }
+        //바코드로 찍은 설비 정보
+        public DataTable FacilityBarInfo(int barID)
+        {
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select Faci_Code, f.FacG_Code,FacG_Name, Faci_Name, Faci_OutWareHouse, Faci_InWareHouse, Faci_BadWareHouse, Faci_UseOrNot, Faci_Detail, Faci_Others, Faci_Modifier
+			from Facility f, FacilityGroup fg
+			where f.FacG_Code=fg.FacG_Code and Faci_Bar = @barID";
+                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.AddWithValue("@barID", barID);
+                conn.Open();
+                da.Fill(dt);
+                conn.Close();
+                return dt;
+
+            }
+        }
+        //바코드 생성
+        public DataTable FacilityInfoBarCode(string faci_Codes)
+        {
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select Faci_Code, Faci_Name, REPLICATE('0',8-len(cast(Faci_Bar as varchar(8))))+cast(Faci_Bar as varchar(8)) as Faci_Bar
+                                    From facility 
+                                    where Faci_Code in (" + faci_Codes + " )";
+
+                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                da.Fill(dt);
+                conn.Close();
+
+                return dt;
+            }
+        }
+
         //설비 삭제
         public bool DeleteFacilityInfo(string faci_Code)
         {
@@ -78,6 +115,7 @@ namespace TUChairDAC
             }
             catch (Exception err)
             {
+                _log.WriteError(err.Message);
                 return false;
             }
         }
