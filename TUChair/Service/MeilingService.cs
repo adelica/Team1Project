@@ -36,5 +36,10 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
             return dac.SelectBarcode(checklist);
         }
+        public void insertworkOrder(int Out_Qty_Main, int Prd_Qty, int WorkOrderID)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            dac.insertworkOrder(Out_Qty_Main, Prd_Qty, WorkOrderID);
+        }
     }
 }

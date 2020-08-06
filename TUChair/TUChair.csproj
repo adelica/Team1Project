@@ -133,6 +133,18 @@
     <Compile Include="MeilingForm\BarcodeOut.Designer.cs">
       <DependentUpon>BarcodeOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="MeilingForm\ReportPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\ReportPreviewForm.Designer.cs">
+      <DependentUpon>ReportPreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MeilingForm\UpdateWorkOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\UpdateWorkOrder.Designer.cs">
+      <DependentUpon>UpdateWorkOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="MeilingForm\XtraReportBarc.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -537,12 +549,6 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
-    <Compile Include="XtraReport2.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="XtraReport2.Designer.cs">
-      <DependentUpon>XtraReport2.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="CommonForm\SearchTwoGridForm.resx">
       <DependentUpon>SearchTwoGridForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -563,6 +569,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\BarcodeOut.resx">
       <DependentUpon>BarcodeOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\ReportPreviewForm.resx">
+      <DependentUpon>ReportPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\UpdateWorkOrder.resx">
+      <DependentUpon>UpdateWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\XtraReportBarc.resx">
       <DependentUpon>XtraReportBarc.cs</DependentUpon>
@@ -763,9 +775,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucTabControl.resx">
       <DependentUpon>ucTabControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XtraReport2.resx">
-      <DependentUpon>XtraReport2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

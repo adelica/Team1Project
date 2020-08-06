@@ -139,10 +139,10 @@ namespace TUChairDAC
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
                 string sql = @"select [WorkOrderID], [Item_Code],[Out_Qty_Main],[Prd_Qty]from [dbo].[WorkOrder]
-                              where WorkOrderID in(@Checklist)";
+                              where WorkOrderID in("+ checklist + ")";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Checklist", checklist);
+                  
                     conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     List<WorkOrderVO> list = Helper.MeilingDataReaderMapToList<WorkOrderVO>(reader);
@@ -157,6 +157,39 @@ namespace TUChairDAC
 
                 return null;
             }
+        }
+        public void insertworkOrder(int Out_Qty_Main, int Prd_Qty, int WorkOrderID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                string sql = @"update [dbo].[WorkOrder] set [Out_Qty_Main]=@Out_Qty_Main ,[Prd_Qty]=@Prd_Qty
+where [WorkOrderID]=@WorkOrderID";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Out_Qty_Main", Out_Qty_Main);
+                    cmd.Parameters.AddWithValue("@Prd_Qty", Prd_Qty);
+                    cmd.Parameters.AddWithValue("@WorkOrderID", WorkOrderID);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                }
+            }
+            catch (Exception err)
+            {
+
+                Debug.WriteLine(err.Message);
+
+                //return null;
+            }
+
+
+
+
+
         }
     }
 }

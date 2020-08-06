@@ -538,6 +538,10 @@ namespace TUChair
             { SerialPortConnecting(); }
         }
 
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            OpenorCreateForm<UpdateWorkOrder>();
+        }
     }
     public class ReadEventArgs : EventArgs
     {
