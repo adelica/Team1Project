@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Services.Description;
+//using System.Web.Services.Description;
 using System.Windows.Forms;
 using TUChair.Service;
 using TUChairVO;

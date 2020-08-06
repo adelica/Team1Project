@@ -55,6 +55,7 @@
     <Compile Include="ShiftVO.cs" />
     <Compile Include="UnitPriceVO.cs" />
     <Compile Include="UserVO.cs" />
+    <Compile Include="WorkOrderVO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
