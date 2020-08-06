@@ -115,6 +115,7 @@
     <Compile Include="PortSettingform.Designer.cs">
       <DependentUpon>PortSettingform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\JeanServicePShift.cs" />
     <Compile Include="WooForm\ItemPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
