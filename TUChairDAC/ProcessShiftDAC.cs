@@ -35,5 +35,36 @@ namespace TUChairDAC
                 return null;
             }
         }
+        public bool PSShiftInsert(ProcessShiftVO sht) // 자재단가 관리 (전체)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_ProcessShift";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+
+                    cmd.Parameters.AddWithValue("@NO", sht.No);
+                    cmd.Parameters.AddWithValue("@ThisDate", sht.Insert_Date ?? DBNull.Value.ToString());
+                    cmd.Parameters.AddWithValue("@Fact_Code", sht.Fact_Code);
+
+
+
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception e)
+            {
+                _log.WriteError(e.Message, e);
+                throw e;
+            }
+        }
     }
 }
