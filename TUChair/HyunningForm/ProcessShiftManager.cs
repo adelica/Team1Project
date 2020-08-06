@@ -16,8 +16,9 @@ namespace TUChair
     public partial class ProcessShiftManager : TUChair.SearchCommomForm
     {
         List<ProcessShiftVO> list;
-        
-            List<EXProcessShiftVO> list1;
+        List<ProcessShiftVO> Shiftview;
+
+        List<EXProcessShiftVO> list1;
         List<ComboItemVO> comboItems = null;
         public ProcessShiftManager()
         {
@@ -78,6 +79,13 @@ namespace TUChair
 
             jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = list;
+
+
+            JeanServicePShift sv = new JeanServicePShift();
+            Shiftview = sv.ShiftLoad();
+            jeansGridView2.DataSource = null;
+            jeansGridView2.DataSource = Shiftview;
+
         }
 
         private void btnShift_Click(object sender, EventArgs e)
@@ -91,7 +99,7 @@ namespace TUChair
             {
                 MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
             }
-            
+            DataLoad();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -108,18 +116,22 @@ namespace TUChair
         private void Readed_BarCode(object sender, ReadEventArgs e)
         {
             textBox1.Text = e.ReadMsg;
-            string a = textBox1.Text.Substring(0,4);
-            string b = textBox1.Text.Substring(6, 1);
-            string c = string.Empty;
+            //string a = textBox1.Text.Substring(0,4);
+            //string b = textBox1.Text.Substring(6, 1);
+            string a = "WH01";
+            string b = "2";
+
+
             ProcessShiftVO sht = new ProcessShiftVO();
             JeanServicePShift shift = new JeanServicePShift();
 
-            bool result = shift.PSShiftInsert(a,b,c);
+            bool result = shift.PSShiftInsert(a,b);
 
             if (result)
             {
                 MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
             }
+            DataLoad();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -133,6 +145,40 @@ namespace TUChair
         private void ProcessShiftManager_Load(object sender, EventArgs e)
         {         
               ((TUChairMain2)this.MdiParent).Readed += Readed_BarCode;         
+        }
+
+        private void button2_Click(object sender, EventArgs e) //바코드 임시
+        {
+           
+            //string a = textBox1.Text.Substring(0,4);
+            //string b = textBox1.Text.Substring(6, 1);
+            string a = "WH01";
+            string b = "2";
+
+
+            ProcessShiftVO sht = new ProcessShiftVO();
+            JeanServicePShift shift = new JeanServicePShift();
+
+            bool result = shift.PSShiftInsert(a, b);
+
+            if (result)
+            {
+                MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
+            }
+        }
+
+        private void btnShiftCancle_Click(object sender, EventArgs e)
+        {
+            ProcessShiftVO sht = new ProcessShiftVO();
+            JeanServicePShift shift = new JeanServicePShift();
+
+            bool result = shift.PSShiftReturn(sht);
+
+            if (result)
+            {
+                MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
+            }
+            DataLoad();
         }
     }
 }
