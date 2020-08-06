@@ -91,6 +91,14 @@
     <Compile Include="CommonForm\SearchTwoGridLeftRightFrom.Designer.cs">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="HyunningForm\ReportPreviewForm.cs" />
+    <Compile Include="HyunningForm\ReportPreviewForm.Designer.cs">
+      <DependentUpon>ReportPreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HyunningForm\XtraReport1.cs" />
+    <Compile Include="HyunningForm\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
     <Compile Include="MeilingForm\BarcodeOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +110,10 @@
     </Compile>
     <Compile Include="MeilingForm\XtraReportBarc.Designer.cs">
       <DependentUpon>XtraReportBarc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PortSettingform.cs" />
+    <Compile Include="PortSettingform.Designer.cs">
+      <DependentUpon>PortSettingform.cs</DependentUpon>
     </Compile>
     <Compile Include="WooForm\ItemPopUp.cs">
       <SubType>Form</SubType>
@@ -475,11 +487,17 @@
     <EmbeddedResource Include="CommonForm\SearchTwoGridLeftRightFrom.resx">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HyunningForm\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\BarcodeOut.resx">
       <DependentUpon>BarcodeOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\XtraReportBarc.resx">
       <DependentUpon>XtraReportBarc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PortSettingform.resx">
+      <DependentUpon>PortSettingform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WooForm\ItemPopUp.resx">
