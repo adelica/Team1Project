@@ -54,11 +54,11 @@
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.companyTableAdapter = new TUChair.TEAM1DataSetTableAdapters.CompanyTableAdapter();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
-            this.teaM1DataSet1 = new TUChair.TEAM1DataSet();
+            //this.companyTableAdapter = new TUChair.TEAM1DataSetTableAdapters.CompanyTableAdapter();
+            //this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            //this.teaM1DataSet1 = new TUChair.TEAM1DataSet();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teaM1DataSet1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.teaM1DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -85,7 +85,7 @@
             // 
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1});
-            this.DetailReport.DataAdapter = this.companyTableAdapter;
+            //this.DetailReport.DataAdapter = this.companyTableAdapter;
             this.DetailReport.DataSource = this.sqlDataSource1;
             this.DetailReport.Dpi = 254F;
             this.DetailReport.Level = 0;
@@ -340,7 +340,7 @@
             // 
             // companyTableAdapter
             // 
-            this.companyTableAdapter.ClearBeforeFill = true;
+            //this.companyTableAdapter.ClearBeforeFill = true;
             // 
             // sqlDataSource1
             // 
@@ -354,9 +354,9 @@
             // 
             // teaM1DataSet1
             // 
-            this.teaM1DataSet1.DataSetName = "TEAM1DataSet";
-            this.teaM1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
+            //this.teaM1DataSet1.DataSetName = "TEAM1DataSet";
+            //this.teaM1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //// 
             // IpGoReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -365,7 +365,7 @@
             this.Detail,
             this.DetailReport});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.teaM1DataSet1,
+            //this.teaM1DataSet1,
             this.sqlDataSource1});
             this.DataMember = "Query";
             this.DataSource = this.sqlDataSource1;
@@ -379,7 +379,7 @@
             this.SnapGridSize = 25F;
             this.Version = "20.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teaM1DataSet1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.teaM1DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -391,8 +391,8 @@
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.DetailReportBand DetailReport;
         private DevExpress.XtraReports.UI.DetailBand Detail1;
-        private TEAM1DataSetTableAdapters.CompanyTableAdapter companyTableAdapter;
-        private TEAM1DataSet teaM1DataSet1;
+        //private TEAM1DataSetTableAdapters.CompanyTableAdapter companyTableAdapter;
+        //private TEAM1DataSet teaM1DataSet1;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRBarCode xrBarCode1;
         private DevExpress.XtraReports.UI.XRTable xrTable1;
