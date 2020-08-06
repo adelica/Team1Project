@@ -103,6 +103,30 @@
     <Compile Include="HyunningForm\XtraReport1.Designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HyunningForm\XtraReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HyunningForm\XtraReport2.Designer.cs">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InForm\FacilityInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\FacilityInfo.Designer.cs">
+      <DependentUpon>FacilityInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InForm\FacilityReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InForm\FacilityReport.Designer.cs">
+      <DependentUpon>FacilityReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InForm\PreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\PreviewForm.Designer.cs">
+      <DependentUpon>PreviewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MeilingForm\BarcodeOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -513,6 +537,12 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <Compile Include="XtraReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraReport2.Designer.cs">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CommonForm\SearchTwoGridForm.resx">
       <DependentUpon>SearchTwoGridForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -521,6 +551,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\XtraReport1.resx">
       <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HyunningForm\XtraReport2.resx">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\FacilityInfo.resx">
+      <DependentUpon>FacilityInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InForm\FacilityReport.resx">
+      <DependentUpon>FacilityReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\BarcodeOut.resx">
       <DependentUpon>BarcodeOut.cs</DependentUpon>
@@ -724,6 +763,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucTabControl.resx">
       <DependentUpon>ucTabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraReport2.resx">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

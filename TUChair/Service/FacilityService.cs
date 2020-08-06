@@ -41,5 +41,17 @@ namespace TUChair.Service
             FacilityDAC dac = new FacilityDAC();
             return dac.DeleteFacilityInfo(faci_Code);
         }
+
+        internal DataTable FacilityInfoBarCode(string faci_Codes)
+        {
+            FacilityDAC dac = new FacilityDAC();
+            return dac.FacilityInfoBarCode(faci_Codes);
+        }
+
+        internal DataTable FacilityBarInfo(int barID) //바코드로 찍은 설비 정보
+        {
+            FacilityDAC dac = new FacilityDAC();
+            return dac.FacilityBarInfo(barID);
+        }
     }
 }

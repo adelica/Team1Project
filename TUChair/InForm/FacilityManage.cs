@@ -29,15 +29,15 @@ namespace TUChair
             dgvFacilityG.AutoGenerateColumns = false;
             dgvFacility.AutoGenerateColumns = false;
 
-
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "설비군 코드", "FacG_Code", true,110);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "설비군 명", "FacG_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "사용유무", "FacG_UseOrNot", true, 80);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "정보", "FacG_Information", false);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "수정자", "FacG_Modifier", true,80);
 
-            
 
+
+            dgvFacility.IsAllCheckColumnHeader = true;
 
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "No.", "no", true, 40, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "설비코드", "Faci_Code", true, 170);
@@ -51,12 +51,23 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "수정자", "Faci_Modifier", true, 80);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "수정시간", "Faci_ModifyDate", true, 150);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "설비군", "FacG_Code", false);
-           
         }
 
         private void FacilityManage_Load(object sender, EventArgs e)
         {
             LoadData();
+            ((TUChairMain2)this.MdiParent).Readed += Readed_BarCode;
+        }
+        private void Readed_BarCode(object sender, ReadEventArgs e)
+        {
+            int barID = int.Parse(e.ReadMsg.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
+            ((TUChairMain2)this.MdiParent).Clearstrings();
+
+            FacilityService service = new FacilityService();
+            DataTable dt = service.FacilityBarInfo(barID);
+
+            FacilityInfo frm = new FacilityInfo(dt);
+            frm.ShowDialog();
         }
         private void LoadData() //데이터바인딩
         {
@@ -94,7 +105,7 @@ namespace TUChair
 
         private void dgvFacility_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e) //그리드뷰 맨 앞에 no 자동 생성
         {
-            this.dgvFacility.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+            this.dgvFacility.Rows[e.RowIndex].Cells[1].Value = (e.RowIndex + 1).ToString();
         }
 
         private void dgvFacilityG_CellClick(object sender, DataGridViewCellEventArgs e) //설비군에 등록된 설비 없을 시 안됨
@@ -170,20 +181,20 @@ namespace TUChair
                     LoadData();
                 }
             }
-            else //설비수정 1~8 11
+            else //설비수정 2~9 11,12
             {
                 var row = dgvFacility.CurrentRow;
 
-                string faci_Code = row.Cells[1].Value.ToString();
-                string faci_Name = row.Cells[2].Value.ToString();
-                string faci_Out = row.Cells[3].Value.ToString();
-                string faci_In = row.Cells[4].Value.ToString();
-                string faci_Bad = row.Cells[5].Value.ToString();
-                string faci_Detail = row.Cells[6].Value.ToString();
-                string faci_Others = row.Cells[7].Value.ToString();
-                string faci_UseOrNot = row.Cells[8].Value.ToString();
-                string faci_ModifyDate = row.Cells[10].Value.ToString();
-                string facG_Code = row.Cells[11].Value.ToString();
+                string faci_Code = row.Cells[2].Value.ToString();
+                string faci_Name = row.Cells[3].Value.ToString();
+                string faci_Out = row.Cells[4].Value.ToString();
+                string faci_In = row.Cells[5].Value.ToString();
+                string faci_Bad = row.Cells[6].Value.ToString();
+                string faci_Detail = row.Cells[7].Value.ToString();
+                string faci_Others = row.Cells[8].Value.ToString();
+                string faci_UseOrNot = row.Cells[9].Value.ToString();
+                string faci_ModifyDate = row.Cells[11].Value.ToString();
+                string facG_Code = row.Cells[12].Value.ToString();
 
                 FacilityInfoRegi frm = new FacilityInfoRegi(faci_Code, faci_Name, faci_Out, faci_In, faci_Bad, faci_Detail, faci_Others, faci_UseOrNot, faci_ModifyDate, facG_Code,dtFacG_code, dtFaci_code);
                 frm.StartPosition = FormStartPosition.CenterParent;
@@ -251,5 +262,36 @@ namespace TUChair
                 return;
             }
         }
+        //바코드 생성
+        private void btnBar_Click(object sender, EventArgs e)
+        {
+            List<string> chkList = new List<string>();
+
+            for (int i = 0; i < dgvFacility.Rows.Count; i++)
+            {
+                bool isCellChecked = (bool)dgvFacility.Rows[i].Cells[0].EditedFormattedValue;
+                if (isCellChecked)
+                {
+                    chkList.Add(dgvFacility.Rows[i].Cells[2].Value.ToString());
+                }
+            }
+            if (chkList.Count == 0)
+            {
+                MessageBox.Show("출력할 바코드를 선택해주세요.");
+                return;
+            }
+
+            string strChkBarCodes = "'" + string.Join("','", chkList) + "'";
+          
+            FacilityService service = new FacilityService();
+            DataTable dt = service.FacilityInfoBarCode(strChkBarCodes);
+
+            FacilityReport rpt = new FacilityReport();
+            rpt.DataSource = dt;
+            PreviewForm frm = new PreviewForm(rpt);
+            
+        }
+
+
     }
 }
