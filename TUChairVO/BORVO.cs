@@ -17,7 +17,7 @@ namespace TUChairVO
         public string Faci_Name { get; set; }
         public int BOR_TactTime { get; set; }
         public int BOR_Priority { get; set; }
-        public int BOR_Yeild { get; set; }
+        public decimal BOR_Yeild { get; set; }
         public string BOR_UseOrNot { get; set; }
         public string BOR_Other { get; set; }
     }

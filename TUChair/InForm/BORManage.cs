@@ -15,6 +15,7 @@ namespace TUChair
     public partial class BORManage : TUChair.SearchCommomForm
     {
         List<BORVO> list;
+
         public BORManage()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "수율", "BOR_Yeild", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "사용유무", "BOR_UseOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "비고", "BOR_Other", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "BOR_Code", "BOR_Code", false);
         }
 
         private void BORManage_Load(object sender, EventArgs e)
@@ -66,7 +68,7 @@ namespace TUChair
             this.dgvBOR.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)  //검색조건
         {
             List<BORVO> searchList=null;
 
@@ -128,6 +130,50 @@ namespace TUChair
             if(e.KeyChar==13)
             {
                 btnSearch.PerformClick();
+            }
+        }
+
+        private void dgvBOR_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.RowIndex > dgvBOR.Rows.Count)
+                return;
+
+            if(e.Button==MouseButtons.Right)
+            {
+                dgvBOR.Rows[e.RowIndex].Selected = true;
+                dgvBOR.CurrentCell = dgvBOR.Rows[e.RowIndex].Cells[0];
+                contextMenuStrip1.Show(dgvBOR, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
+            }
+        }
+
+        private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(DialogResult.OK==(MessageBox.Show("정말로 삭제하시겠습니까?","삭제확인",MessageBoxButtons.OKCancel)))
+            {
+                var row = dgvBOR.CurrentRow;
+                int code = Convert.ToInt32(row.Cells[12].Value);
+                BORService service = new BORService();
+                bool check = service.DeleteBORInfo(code);
+                
+                if(check)
+                {
+                    MessageBox.Show("삭제되었습니다.", "삭제확인");
+                    LoadData();
+                }
+                else
+                    MessageBox.Show("삭제를 실패하였습니다.", "삭제실패");
+            }
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            BORInfoRegi frm = new BORInfoRegi(list);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            if(frm.Check)
+            {
+                LoadData();
             }
         }
     }

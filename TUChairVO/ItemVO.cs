@@ -13,7 +13,7 @@ namespace TUChairVO
       public string  Item_Size              {get; set;}
       public string  Item_Type              {get; set;}
       public int     Item_Qty               {get; set;}
-      public string  Faci_Code              {get; set;}
+
       public string  Item_OrderComp         {get; set;}
       public string  Item_InWarehouse       {get; set;}
       public string  Item_OutWarehouse      {get; set;}
@@ -26,6 +26,7 @@ namespace TUChairVO
       public string  Item_Modifier          {get; set;}
       public string  Item_ModiflyDate       {get; set;}
       public string  Item_UserOrNot         {get; set;}
-      public string Item_Other              {get; set;} 
+      public string  Item_Other              {get; set;}
+       public string Item_OutSourcing     { get; set; }
     }
 }

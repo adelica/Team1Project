@@ -29,7 +29,7 @@ namespace TUChair
         List<int> menulist = new List<int>();
         List<AuthorVO> author = null;
         Point point = new Point(0, 0);
-        CUserVO userInfoVO = null;
+       public  CUserVO userInfoVO = null;
         Button pribtn = null;
 
         public TUChairMain2()
@@ -149,11 +149,11 @@ namespace TUChair
             //    timers[Convert.ToInt32(pribtn.Tag)].Start();
             //}
             //pribtn = btn;
+
+
             timers[Convert.ToInt32(btn.Tag)].Tag = Convert.ToInt32(btn.Tag);
             
                 timers[Convert.ToInt32(btn.Tag)].Start();
-
-
         }
         private void requlUc()
         {
