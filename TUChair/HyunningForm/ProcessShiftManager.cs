@@ -33,7 +33,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수량", "Qty", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Stock_Ohter", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Stock_Other", true);
             
             DataLoad();
 
