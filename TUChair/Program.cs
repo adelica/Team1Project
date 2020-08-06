@@ -16,7 +16,7 @@ namespace TUChair
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WorkOrderStatusForm());
+            Application.Run(new TUChairMain2());
         }
     }
 }
