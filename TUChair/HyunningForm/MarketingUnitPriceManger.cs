@@ -51,6 +51,8 @@ namespace TUChair
 
             DataLoad();
         }
+        
+
         private void MarketingUnitPriceManger_Load(object sender, EventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
