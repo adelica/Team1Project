@@ -60,5 +60,10 @@ namespace TUChair
             jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = list;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
