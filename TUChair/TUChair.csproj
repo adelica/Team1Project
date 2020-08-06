@@ -91,11 +91,15 @@
     <Compile Include="CommonForm\SearchTwoGridLeftRightFrom.Designer.cs">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\ReportPreviewForm.cs" />
+    <Compile Include="HyunningForm\ReportPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HyunningForm\ReportPreviewForm.Designer.cs">
       <DependentUpon>ReportPreviewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyunningForm\XtraReport1.cs" />
+    <Compile Include="HyunningForm\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="HyunningForm\XtraReport1.Designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
@@ -117,7 +121,9 @@
     <Compile Include="MeilingForm\XtraReportBarc.Designer.cs">
       <DependentUpon>XtraReportBarc.cs</DependentUpon>
     </Compile>
-    <Compile Include="PortSettingform.cs" />
+    <Compile Include="PortSettingform.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PortSettingform.Designer.cs">
       <DependentUpon>PortSettingform.cs</DependentUpon>
     </Compile>
