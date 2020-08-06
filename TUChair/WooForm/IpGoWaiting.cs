@@ -42,7 +42,7 @@ namespace TUChair
             balzuService service = new balzuService();
             DataTable dt = service.GetBalzuReport(strChkBarCodes);
 
-            IpGoReport rpt = new IpGoReport();
+            IpGoReport2 rpt = new IpGoReport2();
             rpt.DataSource = dt;
             IpGoPreveiw frm = new IpGoPreveiw(rpt);
 
