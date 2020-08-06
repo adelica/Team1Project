@@ -38,6 +38,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnShift = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.jeansGridView1 = new JeanForm.JeansGridView();
@@ -52,7 +53,8 @@
             this.cboItemCode = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.jeansGridView2 = new JeanForm.JeansGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnShiftCancle = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -79,10 +81,10 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnShiftCancle);
             this.panel2.Location = new System.Drawing.Point(12, 430);
             this.panel2.Controls.SetChildIndex(this.label1, 0);
-            this.panel2.Controls.SetChildIndex(this.button2, 0);
+            this.panel2.Controls.SetChildIndex(this.btnShiftCancle, 0);
             // 
             // panel1
             // 
@@ -95,7 +97,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.textBox1);
             this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.btnShift);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Location = new System.Drawing.Point(13, 62);
             this.panel4.Name = "panel4";
@@ -104,13 +108,23 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1010, 9);
+            this.button1.Location = new System.Drawing.Point(919, 9);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "공정이동";
+            this.button1.Size = new System.Drawing.Size(85, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "바코드 출력";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnShift
+            // 
+            this.btnShift.Location = new System.Drawing.Point(1010, 9);
+            this.btnShift.Name = "btnShift";
+            this.btnShift.Size = new System.Drawing.Size(75, 23);
+            this.btnShift.TabIndex = 1;
+            this.btnShift.Text = "공정이동";
+            this.btnShift.UseVisualStyleBackColor = true;
+            this.btnShift.Click += new System.EventHandler(this.btnShift_Click);
             // 
             // label2
             // 
@@ -304,14 +318,23 @@
             this.jeansGridView2.Size = new System.Drawing.Size(1090, 110);
             this.jeansGridView2.TabIndex = 0;
             // 
-            // button2
+            // btnShiftCancle
             // 
-            this.button2.Location = new System.Drawing.Point(1011, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "공정취소";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnShiftCancle.Location = new System.Drawing.Point(1011, 10);
+            this.btnShiftCancle.Name = "btnShiftCancle";
+            this.btnShiftCancle.Size = new System.Drawing.Size(75, 23);
+            this.btnShiftCancle.TabIndex = 6;
+            this.btnShiftCancle.Text = "공정취소";
+            this.btnShiftCancle.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(813, 11);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // ProcessShiftManager
             // 
@@ -363,7 +386,9 @@
         private System.Windows.Forms.Label label4;
         private JeanForm.JeansGridView jeansGridView2;
         private JeanForm.JeansGridView jeansGridView1;
+        private System.Windows.Forms.Button btnShift;
+        private System.Windows.Forms.Button btnShiftCancle;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

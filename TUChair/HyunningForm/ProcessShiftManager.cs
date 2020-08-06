@@ -34,7 +34,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Stock_Other", true);
-            
+
             DataLoad();
 
             commonService service = new commonService();
@@ -44,9 +44,9 @@ namespace TUChair
                                        where item.CodeType == "창고"
                                        select item).ToList();
             CommonUtil.ComboBinding(cboFact, cList, "선택");
-                               cList = (from item in comboItems
-                                       where item.CodeType == "Item"
-                                       select item).ToList();
+            cList = (from item in comboItems
+                     where item.CodeType == "Item"
+                     select item).ToList();
             CommonUtil.ComboBinding(cboItemCode, cList, "선택");
 
         }
@@ -61,9 +61,39 @@ namespace TUChair
             jeansGridView1.DataSource = list;
         }
 
+        private void btnShift_Click(object sender, EventArgs e)
+        {
+            ProcessShiftVO sht = new ProcessShiftVO();
+            JeanServicePShift shift = new JeanServicePShift();
+            bool result = shift.PSShiftInsert(sht);
+            if (result)
+            {
+                MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            JeanServicePShift service = new JeanServicePShift();
+            list = service.PSBinding();
 
+
+            HyunningForm.XtraReport1 rpt = new HyunningForm.XtraReport1();
+            rpt.DataSource = list;
+            HyunningForm.ReportPreviewForm frm = new HyunningForm.ReportPreviewForm(rpt);
+        }
+        private void Readed_BarCode(object sender, ReadEventArgs e)
+        {
+            textBox1.Text = e.ReadMsg;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+            {
+                btnShift.PerformClick();
+            }
         }
     }
 }
+
