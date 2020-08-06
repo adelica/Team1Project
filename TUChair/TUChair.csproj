@@ -99,6 +99,12 @@
     <Compile Include="HyunningForm\XtraReport1.Designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HyunningForm\XtraReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HyunningForm\XtraReport2.Designer.cs">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
+    </Compile>
     <Compile Include="MeilingForm\BarcodeOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\XtraReport1.resx">
       <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HyunningForm\XtraReport2.resx">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\BarcodeOut.resx">
       <DependentUpon>BarcodeOut.cs</DependentUpon>
