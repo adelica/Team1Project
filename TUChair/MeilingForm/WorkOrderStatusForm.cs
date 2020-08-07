@@ -77,7 +77,7 @@ namespace TUChair
 
             XtraReportBarc rpt = new XtraReportBarc();
                 rpt.DataSource = dt;
-            ReportPreviewForm frm = new ReportPreviewForm(rpt);
+           // PreviewForm frm = new PreviewForm(rpt);
 
         }
 

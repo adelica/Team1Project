@@ -37,6 +37,7 @@ namespace TUChair
         {
             if ((this.MdiParent).ActiveMdiChild == this)
                 textBox1.Text = e.ReadMsg;
+            ((TUChairMain2)this.MdiParent).Clearstrings();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
