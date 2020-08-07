@@ -188,7 +188,6 @@
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.Size = new System.Drawing.Size(158, 27);
             this.txtItemCode.TabIndex = 7;
-            //this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
             // 
             // label2
             // 
@@ -250,6 +249,7 @@
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "UnitPriceManager";
             this.Text = "자재단가관리";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UnitPriceManager_FormClosing);
             this.Load += new System.EventHandler(this.UnitPriceManager_Load);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

@@ -241,6 +241,7 @@
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "MarketingUnitPriceManger";
             this.Text = "영업단가관리";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MarketingUnitPriceManger_FormClosing);
             this.Load += new System.EventHandler(this.MarketingUnitPriceManger_Load);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
