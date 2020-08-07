@@ -28,7 +28,6 @@ namespace TUChair
                 return _port;
             }
         }
-
         private StringBuilder _strings;
         private String Strings
         {
