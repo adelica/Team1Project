@@ -16,6 +16,7 @@ namespace TUChair
     {
         List<BORVO> list;
         bool check = false;
+        bool newInsert = true;
         public bool Check { get {return check; }}
         public BORInfoRegi()
         {
@@ -52,6 +53,22 @@ namespace TUChair
             CommonUtil.CboSetting(cboItem_Code);
             CommonUtil.CboSetting(cboFaci_Code);
         }
+
+        public BORInfoRegi(string itemC, string facgC, string faciC, int tactT, int prio, decimal yei, string uOrN, string other, List<BORVO> borList) :this(borList)
+        {
+            cboFacG_Code.Enabled = cboFaci_Code.Enabled = cboItem_Code.Enabled = false;
+            cboFacG_Code.Text = facgC;
+            cboFaci_Code.Text = faciC;
+            cboItem_Code.Text = itemC;
+            txtTactTime.Text = tactT.ToString();
+            txtPriority.Text = prio.ToString() ;
+            txtYeild.Text = yei.ToString();
+            cboUseOrNot.Text = uOrN;
+            txtOther.Text = other;
+
+            newInsert = false;
+        }
+
         private void txtInterval_KeyPress(object sender, KeyPressEventArgs e)
         {
             //숫자만 입력되도록 필터링
@@ -76,6 +93,29 @@ namespace TUChair
                 CommonUtil.RequiredInfo();
                 return;
             }
+            if (newInsert)
+            {
+                List<BORVO> check = (from chk in list
+                                     where chk.FacG_Code == cboFacG_Code.SelectedItem.ToString() && chk.Faci_Code == cboFaci_Code.SelectedItem.ToString() &&
+                                     chk.Item_Code== cboItem_Code.SelectedItem.ToString()
+                                     select chk).ToList();
+                if (check.Count > 0)
+                {
+                    if (DialogResult.OK == (MessageBox.Show("이미 존재하는 BOR입니다. 입력한 정보로 수정하시겠습니까?", "코드중복", MessageBoxButtons.OKCancel)))
+                    {
+                        Insert();
+                    }
+                    else
+                        return;
+                }
+                else
+                    Insert();
+            }
+            else
+                Insert();
+        }
+        public void Insert()
+        {
             string itemCode = cboItem_Code.SelectedItem.ToString();
             string facgCode = cboFacG_Code.SelectedItem.ToString();
             string faciCode = cboFaci_Code.SelectedItem.ToString();
@@ -86,8 +126,8 @@ namespace TUChair
             string other = txtOther.Text;
 
             BORService service = new BORService();
-            check = service.BORInfoRegi(itemCode, facgCode, faciCode, tactT, priority, yeild,useOrNot, other);
-            if(check)
+            check = service.BORInfoRegi(itemCode, facgCode, faciCode, tactT, priority, yeild, useOrNot, other);
+            if (check)
             {
                 MessageBox.Show("등록되었습니다.", "등록완료");
                 this.Close();

@@ -38,7 +38,7 @@ namespace TUChair
 
         }
 
-        public FacilityInfoRegi(string faci_Code, string faci_Name, string faci_Out, string faci_In, string faci_Bad, string faci_Detail, string faci_Others, string faci_UseOrNot, string faci_ModifyDate, string facG_Code,DataTable dt, DataTable dtCode) :this(dt,dtCode)
+        public FacilityInfoRegi(string faci_Code, string faci_Name, string faci_Out, string faci_In, string faci_Bad, string faci_Detail, string faci_Others, string faci_UseOrNot,string faci_Modifier, string faci_ModifyDate, string facG_Code,DataTable dt, DataTable dtCode) :this(dt,dtCode)
         {
 
             txtFaci_Code.Enabled = false;
@@ -52,6 +52,7 @@ namespace TUChair
             txtFaci_Others.Text = faci_Others;
             cboFaci_UseOrNot.Text = faci_UseOrNot;
            cboFacG_Code.SelectedValue= facG_Code;
+            txtFaci_Modifier.Text = faci_Modifier;
             txtModifyDate.Text = faci_ModifyDate;
             newInsert = false;
         }
@@ -91,7 +92,7 @@ namespace TUChair
             string facG_Code = cboFacG_Code.SelectedValue.ToString();
             string faci_Code = txtFaci_Code.Text;
             string faci_Name = txtFaci_Name.Text;
-            string faci_Modifier = txtFaci_Modifier.Text;
+            string faci_Modifier = LoginFrm.userName;
             string faci_Detail = txtFaci_Detail.Text;
             string faci_Others = txtFaci_Others.Text;
             string faci_In = cboFaci_InWareHouse.Text;
