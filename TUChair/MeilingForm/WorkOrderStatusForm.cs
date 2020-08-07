@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraReports.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -77,7 +78,7 @@ namespace TUChair
 
             XtraReportBarc rpt = new XtraReportBarc();
                 rpt.DataSource = dt;
-           // PreviewForm frm = new PreviewForm(rpt);
+           PreviewForm frm = new PreviewForm(rpt);
 
         }
 
