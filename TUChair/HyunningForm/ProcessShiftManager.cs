@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.CodeParser;
+using JeanForm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -69,6 +71,24 @@ namespace TUChair
                      select item).ToList();
             CommonUtil.ComboBinding(cboItemCode, cList, "선택");
 
+        }
+        public void CheckedLine(JeansGridView jeans,string Talk)
+        {
+            int Primary = 0;
+            for (int i=0;  i < jeans.RowCount; i++)
+            {
+                bool isCellChecked = (bool)jeans.Rows[i].Cells[0].EditedFormattedValue;
+                if (isCellChecked)
+                {
+                    Primary = (Convert.ToInt32(jeans.Rows[i].Cells[1].Value));
+                }
+
+            }
+            if (Primary == 0)
+            {
+                MessageBox.Show($"{Talk} 행를 선택해주세요.");
+                return;
+            }
         }
         public void DataLoad()
         {

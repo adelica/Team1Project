@@ -20,7 +20,7 @@ namespace TUChairDAC
                 string sql = @"SELECT [PriceNO], u.[Com_Code] [Com_Code],c.[Com_Name] [Com_Name], u.[Item_Code] [Item_Code], i.[Item_Name] [Item_Name], i.[Item_Size] [Item_Size],
 	                             i.[Item_Unit] [Item_Unit], [Price_Present], [Price_transfer],convert(nvarchar, [Price_StartDate],23)[Price_StartDate], convert(nvarchar, [Price_EndDate],23)[Price_EndDate], [Price_UserOrNot], [Modifier], [ModifierDate], [Unit_Other]
                               from [dbo].[UnitPrice] u left join [dbo].[Company] c  on u.Com_Code = c.Com_Code  left join  [dbo].[Item] i on u.Item_Code = i.Item_Code
-                                where i.[Item_Name] <> '의자'";
+                                where u.[Item_Code] <> 'Chair_01'";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
@@ -45,7 +45,7 @@ namespace TUChairDAC
                 string sql = @"SELECT [PriceNO], u.[Com_Code] [Com_Code],c.[Com_Name] [Com_Name], u.[Item_Code] [Item_Code], i.[Item_Name] [Item_Name], i.[Item_Size] [Item_Size],
 	                             i.[Item_Unit] [Item_Unit], [Price_Present], [Price_transfer],convert(nvarchar, [Price_StartDate],23)[Price_StartDate], convert(nvarchar, [Price_EndDate],23)[Price_EndDate], [Price_UserOrNot], [Modifier], [ModifierDate],[Unit_Other]
                               from [dbo].[UnitPrice] u left join [dbo].[Company] c  on u.Com_Code = c.Com_Code  left join  [dbo].[Item] i on u.Item_Code = i.Item_Code 
-                              where i.[Item_Name]  = '의자'";
+                              where u.[Item_Code] = 'Chair_01'";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
@@ -73,21 +73,16 @@ namespace TUChairDAC
                     cmd.CommandText = "SP_InsertUnitPrice";
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    
-
-                    //cmd.Parameters.AddWithValue("@PriceNO", /*(object)upv.PriceNO ??*/ DBNull.Value);
                     cmd.Parameters.AddWithValue("@Com_Code", upv.Com_Code);
                     cmd.Parameters.AddWithValue("@Item_Code", upv.Item_Code.ToString());
                     cmd.Parameters.AddWithValue("@Price_Present", upv.Price_Present);
-                    cmd.Parameters.AddWithValue("@Price_transfer", (object)upv.Price_transfer ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Price_transfer", (object)upv.Price_transfer ?? 0);
                     cmd.Parameters.AddWithValue("@Price_StartDate", upv.Price_StartDate);
                     cmd.Parameters.AddWithValue("@Price_EndDate", upv.Price_EndDate ?? DBNull.Value.ToString());
                     cmd.Parameters.AddWithValue("@Price_UserOrNot", (object)upv.Price_UserOrNot ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Modifier", upv.Modifier);
                     cmd.Parameters.AddWithValue("@ModifierDate", upv.ModifierDate);
                     cmd.Parameters.AddWithValue("@Unit_Other", (object)upv.Unit_Other ?? DBNull.Value);
-
-
 
                     cmd.Connection.Open();
                     var rowsAffected = cmd.ExecuteNonQuery();
@@ -99,6 +94,30 @@ namespace TUChairDAC
             catch (Exception e)
             {
                 _log.WriteError(e.Message, e);
+                throw e;
+            }
+        }
+        public bool Delete(int Primary)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_UnitPriceDelete";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@PriceNo", Primary);
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception e)
+            {
+                //_log.WriteError(e.Message, e);
                 throw e;
             }
         }
