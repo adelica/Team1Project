@@ -147,7 +147,7 @@ namespace TUChairDAC
             }
         }
 
-        public bool PSShiftReturn(ProcessShiftVO sht) //공정이동 취소
+        public bool PSShiftReturn(int Primary, string date, string fact) //공정이동 취소
         {
             try
             {
@@ -159,9 +159,9 @@ namespace TUChairDAC
 
 
 
-                    cmd.Parameters.AddWithValue("@NO", sht.No);
-                    cmd.Parameters.AddWithValue("@ThisDate", sht.Insert_Date);
-                    cmd.Parameters.AddWithValue("@Fact_Code", sht.Fact_Code);
+                    cmd.Parameters.AddWithValue("@NO", Primary);
+                    cmd.Parameters.AddWithValue("@ThisDate", date);
+                    cmd.Parameters.AddWithValue("@Fact_Code", fact);
 
 
 
