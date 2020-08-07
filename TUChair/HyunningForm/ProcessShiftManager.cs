@@ -116,10 +116,10 @@ namespace TUChair
         private void Readed_BarCode(object sender, ReadEventArgs e)
         {
             textBox1.Text = e.ReadMsg;
-            //string a = textBox1.Text.Substring(0,4);
-            //string b = textBox1.Text.Substring(6, 1);
-            string a = "WH01";
-            string b = "2";
+            string a = textBox1.Text.Substring(0, 4);
+            string b = textBox1.Text.Substring(6, 1);
+            //string a = "WH01";
+            //string b = "2";
 
 
             ProcessShiftVO sht = new ProcessShiftVO();
