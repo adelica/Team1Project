@@ -247,6 +247,7 @@
             this.Controls.Add(this.panel4);
             this.Name = "FacilityManage";
             this.Text = "설비관리";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FacilityManage_FormClosing);
             this.Load += new System.EventHandler(this.FacilityManage_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

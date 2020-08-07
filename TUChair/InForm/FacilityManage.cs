@@ -299,6 +299,9 @@ namespace TUChair
             
         }
 
-
+        private void FacilityManage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ((TUChairMain2)this.MdiParent).Readed -= Readed_BarCode;
+        }
     }
 }

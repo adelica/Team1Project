@@ -34,8 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCom_Owner = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCom_Phone = new System.Windows.Forms.TextBox();
@@ -51,16 +49,11 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.txtCom_Manager = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.txtCom_UseOrNot = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.txtCom_Modifier = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.txtCom_Email = new System.Windows.Forms.TextBox();
@@ -72,10 +65,8 @@
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.txtCom_Information = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cboCom_Type = new System.Windows.Forms.ComboBox();
+            this.cboCom_UseOrNot = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -87,36 +78,30 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.cboCom_Type);
-            this.panel5.Controls.Add(this.dateTimePicker2);
+            this.panel5.Controls.Add(this.txtCom_ModiflyDate);
+            this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label38);
             this.panel5.Controls.Add(this.txtCom_Sector);
             this.panel5.Controls.Add(this.label36);
             this.panel5.Controls.Add(this.txtCom_Email);
+            this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.label34);
             this.panel5.Controls.Add(this.label37);
-            this.panel5.Controls.Add(this.label32);
             this.panel5.Controls.Add(this.label35);
             this.panel5.Controls.Add(this.label33);
-            this.panel5.Controls.Add(this.label31);
-            this.panel5.Controls.Add(this.txtCom_Modifier);
-            this.panel5.Controls.Add(this.label28);
-            this.panel5.Controls.Add(this.label27);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dateTimePicker1);
-            this.panel3.Controls.Add(this.txtCom_UseOrNot);
-            this.panel3.Controls.Add(this.label26);
-            this.panel3.Controls.Add(this.label22);
             this.panel3.Controls.Add(this.txtCom_Manager);
-            this.panel3.Controls.Add(this.label25);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.textBox8);
-            this.panel3.Controls.Add(this.label21);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.label19);
             this.panel3.Controls.Add(this.txtCom_Name);
+            this.panel3.Controls.Add(this.txtCom_Modifier);
+            this.panel3.Controls.Add(this.label28);
             this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.label27);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label16);
             this.panel3.ForeColor = System.Drawing.Color.Red;
@@ -126,32 +111,36 @@
             this.panel4.Controls.Add(this.txtCom_Information);
             this.panel4.Controls.Add(this.label40);
             this.panel4.Controls.Add(this.label39);
+            this.panel4.TabIndex = 3;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.txtCom_ModiflyDate);
-            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.cboCom_UseOrNot);
+            this.panel2.Controls.Add(this.label26);
             this.panel2.Controls.Add(this.txtCom_Phone);
+            this.panel2.Controls.Add(this.label25);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.txtCom_Owner);
-            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtCom_Code);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             // 
+            // panel6
+            // 
+            this.panel6.TabIndex = 4;
+            // 
             // btnInsert
             // 
-            this.btnInsert.TabIndex = 20;
+            this.btnInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnInsert.TabIndex = 13;
             // 
-            // btnCancle
+            // btnCancel
             // 
-            //this.btnCancle.TabIndex = 21;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancel.TabIndex = 14;
             // 
             // txtCom_Code
             // 
@@ -184,7 +173,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 66);
+            this.label1.Location = new System.Drawing.Point(21, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 7;
@@ -194,7 +183,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 5F);
-            this.label2.Location = new System.Drawing.Point(10, 69);
+            this.label2.Location = new System.Drawing.Point(10, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(10, 7);
             this.label2.TabIndex = 8;
@@ -202,34 +191,15 @@
             // 
             // txtCom_Owner
             // 
-            this.txtCom_Owner.Location = new System.Drawing.Point(89, 63);
+            this.txtCom_Owner.Location = new System.Drawing.Point(89, 75);
             this.txtCom_Owner.Name = "txtCom_Owner";
             this.txtCom_Owner.Size = new System.Drawing.Size(150, 21);
             this.txtCom_Owner.TabIndex = 1;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 124);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "거래유무";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("굴림", 5F);
-            this.label6.Location = new System.Drawing.Point(10, 127);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(10, 7);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "■";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 182);
+            this.label9.Location = new System.Drawing.Point(21, 148);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 7;
@@ -239,7 +209,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("굴림", 5F);
-            this.label10.Location = new System.Drawing.Point(10, 185);
+            this.label10.Location = new System.Drawing.Point(10, 151);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(10, 7);
             this.label10.TabIndex = 8;
@@ -247,15 +217,15 @@
             // 
             // txtCom_Phone
             // 
-            this.txtCom_Phone.Location = new System.Drawing.Point(89, 178);
+            this.txtCom_Phone.Location = new System.Drawing.Point(89, 145);
             this.txtCom_Phone.Name = "txtCom_Phone";
             this.txtCom_Phone.Size = new System.Drawing.Size(150, 21);
-            this.txtCom_Phone.TabIndex = 4;
+            this.txtCom_Phone.TabIndex = 2;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(21, 240);
+            this.label13.Location = new System.Drawing.Point(19, 221);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(53, 12);
             this.label13.TabIndex = 7;
@@ -265,7 +235,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("굴림", 5F);
-            this.label14.Location = new System.Drawing.Point(10, 243);
+            this.label14.Location = new System.Drawing.Point(8, 224);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(10, 7);
             this.label14.TabIndex = 8;
@@ -273,10 +243,10 @@
             // 
             // txtCom_ModiflyDate
             // 
-            this.txtCom_ModiflyDate.Location = new System.Drawing.Point(89, 236);
+            this.txtCom_ModiflyDate.Location = new System.Drawing.Point(94, 217);
             this.txtCom_ModiflyDate.Name = "txtCom_ModiflyDate";
             this.txtCom_ModiflyDate.Size = new System.Drawing.Size(150, 21);
-            this.txtCom_ModiflyDate.TabIndex = 6;
+            this.txtCom_ModiflyDate.TabIndex = 11;
             // 
             // label15
             // 
@@ -304,14 +274,14 @@
             this.txtCom_Name.Location = new System.Drawing.Point(106, 5);
             this.txtCom_Name.Name = "txtCom_Name";
             this.txtCom_Name.Size = new System.Drawing.Size(144, 21);
-            this.txtCom_Name.TabIndex = 7;
+            this.txtCom_Name.TabIndex = 4;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("굴림", 5F);
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(4, 69);
+            this.label17.Location = new System.Drawing.Point(4, 83);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(10, 7);
             this.label17.TabIndex = 8;
@@ -321,7 +291,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(15, 66);
+            this.label18.Location = new System.Drawing.Point(15, 80);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(89, 12);
             this.label18.TabIndex = 7;
@@ -329,17 +299,17 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(106, 63);
+            this.textBox8.Location = new System.Drawing.Point(106, 76);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(144, 21);
-            this.textBox8.TabIndex = 8;
+            this.textBox8.TabIndex = 5;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("굴림", 5F);
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(4, 127);
+            this.label19.Location = new System.Drawing.Point(4, 155);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(10, 7);
             this.label19.TabIndex = 8;
@@ -349,7 +319,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(15, 124);
+            this.label20.Location = new System.Drawing.Point(15, 152);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(53, 12);
             this.label20.TabIndex = 7;
@@ -357,38 +327,17 @@
             // 
             // txtCom_Manager
             // 
-            this.txtCom_Manager.Location = new System.Drawing.Point(106, 121);
+            this.txtCom_Manager.Location = new System.Drawing.Point(106, 147);
             this.txtCom_Manager.Name = "txtCom_Manager";
             this.txtCom_Manager.Size = new System.Drawing.Size(144, 21);
-            this.txtCom_Manager.TabIndex = 9;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("굴림", 5F);
-            this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(4, 185);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(10, 7);
-            this.label21.TabIndex = 8;
-            this.label21.Text = "■";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(15, 182);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(65, 12);
-            this.label22.TabIndex = 7;
-            this.label22.Text = "거래시작일";
+            this.txtCom_Manager.TabIndex = 6;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("굴림", 5F);
             this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label25.Location = new System.Drawing.Point(4, 243);
+            this.label25.Location = new System.Drawing.Point(10, 221);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(10, 7);
             this.label25.TabIndex = 8;
@@ -398,24 +347,18 @@
             // 
             this.label26.AutoSize = true;
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label26.Location = new System.Drawing.Point(15, 240);
+            this.label26.Location = new System.Drawing.Point(21, 218);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(53, 12);
             this.label26.TabIndex = 7;
             this.label26.Text = "사용유무";
             // 
-            // txtCom_UseOrNot
-            // 
-            this.txtCom_UseOrNot.Location = new System.Drawing.Point(106, 237);
-            this.txtCom_UseOrNot.Name = "txtCom_UseOrNot";
-            this.txtCom_UseOrNot.Size = new System.Drawing.Size(144, 21);
-            this.txtCom_UseOrNot.TabIndex = 12;
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("굴림", 5F);
-            this.label27.Location = new System.Drawing.Point(8, 243);
+            this.label27.ForeColor = System.Drawing.Color.Black;
+            this.label27.Location = new System.Drawing.Point(4, 227);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(10, 7);
             this.label27.TabIndex = 8;
@@ -424,7 +367,8 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(19, 240);
+            this.label28.ForeColor = System.Drawing.Color.Black;
+            this.label28.Location = new System.Drawing.Point(15, 224);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(41, 12);
             this.label28.TabIndex = 7;
@@ -432,35 +376,16 @@
             // 
             // txtCom_Modifier
             // 
-            this.txtCom_Modifier.Location = new System.Drawing.Point(103, 236);
+            this.txtCom_Modifier.Location = new System.Drawing.Point(106, 218);
             this.txtCom_Modifier.Name = "txtCom_Modifier";
-            this.txtCom_Modifier.Size = new System.Drawing.Size(141, 21);
-            this.txtCom_Modifier.TabIndex = 18;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("굴림", 5F);
-            this.label31.Location = new System.Drawing.Point(8, 185);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(10, 7);
-            this.label31.TabIndex = 8;
-            this.label31.Text = "■";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(19, 182);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(65, 12);
-            this.label32.TabIndex = 7;
-            this.label32.Text = "거래종료일";
+            this.txtCom_Modifier.Size = new System.Drawing.Size(144, 21);
+            this.txtCom_Modifier.TabIndex = 7;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("굴림", 5F);
-            this.label33.Location = new System.Drawing.Point(8, 127);
+            this.label33.Location = new System.Drawing.Point(8, 153);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(10, 7);
             this.label33.TabIndex = 8;
@@ -469,7 +394,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(19, 124);
+            this.label34.Location = new System.Drawing.Point(19, 150);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(41, 12);
             this.label34.TabIndex = 7;
@@ -477,16 +402,16 @@
             // 
             // txtCom_Email
             // 
-            this.txtCom_Email.Location = new System.Drawing.Point(103, 120);
+            this.txtCom_Email.Location = new System.Drawing.Point(94, 146);
             this.txtCom_Email.Name = "txtCom_Email";
-            this.txtCom_Email.Size = new System.Drawing.Size(141, 21);
-            this.txtCom_Email.TabIndex = 15;
+            this.txtCom_Email.Size = new System.Drawing.Size(150, 21);
+            this.txtCom_Email.TabIndex = 10;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("굴림", 5F);
-            this.label35.Location = new System.Drawing.Point(8, 69);
+            this.label35.Location = new System.Drawing.Point(8, 82);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(10, 7);
             this.label35.TabIndex = 8;
@@ -495,7 +420,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(19, 66);
+            this.label36.Location = new System.Drawing.Point(19, 80);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(29, 12);
             this.label36.TabIndex = 7;
@@ -503,10 +428,10 @@
             // 
             // txtCom_Sector
             // 
-            this.txtCom_Sector.Location = new System.Drawing.Point(103, 62);
+            this.txtCom_Sector.Location = new System.Drawing.Point(94, 75);
             this.txtCom_Sector.Name = "txtCom_Sector";
-            this.txtCom_Sector.Size = new System.Drawing.Size(141, 21);
-            this.txtCom_Sector.TabIndex = 14;
+            this.txtCom_Sector.Size = new System.Drawing.Size(150, 21);
+            this.txtCom_Sector.TabIndex = 9;
             // 
             // label37
             // 
@@ -554,49 +479,34 @@
             this.txtCom_Information.Multiline = true;
             this.txtCom_Information.Name = "txtCom_Information";
             this.txtCom_Information.Size = new System.Drawing.Size(672, 94);
-            this.txtCom_Information.TabIndex = 19;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(106, 179);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(144, 21);
-            this.dateTimePicker1.TabIndex = 13;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(103, 178);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(141, 21);
-            this.dateTimePicker2.TabIndex = 13;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(89, 121);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 20);
-            this.comboBox1.TabIndex = 9;
+            this.txtCom_Information.TabIndex = 12;
             // 
             // cboCom_Type
             // 
             this.cboCom_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCom_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboCom_Type.FormattingEnabled = true;
-            this.cboCom_Type.Location = new System.Drawing.Point(103, 5);
+            this.cboCom_Type.Location = new System.Drawing.Point(94, 5);
             this.cboCom_Type.Name = "cboCom_Type";
-            this.cboCom_Type.Size = new System.Drawing.Size(141, 20);
-            this.cboCom_Type.TabIndex = 9;
+            this.cboCom_Type.Size = new System.Drawing.Size(150, 20);
+            this.cboCom_Type.TabIndex = 8;
+            // 
+            // cboCom_UseOrNot
+            // 
+            this.cboCom_UseOrNot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCom_UseOrNot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboCom_UseOrNot.FormattingEnabled = true;
+            this.cboCom_UseOrNot.Location = new System.Drawing.Point(89, 215);
+            this.cboCom_UseOrNot.Name = "cboCom_UseOrNot";
+            this.cboCom_UseOrNot.Size = new System.Drawing.Size(150, 20);
+            this.cboCom_UseOrNot.TabIndex = 3;
             // 
             // CompanyInfoRegi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(776, 450);
             this.Name = "CompanyInfoRegi";
+            this.Text = "업체정보";
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -613,29 +523,22 @@
 
         #endregion
         private System.Windows.Forms.ComboBox cboCom_Type;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.TextBox txtCom_Sector;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox txtCom_Email;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox txtCom_Modifier;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox txtCom_UseOrNot;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtCom_Manager;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtCom_Name;
@@ -645,20 +548,18 @@
         private System.Windows.Forms.TextBox txtCom_Information;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox txtCom_ModiflyDate;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtCom_Phone;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCom_Owner;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCom_Code;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboCom_UseOrNot;
     }
 }
