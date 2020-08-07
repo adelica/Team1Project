@@ -25,6 +25,11 @@ namespace TUChair.Service
             UnitPriceDAC dac = new UnitPriceDAC();
             return dac.InsertOrUpdate(upv);
         }
+        public bool Delete(int Primary)
+        {
+            UnitPriceDAC dac = new UnitPriceDAC();
+            return dac.Delete(Primary);
+        }
 
         #region 검색조건
         public List<ViewUnitPriceVO> Search(string date,string txt,string cbo)

@@ -40,7 +40,7 @@ namespace TUChair.Util
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToResizeRows = false;
             dgv.AllowUserToResizeColumns = true;
-            //dgv.RowHeadersVisible = false;
+            dgv.RowHeadersVisible = false;
             dgv.MultiSelect = false;
            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 

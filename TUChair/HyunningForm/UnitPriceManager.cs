@@ -64,10 +64,39 @@ namespace TUChair
 
 
         }
+        public void CheckedDelete(string Talk)
+        {
+            try
+            {
+                for (int i = 0; i < jeansGridView1.Rows.Count; i++)
+                {
+                    bool isCellChecked = (bool)jeansGridView1.Rows[i].Cells[0].EditedFormattedValue;
+                    if (isCellChecked)
+                    {
+                        int Primary = (Convert.ToInt32(jeansGridView1.Rows[i].Cells[1].Value));
+                        JeanService jsv = new JeanService();
+                        jsv.Delete(Primary);
+                    }
+                    
+                }
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            DataLoad();
+        }
+
+
         private void Save(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("저장이다2.");
+            {
+                UnitPricePopUp frm = new UnitPricePopUp();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
+            DataLoad();
         }
         private void New(object sender, EventArgs e)
         {
@@ -98,36 +127,12 @@ namespace TUChair
                 list = service.Search(date,txt,cbo);
                 jeansGridView1.DataSource = null;
                 jeansGridView1.DataSource = list;
-
-                //if (list.Count != 0)
-                //{
-                //    foreach (Control Pitem in panel1.Controls)
-                //    {
-                //        foreach (Control item in Pitem.Controls)
-                //        {
-                //            if (item is ComboBox)
-                //            {
-                //                ((ComboBox)item).SelectedValue = "";
-                //            }
-                //            else if (item is TextBox)
-                //            {
-                //                item.Text = "";
-                //            }
-                //            else
-                //            {
-                //                continue;
-                //            }
-                //        }
-                //    }
-                //}
-                //else
-                //    return;
             }
         }
         private void Delete(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("지워");
+                CheckedDelete("삭제할");
         }
         private void Excel(object sender, EventArgs e)
         {
@@ -144,17 +149,7 @@ namespace TUChair
             jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = list;
         }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            UnitPricePopUp frm = new UnitPricePopUp();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-
-            DataLoad();
-        }
-
-
+    
         private void chbDate_CheckedChanged(object sender, EventArgs e)
         {
             if (chbDate.Checked == true)
@@ -170,17 +165,14 @@ namespace TUChair
             }
         }
 
-        //private void txtItemCode_TextChanged(object sender, EventArgs e)
-        //{
-        //    JeanService jean = new JeanService();
-        //    List<ViewUnitPriceVO> Searchlist = new List<ViewUnitPriceVO>();
-        //    if (txtItemCode.Text.Length > 0)
-        //    {
-        //        Searchlist = jean.Search(txtItemCode.Text);
-        //        jeansGridView1.DataSource = Searchlist;
-        //    }
-        //    else
-        //        jeansGridView1.DataSource = list;
-        //}
+        private void UnitPriceManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save -= Save;
+            frm.Search -= Search;
+            frm.Delete -= Delete;
+            frm.New -= New;
+            frm.Excel -= Excel;
+        }
     }
 }

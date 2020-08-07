@@ -37,21 +37,22 @@ namespace TUChair
         public FacilityGroupInfoRegi(DataTable dtFacG_code) :this()
         {
             dtFacG_Code = dtFacG_code;
+            txtFacG_Modifier.Text = LoginFrm.userName;
         }
-        public FacilityGroupInfoRegi(string facG_Code, string facG_Name, string facGUseOrNot, string facG_Info):this()
+        public FacilityGroupInfoRegi(string facG_Code, string facG_Name, string facGUseOrNot, string facG_Info,string facG_Modifier) :this()
         {
             txtFacG_Code.Enabled = false;
             txtFacG_Code.Text = facG_Code;
             txtFacG_Name.Text = facG_Name;
             cboFacG_UseOrNot.Text = facGUseOrNot;
             txtFacG_Info.Text = facG_Info;
+            txtFacG_Modifier.Text = facG_Modifier;
             newInsert = false;
         }
 
         private void FacilityGroupInfoRegi_Load(object sender, EventArgs e)
         {
-            txtFacG_Modifier.Text = LoginFrm.userName;
-          
+  
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -86,7 +87,7 @@ namespace TUChair
             string facG_Code = txtFacG_Code.Text;
             string facG_Name = txtFacG_Name.Text;
             string facG_UserOrNot = cboFacG_UseOrNot.Text;
-            string facG_Modifier = txtFacG_Modifier.Text;
+            string facG_Modifier = LoginFrm.userName;
             DateTime facG_ModifyDate = DateTime.Now;
             string facG_Info = txtFacG_Info.Text;
 

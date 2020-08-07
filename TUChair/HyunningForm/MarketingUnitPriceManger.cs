@@ -51,7 +51,29 @@ namespace TUChair
 
             DataLoad();
         }
-        
+        public void CheckedDelete(string Talk)
+        {
+            try
+            {
+                for (int i = 0; i < jeansGridView1.Rows.Count; i++)
+                {
+                    bool isCellChecked = (bool)jeansGridView1.Rows[i].Cells[0].EditedFormattedValue;
+                    if (isCellChecked)
+                    {
+                        int Primary = (Convert.ToInt32(jeansGridView1.Rows[i].Cells[1].Value));
+                        JeanService jsv = new JeanService();
+                        jsv.Delete(Primary);
+                    }
+
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            DataLoad();
+        }
+
 
         private void MarketingUnitPriceManger_Load(object sender, EventArgs e)
         {
@@ -65,7 +87,13 @@ namespace TUChair
         private void Save(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("저장이다2.");
+                if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                {
+                    MarketingUnitPricePopUp frm = new MarketingUnitPricePopUp();
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                }
+            DataLoad();
         }
         private void New(object sender, EventArgs e)
         {
@@ -102,7 +130,7 @@ namespace TUChair
         private void Delete(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("지워");
+                CheckedDelete("삭제할");
         }
         private void Excel(object sender, EventArgs e)
         {
@@ -136,16 +164,14 @@ namespace TUChair
             }
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        private void MarketingUnitPriceManger_FormClosing(object sender, FormClosingEventArgs e)
         {
-                MarketingUnitPricePopUp frm = new MarketingUnitPricePopUp();
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-
-                DataLoad();
-            
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save -= Save;
+            frm.Search -= Search;
+            frm.Delete -= Delete;
+            frm.New -= New;
+            frm.Excel -= Excel;
         }
-
-        
     }
 }

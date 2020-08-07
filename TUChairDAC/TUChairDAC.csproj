@@ -52,6 +52,7 @@
     <Compile Include="balzuDAC.cs" />
     <Compile Include="BORDAC.cs" />
     <Compile Include="commonDAC.cs" />
+    <Compile Include="CompanyDAC.cs" />
     <Compile Include="ConnectionAccess.cs" />
     <Compile Include="FacilityDAC.cs" />
     <Compile Include="FactoryDAC.cs" />
