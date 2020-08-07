@@ -92,6 +92,9 @@ namespace TUChair
         {
             if (!Port.IsOpen) //연결
             {
+                if (cbComPort.SelectedItem == null || cbBaudRate.SelectedItem == null || cbBaudRate.SelectedItem == null)
+                    return;
+
                 Port.PortName = cbComPort.SelectedItem.ToString();
                 Port.BaudRate = Convert.ToInt32(cbBaudRate.SelectedItem);
                 Port.DataBits = Convert.ToInt32(cbDataSize.SelectedItem);

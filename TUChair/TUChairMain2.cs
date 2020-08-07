@@ -37,8 +37,8 @@ namespace TUChair
        public  CUserVO userInfoVO = null;
         Button pribtn = null;
         SerialPort _port;
-
-        public SerialPort Port
+      
+        public SerialPort Port    // 포트 프로퍼티
         {
             get
             {
@@ -50,8 +50,8 @@ namespace TUChair
                 return _port;
             }
         }
-        private StringBuilder _strings;
-        public String Strings
+        private StringBuilder _strings;  
+        public String Strings   //스트링 빌더 프로퍼티
         {
             set
             {
@@ -74,7 +74,6 @@ namespace TUChair
             get { return _isopen; }
             set { _isopen = value; }
         }
-
         public TUChairMain2()
         {
             InitializeComponent();
@@ -129,28 +128,41 @@ namespace TUChair
         {
             if (!Port.IsOpen) //연결
             {
-                Port.PortName = Properties.Settings.Default.PortName;
-                Port.BaudRate = Convert.ToInt32(Properties.Settings.Default.BaudRate);
-                Port.DataBits = Convert.ToInt32(Properties.Settings.Default.DataSize);
-
-                Parity par = Parity.None;
-                if (Properties.Settings.Default.Parity == "even")
-                    par = Parity.Even;
-                else if (Properties.Settings.Default.Parity == "odd")
-                    par = Parity.Odd;
-                Port.Parity = par;
-
-                Handshake hands = Handshake.None;
-                Port.Handshake = hands;
-
-                try
+                bool bflag = false;
+                foreach (var port in SerialPort.GetPortNames())
                 {
-                    Port.Open();
-
+                    if (port == Properties.Settings.Default.PortName)
+                    {
+                        bflag = true;
+                    }
                 }
-                catch (Exception err)
+
+                if (bflag)
                 {
-                    MessageBox.Show(err.Message);
+                    Port.PortName = Properties.Settings.Default.PortName;
+                    Port.BaudRate = Convert.ToInt32(Properties.Settings.Default.BaudRate);
+                    Port.DataBits = Convert.ToInt32(Properties.Settings.Default.DataSize);
+
+                    Parity par = Parity.None;
+                    if (Properties.Settings.Default.Parity == "even")
+                        par = Parity.Even;
+                    else if (Properties.Settings.Default.Parity == "odd")
+                        par = Parity.Odd;
+                    Port.Parity = par;
+
+                    Handshake hands = Handshake.None;
+                    Port.Handshake = hands;
+
+                    try
+                    {
+                        Port.Open();
+
+                    }
+
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.Message);
+                    }
                 }
             }
             else

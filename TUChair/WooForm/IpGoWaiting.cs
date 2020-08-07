@@ -45,11 +45,11 @@ namespace TUChair
             IpGoReport2 rpt = new IpGoReport2();
             rpt.DataSource = dt;
             IpGoPreveiw frm = new IpGoPreveiw(rpt);
-
         }
         private void Readed_BarCode(object sender, ReadEventArgs e)
         {
             textBox1.Text = e.ReadMsg;
+            ((TUChairMain2)this.MdiParent).Clearstrings();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace TUChair
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "납기일자", "Vo_EndDate", true);
 
-
+            CommonUtil.InitSettingGridView(jeansGridView2);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "아이디", "ID", false);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "발주아이디", "Vo_ID", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "발주일자", "Vo_StarDate", true);
@@ -104,18 +104,6 @@ namespace TUChair
             bindbalzu();
 
 
-            //Com_Name
-            //Materail_Order_State
-            //Item_Name
-            //Item_Code
-            //Item_Size
-            //Vo_ID
-            //Item_Unit
-            //Item_Importins
-            //Vo_Quantity
-            //Vo_EndDate
-            //Vo_StarDate
-            //Vo_InDate
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -126,6 +114,7 @@ namespace TUChair
                 int barID = int.Parse(textBox1.Text.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
 
                 ItemService service1 = new ItemService();
+
 
                 service1.IpGoUpdate(barID);
 
