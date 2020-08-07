@@ -137,12 +137,6 @@
     <Compile Include="MeilingForm\BarcodeOut.Designer.cs">
       <DependentUpon>BarcodeOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="MeilingForm\ReportPreviewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MeilingForm\ReportPreviewForm.Designer.cs">
-      <DependentUpon>ReportPreviewForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MeilingForm\UpdateWorkOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -576,9 +570,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\BarcodeOut.resx">
       <DependentUpon>BarcodeOut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MeilingForm\ReportPreviewForm.resx">
-      <DependentUpon>ReportPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\UpdateWorkOrder.resx">
       <DependentUpon>UpdateWorkOrder.cs</DependentUpon>
