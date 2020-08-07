@@ -77,12 +77,8 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수량", "Vo_Quantity", true);
-
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수입검사여부", "Item_Importins", true);
-
-
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "발주상태", "Materail_Order_State", true);
-
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "납기일자", "Vo_EndDate", true);
 
             CommonUtil.InitSettingGridView(jeansGridView2);
@@ -95,34 +91,22 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "단위", "Item_Unit", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "수량", "Vo_Quantity", true);
-
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "수입검사여부", "Item_Importins", true);
-                                                              
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "발주상태", "Materail_Order_State", true);
-                                                              
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "납기일자", "Vo_EndDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "입고일자", "Vo_InDate", true);
 
-
             bindbalzu();
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length > 5)
             {
-
                 int barID = int.Parse(textBox1.Text.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
-
                 ItemService service1 = new ItemService();
-
-
                 service1.IpGoUpdate(barID);
-
                 bindbalzu();
-
             }
         }
 
@@ -133,10 +117,14 @@ namespace TUChair
             jeansGridView2.DataSource = null;
             jeansGridView2.DataSource = dt;
 
-
             DataTable dt2 = service.GetBalzuMi();
             jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = dt2;
+        }
+
+        private void IpGoWaiting_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ((TUChairMain2)this.MdiParent).Readed -= Readed_BarCode;
         }
     }
 }

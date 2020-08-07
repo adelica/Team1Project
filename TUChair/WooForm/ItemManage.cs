@@ -43,11 +43,11 @@ namespace TUChair
             cList = (from item in comboItems
                      where item.CodeType == "창고"
                      select item).ToList();
-            CommonUtil.ComboBinding(cboInWherehouse, cList, "선택");
+            CommonUtil.ReComboBinding(cboInWherehouse, cList, "선택");
             cList = (from item in comboItems
                      where item.CodeType == "창고"
                      select item).ToList();
-            CommonUtil.ComboBinding(cboOutWherehouse, cList, "선택");
+            CommonUtil.ReComboBinding(cboOutWherehouse, cList, "선택");
             cList = (from item in comboItems
                      where item.CodeType == "User"
                      select item).ToList();
@@ -88,12 +88,11 @@ namespace TUChair
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "공정구분", "Item_OutSourcing", true);
 
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Item_UserOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Item_Other", true);
             //jeansGridView1.DataSource = items;
 
             BindingData();
-
         }
 
         private void BindingData()
@@ -135,7 +134,7 @@ namespace TUChair
                 {
                     ItemVO pItem = new ItemVO();
                      pItem.Item_Code                 = jeansGridView1.Rows[row].Cells[2].Value.ToString();
-                     pItem.Item_Importins          =  jeansGridView1.Rows[row].Cells[10].Value==null ? "" : jeansGridView1.Rows[row].Cells[10].Value.ToString();
+                     pItem.Item_Importins          =  jeansGridView1.Rows[row].Cells[10].Value      ==null ? "" : jeansGridView1.Rows[row].Cells[10].Value.ToString();
                      pItem.Item_InWarehouse        =  jeansGridView1.Rows[row].Cells[7].Value          ==null ? "" : jeansGridView1.Rows[row].Cells[7].Value.ToString();
                      pItem.Item_Manager            =  jeansGridView1.Rows[row].Cells[13].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[13].Value.ToString();
                      pItem.Item_Name               =  jeansGridView1.Rows[row].Cells[3].Value          ==null ? "" : jeansGridView1.Rows[row].Cells[3].Value.ToString();
@@ -269,6 +268,14 @@ namespace TUChair
                 MessageBox.Show("엑셀만들어");
         }
 
-       
+        private void ItemManage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save -= Save;
+            frm.Search -= Search;
+            frm.Delete -= Delete;
+            frm.New -= New;
+            frm.Excel -= Excel;
+        }
     }
 }

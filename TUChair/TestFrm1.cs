@@ -28,8 +28,8 @@ namespace TUChair
         }
         private void Save(object sender, EventArgs e)
         {
-            if(((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-            MessageBox.Show("저장이다2.");
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            { MessageBox.Show("저장이다2."); }
         }
         private void New(object sender, EventArgs e)
         {
@@ -52,6 +52,16 @@ namespace TUChair
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             { MessageBox.Show("엑셀만들어"); }
+        }
+
+        private void TestFrm1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save -= Save;
+            frm.Search -= Search;
+            frm.Delete -= Delete;
+            frm.New -= New;
+            frm.Excel -= Excel;
         }
     }
 }

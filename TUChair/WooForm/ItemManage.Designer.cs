@@ -207,7 +207,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(357, 34);
             this.panel4.TabIndex = 24;
-         
             // 
             // label7
             // 
@@ -377,6 +376,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ItemManage";
             this.Text = "ItemManger";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ItemManage_FormClosing);
             this.Load += new System.EventHandler(this.ItemManage_Load);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

@@ -15,8 +15,6 @@ namespace TUChair
 {
     public partial class ItemPopUp : POPUPForm3Line
     {
-       
-
         List<ComboItemVO> comboItems = null;
         private ItemVO item;
         public string user
@@ -54,37 +52,33 @@ namespace TUChair
                 return item;
             }
             set {
-                item = value;
-                txtitemID.Text =                   item.Item_Code              ;      
-               ((ComboItemVO)cboIsincom.SelectedItem).CodeNm    =       item.Item_Importins         ;
-                ((ComboItemVO)cboInWare.SelectedItem).CodeNm =       item.Item_InWarehouse       ;
-                ((ComboItemVO)cboManager.SelectedItem).CodeNm =       item.Item_Manager           ;
-                txtModifier.Text                              =       item.Item_Modifier          ;
-                txtItemName.Text                              =       item.Item_Name              ;
-                ((ComboItemVO)cboSellCom.SelectedItem).CodeNm =       item.Item_OrderComp         ;
-                textBox3.Text                                =       item.Item_Other             ;
-                 ((ComboItemVO)cboOutWare.SelectedItem).CodeNm =       item.Item_OutWarehouse      ;
-                ((ComboItemVO)cboIsfact.SelectedItem).CodeNm =       item.Item_Processins        ;
-                numSafeItemQty.Value                        =            item.Item_SafeQuantity      ;
-                ((ComboItemVO)cboIsOut.SelectedItem).CodeNm =       item.Item_Shipmentins       ;
-                txtitemStandard.Text                       =       item.Item_Size              ;
-                 ((ComboItemVO)cboItemType.SelectedItem).CodeNm =       item.Item_Type              ;
-                 ((ComboItemVO)cboUnit.SelectedItem).CodeNm =       item.Item_Unit              ;
-                 ((ComboItemVO)cboUseorNot.SelectedItem).CodeNm =       item.Item_UserOrNot         ;
-                ((ComboItemVO)cboOutsorching.SelectedItem).CodeNm = item.Item_OutSourcing;
+                txtitemID.Text =                   value.Item_Code              ;
+                cboIsincom.Text = value.Item_Importins;
+                cboInWare.Text = value.Item_InWarehouse;
+                cboManager.Text = value.Item_Manager;
+                txtItemName.Text                              = value.Item_Name              ;
+                cboSellCom.Text = value.Item_OrderComp;
+                textBox3.Text = value.Item_Other             ;
+                cboOutWare.Text = value.Item_OutWarehouse;
+                cboIsfact.Text = value.Item_Processins;
+                numSafeItemQty.Value                        = value.Item_SafeQuantity      ;
+                cboIsOut.Text = value.Item_Shipmentins;
+                txtitemStandard.Text                       = value.Item_Size              ;
+                cboItemType.Text = value.Item_Type;
+                cboUnit.Text = value.Item_Unit;
+                cboUseorNot.Text = value.Item_UserOrNot;
+                cboOutsorching.Text = value.Item_OutSourcing;
             }
         }
         public ItemPopUp()
         {
             InitializeComponent();
+          
         }
         public ItemPopUp(string user)
         {
             InitializeComponent();
             this.user = user;
-        }
-        private void ItemPopUp_Load(object sender, EventArgs e)
-        {
             #region combo바인딩
             commonService service = new commonService();
             comboItems = service.getCommonCode("고객사@창고@User@사용여부@품목유형@단위@협력업체@공정구분");
@@ -92,10 +86,10 @@ namespace TUChair
             List<ComboItemVO> cList = (from item in comboItems
                                        where item.CodeType == "고객사"
                                        select item).ToList();
-            CommonUtil.ReComboBinding(cboSellCom, cList,"");
-             cList = (from item in comboItems
-                                       where item.CodeType == "품목유형"
-                                       select item).ToList();
+            CommonUtil.ReComboBinding(cboSellCom, cList, "");
+            cList = (from item in comboItems
+                     where item.CodeType == "품목유형"
+                     select item).ToList();
             CommonUtil.ComboBinding(cboItemType, cList, "");
             cList = (from item in comboItems
                      where item.CodeType == "협력업체"
@@ -104,11 +98,11 @@ namespace TUChair
             cList = (from item in comboItems
                      where item.CodeType == "창고"
                      select item).ToList();
-            CommonUtil.ComboBinding(cboInWare, cList, "");
+            CommonUtil.ReComboBinding(cboInWare, cList, "");
             cList = (from item in comboItems
                      where item.CodeType == "창고"
                      select item).ToList();
-            CommonUtil.ComboBinding(cboOutWare, cList, "");
+            CommonUtil.ReComboBinding(cboOutWare, cList, "");
             cList = (from item in comboItems
                      where item.CodeType == "User"
                      select item).ToList();
@@ -137,9 +131,11 @@ namespace TUChair
                      where item.CodeType == "공정구분"
                      select item).ToList();
             CommonUtil.ComboBinding(cboOutsorching, cList, "");
-
-
             #endregion
+        }
+        private void ItemPopUp_Load(object sender, EventArgs e)
+        {
+     
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -154,6 +150,7 @@ namespace TUChair
                 if (service.SaveItem(this.Item))
                 {
                     MessageBox.Show("저장되었습니다.");
+                    this.DialogResult = DialogResult.OK;
                 }
                 else
                 {

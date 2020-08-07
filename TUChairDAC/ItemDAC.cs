@@ -108,8 +108,6 @@ Using(
 			,  @Item_UserOrNot       as	Item_UserOrNot	  
 			,  @Item_Other           as	Item_Other		  
 			,  @Item_OutSourcing    as	Item_OutSourcing  )
-
-
 as S
 on (T.Item_Code=S.Item_Code)
 When matched Then 
@@ -148,7 +146,7 @@ when not matched then
 		,Item_Shipmentins  
 		,Item_Manager	  
 		,Item_Modifier	  
- 
+		,Item_ModiflyDate
 		,Item_UserOrNot	  
 		,Item_Other		  
 		,Item_OutSourcing )
@@ -167,12 +165,11 @@ when not matched then
 	 , s.Item_Processins	  
 	 , s.Item_Shipmentins  
 	 , s.Item_Manager	  
-	 , s.Item_Modifier	  
-	
+	 , s.Item_Modifier	
+	 ,getdate()
 	 , s.Item_UserOrNot	  
 	 , s.Item_Other		  
 	 , s.Item_OutSourcing ); ";
-
                     cmd.Parameters.AddWithValue("@Item_Code",            item.Item_Code    );
                     cmd.Parameters.AddWithValue("@Item_Name",            item.Item_Name           );
                     cmd.Parameters.AddWithValue("@Item_Size",            item.Item_Size		    );
@@ -187,16 +184,12 @@ when not matched then
 					cmd.Parameters.AddWithValue("@Item_Shipmentins",     item.Item_Shipmentins 	);
 					cmd.Parameters.AddWithValue("@Item_Manager",		 item.Item_Manager	  	);
 					cmd.Parameters.AddWithValue("@Item_Modifier",        item.Item_Modifier	  	);
-				
 					cmd.Parameters.AddWithValue("@Item_UserOrNot",       item.Item_UserOrNot	  	);
 					cmd.Parameters.AddWithValue("@Item_Other",			 item.Item_Other		  	);
 					cmd.Parameters.AddWithValue("@Item_OutSourcing",	 item.Item_OutSourcing);
-					
-
 					cmd.Connection.Open();
                     var rowsAffected = cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
-
                     return rowsAffected > 0;
                 }
             }
