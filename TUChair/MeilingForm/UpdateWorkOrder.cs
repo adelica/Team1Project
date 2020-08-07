@@ -35,7 +35,8 @@ namespace TUChair
 
         private void Readed_BarCode(object sender, ReadEventArgs e)
         {
-            textBox1.Text = e.ReadMsg;
+            if ((this.MdiParent).ActiveMdiChild == this)
+                textBox1.Text = e.ReadMsg;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
