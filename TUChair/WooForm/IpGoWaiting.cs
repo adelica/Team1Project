@@ -48,8 +48,11 @@ namespace TUChair
         }
         private void Readed_BarCode(object sender, ReadEventArgs e)
         {
-            textBox1.Text = e.ReadMsg;
-            ((TUChairMain2)this.MdiParent).Clearstrings();
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                textBox1.Text = e.ReadMsg;
+                ((TUChairMain2)this.MdiParent).Clearstrings();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

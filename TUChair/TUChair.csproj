@@ -78,6 +78,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Validation, Version=2.4.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Validation.2.4.22\lib\net45\Validation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonForm\SearchTwoGridForm.cs">
@@ -122,10 +125,10 @@
     <Compile Include="InForm\FacilityReport.Designer.cs">
       <DependentUpon>FacilityReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="InForm\PreviewForm.cs">
+    <Compile Include="CommonForm\PreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InForm\PreviewForm.Designer.cs">
+    <Compile Include="CommonForm\PreviewForm.Designer.cs">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MeilingForm\BarcodeOut.cs">
@@ -133,12 +136,6 @@
     </Compile>
     <Compile Include="MeilingForm\BarcodeOut.Designer.cs">
       <DependentUpon>BarcodeOut.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MeilingForm\ReportPreviewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MeilingForm\ReportPreviewForm.Designer.cs">
-      <DependentUpon>ReportPreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MeilingForm\UpdateWorkOrder.cs">
       <SubType>Form</SubType>
@@ -550,6 +547,9 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="CommonForm\PreviewForm.resx">
+      <DependentUpon>PreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\SearchTwoGridForm.resx">
       <DependentUpon>SearchTwoGridForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -570,9 +570,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\BarcodeOut.resx">
       <DependentUpon>BarcodeOut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MeilingForm\ReportPreviewForm.resx">
-      <DependentUpon>ReportPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\UpdateWorkOrder.resx">
       <DependentUpon>UpdateWorkOrder.cs</DependentUpon>
