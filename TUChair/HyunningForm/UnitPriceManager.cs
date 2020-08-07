@@ -149,17 +149,7 @@ namespace TUChair
             jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = list;
         }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            UnitPricePopUp frm = new UnitPricePopUp();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-
-            DataLoad();
-        }
-
-
+    
         private void chbDate_CheckedChanged(object sender, EventArgs e)
         {
             if (chbDate.Checked == true)

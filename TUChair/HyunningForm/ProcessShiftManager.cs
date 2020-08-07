@@ -131,16 +131,13 @@ namespace TUChair
             
             HyunningForm.XtraReport2 rpt = new HyunningForm.XtraReport2();
             rpt.DataSource = dt;
-            HyunningForm.ReportPreviewForm frm = new HyunningForm.ReportPreviewForm(rpt);
+            PreviewForm frm = new PreviewForm(rpt);
         }
         private void Readed_BarCode(object sender, ReadEventArgs e)
         {
             textBox1.Text = e.ReadMsg;
             string a = textBox1.Text.Substring(0, 4);
             string b = textBox1.Text.Substring(6, 1);
-            //string a = "WH01";
-            //string b = "2";
-
 
             ProcessShiftVO sht = new ProcessShiftVO();
             JeanServicePShift shift = new JeanServicePShift();
@@ -165,39 +162,30 @@ namespace TUChair
         private void ProcessShiftManager_Load(object sender, EventArgs e)
         {         
               ((TUChairMain2)this.MdiParent).Readed += Readed_BarCode;         
-        }
-
-        private void button2_Click(object sender, EventArgs e) //바코드 임시
-        {
-           
-            //string a = textBox1.Text.Substring(0,4);
-            //string b = textBox1.Text.Substring(6, 1);
-            string a = "WH01";
-            string b = "2";
-
-
-            ProcessShiftVO sht = new ProcessShiftVO();
-            JeanServicePShift shift = new JeanServicePShift();
-
-            bool result = shift.PSShiftInsert(a, b);
-
-            if (result)
-            {
-                MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
-            }
-        }
+        }      
 
         private void btnShiftCancle_Click(object sender, EventArgs e)
         {
             ProcessShiftVO sht = new ProcessShiftVO();
             JeanServicePShift shift = new JeanServicePShift();
 
-            bool result = shift.PSShiftReturn(sht);
-
-            if (result)
+            for (int i = 0; i < jeansGridView2.Rows.Count; i++)
             {
-                MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
+                bool isCellChecked = (bool)jeansGridView2.Rows[i].Cells[0].EditedFormattedValue;
+                if (isCellChecked)
+                {
+                    int Primary = (Convert.ToInt32(jeansGridView2.Rows[i].Cells[1].Value));
+                    string fact = jeansGridView2.Rows[i].Cells[4].Value.ToString();
+                    string date = jeansGridView2.Rows[i].Cells[7].Value.ToString();
+                    shift.PSShiftReturn(Primary, date, fact);
+
+                }
+
             }
+            //if (result)
+            //{
+            //    MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
+            //}
             DataLoad();
         }
     }

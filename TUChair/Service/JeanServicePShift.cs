@@ -25,10 +25,10 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.PSShiftInsert(sht);
         }
-        public bool PSShiftReturn(ProcessShiftVO sht) //선택공정이동
+        public bool PSShiftReturn(int Primary,string date, string fact) //선택공정이동
         {
             ProcessShiftDAC dac = new ProcessShiftDAC();
-            return dac.PSShiftReturn(sht);
+            return dac.PSShiftReturn(Primary, date, fact);
         }
         public bool PSShiftInsert(string a, string b) //바코드로 공정이동
         {

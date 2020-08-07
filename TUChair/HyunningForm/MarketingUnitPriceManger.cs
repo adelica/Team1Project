@@ -164,16 +164,6 @@ namespace TUChair
             }
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-                MarketingUnitPricePopUp frm = new MarketingUnitPricePopUp();
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-
-                DataLoad();
-            
-        }
-
         private void MarketingUnitPriceManger_FormClosing(object sender, FormClosingEventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
