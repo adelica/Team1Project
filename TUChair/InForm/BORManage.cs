@@ -51,6 +51,7 @@ namespace TUChair
 
             ComboBinding();
         }
+
         private void ComboBinding()
         {
             List<string> facG_code = (from code in list
@@ -63,12 +64,14 @@ namespace TUChair
             
         }
 
+        //앞에 순번정해주기
         private void dgvBOR_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             this.dgvBOR.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)  //검색조건
+        //검색조건
+        private void btnSearch_Click(object sender, EventArgs e) 
         {
             List<BORVO> searchList=null;
 
@@ -125,7 +128,8 @@ namespace TUChair
             }
         }
 
-        private void txtItem_Code_KeyPress(object sender, KeyPressEventArgs e) // 엔터눌러서 검색
+        // 엔터눌러서 검색
+        private void txtItem_Code_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar==13)
             {
@@ -169,6 +173,28 @@ namespace TUChair
         private void btnInsert_Click(object sender, EventArgs e)
         {
             BORInfoRegi frm = new BORInfoRegi(list);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            if(frm.Check)
+            {
+                LoadData();
+            }
+        }
+
+        private void 수정ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var row = dgvBOR.CurrentRow;
+
+            string itemC = row.Cells[1].Value.ToString();
+            string facgC= row.Cells[3].Value.ToString();
+            string faciC= row.Cells[5].Value.ToString();
+            int tactT =Convert.ToInt32(row.Cells[7].Value);
+            int prio = Convert.ToInt32(row.Cells[8].Value.ToString());
+            decimal yei = Convert.ToDecimal(row.Cells[9].Value); //수율, null허용
+            string uOrN= row.Cells[10].Value.ToString();
+            string other = row.Cells[11].Value==null?"":row.Cells[11].Value.ToString()  ;
+
+            BORInfoRegi frm = new BORInfoRegi(itemC, facgC, faciC, tactT, prio, yei, uOrN, other, list);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             if(frm.Check)

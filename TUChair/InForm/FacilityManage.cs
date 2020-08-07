@@ -23,7 +23,7 @@ namespace TUChair
         public FacilityManage()
         {
             InitializeComponent();
-
+          //  dgvFacility. = false;
             CommonUtil.InitSettingGridView(dgvFacilityG);
             CommonUtil.InitSettingGridView(dgvFacility);
             dgvFacilityG.AutoGenerateColumns = false;
@@ -58,16 +58,21 @@ namespace TUChair
             LoadData();
             ((TUChairMain2)this.MdiParent).Readed += Readed_BarCode;
         }
+        //바코드 찍을 시
         private void Readed_BarCode(object sender, ReadEventArgs e)
         {
-            int barID = int.Parse(e.ReadMsg.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
-            ((TUChairMain2)this.MdiParent).Clearstrings();
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                int barID = int.Parse(e.ReadMsg.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
+                ((TUChairMain2)this.MdiParent).Clearstrings();
 
-            FacilityService service = new FacilityService();
-            DataTable dt = service.FacilityBarInfo(barID);
+                FacilityService service = new FacilityService();
+                DataTable dt = service.FacilityBarInfo(barID);
 
-            FacilityInfo frm = new FacilityInfo(dt);
-            frm.ShowDialog();
+                FacilityInfo frm = new FacilityInfo(dt);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }             
         }
         private void LoadData() //데이터바인딩
         {
@@ -172,8 +177,9 @@ namespace TUChair
                 string facG_Name = row.Cells[1].Value.ToString();
                 string facGUseOrNot = row.Cells[2].Value.ToString();
                 string facG_Info = row.Cells[3].Value.ToString();
+                string facG_Modifier = row.Cells[4].Value.ToString();
 
-                FacilityGroupInfoRegi frm = new FacilityGroupInfoRegi(facG_Code, facG_Name, facGUseOrNot, facG_Info);
+                FacilityGroupInfoRegi frm = new FacilityGroupInfoRegi(facG_Code, facG_Name, facGUseOrNot, facG_Info, facG_Modifier);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
                 if (frm.Check)
@@ -193,10 +199,11 @@ namespace TUChair
                 string faci_Detail = row.Cells[7].Value.ToString();
                 string faci_Others = row.Cells[8].Value.ToString();
                 string faci_UseOrNot = row.Cells[9].Value.ToString();
+                string faci_Modifier = row.Cells[10].Value.ToString();
                 string faci_ModifyDate = row.Cells[11].Value.ToString();
                 string facG_Code = row.Cells[12].Value.ToString();
 
-                FacilityInfoRegi frm = new FacilityInfoRegi(faci_Code, faci_Name, faci_Out, faci_In, faci_Bad, faci_Detail, faci_Others, faci_UseOrNot, faci_ModifyDate, facG_Code,dtFacG_code, dtFaci_code);
+                FacilityInfoRegi frm = new FacilityInfoRegi(faci_Code, faci_Name, faci_Out, faci_In, faci_Bad, faci_Detail, faci_Others, faci_UseOrNot, faci_Modifier, faci_ModifyDate, facG_Code,dtFacG_code, dtFaci_code);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
                 if(frm.Check)
