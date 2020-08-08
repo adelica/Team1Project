@@ -84,7 +84,7 @@ namespace TUChairDAC
             }
         }
 
-        public bool PSShiftInsert(ProcessShiftVO sht) // 공정이동 프로시저
+        public bool PSShiftInsert(int Primary,string fact) // 공정이동 프로시저
         {
             try
             {
@@ -96,9 +96,9 @@ namespace TUChairDAC
 
 
 
-                    cmd.Parameters.AddWithValue("@NO", sht.No);
-                    cmd.Parameters.AddWithValue("@ThisDate", sht.Insert_Date ?? DBNull.Value.ToString());
-                    cmd.Parameters.AddWithValue("@Fact_Code", sht.Fact_Code);
+                    cmd.Parameters.AddWithValue("@NO", Primary);
+                    //cmd.Parameters.AddWithValue("@ThisDate", DBNull.Value.ToString());
+                    cmd.Parameters.AddWithValue("@Fact_Code", fact);
 
 
 
@@ -111,7 +111,7 @@ namespace TUChairDAC
             }
             catch (Exception e)
             {
-                _log.WriteError(e.Message, e);
+                //_log.WriteError(e.Message, e);
                 throw e;
             }
         }
@@ -142,7 +142,7 @@ namespace TUChairDAC
             }
             catch (Exception e)
             {
-                _log.WriteError(e.Message, e);
+               // _log.WriteError(e.Message, e);
                 throw e;
             }
         }

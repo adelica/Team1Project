@@ -22,8 +22,10 @@ namespace TUChair
 
         List<EXProcessShiftVO> list1;
         List<ComboItemVO> comboItems = null;
-        public ProcessShiftManager()
+        public  ProcessShiftManager()
         {
+            
+
             InitializeComponent();
             jeansGridView1.IsAllCheckColumnHeader = true;
 
@@ -69,8 +71,38 @@ namespace TUChair
             cList = (from item in comboItems
                      where item.CodeType == "Item"
                      select item).ToList();
-            CommonUtil.ComboBinding(cboItemCode, cList, "선택");
+            CommonUtil.ReComboBinding(cboItemCode, cList, "선택");
 
+        }
+        private void Save(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("헤헤 수정");
+
+            DataLoad();
+        }
+        private void New(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                DataLoad();
+        }
+        private void Search(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("검색");
+
+
+        }
+        private void Delete(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("삭제하던가");
+
+        }
+        private void Excel(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("엑셀만들어");
         }
         public void CheckedLine(JeansGridView jeans,string Talk)
         {
@@ -110,14 +142,27 @@ namespace TUChair
 
         private void btnShift_Click(object sender, EventArgs e)
         {
-            ProcessShiftVO sht = new ProcessShiftVO();
             JeanServicePShift shift = new JeanServicePShift();
-            
-            bool result = shift.PSShiftInsert(sht);
-            
-            if (result)
+
+            try
             {
-                MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
+                for (int i = 0; i < jeansGridView1.Rows.Count; i++)
+                {
+                    bool isCellChecked = (bool)jeansGridView1.Rows[i].Cells[0].EditedFormattedValue;
+                    if (isCellChecked)
+                    {
+                        int Primary = (Convert.ToInt32(jeansGridView1.Rows[i].Cells[1].Value));
+                        string fact = jeansGridView1.Rows[i].Cells[4].Value.ToString();
+
+                       shift.PSShiftInsert(Primary,fact);
+
+                    }
+
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
             }
             DataLoad();
         }
@@ -161,8 +206,15 @@ namespace TUChair
 
         private void ProcessShiftManager_Load(object sender, EventArgs e)
         {         
-              ((TUChairMain2)this.MdiParent).Readed += Readed_BarCode;         
-        }      
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save += Save;
+            frm.Search += Search;
+            frm.Delete += Delete;
+            frm.New += New;
+            frm.Excel += Excel;
+            frm.Readed += Readed_BarCode;
+
+        }
 
         private void btnShiftCancle_Click(object sender, EventArgs e)
         {
@@ -187,6 +239,17 @@ namespace TUChair
             //    MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
             //}
             DataLoad();
+        }
+
+
+        private void ProcessShiftManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save -= Save;
+            frm.Search -= Search;
+            frm.Delete -= Delete;
+            frm.New -= New;
+            frm.Excel -= Excel;
         }
     }
 }

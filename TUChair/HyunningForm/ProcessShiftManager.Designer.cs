@@ -344,6 +344,7 @@
             this.Controls.Add(this.panel4);
             this.Name = "ProcessShiftManager";
             this.Text = "공정이동";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProcessShiftManager_FormClosing);
             this.Load += new System.EventHandler(this.ProcessShiftManager_Load);
             this.Controls.SetChildIndex(this.panel4, 0);
             this.Controls.SetChildIndex(this.panel5, 0);
