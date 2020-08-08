@@ -20,5 +20,6 @@ namespace TUChairVO
         public decimal BOR_Yeild { get; set; }
         public string BOR_UseOrNot { get; set; }
         public string BOR_Other { get; set; }
+        public int BOR_ProcessLeadDate { get; set; }
     }
 }

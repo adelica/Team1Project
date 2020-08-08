@@ -54,7 +54,7 @@ namespace TUChair
             CommonUtil.CboSetting(cboFaci_Code);
         }
 
-        public BORInfoRegi(string itemC, string facgC, string faciC, int tactT, int prio, decimal yei, string uOrN, string other, List<BORVO> borList) :this(borList)
+        public BORInfoRegi(string itemC, string facgC, string faciC, int tactT, int prio, decimal yei,int processLead, string uOrN, string other, List<BORVO> borList) :this(borList)
         {
             cboFacG_Code.Enabled = cboFaci_Code.Enabled = cboItem_Code.Enabled = false;
             cboFacG_Code.Text = facgC;
@@ -63,6 +63,7 @@ namespace TUChair
             txtTactTime.Text = tactT.ToString();
             txtPriority.Text = prio.ToString() ;
             txtYeild.Text = yei.ToString();
+            txtProcessLead.Text = processLead.ToString();
             cboUseOrNot.Text = uOrN;
             txtOther.Text = other;
 
@@ -124,9 +125,10 @@ namespace TUChair
             decimal yeild = Convert.ToDecimal(txtYeild.Text);
             string useOrNot = cboUseOrNot.Text;
             string other = txtOther.Text;
+            int processLead = Convert.ToInt32(txtProcessLead.Text);
 
             BORService service = new BORService();
-            check = service.BORInfoRegi(itemCode, facgCode, faciCode, tactT, priority, yeild, useOrNot, other);
+            check = service.BORInfoRegi(itemCode, facgCode, faciCode, tactT, priority, yeild, processLead,useOrNot, other);
             if (check)
             {
                 MessageBox.Show("등록되었습니다.", "등록완료");

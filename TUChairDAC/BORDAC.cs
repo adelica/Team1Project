@@ -18,7 +18,7 @@ namespace TUChairDAC
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
-                    cmd.CommandText = @"select BOR_Code, b.Item_Code, Item_Name, b.FacG_Code, FacG_Name, b.Faci_Code, Faci_Name,BOR_TactTime, BOR_Priority, BOR_Yeild, BOR_UseOrNot, BOR_Other
+                    cmd.CommandText = @"select BOR_Code, b.Item_Code, Item_Name, b.FacG_Code, FacG_Name, b.Faci_Code, Faci_Name,BOR_TactTime, BOR_Priority, BOR_Yeild, BOR_UseOrNot, BOR_Other,BOR_ProcessLeadDate
 from BOR b left outer join FacilityGroup fg on b.FacG_Code=fg.FacG_Code
 		left outer join Facility f on  b.Faci_Code=f.Faci_Code
 		left outer join Item i on  b.Item_Code=i.Item_Code
@@ -37,7 +37,7 @@ from BOR b left outer join FacilityGroup fg on b.FacG_Code=fg.FacG_Code
             }
         }
 
-        public bool BORInfoRegi(string itemCode, string facgCode, string faciCode, int tactT, int priority, decimal yeild, string useOrNot, string other)
+        public bool BORInfoRegi(string itemCode, string facgCode, string faciCode, int tactT, int priority, decimal yeild, int processLead,string useOrNot, string other)
         {
             try
             {
@@ -54,6 +54,7 @@ from BOR b left outer join FacilityGroup fg on b.FacG_Code=fg.FacG_Code
                     cmd.Parameters.AddWithValue("@yeild", yeild);
                     cmd.Parameters.AddWithValue("@useOrNot", useOrNot);
                     cmd.Parameters.AddWithValue("@other", other);
+                    cmd.Parameters.AddWithValue("@processLead", processLead);
 
                     cmd.Connection.Open();
                     cmd.ExecuteNonQuery();

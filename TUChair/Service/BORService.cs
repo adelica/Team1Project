@@ -22,10 +22,10 @@ namespace TUChair.Service
             return dac.DeleteBORInfo(code);
         }
 
-        internal bool BORInfoRegi(string itemCode, string facgCode, string faciCode, int tactT, int priority, decimal yeild, string useOrNot, string other)
+        internal bool BORInfoRegi(string itemCode, string facgCode, string faciCode, int tactT, int priority, decimal yeild,int processLead, string useOrNot, string other)
         {
             BORDAC dac = new BORDAC();
-            return dac.BORInfoRegi(itemCode, facgCode, faciCode, tactT, priority, yeild, useOrNot, other);
+            return dac.BORInfoRegi(itemCode, facgCode, faciCode, tactT, priority, yeild,processLead, useOrNot, other);
         }
     }
 }
