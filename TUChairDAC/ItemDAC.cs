@@ -100,8 +100,8 @@ Using(
 			,  @Item_InWarehouse     as	Item_InWarehouse  
 			,  @Item_OutWarehouse    as	Item_OutWarehouse 
 			,  @Item_SafeQuantity    as	Item_SafeQuantity 
-			,  @Item_Unit            as	Item_Unit		  
-			,  @Item_Importins       as	Item_Importins	  
+			,  @Item_Unit            as	Item_Unit
+			,  @Item_Importins       as	Item_Importins	
 			,  @Item_Processins      as	Item_Processins	  
 			,  @Item_Shipmentins     as	Item_Shipmentins  
 			,  @Item_Manager         as	Item_Manager	

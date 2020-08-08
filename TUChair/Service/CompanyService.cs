@@ -15,5 +15,17 @@ namespace TUChair.Service
             CompanyDAC dac = new CompanyDAC();
             return dac.GetCompanyInfo();
         }
+
+        internal bool CompanyInfoRegi(CompanyVO company)
+        {
+            CompanyDAC dac = new CompanyDAC();
+            return dac.CompanyInfoRegi(company);
+        }
+
+        internal bool DeleteCompanyInfo(string code)
+        {
+            CompanyDAC dac = new CompanyDAC();
+            return dac.DeleteCompanyInfo(code);
+        }
     }
 }

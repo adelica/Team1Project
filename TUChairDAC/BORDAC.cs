@@ -43,7 +43,7 @@ from BOR b left outer join FacilityGroup fg on b.FacG_Code=fg.FacG_Code
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "SP_SETBORInfo";
+                    cmd.CommandText = "SP_SetBORInfo";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Parameters.AddWithValue("@itemCode", itemCode);
