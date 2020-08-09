@@ -18,8 +18,8 @@ using Timer = System.Windows.Forms.Timer;
 namespace TUChair
 {
     public partial class TUChairMain2 : Form
-    {
-        public event EventHandler New;
+    {       
+        public event EventHandler New;      
         public event EventHandler Search;
         public event EventHandler Save;
         public event EventHandler Delete;
@@ -490,7 +490,7 @@ namespace TUChair
         {
             if (New != null)
             {
-                New(this, null);
+                New(this, new EventArgs());
             }
         }
 
@@ -498,7 +498,7 @@ namespace TUChair
         {
             if (Search != null)
             {
-                Search(this, null);
+                Search(this, new EventArgs());
             }
         }
 
@@ -506,7 +506,7 @@ namespace TUChair
         {
             if (Save != null)
             {
-                Save(this, null);
+                Save(this, new EventArgs());
             }
         }
 
@@ -514,7 +514,7 @@ namespace TUChair
         {
             if (Delete != null)
             {
-                Delete(this, null);
+                Delete(this, new EventArgs());
             }
         }
 
@@ -522,7 +522,7 @@ namespace TUChair
         {
             if (Excel != null)
             {
-                Excel(this, null);
+                Excel(this, new EventArgs());
             }
         }
 
