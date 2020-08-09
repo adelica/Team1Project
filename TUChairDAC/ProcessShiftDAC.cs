@@ -178,5 +178,37 @@ namespace TUChairDAC
                 throw e;
             }
         }
+
+
+        public List<ProcessShiftVO> Search(string Fact, string code, string txt) // 공정이동 진그리드1 검색조건
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_PSMSearch";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Fact_Name", (object)Fact ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Code", (object)code ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@item_name", (object)txt ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<ProcessShiftVO> list = Helper.MeilingDataReaderMapToList<ProcessShiftVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
+
     }
 }

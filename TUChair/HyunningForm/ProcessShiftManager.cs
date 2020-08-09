@@ -89,7 +89,31 @@ namespace TUChair
         private void Search(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("검색");
+            {
+                string Fact;
+                if (cboFact.SelectedIndex == 0)
+                    Fact = string.Empty;
+                else
+                    Fact = cboFact.Text;
+                string code;
+                if (cboItemCode.SelectedIndex == 0)
+                    code = string.Empty;
+                else
+                    code = cboItemCode.Text;
+                string txt = txtItemName.Text.Trim();
+
+                if (cboFact.SelectedIndex == 0 && txt.ToString().Trim().Length < 1 && cboItemCode.SelectedIndex == 0)
+                    return;
+                if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                {
+
+
+                    JeanServicePShift service = new JeanServicePShift();
+                    list = service.Search(Fact, code, txt);
+                    jeansGridView1.DataSource = null;
+                    jeansGridView1.DataSource = list;
+                }
+            }
 
 
         }

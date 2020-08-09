@@ -40,6 +40,11 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.ShiftLoad();
         }
-        
+
+        public List<ProcessShiftVO> Search(string Fact,string code,string txt)//검색조건
+        {
+            ProcessShiftDAC dac = new ProcessShiftDAC();
+            return dac.Search(Fact, code, txt);
+        }
     }
 }
