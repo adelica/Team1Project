@@ -46,5 +46,11 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.Search(Fact, code, txt);
         }
+        public List<PSMManager> PSMManager()
+        {
+            ProcessShiftDAC dac = new ProcessShiftDAC();
+            return dac.PSMManager();
+        }
+        
     }
 }

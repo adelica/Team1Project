@@ -209,6 +209,32 @@ namespace TUChairDAC
                 return null;
             }
         }
+        
+        public List<PSMManager> PSMManager() // 자재단가 관리 (전체)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                string sql = @"select  s.[Fact_Code] [Fact_Code], [Fact_Name] , s.[Item_Code] [Item_Code],[Item_Name],[Item_Type],[Item_Size],[Qty],[Item_Unit],[Stock_Other] 
+                                 from [dbo].[Stock] s inner join [dbo].[Factory] f on s.Fact_Code = f.Fact_Code
+					                                  inner join [dbo].[Item] i on s.Item_Code = i.Item_Code
+                                where 1=1";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<PSMManager> list = Helper.DataReaderMapToList<PSMManager>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
 
     }
 }
