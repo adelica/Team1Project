@@ -29,9 +29,10 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "공정명", "FacG_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "설비", "Faci_Code", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "설비명", "Faci_Name", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "Tact Time(Sec)", "BOR_TactTime", true,150);
-            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "우선순위", "BOR_Priority", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "수율", "BOR_Yeild", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "Tact Time(Sec)", "BOR_TactTime", true,120, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "우선순위", "BOR_Priority", true,70, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "수율", "BOR_Yeild", true,100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "공정선행일(Day)", "BOR_ProcessLeadDate", true,130,DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "사용유무", "BOR_UseOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "비고", "BOR_Other", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "BOR_Code", "BOR_Code", false);
@@ -156,7 +157,7 @@ namespace TUChair
             if(DialogResult.OK==(MessageBox.Show("정말로 삭제하시겠습니까?","삭제확인",MessageBoxButtons.OKCancel)))
             {
                 var row = dgvBOR.CurrentRow;
-                int code = Convert.ToInt32(row.Cells[12].Value);
+                int code = Convert.ToInt32(row.Cells[13].Value);
                 BORService service = new BORService();
                 bool check = service.DeleteBORInfo(code);
                 
@@ -191,10 +192,11 @@ namespace TUChair
             int tactT =Convert.ToInt32(row.Cells[7].Value);
             int prio = Convert.ToInt32(row.Cells[8].Value.ToString());
             decimal yei = Convert.ToDecimal(row.Cells[9].Value); //수율, null허용
-            string uOrN= row.Cells[10].Value.ToString();
-            string other = row.Cells[11].Value==null?"":row.Cells[11].Value.ToString()  ;
+            int processLead = Convert.ToInt32(row.Cells[10].Value);
+            string uOrN= row.Cells[11].Value.ToString();
+            string other = row.Cells[12].Value==null?"":row.Cells[11].Value.ToString()  ;
 
-            BORInfoRegi frm = new BORInfoRegi(itemC, facgC, faciC, tactT, prio, yei, uOrN, other, list);
+            BORInfoRegi frm = new BORInfoRegi(itemC, facgC, faciC, tactT, prio, yei, processLead, uOrN, other, list);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             if(frm.Check)

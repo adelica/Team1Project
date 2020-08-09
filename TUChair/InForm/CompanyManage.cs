@@ -17,9 +17,12 @@ namespace TUChair
     {
         List<CompanyVO> list; //업체 모든 데이터 리스트
         List<ComboItemVO> cList; //업체타입 리스트
+        TUChairMain2 frm = new TUChairMain2();
+
         public CompanyManage()
         {
             InitializeComponent();
+
 
             CommonUtil.InitSettingGridView(dgvCompany);
             dgvCompany.IsAllCheckColumnHeader = true;
@@ -28,32 +31,36 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvCompany, "업체코드", "Com_Code", true, 150, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvCompany, "업체명", "Com_Name", true, 150);
             CommonUtil.AddNewColumnToDataGridView(dgvCompany, "업체타입", "Com_Type", true, 100, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvCompany, "대표자", "Com_Owner", true,100,DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvCompany, "대표자", "Com_Owner", true, 100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvCompany, "사업자등록번호", "Com_CorporRegiNum", true, 150, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvCompany, "업종", "Com_Sector", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvCompany, "담당자", "Com_Manager", true,100,DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvCompany, "이메일", "Com_Email", true,200);
-            CommonUtil.AddNewColumnToDataGridView(dgvCompany, "전화번호", "Com_Phone", true,150);
+            CommonUtil.AddNewColumnToDataGridView(dgvCompany, "담당자", "Com_Manager", true, 100, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvCompany, "이메일", "Com_Email", true, 200);
+            CommonUtil.AddNewColumnToDataGridView(dgvCompany, "전화번호", "Com_Phone", true, 150);
         }
 
         private void CompanyManage_Load(object sender, EventArgs e)
         {
-            LoadData();
+            frm = (TUChairMain2)this.MdiParent; //이벤트
+
             GetComboBinding();
-            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
             frm.Save += Save;
-           
+            frm.New += LoadData;
+            frm.Delete += Delete;
+
+            LoadData();
         }
         private void GetComboBinding()
         {
             commonService service = new commonService();
             List<ComboItemVO> comboItems = service.getCommonCode("업체타입");
             cList = (from item in comboItems
-                                       where item.CodeType == "업체타입"
-                                       select item).ToList();
-            CommonUtil.ComboBinding(cboCom_Type, cList, "전체");
+                     where item.CodeType == "업체타입"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboCom_Type, cList, "선택");
             CommonUtil.CboSetting(cboCom_Type);
         }
+        //전체데이터 조회
         private void LoadData()
         {
             CompanyService service = new CompanyService();
@@ -179,23 +186,102 @@ namespace TUChair
             dgvCompany.DataSource = searchList;
         }
 
+        //등록, 수정
         private void Save(object sender, EventArgs e)
+        {
+            List<string> codeList = (from code in list
+                                     select code.Com_Code).ToList();
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> chkList = Check();
+                bool check=false;
+                if (chkList.Count == 1) // 수정
+                {
+                    List<CompanyVO> updateList = (from com in list
+                                                  where com.Com_Code == chkList[0]
+                                                  select com).ToList();
+
+                    CompanyInfoRegi frm = new CompanyInfoRegi(cList, codeList, updateList);
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    check = frm.Check;
+                }
+
+                else if (chkList.Count == 0) // 신규
+                {
+                    CompanyInfoRegi frm = new CompanyInfoRegi(cList, codeList);
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    check = frm.Check;
+                }
+                else //2개 이상 선택
+                {
+                    MessageBox.Show("수정할 데이터 하나만 선택해주세요", "수정실패");
+                    return;
+                }
+                if (check)
+                    LoadData();
+            }
+        }
+
+        //삭제
+        private void Delete(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                CompanyInfoRegi frm = new CompanyInfoRegi(cList);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
+                List<string> chkList = Check();
+                if (chkList.Count == 0)
+                {
+                    MessageBox.Show("삭제할 데이터를 클릭해주세요.");
+                    return;
+                }
 
+                if (DialogResult.OK == (MessageBox.Show("정말로 삭제하시겠습니까?", "삭제확인", MessageBoxButtons.OKCancel)))
+                {
+                    string code = "'" + string.Join("','", chkList) + "'";
+
+                    CompanyService service = new CompanyService();
+                    if (service.DeleteCompanyInfo(code))
+                    {
+                        MessageBox.Show($"{code}이/가 삭제되었습니다.", "삭제완료");
+                        LoadData();
+                    }
+                }
+                else
+                    return;
             }
-             
-            
+        }
+
+        //체크박스 체크확인
+        private List<String> Check()
+        {
+            List<string> chkList = new List<string>();
+
+            for (int i = 0; i < dgvCompany.Rows.Count; i++)
+            {
+                bool IsCellChecked = (bool)dgvCompany.Rows[i].Cells[0].EditedFormattedValue;
+                if (IsCellChecked)
+                {
+                    chkList.Add(dgvCompany.Rows[i].Cells[2].Value.ToString());
+                }
+            }
+            return chkList;
+        }
+
+        private void LoadData(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                LoadData();
+            }
         }
 
         private void CompanyManage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+
             frm.Save -= Save;
+            frm.New -= LoadData;
+            frm.Delete -= Delete;
         }
     }
 }
