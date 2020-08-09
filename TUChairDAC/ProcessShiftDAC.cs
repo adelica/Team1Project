@@ -84,7 +84,7 @@ namespace TUChairDAC
             }
         }
 
-        public bool PSShiftInsert(int Primary,string fact) // 공정이동 프로시저
+        public bool PSShiftInsert(int Primary, string fact) // 공정이동 프로시저
         {
             try
             {
@@ -142,7 +142,7 @@ namespace TUChairDAC
             }
             catch (Exception e)
             {
-               // _log.WriteError(e.Message, e);
+                // _log.WriteError(e.Message, e);
                 throw e;
             }
         }
@@ -209,13 +209,13 @@ namespace TUChairDAC
                 return null;
             }
         }
-        
+
         public List<PSMManager> PSMManager() // 자재단가 관리 (전체)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select  s.[Fact_Code] [Fact_Code], [Fact_Name] , s.[Item_Code] [Item_Code],[Item_Name],[Item_Type],[Item_Size],[Qty],[Item_Unit],[Stock_Other] 
+                string sql = @"select  s.[Fact_Code] [Fact_Code], [Fact_Name] , s.[Item_Code] [Item_Code],[Item_Name],[Item_Type],[Item_Size],[Qty],[Item_Unit],[Stock_Other] ,[Insert_Date]
                                  from [dbo].[Stock] s inner join [dbo].[Factory] f on s.Fact_Code = f.Fact_Code
 					                                  inner join [dbo].[Item] i on s.Item_Code = i.Item_Code
                                 where 1=1";
@@ -235,6 +235,35 @@ namespace TUChairDAC
                 return null;
             }
         }
+        public List<PSMManager> PSMMSearch(string date, string item, string Fact, string txt) // 공정이동 진그리드1 검색조건
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_PSMSearch";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
+                    cmd.Parameters.AddWithValue("@ThisDate", (object)date ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Code", (object)item ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Fact_Code", (object)Fact ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_name", (object)txt ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<PSMManager> list = Helper.MeilingDataReaderMapToList<PSMManager>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
     }
 }

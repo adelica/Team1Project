@@ -48,6 +48,7 @@ namespace TUChairVO
         public int Qty { get; set; }
         public string Item_Unit { get; set; }
         public string Stock_Other { get; set; }
+        public string Insert_Date { get; set; }
 
     }
 }

@@ -31,6 +31,8 @@ namespace TUChair
             frm.New += New;
             frm.Excel += Excel;
 
+            dtpDate.Value = DateTime.Now;
+
             jeansGridView1.IsAllCheckColumnHeader = true;
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);

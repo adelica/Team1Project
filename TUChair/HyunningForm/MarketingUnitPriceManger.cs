@@ -21,7 +21,7 @@ namespace TUChair
         {
             InitializeComponent();
             jeansGridView1.IsAllCheckColumnHeader = true;
-
+            dtpDate.Value = DateTime.Now;
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "PriceNO", "PriceNO", true);
