@@ -265,5 +265,35 @@ namespace TUChairDAC
                 return null;
             }
         }
+        public List<StockShift> StockBinding(string pry) // 진그리드 2 바인딩
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = @"select s.no  no, s.Item_Code Item_Code, Item_Name, Item_Size,Item_Type, Qty, 
+	case when Item_Type = '원자재' then 'WH02' 
+		 when Item_Type = '반제품' then 'WH03'
+		when	Item_Type = '완제품' then 'WH03'
+				end From_Fact ,CONVERT(varchar(10),getdate(), 23) Shift_date , Shift_Qty
+	from Stock s left join Item i on s.Item_Code = i.Item_Code left join [StockStatus] ss on s.Item_Code = ss.Item_Code
+                                        where s.no in(" + pry + ")";                    
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<StockShift> list = Helper.MeilingDataReaderMapToList<StockShift>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
     }
 }

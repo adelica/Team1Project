@@ -56,7 +56,11 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.PSMMSearch(date, item, Fact, txt);
         }
-
+        public List<StockShift> StockBinding(string pry)// 공정이동 현황검색조건
+        {
+            ProcessShiftDAC dac = new ProcessShiftDAC();
+            return dac.StockBinding(pry);
+        }
 
     }
 }
