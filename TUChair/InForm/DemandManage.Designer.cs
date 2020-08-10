@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
             this.cboPlanID = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.txtItme_Code = new System.Windows.Forms.TextBox();
+            this.txtItem_Code = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnProductionPlan = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(83, 23);
+            this.label1.Size = new System.Drawing.Size(106, 29);
             this.label1.Text = "≡ 수요계획";
             // 
             // panel2
@@ -84,26 +84,28 @@
             this.panel5.Controls.Add(this.cboPlanID);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label9);
-            this.panel5.Location = new System.Drawing.Point(22, 12);
+            this.panel5.Location = new System.Drawing.Point(25, 15);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(274, 27);
+            this.panel5.Size = new System.Drawing.Size(313, 34);
             this.panel5.TabIndex = 3;
             // 
             // cboPlanID
             // 
             this.cboPlanID.FormattingEnabled = true;
-            this.cboPlanID.Location = new System.Drawing.Point(99, 4);
+            this.cboPlanID.Location = new System.Drawing.Point(113, 5);
+            this.cboPlanID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboPlanID.Name = "cboPlanID";
-            this.cboPlanID.Size = new System.Drawing.Size(162, 20);
+            this.cboPlanID.Size = new System.Drawing.Size(185, 23);
             this.cboPlanID.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(19, 8);
+            this.label6.Location = new System.Drawing.Point(22, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.Size = new System.Drawing.Size(49, 15);
             this.label6.TabIndex = 10;
             this.label6.Text = "PlanID";
             // 
@@ -112,9 +114,9 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("굴림", 5F);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(8, 10);
+            this.label9.Location = new System.Drawing.Point(9, 12);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(10, 7);
+            this.label9.Size = new System.Drawing.Size(13, 9);
             this.label9.TabIndex = 11;
             this.label9.Text = "■";
             // 
@@ -123,26 +125,28 @@
             this.panel4.Controls.Add(this.cboCompany);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(22, 59);
+            this.panel4.Location = new System.Drawing.Point(25, 74);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(274, 27);
+            this.panel4.Size = new System.Drawing.Size(313, 34);
             this.panel4.TabIndex = 3;
             // 
             // cboCompany
             // 
             this.cboCompany.FormattingEnabled = true;
-            this.cboCompany.Location = new System.Drawing.Point(99, 4);
+            this.cboCompany.Location = new System.Drawing.Point(113, 5);
+            this.cboCompany.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboCompany.Name = "cboCompany";
-            this.cboCompany.Size = new System.Drawing.Size(162, 20);
+            this.cboCompany.Size = new System.Drawing.Size(185, 23);
             this.cboCompany.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(19, 8);
+            this.label2.Location = new System.Drawing.Point(22, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 10;
             this.label2.Text = "업체";
             // 
@@ -151,9 +155,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 5F);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(8, 10);
+            this.label3.Location = new System.Drawing.Point(9, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(10, 7);
+            this.label3.Size = new System.Drawing.Size(13, 9);
             this.label3.TabIndex = 11;
             this.label3.Text = "■";
             // 
@@ -162,28 +166,29 @@
             this.panel6.Controls.Add(this.dtpDate);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(374, 12);
+            this.panel6.Location = new System.Drawing.Point(427, 15);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(345, 35);
+            this.panel6.Size = new System.Drawing.Size(394, 44);
             this.panel6.TabIndex = 3;
             // 
             // dtpDate
             // 
-            this.dtpDate.End = new System.DateTime(2020, 8, 10, 18, 3, 11, 886);
-            this.dtpDate.Location = new System.Drawing.Point(81, 1);
+            this.dtpDate.End = new System.DateTime(2020, 8, 11, 5, 48, 6, 697);
+            this.dtpDate.Location = new System.Drawing.Point(93, 1);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(245, 26);
-            this.dtpDate.Start = new System.DateTime(2020, 8, 10, 18, 3, 11, 886);
+            this.dtpDate.Size = new System.Drawing.Size(280, 32);
+            this.dtpDate.Start = new System.DateTime(2020, 8, 11, 5, 48, 6, 715);
             this.dtpDate.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(19, 8);
+            this.label4.Location = new System.Drawing.Point(22, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 12);
+            this.label4.Size = new System.Drawing.Size(37, 15);
             this.label4.TabIndex = 10;
             this.label4.Text = "Date";
             // 
@@ -192,36 +197,38 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("굴림", 5F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(8, 10);
+            this.label5.Location = new System.Drawing.Point(9, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(10, 7);
+            this.label5.Size = new System.Drawing.Size(13, 9);
             this.label5.TabIndex = 11;
             this.label5.Text = "■";
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.txtItme_Code);
+            this.panel7.Controls.Add(this.txtItem_Code);
             this.panel7.Controls.Add(this.label7);
             this.panel7.Controls.Add(this.label8);
-            this.panel7.Location = new System.Drawing.Point(725, 12);
+            this.panel7.Location = new System.Drawing.Point(829, 15);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(299, 27);
+            this.panel7.Size = new System.Drawing.Size(342, 34);
             this.panel7.TabIndex = 4;
             // 
-            // txtItme_Code
+            // txtItem_Code
             // 
-            this.txtItme_Code.Location = new System.Drawing.Point(88, 3);
-            this.txtItme_Code.Name = "txtItme_Code";
-            this.txtItme_Code.Size = new System.Drawing.Size(208, 21);
-            this.txtItme_Code.TabIndex = 1;
+            this.txtItem_Code.Location = new System.Drawing.Point(101, 4);
+            this.txtItem_Code.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtItem_Code.Name = "txtItem_Code";
+            this.txtItem_Code.Size = new System.Drawing.Size(237, 25);
+            this.txtItem_Code.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(18, 7);
+            this.label7.Location = new System.Drawing.Point(21, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.Size = new System.Drawing.Size(37, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "품목";
             // 
@@ -230,18 +237,19 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("굴림", 5F);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(7, 9);
+            this.label8.Location = new System.Drawing.Point(8, 11);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(10, 7);
+            this.label8.Size = new System.Drawing.Size(13, 9);
             this.label8.TabIndex = 11;
             this.label8.Text = "■";
             // 
             // btnProductionPlan
             // 
             this.btnProductionPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProductionPlan.Location = new System.Drawing.Point(944, 7);
+            this.btnProductionPlan.Location = new System.Drawing.Point(1079, 9);
+            this.btnProductionPlan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnProductionPlan.Name = "btnProductionPlan";
-            this.btnProductionPlan.Size = new System.Drawing.Size(128, 23);
+            this.btnProductionPlan.Size = new System.Drawing.Size(146, 29);
             this.btnProductionPlan.TabIndex = 12;
             this.btnProductionPlan.Text = "생산계획생성";
             this.btnProductionPlan.UseVisualStyleBackColor = true;
@@ -249,26 +257,29 @@
             // dgvDemand
             // 
             this.dgvDemand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDemand.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDemand.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDemand.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDemand.Location = new System.Drawing.Point(0, 0);
+            this.dgvDemand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvDemand.Name = "dgvDemand";
+            this.dgvDemand.RowHeadersWidth = 51;
             this.dgvDemand.RowTemplate.Height = 23;
-            this.dgvDemand.Size = new System.Drawing.Size(1090, 425);
+            this.dgvDemand.Size = new System.Drawing.Size(1246, 531);
             this.dgvDemand.TabIndex = 0;
             // 
             // DemandManage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(1116, 602);
+            this.ClientSize = new System.Drawing.Size(1275, 752);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "DemandManage";
             this.Text = "수요계획";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DemandManage_FormClosing);
@@ -304,7 +315,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtItme_Code;
+        private System.Windows.Forms.TextBox txtItem_Code;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private InDTP dtpDate;
