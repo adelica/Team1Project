@@ -13,20 +13,17 @@ namespace TUChairDAC
     {
         public List<ShiftVO> DBConnectionTEST()
         {
-
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select s.[Shift_ID], s.[Faci_Code],f.Faci_Name, 
-s.[Shift_StartTime], s.[Shift_EndTime], s.[Shift_StartDate], 
-s.[Shift_EndDate],ISNULL(s.[Shift_InputPeople],'') Shift_InputPeople,isnull(s.[Shift_UserOrNot],'') Shift_UserOrNot, 
-ISNULL(s.[Shift_Modifier],''), isnull(Shift_Modifier,'') Shift_Modifier, 
-s.[Shift_ModifierDate] from [dbo].[Shift] s
-join  [dbo].[Facility] f
-on s.Faci_Code = f.Faci_Code";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlCommand cmd = new SqlCommand())
                 {
-                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"select s.[Faci_Code],f.[Faci_Name],[Shift_StartDate],[Shift_EndTime],[Shift_EndDate],[Shift_StartTime],[Shift_EndTime],
+[Shift_InputPeople],[Shift_UserOrNot],[Shift_Modifier],[Shift_ModifierDate],[Shift_Others]
+from [dbo].[Shift] s left outer join [dbo].[Facility] f 
+on s.Faci_Code = f.Faci_Code";
+                    cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     List<ShiftVO> list = Helper.MeilingDataReaderMapToList<ShiftVO>(reader);
                     cmd.Connection.Close();
@@ -36,7 +33,6 @@ on s.Faci_Code = f.Faci_Code";
             catch (Exception err)
             {
                 Debug.WriteLine(err.Message);
-
                 return null;
             }
         }
