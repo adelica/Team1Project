@@ -152,6 +152,13 @@
     <Compile Include="Service\balzuService.cs" />
     <Compile Include="Service\CompanyService.cs" />
     <Compile Include="Service\JeanServicePShift.cs" />
+    <Compile Include="Util\ExcelExportImport.cs" />
+    <Compile Include="waitFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="waitFrm.designer.cs">
+      <DependentUpon>waitFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WooForm\IpGoCheck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -576,6 +583,9 @@
       <DependentUpon>PortSettingform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="waitFrm.resx">
+      <DependentUpon>waitFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WooForm\IpGoCheck.resx">
       <DependentUpon>IpGoCheck.cs</DependentUpon>
     </EmbeddedResource>
