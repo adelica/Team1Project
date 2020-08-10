@@ -56,7 +56,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.jeansGridView2 = new JeanForm.JeansGridView();
             this.btnShiftCancle = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnShift_P = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -83,12 +83,12 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnShift_P);
             this.panel2.Controls.Add(this.btnShiftCancle);
             this.panel2.Location = new System.Drawing.Point(12, 430);
             this.panel2.Controls.SetChildIndex(this.label1, 0);
             this.panel2.Controls.SetChildIndex(this.btnShiftCancle, 0);
-            this.panel2.Controls.SetChildIndex(this.button2, 0);
+            this.panel2.Controls.SetChildIndex(this.btnShift_P, 0);
             // 
             // panel1
             // 
@@ -349,6 +349,7 @@
             this.jeansGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jeansGridView2.Size = new System.Drawing.Size(1090, 110);
             this.jeansGridView2.TabIndex = 0;
+            this.jeansGridView2.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.jeansGridView2_EditingControlShowing);
             // 
             // btnShiftCancle
             // 
@@ -360,14 +361,15 @@
             this.btnShiftCancle.UseVisualStyleBackColor = true;
             this.btnShiftCancle.Click += new System.EventHandler(this.btnShiftCancle_Click);
             // 
-            // button2
+            // btnShift_P
             // 
-            this.button2.Location = new System.Drawing.Point(930, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "이동처리";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnShift_P.Location = new System.Drawing.Point(930, 9);
+            this.btnShift_P.Name = "btnShift_P";
+            this.btnShift_P.Size = new System.Drawing.Size(75, 23);
+            this.btnShift_P.TabIndex = 7;
+            this.btnShift_P.Text = "이동처리";
+            this.btnShift_P.UseVisualStyleBackColor = true;
+            this.btnShift_P.Click += new System.EventHandler(this.btnShift_P_Click);
             // 
             // ProcessShiftManager
             // 
@@ -425,7 +427,7 @@
         private System.Windows.Forms.Button btnShiftCancle;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnShift_P;
         private System.Windows.Forms.Button btnSelect;
     }
 }

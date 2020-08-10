@@ -58,6 +58,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동창고", "From_Fact", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동일자", "Shift_date", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동수량", "Shift_Qty", true);
+            jeansGridView2.Columns[9].ReadOnly = false;
 
 
             DataLoad();
@@ -259,26 +260,7 @@ namespace TUChair
                     }
                 }
             }
-            //ProcessShiftVO sht = new ProcessShiftVO();
-            //JeanServicePShift shift = new JeanServicePShift();
-
-            //for (int i = 0; i < jeansGridView2.Rows.Count; i++)
-            //{
-            //    bool isCellChecked = (bool)jeansGridView2.Rows[i].Cells[0].EditedFormattedValue;
-            //    if (isCellChecked)
-            //    {
-            //        int Primary = (Convert.ToInt32(jeansGridView2.Rows[i].Cells[1].Value));
-            //        string fact = jeansGridView2.Rows[i].Cells[4].Value.ToString();
-            //        string date = jeansGridView2.Rows[i].Cells[7].Value.ToString();
-            //        shift.PSShiftReturn(Primary, date, fact);
-
-            //    }
-
-            //}
-            //if (result)
-            //{
-            //    MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
-            //}
+            
             DataLoad();
         }
 
@@ -312,6 +294,24 @@ namespace TUChair
             {
                 Shiftlist = shift.StockBinding(string.Join(",", pList));
                 jeansGridView2.DataSource = Shiftlist;
+            }
+        }
+
+        private void btnShift_P_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void jeansGridView2_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)//그리드뷰 키프레스이벤트
+        {
+            e.Control.KeyPress += new KeyPressEventHandler(Control_KeyPress); 
+        }
+
+        private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
             }
         }
     }
