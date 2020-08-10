@@ -36,18 +36,22 @@
             // dtpStart
             // 
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStart.Location = new System.Drawing.Point(4, 4);
+            this.dtpStart.Location = new System.Drawing.Point(4, 3);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpStart.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(127, 25);
+            this.dtpStart.Size = new System.Drawing.Size(112, 21);
             this.dtpStart.TabIndex = 0;
             this.dtpStart.Leave += new System.EventHandler(this.StartDateCheck);
             // 
             // dtpEnd
             // 
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnd.Location = new System.Drawing.Point(151, 4);
+            this.dtpEnd.Location = new System.Drawing.Point(132, 3);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpEnd.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(126, 25);
+            this.dtpEnd.Size = new System.Drawing.Size(111, 21);
             this.dtpEnd.TabIndex = 0;
             this.dtpEnd.Leave += new System.EventHandler(this.StartDateCheck);
             // 
@@ -55,22 +59,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(129, 7);
+            this.label1.Location = new System.Drawing.Point(113, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 20);
+            this.label1.Size = new System.Drawing.Size(21, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "~";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InDTP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dtpEnd);
             this.Controls.Add(this.dtpStart);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InDTP";
-            this.Size = new System.Drawing.Size(280, 32);
+            this.Size = new System.Drawing.Size(245, 26);
             this.ResumeLayout(false);
             this.PerformLayout();
 
