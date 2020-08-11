@@ -14,6 +14,7 @@ namespace TUChairVO
         public string Mobile { get; set; }
         public string Address { get; set; }
         public bool IsActive { get; set; }
+       
     }
     public class TestVO
     {
@@ -37,5 +38,6 @@ namespace TUChairVO
         public string  CUser_Name        { get; set; }
         public string  CUser_PWD         { get; set; }
         public bool CUser_UseOrNot       { get; set; }
+        public string CUser_Mark         { get; set; }
     }   
 }

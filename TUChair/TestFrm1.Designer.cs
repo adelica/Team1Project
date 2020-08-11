@@ -28,13 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.userControl11 = new TUChair.UserControl1();
             this.SuspendLayout();
+            // 
+            // userControl11
+            // 
+            this.userControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl11.ButtenText = "button1";
+            this.userControl11.IsOnClick = false;
+            this.userControl11.Location = new System.Drawing.Point(68, 78);
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Size = new System.Drawing.Size(146, 30);
+            this.userControl11.TabIndex = 0;
             // 
             // TestFrm1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 562);
+            this.Controls.Add(this.userControl11);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TestFrm1";
             this.Text = "TestFrm1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TestFrm1_FormClosing);
@@ -43,6 +56,9 @@
 
         }
 
+
         #endregion
+
+        private UserControl1 userControl11;
     }
 }

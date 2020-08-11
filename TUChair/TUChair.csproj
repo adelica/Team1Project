@@ -153,6 +153,12 @@
     <Compile Include="Service\CompanyService.cs" />
     <Compile Include="Service\DemandManageService.cs" />
     <Compile Include="Service\JeanServicePShift.cs" />
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\ExcelExportImport.cs" />
     <Compile Include="waitFrm.cs">
       <SubType>Form</SubType>
@@ -584,6 +590,9 @@
       <DependentUpon>PortSettingform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="waitFrm.resx">
       <DependentUpon>waitFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -800,6 +809,10 @@
     <Content Include="Resources\close-red.png" />
     <Content Include="Resources\Delete.png" />
     <Content Include="Resources\Excel.png" />
+    <None Include="Resources\Image2.bmp" />
+    <None Include="Resources\KakaoTalk_20200809_163552851_04.png" />
+    <None Include="Resources\KakaoTalk_20200809_163552851_01.png" />
+    <None Include="Resources\KakaoTalk_20200809_163552851_05.png" />
     <Content Include="Resources\new.png" />
     <Content Include="Resources\Search.png" />
     <Content Include="Resources\SetUp.png" />
