@@ -326,5 +326,41 @@ namespace TUChairDAC
                 return null;
             }
         }
+        public List<InOutVo> InOutBinding() // 입출고현황 바인딩
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = @"select convert(nvarchar, [Shift_date],23) Shift_date, Gubun , Category , From_Fact, Fact_Code,
+                                                ss.Item_Code Item_Code, item_Name, Item_Size, Item_Type, Shift_Qty,
+	                                            case when Category = '자재출고' then '0'
+                                                     when Category = '자재입고' then '0'
+                                                     else isnull(u.Price_Present, 0) end Price_Present,
+ 	                                            (Shift_Qty * case when Category = '자재출고' then 0
+                                                     when Category = '자재입고' then 0
+                                                     else isnull(u.Price_Present, 0) end ) Price,
+	                                            	 ss.modifier modifier
+                                        from StockStatus ss left join Item i on ss.Item_Code = i.Item_Code
+                                                            left join UnitPrice u on ss.Item_Code = u.Item_Code
+                                        where 1=1 ";
+
+              
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<InOutVo> list = Helper.MeilingDataReaderMapToList<InOutVo>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
     }
 }

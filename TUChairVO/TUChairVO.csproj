@@ -50,6 +50,7 @@
     <Compile Include="FacilityVO.cs" />
     <Compile Include="FactoryVO.cs" />
     <Compile Include="FilePathVO.cs" />
+    <Compile Include="InOutVo.cs" />
     <Compile Include="ItemVO.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="ProcessShiftVO.cs" />
