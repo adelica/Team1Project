@@ -34,7 +34,7 @@ namespace TUChair
                 }
                 else
                 {
-                    label1.Image = Properties.Resources.star_1;
+                    label1.Image = Properties.Resources.star_01;
                 }
             }
         }
