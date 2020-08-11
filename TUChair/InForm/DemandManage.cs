@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using TUChair.Util;
 using TUChair.Service;
+using TUChairVO;
+using System.Linq;
 
 namespace TUChair
 {
@@ -23,6 +25,11 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvDemand, "고객사명", "Com_Name", true, 100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvDemand, "고객주문번호", "So_PurchaseOrder", true, 150, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvDemand, "품목", "Item_Code", true, 100, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvDemand, "Plan_ID", "Sales_ID", false);
+
+            GetComboBinding();
+            
+            dtpDate.DateLimit = true;
         }
 
 
@@ -36,22 +43,76 @@ namespace TUChair
                 startDate = dtpDate.Start.ToString();
                 endDate = dtpDate.End.ToString();
 
+                EnumerableRowCollection<DataRow> query;
+
                 DemandManageService service = new DemandManageService();
                 DataTable dt = service.GetDemandManage(startDate, endDate);
-                //dt.DefaultView.RowFilter ="Item_Code Like '%{txtItme_Code.Text}%'";
-                dgvDemand.DataSource = dt;
+
+                if (cboCompany.SelectedIndex != 0 && cboPlanID.SelectedIndex !=0)
+                {
+                     query = from order in dt.AsEnumerable()
+                                                             where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim()) && order.Field<string>("Com_Name").Contains(cboCompany.Text.Trim())
+                                                            && order.Field<int>("Sales_ID") ==Convert.ToInt32(cboPlanID.Text)
+                                                             select order;
+                }
+                else if(cboCompany.SelectedIndex ==0 && cboPlanID.SelectedIndex !=0)
+                {
+                     query = from order in dt.AsEnumerable()
+                                                             where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim()) && order.Field<string>("Sales_ID").Contains(cboPlanID.Text.Trim())
+                             select order;
+                }
+                else if (cboCompany.SelectedIndex != 0 && cboPlanID.SelectedIndex == 0)
+                {
+                    query = from order in dt.AsEnumerable()
+                            where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim()) && order.Field<string>("Com_Name").Contains(cboCompany.Text.Trim())
+                            select order;
+                }
+                else
+                {
+                    query = from order in dt.AsEnumerable()
+                            where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim())
+                            select order;
+                }
+                
+                DataView view = query.AsDataView();
+
+                dgvDemand.DataSource = view;
+      
             }
+        }
+
+        public void GetComboBinding()
+        {
+            DemandManageService service = new DemandManageService();
+            List<DemandManageVO> list = service.GetComboBinding();
+ 
+            List<string> com = (from code in list
+                                select code.Com_Name).Distinct().ToList();
+            List<string>  id = (from Id in list
+                            where Id.Sales_ID !="0"
+                            select Id.Sales_ID).Distinct().ToList();
+            com.Insert(0, "전체");
+            id.Insert(0, "전체");
+            ///id.Add("전체");
+            foreach (string c in com)
+                cboCompany.Items.Add(c);
+            foreach (string i in id)
+                cboPlanID.Items.Add(i);
+
+            CommonUtil.CboSetting(cboCompany);
+            CommonUtil.CboSetting(cboPlanID);
+
         }
         private void DemandManage_Load(object sender, EventArgs e)
         {
             frm = (TUChairMain2)this.MdiParent;
-            frm.New += LoadData;
+            frm.Search += LoadData;
 
         }
 
         private void DemandManage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frm.New-=LoadData;
+            frm.Search -= LoadData;
         }
     }
 }
