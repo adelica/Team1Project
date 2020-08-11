@@ -16,22 +16,28 @@ namespace TUChair
         public PORegi()
         {
             InitializeComponent();
+            dtpDate.MinDate = DateTime.Now;
         }
         DataTable poData = null;
-        private DataTable btnFileSelect_Click(object sender, EventArgs e)
+        bool check = false;
+
+        public DataTable POUpLoad { get { return poData; } }
+        public bool Check { get { return check; }}
+
+        private void btnFileSelect_Click(object sender, EventArgs e)
         {
             try
             {
                 Excel.Application xlApp = null;
-            Excel.Workbook xlWorkbook = null;
-            Excel.Worksheet xlWorksheet = null;
+                Excel.Workbook xlWorkbook = null;
+                Excel.Worksheet xlWorksheet = null;
 
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Excel File (*.xlsx)|*.xlsx |Excel File 97 ~ 2003(*.xls)|*.xls|All Files(*.*)|*.*";
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Excel File (*.xlsx)|*.xlsx |Excel File 97 ~ 2003(*.xls)|*.xls|All Files(*.*)|*.*";
 
-            if(ofd.ShowDialog()==DialogResult.OK)
-            {
-               
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    txtFilePath.Text = ofd.FileName;
                     DataTable dt = new DataTable();
 
                     xlApp = new Excel.Application();
@@ -42,34 +48,42 @@ namespace TUChair
 
                     object[,] data = range.Value;
 
-                    for(int i = 1; i<=range.Columns.Count; i++)
+                    for (int i = 1; i <= range.Columns.Count; i++)
                     {
                         dt.Columns.Add(i.ToString(), typeof(string));
                     }
 
-                    for(int r= 1; r< range.Rows.Count; r++)
+                    for (int r = 1; r < range.Rows.Count; r++)
                     {
                         DataRow dr = dt.Rows.Add();
-                        for(int c=1; c<range.Columns.Count; c++)
+                        for (int c = 1; c < range.Columns.Count; c++)
                         {
                             dr[c - 1] = data[r, c];
                         }
                     }
                     xlWorkbook.Close(true);
                     xlApp.Quit();
-                    poData = dt;                  
-            }
-                return poData;
+                 
+                    poData = dt;
+                   
+                }
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message);
-                return null;
+                check = false;
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            check = true;
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            check = false;
             this.Close();
         }
     }
