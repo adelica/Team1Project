@@ -19,6 +19,7 @@ namespace TUChair.Service
 
         internal List<DemandManageVO> GetComboBinding()
         {
+
             DemandManageDAC dac = new DemandManageDAC();
             return dac.GetComboBinding();
         }

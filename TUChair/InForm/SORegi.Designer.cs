@@ -113,11 +113,12 @@
             // 
             // btnInsert
             // 
+            this.btnInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnInsert.TabIndex = 14;
             // 
-            // btnCancle
+            // btnCancel
             // 
-            //this.btnCancle.TabIndex = 15;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
             // 
             // label2
             // 
@@ -166,7 +167,6 @@
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(152, 88);
             this.comboBox1.Name = "comboBox1";
@@ -343,7 +343,6 @@
             // comboBox4
             // 
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(138, 85);
             this.comboBox4.Name = "comboBox4";
@@ -353,7 +352,6 @@
             // comboBox5
             // 
             this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(138, 151);
             this.comboBox5.Name = "comboBox5";

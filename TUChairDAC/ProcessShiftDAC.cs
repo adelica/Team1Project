@@ -272,18 +272,85 @@ namespace TUChairDAC
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
-                    cmd.CommandText = @"select s.no  no, s.Item_Code Item_Code, Item_Name, Item_Size,Item_Type, Qty, 
+                    cmd.CommandText = @"select s.no  no, s.Item_Code Item_Code, Item_Name, Item_Size,Item_Type,s.Fact_Code, Qty, 
 	case when Item_Type = '원자재' then 'WH02' 
 		 when Item_Type = '반제품' then 'WH03'
 		when	Item_Type = '완제품' then 'WH03'
-				end From_Fact ,CONVERT(varchar(10),getdate(), 23) Shift_date , Shift_Qty
-	from Stock s left join Item i on s.Item_Code = i.Item_Code left join [StockStatus] ss on s.Item_Code = ss.Item_Code
+				end From_Fact			 ,CONVERT(varchar(10),getdate(), 23) Shift_date , 0 as 'N_HOUR'
+	from Stock s left join Item i on s.Item_Code = i.Item_Code
                                         where s.no in(" + pry + ")";                    
 
                     cmd.Connection.Open();
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     List<StockShift> list = Helper.MeilingDataReaderMapToList<StockShift>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
+        public List<StockShift> ThisIsShift(int Primary, string Item, string Type, string Modifier, int Qtyt) // 공정이동 진그리드1 검색조건
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_StockStatusInsert";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@No", Primary);
+                    cmd.Parameters.AddWithValue("@Item", Item);
+                    cmd.Parameters.AddWithValue("@Type", Type) ;
+                    cmd.Parameters.AddWithValue("@Modifier", Modifier);
+                    cmd.Parameters.AddWithValue("@Shift_Qty", Qtyt);
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<StockShift> list = Helper.MeilingDataReaderMapToList<StockShift>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
+        public List<InOutVo> InOutBinding() // 입출고현황 바인딩
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = @"select convert(nvarchar, [Shift_date],23) Shift_date, Gubun , Category , From_Fact, Fact_Code,
+                                                ss.Item_Code Item_Code, item_Name, Item_Size, Item_Type, Shift_Qty,
+	                                            case when Category = '자재출고' then '0'
+                                                     when Category = '자재입고' then '0'
+                                                     else isnull(u.Price_Present, 0) end Price_Present,
+ 	                                            (Shift_Qty * case when Category = '자재출고' then 0
+                                                     when Category = '자재입고' then 0
+                                                     else isnull(u.Price_Present, 0) end ) Price,
+	                                            	 ss.modifier modifier
+                                        from StockStatus ss left join Item i on ss.Item_Code = i.Item_Code
+                                                            left join UnitPrice u on ss.Item_Code = u.Item_Code
+                                        where 1=1 ";
+
+              
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<InOutVo> list = Helper.MeilingDataReaderMapToList<InOutVo>(reader);
                     cmd.Connection.Close();
                     return list;
                 }

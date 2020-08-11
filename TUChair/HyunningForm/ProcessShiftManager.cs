@@ -54,11 +54,12 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품목타입", "Item_Type", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "현재창고", "Fact_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "현재고", "Qty", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동창고", "From_Fact", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동일자", "Shift_date", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동수량", "Shift_Qty", true);
-            jeansGridView2.Columns[9].ReadOnly = false;
+            jeansGridView2.Columns[10].ReadOnly = false;
 
 
             DataLoad();
@@ -75,6 +76,29 @@ namespace TUChair
                      select item).ToList();
             CommonUtil.ReComboBinding(cboItemCode, cList, "선택");
 
+        }
+        private void btnShift_P_Click(object sender, EventArgs e)
+        {
+            
+            for (int i = 0; i < jeansGridView2.Rows.Count; i++)
+            {
+                bool isCellChecked = (bool)jeansGridView2.Rows[i].Cells[0].EditedFormattedValue;
+                if (isCellChecked)
+                {
+                    int Primary = (Convert.ToInt32(jeansGridView2.Rows[i].Cells[1].Value));
+                    string Item = jeansGridView2.Rows[i].Cells[2].Value.ToString();
+                    string Type = jeansGridView2.Rows[i].Cells[5].Value.ToString();
+                    string Modifier = LoginFrm.userName;
+                    int Qty = (Convert.ToInt32(jeansGridView2.Rows[i].Cells[10].Value));
+
+                    JeanServicePShift shift = new JeanServicePShift();
+                    shift.ThisIsShift(Primary, Item, Type, Modifier, Qty);
+                  
+
+                }
+            }
+            jeansGridView2.DataSource = null;
+            DataLoad();
         }
         private void Save(object sender, EventArgs e)
         {
@@ -297,10 +321,7 @@ namespace TUChair
             }
         }
 
-        private void btnShift_P_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void jeansGridView2_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)//그리드뷰 키프레스이벤트
         {
@@ -312,6 +333,19 @@ namespace TUChair
             if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
             {
                 e.Handled = true;
+                
+            }
+            
+        }
+
+        private void jeansGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = jeansGridView2.CurrentRow.Index;
+            if ((int)jeansGridView2.Rows[rowIndex].Cells[7].Value < (int)jeansGridView2.Rows[rowIndex].Cells[10].Value)
+            {
+                MessageBox.Show("이동수량은 현재고를 넘을수 없어");
+                jeansGridView2.Rows[rowIndex].Cells[9].Value = 0;
+                return;
             }
         }
     }

@@ -46,6 +46,11 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.Search(Fact, code, txt);
         }
+
+
+
+
+
         public List<PSMManager> PSMManager() // 공정이동 현황 바인딩
         {
             ProcessShiftDAC dac = new ProcessShiftDAC();
@@ -56,11 +61,22 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.PSMMSearch(date, item, Fact, txt);
         }
+
+
         public List<StockShift> StockBinding(string pry)// 공정이동 현황검색조건
         {
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.StockBinding(pry);
         }
-
+        public List<StockShift> ThisIsShift(int Primary, string Item, string Type, string Modifier,int Qty)// 공정이동 현황검색조건
+        {
+            ProcessShiftDAC dac = new ProcessShiftDAC();
+            return dac.ThisIsShift(Primary, Item, Type, Modifier, Qty);
+        }
+        public List<InOutVo> InOutBinding()// 입출고현황 바인딩
+        {
+            ProcessShiftDAC dac = new ProcessShiftDAC();
+            return dac.InOutBinding();
+        }
     }
 }

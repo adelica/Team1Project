@@ -8,7 +8,7 @@ namespace TUChairVO
 {
     public class DemandManageVO
     {
-       public string Com_Name { get; set; }
-       public int Sales_ID { get; set; }
+      public string Com_Name { get; set; }
+      public string Sales_ID { get; set; }
     }
 }

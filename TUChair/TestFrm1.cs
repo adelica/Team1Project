@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.DataProcessing.InMemoryDataProcessor.GraphGenerator;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace TUChair
 {
     public partial class TestFrm1 : Form
     {
+        bool bflag=false;
         public TestFrm1()
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace TUChair
             frm.Delete += Delete;
             frm.New += New;
             frm.Excel += Excel;
+            
         }
         private void Save(object sender, EventArgs e)
         {
@@ -62,6 +65,25 @@ namespace TUChair
             frm.Delete -= Delete;
             frm.New -= New;
             frm.Excel -= Excel;
+        }
+
+        private void userControl11_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userControl11_labelClick(object sender, EventArgs e)
+        {
+            if (bflag)
+            {
+                bflag = false;
+                userControl11.IsOnClick = bflag;
+            }
+            else
+            {
+                bflag = true;
+                userControl11.IsOnClick = bflag;
+            }
         }
     }
 }

@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TUChair.Util;
 
+
 namespace TUChair
 {
-    public partial class POUpLoad : Form
+    public partial class POUpLoad : Form//------------하는 중
     {
         public POUpLoad()
         {
@@ -27,13 +28,10 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "순번", "no", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "WORK-ORDER-ID", "WorkOrderNo", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "업체코드", "Com_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "납품처", "Com_Type", true);
-            //CommonUtil.AddNewColumnToDataGridView(dgvPO, "MKT", "??", true);
-            //CommonUtil.AddNewColumnToDataGridView(dgvPO, "발주구분", "??", true);
-            //CommonUtil.AddNewColumnToDataGridView(dgvPO, "GROUP", "??", true);
-            //CommonUtil.AddNewColumnToDataGridView(dgvPO, "구분", "??", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "SIZE", "??", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "입고P/NO", "??", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "납품처", "Com_Name", true);
+   
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "SIZE", "Item_Size", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "입고P/NO", "Item_Code", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "품명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "계획수량합계", "Sales_Qty", true);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "납기일", "Vo_EndDate", true);

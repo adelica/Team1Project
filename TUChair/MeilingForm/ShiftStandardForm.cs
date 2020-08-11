@@ -20,18 +20,18 @@ namespace TUChair
         {
             InitializeComponent();
         }
+
+
         List<ShiftVO> list;
-        List<string> shiftCbolist;
-        List<string> FaciCbolist;
         Dictionary<String, String> updatedic;
         string upInsert;
         private void ShiftStandardForm_Load(object sender, EventArgs e)
         {
 
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-            // frm.Save += Save;
+            frm.Save += Save;
             frm.Search += Search;
-            // frm.Delete += Delete;
+            frm.Delete += Delete;
             frm.New += New;
             frm.Excel += Excel;
             // 폼 로드시 전체 데이타 보여주기
@@ -41,8 +41,8 @@ namespace TUChair
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             AllBinding();
             DataBinding();
-
-
+            ComboBinding();
+            DataBinding();
 
             //콤보박스에 item넣기
             // 설비코드 FaciCbolist
@@ -51,13 +51,6 @@ namespace TUChair
 
 
             //MessageBox.Show("ok");
-
-
-
-
-
-
-
         }
 
         private void AllBinding()
@@ -65,6 +58,7 @@ namespace TUChair
             jeansGridView1.IsAllCheckColumnHeader = true;
 
             CommonUtil.InitSettingGridView(jeansGridView1);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "ShitID", "Shift_ID", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비코드", "Faci_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Faci_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Shift_StartDate", true);
@@ -89,32 +83,43 @@ namespace TUChair
 
         private void ComboBinding()
         {
-            List<ShiftVO> list = new List<ShiftVO>();
-            
-            FaciCbolist = new List<string>();
-
+            List<string> FaciCodeList = new List<string>();
+            FaciCodeList.Insert(0,"");
             for (int i = 0; i < jeansGridView1.RowCount; i++)
             {
-                FaciCbolist.Add(jeansGridView1.Rows[i].Cells[2].Value.ToString());
+                FaciCodeList.Add(jeansGridView1.Rows[i].Cells[2].Value.ToString());
 
             };
-            comboBox2.Items.AddRange(FaciCbolist.ToArray());
-            // shiftID
-            shiftCbolist = new List<string>();
+            FaciCodeList = FaciCodeList.Distinct().ToList();
+            List<string> FaciNameList = new List<string>();
+            FaciNameList.Insert(0,"선택");
             for (int i = 0; i < jeansGridView1.RowCount; i++)
             {
-                shiftCbolist.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
+                FaciNameList.Add(jeansGridView1.Rows[i].Cells[3].Value.ToString());
+
             };
-            cboShiftID.Items.AddRange(shiftCbolist.ToArray());
+            FaciNameList = FaciNameList.Distinct().ToList();
+            Dictionary<string, string> ComboDic = new Dictionary<string, string>();
+           // ComboDic.Add("선택", "선택");
+            ComboDic = FaciNameList.Zip(FaciCodeList, (k, v) => new { k, v }).ToDictionary(a => a.k, a => a.v);           
+            comboBox2.Items.Clear();
+            comboBox2.DataSource =new BindingSource(ComboDic,null);
+            comboBox2.DisplayMember = "key";
+            comboBox2.ValueMember = "value";
+            comboBox2.SelectedIndex = 0;
+           // comboBox2.Items.AddRange(FaciNameList.ToArray());          
         }
 
       
 
         private void Excel(object sender, EventArgs e)
         {
-            using (waitFrm frm = new waitFrm(ExportOrderList))
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                frm.ShowDialog(this);
+                using (waitFrm frm = new waitFrm(ExportOrderList))
+                {
+                    frm.ShowDialog(this);
+                }
             }
         }
         private void ExportOrderList()
@@ -129,104 +134,88 @@ namespace TUChair
 
         private void New(object sender, EventArgs e)
         {
-           
-            ComboBinding();
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                DataBinding();
+                comboBox2.SelectedIndex = 0;
+            }
         }
 
-        //private void Delete(object sender, EventArgs e)
-        //{
-            
-        //}
+        private void Delete(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+
+            }
+        }
 
         private void Search(object sender, EventArgs e)
         {
-            MessageBox.Show("조회클릭");
+            //MessageBox.Show("조회클릭");
             //shift id에 값 넣고 조회 클릭시 datagridview binding할 list
-            if (cboShiftID.SelectedItem != null || comboBox2.SelectedItem != null)
-            {
-                List<ShiftVO> list2 = (from item in list
-                                       where item.Faci_Code == comboBox2.SelectedItem.ToString() &&
-                    item.Shift_ID.ToString() == cboShiftID.SelectedItem.ToString()
-                                       select new ShiftVO
-                                       {
-                                           Shift_ID = item.Shift_ID,
-                                           Faci_Code = item.Faci_Code,
-                                           Shift_StartTime = item.Shift_StartTime,
-                                           Shift_EndTime = item.Shift_EndTime,
-                                           Shift_StartDate = item.Shift_StartDate,
-                                           Shift_EndDate = item.Shift_EndDate,
-                                           Shift_InputPeople = item.Shift_InputPeople,
-                                           Shift_UserOrNot = item.Shift_UserOrNot,
-                                           Shift_Modifier = item.Shift_Modifier,
-                                           Shift_ModifierDate = item.Shift_ModifierDate
-                                       }).ToList();
-                jeansGridView1.DataSource = list2;
-            }
-            else
-            {
-                MessageBox.Show("검색 조건을 선택해 주세요");
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this) { 
+                if (comboBox2.SelectedIndex != 0)
+                {
+                    List<ShiftVO> list2 = (from item in list
+                                           where item.Faci_Code == comboBox2.SelectedValue.ToString()
+                                           select new ShiftVO
+                                           {   Shift_ID = item.Shift_ID,
+                                               Faci_Code = item.Faci_Code,
+                                               Faci_Name = item.Faci_Code,
+                                               Shift_StartTime = item.Shift_StartTime,
+                                               Shift_EndTime = item.Shift_EndTime,
+                                               Shift_StartDate = item.Shift_StartDate,
+                                               Shift_EndDate = item.Shift_EndDate,
+                                               Shift_InputPeople = item.Shift_InputPeople,
+                                               Shift_UserOrNot = item.Shift_UserOrNot,
+                                               Shift_Modifier = item.Shift_Modifier,
+                                               Shift_ModifierDate = item.Shift_ModifierDate
+                                           }).ToList();
+                    jeansGridView1.DataSource = list2;
+                }
+                else
+                {
+                    MessageBox.Show("검색 조건을 선택해 주세요");
+                }
             }
         }
 
-        //private void Save(object sender, EventArgs e)
-        //{
-            
-        //}
+        private void Save(object sender, EventArgs e)
+        {
+
+        }
 
         // 설비 선택 콤보박스
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             //설비콤보박스 값변화시 datagridview binding 할 list
-            List<ShiftVO> list2 = (from item in list
-                                   where item.Faci_Code == comboBox2.SelectedItem.ToString()
-                                   select new ShiftVO
-                                   {
-                                       Shift_ID = item.Shift_ID,
-                                       Faci_Code = item.Faci_Code,
-                                       Shift_StartTime = item.Shift_StartTime,
-                                       Shift_EndTime = item.Shift_EndTime,
-                                       Shift_StartDate = item.Shift_StartDate,
-                                       Shift_EndDate = item.Shift_EndDate,
-                                       Shift_InputPeople = item.Shift_InputPeople,
-                                       Shift_UserOrNot = item.Shift_UserOrNot,
-                                       Shift_Modifier = item.Shift_Modifier,
-                                       Shift_ModifierDate = item.Shift_ModifierDate
-                                   }).ToList();
-
-            jeansGridView1.DataSource = list2;
-        }
-
-     
+            //List<ShiftVO> list2 = (from item in list
+            //                       where item.Faci_Code == comboBox2.SelectedItem.ToString()
+            //                       select new ShiftVO
+            //                       {
+            //                           Shift_ID = item.Shift_ID,
+            //                           Faci_Code = item.Faci_Code,
+            //                           Shift_StartTime = item.Shift_StartTime,
+            //                           Shift_EndTime = item.Shift_EndTime,
+            //                           Shift_StartDate = item.Shift_StartDate,
+            //                           Shift_EndDate = item.Shift_EndDate,
+            //                           Shift_InputPeople = item.Shift_InputPeople,
+            //                           Shift_UserOrNot = item.Shift_UserOrNot,
+            //                           Shift_Modifier = item.Shift_Modifier,
+            //                           Shift_ModifierDate = item.Shift_ModifierDate
+            //                       }).ToList();
+            //jeansGridView1.DataSource = list2;
+        }     
         // shiftID 값 변할때 
-        private void cboShiftID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<ShiftVO> list3 = (from item in list
-                                   where item.Shift_ID.ToString() == cboShiftID.SelectedItem.ToString()
-                                   select new ShiftVO
-                                   {
-                                       Shift_ID = item.Shift_ID,
-                                       Faci_Code = item.Faci_Code,
-                                       Shift_StartTime = item.Shift_StartTime,
-                                       Shift_EndTime = item.Shift_EndTime,
-                                       Shift_StartDate = item.Shift_StartDate,
-                                       Shift_EndDate = item.Shift_EndDate,
-                                       Shift_InputPeople = item.Shift_InputPeople,
-                                       Shift_UserOrNot = item.Shift_UserOrNot,
-                                       Shift_Modifier = item.Shift_Modifier,
-                                       Shift_ModifierDate = item.Shift_ModifierDate
-                                   }).ToList();
-
-            jeansGridView1.DataSource = list3;
-        }
-
+        // 등록버튼 
         private void btnInsert_Click(object sender, EventArgs e)
         {
             upInsert = "Insert";
             ShiftPopUpForm shiftPop = new ShiftPopUpForm();
             shiftPop.Owner = this;
 
-            shiftPop.sendlist = FaciCbolist;
-            shiftPop.sendshiftlist = shiftCbolist;
+           // shiftPop.sendlist = FaciCbolist;
+            //shiftPop.sendshiftlist = shiftCbolist;
             shiftPop.uporInsert = upInsert;
             shiftPop.ShowDialog();
         }
@@ -301,8 +290,8 @@ namespace TUChair
                 shiftPop.Owner = this;
                 shiftPop.uptdic = updatedic;
                 shiftPop.uporInsert = upInsert;
-                shiftPop.sendshiftlist = shiftCbolist;
-                shiftPop.sendlist = FaciCbolist;
+               // shiftPop.sendshiftlist = shiftCbolist;
+               // shiftPop.sendlist = FaciCbolist;
                 shiftPop.ShowDialog();
             }
         }
@@ -370,9 +359,9 @@ namespace TUChair
         private void ShiftStandardForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-           // frm.Save -= Save;
+           frm.Save -= Save;
             frm.Search -= Search;
-           // frm.Delete -= Delete;
+           frm.Delete -= Delete;
             frm.New -= New;
             frm.Excel -= Excel;
         }

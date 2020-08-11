@@ -19,7 +19,7 @@ namespace TUChairDAC
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = strConn;
-                    cmd.CommandText = @"select CUser_ID, c.AuthorGroup_ID,a.AuthorGroup_Name,CUser_Name, CUser_PWD from CUser C inner join AuthorGroup A On  c.AuthorGroup_ID=a.AuthorGroup_ID  where CUser_UseOrNot='Y' and CUser_ID =@userID ";
+                    cmd.CommandText = @"select CUser_ID, c.AuthorGroup_ID,a.AuthorGroup_Name,CUser_Name, CUser_PWD,CUser_Mark from CUser C inner join AuthorGroup A On  c.AuthorGroup_ID=a.AuthorGroup_ID  where CUser_UseOrNot='Y' and CUser_ID =@userID ";
                     cmd.Parameters.AddWithValue("@userID", userID);
                     cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -28,11 +28,38 @@ namespace TUChairDAC
                     if (list.Count == 0)
                         return null;
                     else
-                    return list[0];
+                        return list[0];
                 }
             }
             catch (Exception err)
             {
+                throw err;
+            }
+        }
+
+        public bool InsertMark(string marks, string UID)
+        {
+            try
+            {
+                SqlConnection strConn = new SqlConnection(this.ConnectionString);
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = strConn;
+                    cmd.CommandText = @"update [dbo].[CUser] set [CUser_Mark]=@marks where [CUser_ID]= @UID";
+               
+                    cmd.Parameters.AddWithValue("@marks", marks);
+                    cmd.Parameters.AddWithValue("@UID", UID==""?DBNull.Value: (Object)UID);
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
                 throw err;
             }
         }

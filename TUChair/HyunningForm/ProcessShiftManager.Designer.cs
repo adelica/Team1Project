@@ -349,6 +349,7 @@
             this.jeansGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jeansGridView2.Size = new System.Drawing.Size(1090, 110);
             this.jeansGridView2.TabIndex = 0;
+            this.jeansGridView2.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.jeansGridView2_CellValueChanged);
             this.jeansGridView2.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.jeansGridView2_EditingControlShowing);
             // 
             // btnShiftCancle

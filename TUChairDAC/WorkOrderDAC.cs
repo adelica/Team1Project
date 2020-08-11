@@ -19,7 +19,7 @@ namespace TUChairDAC
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = @"select s.[Faci_Code],f.[Faci_Name],[Shift_StartDate],[Shift_EndTime],[Shift_EndDate],[Shift_StartTime],[Shift_EndTime],
+                    cmd.CommandText = @"select s.Shift_ID,s.[Faci_Code],f.[Faci_Name],[Shift_StartDate],[Shift_EndTime],[Shift_EndDate],[Shift_StartTime],[Shift_EndTime],
 [Shift_InputPeople],[Shift_UserOrNot],[Shift_Modifier],[Shift_ModifierDate],[Shift_Others]
 from [dbo].[Shift] s left outer join [dbo].[Facility] f 
 on s.Faci_Code = f.Faci_Code";
