@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Utils.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,8 +25,10 @@ namespace TUChair
         public event EventHandler Save;
         public event EventHandler Delete;
         public event EventHandler Excel;
+
         public delegate void BarCodeReadComplete(object sender, ReadEventArgs e);
         public event BarCodeReadComplete Readed;
+        public CUserVO userInfoVO = null;
         List<Panel> uclist = new List<Panel>();
         List<Timer> timers = new List<Timer>();
         List<bool> slideFlags = new List<bool>();
@@ -33,11 +36,13 @@ namespace TUChair
         List<int> intevalMax = null;
         List<int> menulist = new List<int>();
         List<AuthorVO> author = null;
+        List<string> testlist = new List<string>();
         Point point = new Point(0, 0);
-       public  CUserVO userInfoVO = null;
         Button pribtn = null;
         SerialPort _port;
-      
+        bool bflag = false;
+
+        #region 포트연결 관련
         public SerialPort Port    // 포트 프로퍼티
         {
             get
@@ -57,7 +62,6 @@ namespace TUChair
             {
                 if (_strings == null)
                     _strings = new StringBuilder(1024);
-
                 _strings.AppendLine(value);
 
                 if (Readed != null)
@@ -73,40 +77,6 @@ namespace TUChair
         {
             get { return _isopen; }
             set { _isopen = value; }
-        }
-        public TUChairMain2()
-        {
-            InitializeComponent();
-        }
-        private void TUChairMain2_Load(object sender, EventArgs e)
-        {
-            LoginFrm frm = new LoginFrm();
-            this.Hide();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                userInfoVO= frm.userinfo;
-                this.Show();
-            }
-            else
-           {
-                this.Close();
-                return;
-            }
-            LoginService service = new LoginService();
-            author = service.GetAuthorInfo(userInfoVO.AuthorGroup_ID);
-            var item = (from A in author
-                        group A by A.Module_ID
-                        ).ToList();
-            foreach (var list in item)
-            {
-                menulist.Add(Convert.ToInt32(list.Key));
-            }
-
-            if (Properties.Settings.Default.PortName.Length > 0)
-                SerialPortConnecting();
-
-            BindingMenu();
-            requlUc();
         }
         public void Clearstrings()
         {
@@ -156,9 +126,7 @@ namespace TUChair
                     try
                     {
                         Port.Open();
-
                     }
-
                     catch (Exception err)
                     {
                         MessageBox.Show(err.Message);
@@ -171,6 +139,70 @@ namespace TUChair
             }
             IsOpen = _port.IsOpen;
         }
+        #endregion
+
+        public TUChairMain2()
+        {
+            InitializeComponent();
+        }
+        private void TUChairMain2_Load(object sender, EventArgs e)
+        {
+            LoginFrm frm = new LoginFrm();
+            this.Hide();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                userInfoVO = frm.userinfo;
+                this.Show();
+            }
+            else
+            {
+                this.Close();
+                return;
+            }
+            LoginMenuBInding();
+            if (Properties.Settings.Default.PortName.Length > 0) //시리얼 포트가 연결되어야 연결
+                SerialPortConnecting();
+
+            BindingMenu();
+            requlUc();
+        }
+
+        private void LoginMenuBInding()
+        {
+            LoginService service = new LoginService();
+            author = service.GetAuthorInfo(userInfoVO.AuthorGroup_ID);
+            if (userInfoVO.CUser_Mark != "")
+            {
+                testlist = userInfoVO.CUser_Mark.Split('@').ToList<string>();
+                foreach (var tests in testlist)
+                {
+                    var AA = (from A in author
+                              where A.Program_ID == tests
+                              select A).ToList();
+                    AuthorVO[] authorVO1 = new AuthorVO[1];
+
+                    AA.CopyTo(authorVO1);
+                    AuthorVO authorVO = new AuthorVO();
+                    authorVO = authorVO1[0];
+                    authorVO.Module_ID = 9;
+                    authorVO.Module_Name = "즐겨찾기";
+                    authorVO.Program_order = 0;
+
+                    author = (from A in author
+                              orderby A.Program_order
+                              select A).ToList();
+                }
+            }
+
+            var item = (from A in author
+                        group A by A.Module_ID
+                        ).ToList();
+            foreach (var list in item)
+            {
+                menulist.Add(Convert.ToInt32(list.Key));
+            }
+        }
+
         #region 메뉴바인딩
         private void BindingMenu()
         {
@@ -199,28 +231,49 @@ namespace TUChair
                 {
                     uclist[i].ResumeLayout(false);
 
-                    Button btn = new Button();
-                    btn.Height = 20;
-                    btn.Width = 130;
+                    //Button btn = new Button();
+                    //btn.Height = 20;
+                    //btn.Width = 130;
 
                     if (j == 0)
                     {
+                        Button btn = new Button();
                         btn.Tag = i;
+                          btn.Height = 30;
+                        btn.Width = 130;
                         btn.Click += button2_Click;
+                      
                         btn.Text = menus[0].Module_Name;
                         btn.BackColor = Color.AliceBlue;
+                        uclist[i].Controls.Add(btn);
+                        btn.Location = new Point(point.X, point.Y + j * 20);
+                        btn.BringToFront();
                     }
                     else
                     {
+                        UserControl1 btn = new UserControl1();
+                       
+                        btn.Height = 30;
+                        btn.Width = 130;
                         btn.Tag = menus[j - 1];
-                        btn.Click += button3_Click;
-                        btn.Text = menus[j - 1].Program_Name;
+                        btn.labelClick += Btn_labelClick;
+                        btn.buttonClick += button3_Click;
+                        if (testlist != null)
+                        {
+                            foreach (var item in testlist)
+                            {
+                                if (item == menus[j - 1].Program_ID)
+                                    btn.IsOnClick = true;
+                            }
+                        }
+                        btn.ButtenText = menus[j - 1].Program_Name;
+                        uclist[i].Controls.Add(btn);
+                        btn.Location = new Point(point.X, point.Y + j * 30);
+                        btn.BringToFront();
                     }
-                    uclist[i].Controls.Add(btn);
-                    btn.Location = new Point(point.X, point.Y + j * 20);
-                    btn.BringToFront();
+                  
                 }
-                int interval = 20 * menus.Count;
+                int interval = 30 * menus.Count;
                 intevals.Add(interval);
                 bool bflag = true;
                 slideFlags.Add(bflag);
@@ -228,47 +281,83 @@ namespace TUChair
                 Timer timer = new Timer();
                 timer.Tick += Timer_Tick;
                 timer.Interval = 1;
+                timer.Enabled = false;
                 timers.Add(timer);
             }
             intevalMax = intevals.ToList();
         }
+
+        private void Btn_labelClick(object sender, EventArgs e)  //즐겨찾기가 눌렸을 때 
+        {
+            var ctr = (UserControl1)sender;
+            string proName = ((AuthorVO)ctr.Tag).Program_ID;
+            bflag = ((UserControl1)sender).IsOnClick;
+            if (bflag)
+            {
+                bflag = false;
+                ctr.IsOnClick = bflag;
+                testlist.Remove(proName);
+            }
+            else
+            {
+                if (testlist.Count > 7)
+                {
+                    MessageBox.Show("즐겨찾기 메뉴는 8개 이상 등록 할 수 없습니다.");
+                    return;
+                }
+                bflag = true;
+                ctr.IsOnClick = bflag;
+                testlist.Add(proName);
+            }
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-           AuthorVO author =(AuthorVO)((Button)sender).Tag;
+           AuthorVO author =(AuthorVO)((UserControl1)sender).Tag;
 
             OpenOrCreateForm(author.Program_ID);
+
         }
         private void button2_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-          
-            ////string strTmpNum = Regex.Replace(btn.Text, @"\D", "");
-            //timers[Convert.ToInt32(btn.Tag)].Tag = Convert.ToInt32(btn.Tag);
-            //if (pribtn == null)
-            //{
-            //    timers[Convert.ToInt32(btn.Tag)].Start();
-            //}
-            //else
-            //{
-            //    timers[Convert.ToInt32(btn.Tag)].Start();
 
-            //    timers[Convert.ToInt32(pribtn.Tag)].Tag = Convert.ToInt32(pribtn.Tag);
-
-            //    timers[Convert.ToInt32(pribtn.Tag)].Start();
-            //}
-            //pribtn = btn;
-
-
+            //string strTmpNum = Regex.Replace(btn.Text, @"\D", "");
             timers[Convert.ToInt32(btn.Tag)].Tag = Convert.ToInt32(btn.Tag);
-            
+            if (pribtn == null)
+            {
+                timers[Convert.ToInt32(btn.Tag)].Enabled = true;
                 timers[Convert.ToInt32(btn.Tag)].Start();
+                pribtn = btn;
+            }
+            else if (pribtn != null&&pribtn!=btn)
+            {
+                if (timers[Convert.ToInt32(pribtn.Tag)].Enabled==true)
+                    return;
+                timers[Convert.ToInt32(btn.Tag)].Enabled = true;
+                timers[Convert.ToInt32(btn.Tag)].Start();
+
+                timers[Convert.ToInt32(pribtn.Tag)].Tag = Convert.ToInt32(pribtn.Tag);
+                timers[Convert.ToInt32(pribtn.Tag)].Enabled = true;
+                timers[Convert.ToInt32(pribtn.Tag)].Start();
+                pribtn = btn;
+            }
+            else
+            {
+                pribtn = null;
+                timers[Convert.ToInt32(btn.Tag)].Enabled = true;
+                timers[Convert.ToInt32(btn.Tag)].Start();
+            }
+          
+            //timers[Convert.ToInt32(btn.Tag)].Tag = Convert.ToInt32(btn.Tag);
+            //    timers[Convert.ToInt32(btn.Tag)].Start();
         }
         private void requlUc()
         {
             for (int i = 0; i < uclist.Count - 1; i++)
             {
                 uclist[i].Controls.Add(uclist[i + 1]);
-                uclist[i + 1].Location = new Point(point.X, point.Y + 20);
+                uclist[i + 1].Location = new Point(point.X, point.Y + 30);
                 uclist[i + 1].BringToFront();
             }
         }
@@ -302,7 +391,7 @@ namespace TUChair
         private void Timer_Tick(object sender, EventArgs e)
         {
             int ntr = Convert.ToInt32(((Timer)sender).Tag);
-            Slidingmenu(uclist[ntr + 1], timers[ntr], intevals, slideFlags, intevalMax[ntr], ntr);
+            Slidingmenu(uclist[ntr + 1], ((Timer)sender), intevals, slideFlags, intevalMax[ntr], ntr);
         }
         #endregion
         #region TabForm만드는 부분
@@ -325,7 +414,6 @@ namespace TUChair
                     this.ActiveMdiChild.Tag = tp;
                     this.ActiveMdiChild.FormClosed += new FormClosedEventHandler(ActiveMdiChild_FormClosed);
                 }
-
                 if (!tabForms.Visible) tabForms.Visible = true;
             }
         }
@@ -359,7 +447,7 @@ namespace TUChair
         { 
             
         }
-        private void Slidingmenu(Panel slide, Timer timer, List<int> inteval, List<bool> pflag, int intevalMax, int ntmp, int num = 2)
+        private void Slidingmenu(Panel slide, Timer timer, List<int> inteval, List<bool> pflag, int intevalMax, int ntmp, int num = 5)
         {
             if (pflag[ntmp])
             {
@@ -372,6 +460,7 @@ namespace TUChair
                 {
                     pflag[ntmp] = false;
                     timer.Stop();
+                    timer.Enabled = false;
                 }
             }
             else
@@ -385,6 +474,7 @@ namespace TUChair
                 {
                     pflag[ntmp] = true;
                     timer.Stop();
+                    timer.Enabled = false;
                 }
             }
         }
@@ -412,9 +502,7 @@ namespace TUChair
             {
                 if (form.GetType() == typeof(T))
                 {
-
                     form.Activate();
-
                     form.FormBorderStyle = FormBorderStyle.None;
                     form.Dock = DockStyle.Fill;
                     return;
@@ -458,16 +546,7 @@ namespace TUChair
                 {
                     this.Close();
                 }
-                LoginService service = new LoginService();
-                author = service.GetAuthorInfo(userInfoVO.AuthorGroup_ID);
-                var item = (from A in author
-                            group A by A.Module_ID
-                            ).ToList();
-                foreach (var list in item)
-                {
-                    menulist.Add(Convert.ToInt32(list.Key));
-                }
-
+                LoginMenuBInding();
                 BindingMenu();
                 requlUc();
             }
@@ -553,6 +632,25 @@ namespace TUChair
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             OpenorCreateForm<UpdateWorkOrder>();
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            string UID = userInfoVO.CUser_ID;
+            string Marks = string.Join("@", testlist);
+          
+            LoginService service = new LoginService();
+            try
+            {
+                if (service.InsertMark(Marks, UID))
+                {
+                    MessageBox.Show("저장되었습니다. 재로그인하셔야 적용됩니다.");
+                }
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
         }
     }
     public class ReadEventArgs : EventArgs
