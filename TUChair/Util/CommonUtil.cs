@@ -35,7 +35,7 @@ namespace TUChair.Util
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 
-            //dgv.ReadOnly = true;
+            dgv.ReadOnly = true;
             dgv.AutoGenerateColumns = false;        
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToResizeRows = false;
@@ -88,7 +88,7 @@ namespace TUChair.Util
         {
 
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
-            combo.FlatStyle = FlatStyle.Flat;
+          
             combo.SelectedIndex = 0;
         }
 

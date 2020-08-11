@@ -42,7 +42,8 @@
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(112, 21);
             this.dtpStart.TabIndex = 0;
-            this.dtpStart.Leave += new System.EventHandler(this.StartDateCheck);
+            this.dtpStart.ValueChanged += new System.EventHandler(this.EndLimitCheck);
+            this.dtpStart.Leave += new System.EventHandler(this.DateLimitCheck);
             // 
             // dtpEnd
             // 
@@ -53,7 +54,8 @@
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(111, 21);
             this.dtpEnd.TabIndex = 0;
-            this.dtpEnd.Leave += new System.EventHandler(this.StartDateCheck);
+            this.dtpEnd.ValueChanged += new System.EventHandler(this.StartLimitCheck);
+            this.dtpEnd.Leave += new System.EventHandler(this.DateLimitCheck);
             // 
             // label1
             // 

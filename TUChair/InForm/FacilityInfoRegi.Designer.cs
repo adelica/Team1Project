@@ -252,7 +252,6 @@
             // cboFaci_OutWareHouse
             // 
             this.cboFaci_OutWareHouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFaci_OutWareHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboFaci_OutWareHouse.FormattingEnabled = true;
             this.cboFaci_OutWareHouse.Location = new System.Drawing.Point(93, 68);
             this.cboFaci_OutWareHouse.Name = "cboFaci_OutWareHouse";
@@ -262,7 +261,6 @@
             // cboFaci_UseOrNot
             // 
             this.cboFaci_UseOrNot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFaci_UseOrNot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboFaci_UseOrNot.FormattingEnabled = true;
             this.cboFaci_UseOrNot.Location = new System.Drawing.Point(93, 121);
             this.cboFaci_UseOrNot.Name = "cboFaci_UseOrNot";
@@ -272,7 +270,6 @@
             // cboFaci_InWareHouse
             // 
             this.cboFaci_InWareHouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFaci_InWareHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboFaci_InWareHouse.FormattingEnabled = true;
             this.cboFaci_InWareHouse.Location = new System.Drawing.Point(90, 68);
             this.cboFaci_InWareHouse.Name = "cboFaci_InWareHouse";
@@ -282,7 +279,6 @@
             // cboFaci_BadWareHouse
             // 
             this.cboFaci_BadWareHouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFaci_BadWareHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboFaci_BadWareHouse.FormattingEnabled = true;
             this.cboFaci_BadWareHouse.Location = new System.Drawing.Point(86, 68);
             this.cboFaci_BadWareHouse.Name = "cboFaci_BadWareHouse";
