@@ -150,12 +150,13 @@
             // 
             // inDTP1
             // 
-            this.inDTP1.End = new System.DateTime(2020, 7, 28, 13, 12, 24, 488);
+            this.inDTP1.DateLimit = false;
+            this.inDTP1.End = new System.DateTime(2020, 8, 11, 17, 59, 10, 766);
             this.inDTP1.Location = new System.Drawing.Point(105, 2);
             this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inDTP1.Name = "inDTP1";
             this.inDTP1.Size = new System.Drawing.Size(245, 26);
-            this.inDTP1.Start = new System.DateTime(2020, 7, 28, 13, 12, 24, 488);
+            this.inDTP1.Start = new System.DateTime(2020, 8, 11, 17, 59, 10, 766);
             this.inDTP1.TabIndex = 2;
             // 
             // label7
@@ -230,7 +231,6 @@
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(108, 8);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -272,7 +272,6 @@
             // comboBox2
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(108, 9);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -315,7 +314,6 @@
             // cboCustomer
             // 
             this.cboCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboCustomer.FormattingEnabled = true;
             this.cboCustomer.Location = new System.Drawing.Point(99, 8);
             this.cboCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -438,7 +436,6 @@
             // comboBox3
             // 
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(99, 9);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -520,7 +517,6 @@
             // cboCustomLoc
             // 
             this.cboCustomLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCustomLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboCustomLoc.FormattingEnabled = true;
             this.cboCustomLoc.Location = new System.Drawing.Point(100, 8);
             this.cboCustomLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -563,7 +559,6 @@
             // comboBox6
             // 
             this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(100, 7);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

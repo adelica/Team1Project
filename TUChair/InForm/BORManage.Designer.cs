@@ -165,7 +165,7 @@
             // cboFacG_Code
             // 
             this.cboFacG_Code.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFacG_Code.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboFacG_Code.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cboFacG_Code.FormattingEnabled = true;
             this.cboFacG_Code.Location = new System.Drawing.Point(72, 8);
             this.cboFacG_Code.Name = "cboFacG_Code";
@@ -256,19 +256,19 @@
             this.수정ToolStripMenuItem,
             this.삭제ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 48);
             // 
             // 수정ToolStripMenuItem
             // 
             this.수정ToolStripMenuItem.Name = "수정ToolStripMenuItem";
-            this.수정ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.수정ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.수정ToolStripMenuItem.Text = "수정";
             this.수정ToolStripMenuItem.Click += new System.EventHandler(this.수정ToolStripMenuItem_Click);
             // 
             // 삭제ToolStripMenuItem
             // 
             this.삭제ToolStripMenuItem.Name = "삭제ToolStripMenuItem";
-            this.삭제ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.삭제ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.삭제ToolStripMenuItem.Text = "삭제";
             this.삭제ToolStripMenuItem.Click += new System.EventHandler(this.삭제ToolStripMenuItem_Click);
             // 

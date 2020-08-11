@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TUChairDAC;
+using TUChairVO;
 
 namespace TUChair.Service
 {
@@ -14,6 +15,13 @@ namespace TUChair.Service
         {
             DemandManageDAC dac = new DemandManageDAC();
             return dac.GetDemandManage(startDate, endDate);
+        }
+
+        internal List<DemandManageVO> GetComboBinding()
+        {
+
+            DemandManageDAC dac = new DemandManageDAC();
+            return dac.GetComboBinding();
         }
     }
 }

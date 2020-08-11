@@ -336,7 +336,6 @@ namespace TUChair
                     return;
                 timers[Convert.ToInt32(btn.Tag)].Enabled = true;
                 timers[Convert.ToInt32(btn.Tag)].Start();
-
                 timers[Convert.ToInt32(pribtn.Tag)].Tag = Convert.ToInt32(pribtn.Tag);
                 timers[Convert.ToInt32(pribtn.Tag)].Enabled = true;
                 timers[Convert.ToInt32(pribtn.Tag)].Start();
@@ -644,7 +643,11 @@ namespace TUChair
             {
                 if (service.InsertMark(Marks, UID))
                 {
-                    MessageBox.Show("저장되었습니다. 재로그인하셔야 적용됩니다.");
+                    if (MessageBox.Show("저장되었습니다. 재로그인하셔야 적용됩니다." + Environment.NewLine + "재로그인 하시겠습니까?", "즐겨찾기 저장", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        toolStripButton6.PerformClick();
+                        toolStripButton6.PerformClick();
+                    }
                 }
             }
             catch(Exception err)
