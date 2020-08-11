@@ -64,11 +64,10 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(4, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 23);
+            this.label1.Size = new System.Drawing.Size(258, 23);
             this.label1.TabIndex = 5;
             this.label1.Text = "≡ 영업마스터업로드(PO)";
             // 
@@ -96,7 +95,6 @@
             this.Name = "POUpLoad";
             this.Text = "영업마스터업로드(PO)";
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).EndInit();
             this.ResumeLayout(false);
 
