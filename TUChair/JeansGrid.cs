@@ -69,7 +69,7 @@ namespace JeanForm
                 chk.Width = 30;
                 this.Columns.Add(chk);
 
-                Point headerCellLocation = this.GetCellDisplayRectangle(0, -1, true).Location;
+                Point headerCellLocation = this.GetCellDisplayRectangle(-1, -1, true).Location;
 
                 headerCheckBox.Location = new Point(headerCellLocation.X + 8, headerCellLocation.Y + 2);
                 headerCheckBox.BackColor = Color.White;

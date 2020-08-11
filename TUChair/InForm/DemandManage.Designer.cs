@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
             this.cboPlanID = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,7 +46,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnProductionPlan = new System.Windows.Forms.Button();
-            this.dgvDemand = new JeanForm.JeansGridView();
+            this.dgvDemand = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -71,14 +68,12 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.btnProductionPlan);
             this.panel2.Controls.SetChildIndex(this.label1, 0);
             this.panel2.Controls.SetChildIndex(this.btnProductionPlan, 0);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel4);
@@ -174,12 +169,12 @@
             // 
             // dtpDate
             // 
-            this.dtpDate.End = new System.DateTime(2020, 7, 30, 17, 4, 33, 353);
+            this.dtpDate.End = new System.DateTime(2020, 8, 10, 18, 3, 11, 886);
             this.dtpDate.Location = new System.Drawing.Point(81, 1);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(245, 26);
-            this.dtpDate.Start = new System.DateTime(2020, 7, 30, 17, 4, 33, 353);
+            this.dtpDate.Start = new System.DateTime(2020, 8, 10, 18, 3, 11, 886);
             this.dtpDate.TabIndex = 12;
             // 
             // label4
@@ -253,34 +248,19 @@
             // 
             // dgvDemand
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
-            this.dgvDemand.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDemand.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDemand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDemand.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDemand.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDemand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDemand.IsAllCheckColumnHeader = false;
             this.dgvDemand.Location = new System.Drawing.Point(0, 0);
             this.dgvDemand.Name = "dgvDemand";
-            this.dgvDemand.RowHeadersWidth = 30;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
-            this.dgvDemand.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDemand.RowTemplate.Height = 23;
-            this.dgvDemand.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDemand.Size = new System.Drawing.Size(1090, 425);
             this.dgvDemand.TabIndex = 0;
             // 
@@ -291,6 +271,8 @@
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "DemandManage";
             this.Text = "수요계획";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DemandManage_FormClosing);
+            this.Load += new System.EventHandler(this.DemandManage_Load);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -326,7 +308,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private InDTP dtpDate;
-        private JeanForm.JeansGridView dgvDemand;
         private System.Windows.Forms.Button btnProductionPlan;
+        private System.Windows.Forms.DataGridView dgvDemand;
     }
 }

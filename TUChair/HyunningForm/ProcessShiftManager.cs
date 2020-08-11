@@ -19,6 +19,8 @@ namespace TUChair
     {
         List<ProcessShiftVO> list;
         List<ProcessShiftVO> Shiftview;
+        List<StockShift> Shiftlist;
+
 
         List<EXProcessShiftVO> list1;
         List<ComboItemVO> comboItems = null;
@@ -50,14 +52,15 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "No.", "No", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품목", "Item_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품명", "Item_Name", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "창고코드", "Fact_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "참고이름", "Fact_Name", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "창고타입", "Fact_Type", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동일자", "Insert_Date", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "수량", "Qty", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "규격", "Item_Size", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "단위", "Item_Unit", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "비고", "Stock_Other", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품목타입", "Item_Type", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "현재창고", "Fact_Code", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "현재고", "Qty", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동창고", "From_Fact", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동일자", "Shift_date", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동수량", "Shift_Qty", true);
+            jeansGridView2.Columns[10].ReadOnly = false;
+
 
             DataLoad();
 
@@ -73,6 +76,29 @@ namespace TUChair
                      select item).ToList();
             CommonUtil.ReComboBinding(cboItemCode, cList, "선택");
 
+        }
+        private void btnShift_P_Click(object sender, EventArgs e)
+        {
+            
+            for (int i = 0; i < jeansGridView2.Rows.Count; i++)
+            {
+                bool isCellChecked = (bool)jeansGridView2.Rows[i].Cells[0].EditedFormattedValue;
+                if (isCellChecked)
+                {
+                    int Primary = (Convert.ToInt32(jeansGridView2.Rows[i].Cells[1].Value));
+                    string Item = jeansGridView2.Rows[i].Cells[2].Value.ToString();
+                    string Type = jeansGridView2.Rows[i].Cells[5].Value.ToString();
+                    string Modifier = LoginFrm.userName;
+                    int Qty = (Convert.ToInt32(jeansGridView2.Rows[i].Cells[10].Value));
+
+                    JeanServicePShift shift = new JeanServicePShift();
+                    shift.ThisIsShift(Primary, Item, Type, Modifier, Qty);
+                  
+
+                }
+            }
+            jeansGridView2.DataSource = null;
+            DataLoad();
         }
         private void Save(object sender, EventArgs e)
         {
@@ -160,7 +186,7 @@ namespace TUChair
             JeanServicePShift sv = new JeanServicePShift();
             Shiftview = sv.ShiftLoad();
             jeansGridView2.DataSource = null;
-            jeansGridView2.DataSource = Shiftview;
+            jeansGridView2.DataSource = Shiftlist;
 
         }
 
@@ -242,26 +268,23 @@ namespace TUChair
 
         private void btnShiftCancle_Click(object sender, EventArgs e)
         {
-            ProcessShiftVO sht = new ProcessShiftVO();
-            JeanServicePShift shift = new JeanServicePShift();
-
-            for (int i = 0; i < jeansGridView2.Rows.Count; i++)
+            
+            if (jeansGridView2.Rows.Count < 1)
+                return;
+            else
             {
-                bool isCellChecked = (bool)jeansGridView2.Rows[i].Cells[0].EditedFormattedValue;
-                if (isCellChecked)
+                List<StockShift> list = (List<StockShift>)jeansGridView2.DataSource;
+                for (int i = jeansGridView2.Rows.Count-1; i> -1; i--)
                 {
-                    int Primary = (Convert.ToInt32(jeansGridView2.Rows[i].Cells[1].Value));
-                    string fact = jeansGridView2.Rows[i].Cells[4].Value.ToString();
-                    string date = jeansGridView2.Rows[i].Cells[7].Value.ToString();
-                    shift.PSShiftReturn(Primary, date, fact);
-
+                    bool isCellChecked = (bool)jeansGridView2.Rows[i].Cells[0].EditedFormattedValue;
+                    if (isCellChecked)
+                    {
+                        //int Primary = (Convert.ToInt32(jeansGridView2.Rows[i].Cells[1].Value));
+                        list.RemoveAt(i);
+                    }
                 }
-
             }
-            //if (result)
-            //{
-            //    MessageBox.Show("공정이동이 완료되었습니다.", "공정이동");
-            //}
+            
             DataLoad();
         }
 
@@ -274,6 +297,56 @@ namespace TUChair
             frm.Delete -= Delete;
             frm.New -= New;
             frm.Excel -= Excel;
+        }
+
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            JeanServicePShift shift = new JeanServicePShift();
+
+            List<int> pList = new List<int>();
+            for (int i = 0; i < jeansGridView1.Rows.Count; i++)
+            {
+                bool isCellChecked = (bool)jeansGridView1.Rows[i].Cells[0].EditedFormattedValue;
+                if (isCellChecked)
+                {
+                    int Primary = (Convert.ToInt32(jeansGridView1.Rows[i].Cells[1].Value));
+                    pList.Add(Primary);                    
+                }
+            }
+            if (pList.Count > 0)
+            {
+                Shiftlist = shift.StockBinding(string.Join(",", pList));
+                jeansGridView2.DataSource = Shiftlist;
+            }
+        }
+
+      
+
+        private void jeansGridView2_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)//그리드뷰 키프레스이벤트
+        {
+            e.Control.KeyPress += new KeyPressEventHandler(Control_KeyPress); 
+        }
+
+        private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+                
+            }
+            
+        }
+
+        private void jeansGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = jeansGridView2.CurrentRow.Index;
+            if ((int)jeansGridView2.Rows[rowIndex].Cells[7].Value < (int)jeansGridView2.Rows[rowIndex].Cells[10].Value)
+            {
+                MessageBox.Show("이동수량은 현재고를 넘을수 없어");
+                jeansGridView2.Rows[rowIndex].Cells[9].Value = 0;
+                return;
+            }
         }
     }
 }

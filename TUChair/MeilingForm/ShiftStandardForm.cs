@@ -36,18 +36,17 @@ namespace TUChair
             frm.Excel += Excel;
             // 폼 로드시 전체 데이타 보여주기
 
-            MeilingService service = new MeilingService();
-            list = service.DBConnectionTEST();
-            jeansGridView1.IsAllCheckColumnHeader = true;
 
-            CommonUtil.InitSettingGridView(jeansGridView1);
+
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
-            ALLShiftToDataGrid();
+            AllBinding();
+            DataBinding();
+
 
 
             //콤보박스에 item넣기
             // 설비코드 FaciCbolist
-            ComboBinding();
+            // ComboBinding();
 
 
 
@@ -61,8 +60,37 @@ namespace TUChair
 
         }
 
+        private void AllBinding()
+        {
+            jeansGridView1.IsAllCheckColumnHeader = true;
+
+            CommonUtil.InitSettingGridView(jeansGridView1);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비코드", "Faci_Code", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Faci_Name", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Shift_StartDate", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Shift_EndDate", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작시간", "Shift_StartTime", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료시간", "Shift_EndTime", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "투입인원", "Shift_InputPeople", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Shift_UserOrNot", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Shift_Modifier", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "Shift_ModifierDate", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "기타", "Shift_Others", true);
+            jeansGridView1.Columns["Faci_Code"].Frozen = true;
+        }
+
+        private void DataBinding()
+        {
+            MeilingService service = new MeilingService();
+            list = service.DBConnectionTEST();
+            jeansGridView1.DataSource = null;
+            jeansGridView1.DataSource = list;
+        }
+
         private void ComboBinding()
         {
+            List<ShiftVO> list = new List<ShiftVO>();
+            
             FaciCbolist = new List<string>();
 
             for (int i = 0; i < jeansGridView1.RowCount; i++)
@@ -80,21 +108,7 @@ namespace TUChair
             cboShiftID.Items.AddRange(shiftCbolist.ToArray());
         }
 
-        private void ALLShiftToDataGrid()
-        {
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "ShiftID", "Shift_ID", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Faci_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작시간", "Shift_StartTime", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료시간", "Shift_EndTime", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Shift_StartDate", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Shift_EndDate", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "투입인원", "Shift_InputPeople", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Shift_UserOrNot", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Shift_Modifier", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "Shift_ModifierDate", true);
-            jeansGridView1.Columns["Shift_ID"].Frozen = true;
-            jeansGridView1.DataSource = list;
-        }
+      
 
         private void Excel(object sender, EventArgs e)
         {
@@ -115,7 +129,7 @@ namespace TUChair
 
         private void New(object sender, EventArgs e)
         {
-            ALLShiftToDataGrid();
+           
             ComboBinding();
         }
 
@@ -356,11 +370,11 @@ namespace TUChair
         private void ShiftStandardForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-            //frm.Save -= Save;
-            //frm.Search -= Search;
-            //frm.Delete -= Delete;
-            //frm.New -= New;
-            //frm.Excel -= Excel;
+           // frm.Save -= Save;
+            frm.Search -= Search;
+           // frm.Delete -= Delete;
+            frm.New -= New;
+            frm.Excel -= Excel;
         }
     }
 }

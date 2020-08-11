@@ -569,7 +569,7 @@ namespace TUChair
         {
             if (New != null)
             {
-                New(this, new EventArgs());
+                New(this, null);
             }
         }
 
@@ -577,7 +577,7 @@ namespace TUChair
         {
             if (Search != null)
             {
-                Search(this, new EventArgs());
+                Search(this,null);
             }
         }
 
@@ -585,7 +585,7 @@ namespace TUChair
         {
             if (Save != null)
             {
-                Save(this, new EventArgs());
+                Save(this, null);
             }
         }
 
@@ -593,7 +593,7 @@ namespace TUChair
         {
             if (Delete != null)
             {
-                Delete(this, new EventArgs());
+                Delete(this, null);
             }
         }
 
@@ -601,7 +601,7 @@ namespace TUChair
         {
             if (Excel != null)
             {
-                Excel(this, new EventArgs());
+                Excel(this, null);
             }
         }
 
