@@ -68,10 +68,10 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.StockBinding(pry);
         }
-        public List<StockShift> ThisIsShift(int Primary, string Item, string Type, string Modifier,int Qty)// 공정이동 현황검색조건
+        public List<StockShift> ThisIsShift(int Primary, string Item,string Fact, string From_Fact, string Modifier,int Qty)// 공정이동 현황검색조건
         {
             ProcessShiftDAC dac = new ProcessShiftDAC();
-            return dac.ThisIsShift(Primary, Item, Type, Modifier, Qty);
+            return dac.ThisIsShift(Primary, Item, Fact, From_Fact, Modifier, Qty);
         }
     }
 }

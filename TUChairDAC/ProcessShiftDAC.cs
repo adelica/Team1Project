@@ -192,7 +192,7 @@ namespace TUChairDAC
 
                     cmd.Parameters.AddWithValue("@Fact_Name", (object)Fact ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Item_Code", (object)code ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@item_name", (object)txt ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Name", (object)txt ?? DBNull.Value);
 
                     cmd.Connection.Open();
 
@@ -273,11 +273,8 @@ namespace TUChairDAC
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.CommandText = @"select s.no  no, s.Item_Code Item_Code, Item_Name, Item_Size,Item_Type,s.Fact_Code, Qty, 
-	case when Item_Type = '원자재' then 'WH02' 
-		 when Item_Type = '반제품' then 'WH03'
-		when	Item_Type = '완제품' then 'WH03'
-				end From_Fact			 ,CONVERT(varchar(10),getdate(), 23) Shift_date , 0 as 'N_HOUR'
-	from Stock s left join Item i on s.Item_Code = i.Item_Code
+	                                            null From_Fact ,CONVERT(varchar(10),getdate(), 23) Shift_date , 0 as 'N_HOUR'
+	                                            from Stock s left join Item i on s.Item_Code = i.Item_Code
                                         where s.no in(" + pry + ")";                    
 
                     cmd.Connection.Open();
@@ -295,7 +292,7 @@ namespace TUChairDAC
                 return null;
             }
         }
-        public List<StockShift> ThisIsShift(int Primary, string Item, string Type, string Modifier, int Qtyt) // 공정이동 진그리드1 검색조건
+        public List<StockShift> ThisIsShift(int Primary, string Item, string Fact, string From_Fact, string Modifier, int Qty) // 공정이동 진그리드1 검색조건
         {
             try
             {
@@ -307,9 +304,10 @@ namespace TUChairDAC
 
                     cmd.Parameters.AddWithValue("@No", Primary);
                     cmd.Parameters.AddWithValue("@Item", Item);
-                    cmd.Parameters.AddWithValue("@Type", Type) ;
+                    cmd.Parameters.AddWithValue("@Fact", Fact) ;
+                    cmd.Parameters.AddWithValue("@From_Fact", From_Fact);
                     cmd.Parameters.AddWithValue("@Modifier", Modifier);
-                    cmd.Parameters.AddWithValue("@Shift_Qty", Qtyt);
+                    cmd.Parameters.AddWithValue("@Shift_Qty", Qty);
 
                     cmd.Connection.Open();
 
