@@ -209,6 +209,39 @@ namespace TUChairDAC
                 return null;
             }
         }
+        public List<InOutVo> InOutSearch(string Fact, string Gubun, string Category, string itype, string start, string end, string txt) // 공정이동 진그리드1 검색조건
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_SearchInOut";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Fact_Name", (object)Fact ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Fact_Name", (object)Gubun ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Fact_Name", (object)Category ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Fact_Name", (object)itype ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Code", (object)start ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Name", (object)end ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Name", (object)txt ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<InOutVo> list = Helper.MeilingDataReaderMapToList<InOutVo>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
 
         public List<PSMManager> PSMManager() // 자재단가 관리 (전체)
         {
