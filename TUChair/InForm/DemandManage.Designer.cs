@@ -173,12 +173,12 @@
             // dtpDate
             // 
             this.dtpDate.DateLimit = false;
-            this.dtpDate.End = new System.DateTime(2020, 8, 11, 18, 4, 2, 862);
+            this.dtpDate.End = new System.DateTime(2020, 8, 12, 15, 24, 42, 8);
             this.dtpDate.Location = new System.Drawing.Point(81, 1);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(245, 26);
-            this.dtpDate.Start = new System.DateTime(2020, 8, 11, 18, 4, 2, 862);
+            this.dtpDate.Start = new System.DateTime(2020, 8, 12, 15, 24, 42, 11);
             this.dtpDate.TabIndex = 12;
             // 
             // label4
@@ -263,7 +263,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDemand.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDemand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
