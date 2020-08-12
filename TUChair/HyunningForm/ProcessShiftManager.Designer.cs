@@ -57,6 +57,7 @@
             this.jeansGridView2 = new JeanForm.JeansGridView();
             this.btnShiftCancle = new System.Windows.Forms.Button();
             this.btnShift_P = new System.Windows.Forms.Button();
+            this.cboInsertF = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -83,12 +84,14 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cboInsertF);
             this.panel2.Controls.Add(this.btnShift_P);
             this.panel2.Controls.Add(this.btnShiftCancle);
             this.panel2.Location = new System.Drawing.Point(12, 430);
             this.panel2.Controls.SetChildIndex(this.label1, 0);
             this.panel2.Controls.SetChildIndex(this.btnShiftCancle, 0);
             this.panel2.Controls.SetChildIndex(this.btnShift_P, 0);
+            this.panel2.Controls.SetChildIndex(this.cboInsertF, 0);
             // 
             // panel1
             // 
@@ -113,6 +116,8 @@
             // 
             // btnSelect
             // 
+            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelect.Location = new System.Drawing.Point(732, 9);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
@@ -123,9 +128,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(813, 11);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -134,9 +137,7 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(919, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 23);
@@ -147,8 +148,7 @@
             // 
             // btnShift
             // 
-            this.btnShift.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnShift.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShift.Location = new System.Drawing.Point(1010, 9);
             this.btnShift.Name = "btnShift";
@@ -354,6 +354,8 @@
             // 
             // btnShiftCancle
             // 
+            this.btnShiftCancle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShiftCancle.Location = new System.Drawing.Point(1011, 9);
             this.btnShiftCancle.Name = "btnShiftCancle";
             this.btnShiftCancle.Size = new System.Drawing.Size(75, 23);
@@ -364,6 +366,8 @@
             // 
             // btnShift_P
             // 
+            this.btnShift_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShift_P.Location = new System.Drawing.Point(930, 9);
             this.btnShift_P.Name = "btnShift_P";
             this.btnShift_P.Size = new System.Drawing.Size(75, 23);
@@ -371,6 +375,17 @@
             this.btnShift_P.Text = "이동처리";
             this.btnShift_P.UseVisualStyleBackColor = true;
             this.btnShift_P.Click += new System.EventHandler(this.btnShift_P_Click);
+            // 
+            // cboInsertF
+            // 
+            this.cboInsertF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboInsertF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboInsertF.FormattingEnabled = true;
+            this.cboInsertF.Location = new System.Drawing.Point(837, 10);
+            this.cboInsertF.Name = "cboInsertF";
+            this.cboInsertF.Size = new System.Drawing.Size(87, 20);
+            this.cboInsertF.TabIndex = 8;
             // 
             // ProcessShiftManager
             // 
@@ -430,5 +445,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnShift_P;
         private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.ComboBox cboInsertF;
     }
 }
