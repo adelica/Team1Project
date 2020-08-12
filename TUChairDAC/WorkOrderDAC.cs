@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -73,7 +74,7 @@ on s.Faci_Code = f.Faci_Code";
 
             }
         }
-        public void Update(string Shift_ID, string Fac_Code, string Shift_StartTime, string Shift_EndTime, DateTime Shift_StartDate, DateTime Shift_EndDate, int Shift_InputPeople = 0, string Shift_UserOrNot = null, string Shift_Modifier = null,
+        public bool Update(string Shift_ID, string Fac_Code, string Shift_StartTime, string Shift_EndTime, DateTime Shift_StartDate, DateTime Shift_EndDate, int Shift_InputPeople = 0, string Shift_UserOrNot = null, string Shift_Modifier = null,
             DateTime? Shift_ModifierDate = null, string Shift_Others = null)
         {
             try
@@ -81,7 +82,7 @@ on s.Faci_Code = f.Faci_Code";
                 Shift_ModifierDate = DateTime.Now;
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
                 string sql = @"update [dbo].[Shift] set 
-[Faci_Code]=@Faci_Code, [Shift_StartTime]=@Shift_StartTime, [Shift_EndTime]=@Shift_EndTime, 
+[Faci_Code]=(select[Faci_Code] from [dbo].[Facility] where [Faci_Name] =@Faci_Code), [Shift_StartTime]=@Shift_StartTime, [Shift_EndTime]=@Shift_EndTime, 
 [Shift_StartDate]=@Shift_StartDate, [Shift_EndDate]=@Shift_EndDate, 
 [Shift_InputPeople]=@Shift_InputPeople, [Shift_UserOrNot]=@Shift_UserOrNot, 
 [Shift_Modifier]=@Shift_Modifier, [Shift_ModifierDate]=@Shift_ModifierDate,
@@ -100,16 +101,17 @@ on s.Faci_Code = f.Faci_Code";
                     cmd.Parameters.AddWithValue("@Shift_ModifierDate", (Shift_ModifierDate == null) ? DBNull.Value : (object)Shift_ModifierDate);
                     cmd.Parameters.AddWithValue("@Shift_Others", (Shift_Others == null) ? DBNull.Value : (object)Shift_Others);
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                   var reac =  cmd.ExecuteNonQuery();
                     conn.Close();
-
+                    return reac > 0;
                 }
 
 
             }
             catch (Exception err)
             {
-                Debug.WriteLine(err.Message);
+                _log.WriteError(err.Message, err);
+                throw err;
             }
         }
 
@@ -192,6 +194,32 @@ where [WorkOrderID]=@WorkOrderID";
 
 
 
+        }
+        public bool DeleteShift(string condition)
+        {
+            try
+            {
+                SqlConnection strConn = new SqlConnection(this.ConnectionString);
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = strConn;
+                    cmd.CommandText = @"DeleteShift";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@P_Condition", condition);
+                    cmd.Parameters.AddWithValue("@P_Seperator", "@");
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
+                throw err;
+            }
         }
     }
 }

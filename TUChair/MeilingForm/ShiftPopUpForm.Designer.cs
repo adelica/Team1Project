@@ -49,7 +49,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.dtpModifyDate = new System.Windows.Forms.DateTimePicker();
             this.txtMustWrite = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -107,13 +106,9 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.button3);
             this.panel6.Location = new System.Drawing.Point(197, 401);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.panel6.Size = new System.Drawing.Size(403, 40);
-            this.panel6.Controls.SetChildIndex(this.btnCancel, 0);
-            this.panel6.Controls.SetChildIndex(this.btnInsert, 0);
-            this.panel6.Controls.SetChildIndex(this.button3, 0);
+            this.panel6.Size = new System.Drawing.Size(304, 40);
             // 
             // btnInsert
             // 
@@ -320,17 +315,6 @@
             this.label11.TabIndex = 11;
             this.label11.Text = "비고";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(301, 11);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(71, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "수정";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // dtpModifyDate
             // 
             this.dtpModifyDate.Location = new System.Drawing.Point(101, 129);
@@ -449,7 +433,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DateTimePicker dtpModifyDate;
         private System.Windows.Forms.TextBox txtMustWrite;
         private System.Windows.Forms.TextBox textBox5;
