@@ -89,8 +89,8 @@ namespace TUChair
                     itype = string.Empty;
                 else
                     itype = cboItemtype.Text;
-                string start = inDTP1.Start.ToShortDateString();
-                string end = inDTP1.End.ToShortDateString();
+                //string start = inDTP1.Start.ToShortDateString();
+                //string end = inDTP1.End.ToShortDateString();
 
 
                 string txt = txtItemCode.Text.Trim();
@@ -100,7 +100,7 @@ namespace TUChair
                 if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
                 {
                     JeanServicePShift service = new JeanServicePShift();
-                    Inoutlist = service.InOutSearch(Fact, Gubun , Category, itype, start, end, txt);
+                    //Inoutlist = service.InOutSearch(Fact, Gubun , Category, itype, start, end, txt);
                     jeansGridView1.DataSource = null;
                     jeansGridView1.DataSource = Inoutlist;
                 }
