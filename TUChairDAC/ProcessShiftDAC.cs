@@ -268,7 +268,7 @@ namespace TUChairDAC
                 return null;
             }
         }
-        public List<PSMManager> PSMMSearch(string date, string item, string Fact, string txt) // 공정이동 진그리드1 검색조건
+        public List<PSMManager> PSMMSearch( string item, string Fact, string txt) // 공정이동 진그리드1 검색조건
         {
             try
             {
@@ -278,7 +278,6 @@ namespace TUChairDAC
                     cmd.CommandText = "SP_PSMSearch";
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@ThisDate", (object)date ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Item_Code", (object)item ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Fact_Code", (object)Fact ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Item_name", (object)txt ?? DBNull.Value);

@@ -60,10 +60,10 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.PSMManager();
         }
-        public List<PSMManager> PSMMSearch(string date, string item, string Fact, string txt)// 공정이동 현황검색조건
+        public List<PSMManager> PSMMSearch( string item, string Fact, string txt)// 공정이동 현황검색조건
         {
             ProcessShiftDAC dac = new ProcessShiftDAC();
-            return dac.PSMMSearch(date, item, Fact, txt);
+            return dac.PSMMSearch( item, Fact, txt);
         }
 
 

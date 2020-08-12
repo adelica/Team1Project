@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.jeansGridView1 = new JeanForm.JeansGridView();
             this.panel10 = new System.Windows.Forms.Panel();
             this.cboItemtype = new System.Windows.Forms.ComboBox();
@@ -54,7 +54,6 @@
             this.cboFact = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.inDTP1 = new TUChair.InDTP();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,14 +80,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dtp2);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.dtp1);
             this.panel2.Location = new System.Drawing.Point(12, 97);
-            this.panel2.Controls.SetChildIndex(this.dtp1, 0);
-            this.panel2.Controls.SetChildIndex(this.label1, 0);
-            this.panel2.Controls.SetChildIndex(this.label8, 0);
-            this.panel2.Controls.SetChildIndex(this.dtp2, 0);
             // 
             // panel1
             // 
@@ -97,32 +89,32 @@
             // 
             // jeansGridView1
             // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Beige;
-            this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.jeansGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
+            this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.jeansGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.jeansGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.jeansGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jeansGridView1.IsAllCheckColumnHeader = false;
             this.jeansGridView1.Location = new System.Drawing.Point(0, 0);
             this.jeansGridView1.Name = "jeansGridView1";
             this.jeansGridView1.RowHeadersWidth = 30;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Bisque;
-            this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
+            this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jeansGridView1.Size = new System.Drawing.Size(1090, 447);
@@ -241,8 +233,10 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.inDTP1);
+            this.panel4.Controls.Add(this.dtp2);
             this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.dtp1);
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(357, 33);
@@ -263,7 +257,7 @@
             // 
             this.dtp2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp2.Location = new System.Drawing.Point(243, 3);
+            this.dtp2.Location = new System.Drawing.Point(240, 3);
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(95, 27);
             this.dtp2.TabIndex = 10;
@@ -273,7 +267,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(220, 7);
+            this.label8.Location = new System.Drawing.Point(217, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(17, 19);
             this.label8.TabIndex = 9;
@@ -283,7 +277,7 @@
             // 
             this.dtp1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp1.Location = new System.Drawing.Point(119, 5);
+            this.dtp1.Location = new System.Drawing.Point(116, 3);
             this.dtp1.Name = "dtp1";
             this.dtp1.Size = new System.Drawing.Size(95, 27);
             this.dtp1.TabIndex = 7;
@@ -338,17 +332,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 78);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // inDTP1
-            // 
-            this.inDTP1.DateLimit = false;
-            this.inDTP1.End = new System.DateTime(2020, 8, 12, 18, 13, 28, 123);
-            this.inDTP1.Location = new System.Drawing.Point(111, 4);
-            this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.inDTP1.Name = "inDTP1";
-            this.inDTP1.Size = new System.Drawing.Size(243, 24);
-            this.inDTP1.Start = new System.DateTime(2020, 8, 12, 18, 13, 28, 126);
-            this.inDTP1.TabIndex = 7;
-            // 
             // InOutManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -402,6 +385,5 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.ComboBox cboItemtype;
         private System.Windows.Forms.Label label9;
-        private InDTP inDTP1;
     }
 }

@@ -33,10 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.chbDate = new System.Windows.Forms.CheckBox();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.cboItemCode = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +47,6 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -78,10 +73,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel7, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -90,48 +84,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 85);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.chbDate);
-            this.panel4.Controls.Add(this.dtpDate);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(357, 36);
-            this.panel4.TabIndex = 12;
-            // 
-            // chbDate
-            // 
-            this.chbDate.AutoSize = true;
-            this.chbDate.Location = new System.Drawing.Point(283, 9);
-            this.chbDate.Name = "chbDate";
-            this.chbDate.Size = new System.Drawing.Size(60, 16);
-            this.chbDate.TabIndex = 10;
-            this.chbDate.Text = "활성화";
-            this.chbDate.UseVisualStyleBackColor = true;
-            this.chbDate.CheckedChanged += new System.EventHandler(this.chbDate_CheckedChanged);
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.CustomFormat = " ";
-            this.dtpDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(107, 3);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(158, 27);
-            this.dtpDate.TabIndex = 9;
-            this.dtpDate.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 19);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "◆ 입출고일";
             // 
             // panel6
             // 
@@ -193,7 +145,7 @@
             // 
             this.panel5.Controls.Add(this.txtItemCode);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(3, 45);
+            this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(357, 36);
             this.panel5.TabIndex = 13;
@@ -264,8 +216,6 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -281,18 +231,14 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private JeanForm.JeansGridView jeansGridView1;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox cboItemCode;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox chbDate;
-        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.TextBox txtItemCode;
+        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.ComboBox cboFact;
+        private System.Windows.Forms.Label label4;
     }
 }
