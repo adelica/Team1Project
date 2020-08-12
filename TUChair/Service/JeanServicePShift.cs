@@ -73,5 +73,10 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.ThisIsShift(Primary, Item, Fact, From_Fact, Modifier, Qty);
         }
+        public List<InOutVo> InOutBinding()// 입출고현황 바인딩
+        {
+            ProcessShiftDAC dac = new ProcessShiftDAC();
+            return dac.InOutBinding();
+        }
     }
 }

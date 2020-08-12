@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace TUChair
 {
@@ -14,9 +15,9 @@ namespace TUChair
     {
         public InDTP()
         {
-            InitializeComponent();          
+            InitializeComponent();
         }
-        
+        bool check = false;
         public DateTime Start
         {
             get { return dtpStart.Value; }
@@ -28,11 +29,44 @@ namespace TUChair
             set { value = dtpEnd.Value; }
         }
 
-        public void StartDateCheck(object sender, EventArgs e)
+        public bool DateLimit
         {
-            dtpStart.MaxDate = dtpEnd.Value;
-            dtpEnd.MinDate = dtpStart.Value;
+            get { return check; }
+            set { check = value; }
         }
 
+        public void DateLimitCheck(object sender, EventArgs e)
+        {
+            if (!check)
+            {
+                dtpStart.MaxDate = dtpEnd.Value;
+                dtpEnd.MinDate = dtpStart.Value;
+            }
+        }
+        public void EndLimitCheck(object sender, EventArgs e)
+        {
+
+            if(check)
+            {
+                if (dtpEnd.MaxDate > dtpEnd.MinDate && dtpEnd.MaxDate > dtpStart.Value)
+                {
+                    dtpEnd.MinDate = dtpStart.Value;
+                    dtpEnd.MaxDate = dtpStart.Value.AddDays(50);
+                }
+                else if (dtpEnd.MaxDate > dtpEnd.MinDate)
+                {
+                    dtpEnd.MaxDate = dtpStart.Value.AddDays(50);
+                    dtpEnd.MinDate = dtpStart.Value;
+                }
+           }
+
+        }
+        public void StartLimitCheck(object sender, EventArgs e)
+        {
+            if (check)
+            {                
+               dtpEnd.MinDate = dtpStart.Value;
+            }
+        }
     }
 }

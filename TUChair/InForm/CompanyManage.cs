@@ -45,7 +45,7 @@ namespace TUChair
 
             GetComboBinding();
             frm.Save += Save;
-            frm.New += LoadData;
+            frm.Search += LoadData;
             frm.Delete += Delete;
 
             LoadData();
@@ -280,7 +280,7 @@ namespace TUChair
         {
 
             frm.Save -= Save;
-            frm.New -= LoadData;
+            frm.Search -= LoadData;
             frm.Delete -= Delete;
         }
     }

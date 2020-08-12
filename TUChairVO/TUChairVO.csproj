@@ -46,9 +46,11 @@
     <Compile Include="BORVO.cs" />
     <Compile Include="ComboItemVO.cs" />
     <Compile Include="CompanyVO.cs" />
+    <Compile Include="DemandManageVO.cs" />
     <Compile Include="FacilityVO.cs" />
     <Compile Include="FactoryVO.cs" />
     <Compile Include="FilePathVO.cs" />
+    <Compile Include="InOutVo.cs" />
     <Compile Include="ItemVO.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="ProcessShiftVO.cs" />
