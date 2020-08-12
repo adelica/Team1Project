@@ -33,7 +33,10 @@ namespace TUChair
                 Excel.Worksheet xlWorksheet = null;
 
                 OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "Excel File (*.xlsx)|*.xlsx |Excel File 97 ~ 2003(*.xls)|*.xls|All Files(*.*)|*.*";
+                
+                ofd.Filter = "Excel File (*.xlsx)|*.xlsx|Excel File 97~2003(*.xls)|*.xls|All Files(*.*)|*.*";
+                ofd.FilterIndex = 1;
+
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -50,13 +53,13 @@ namespace TUChair
 
                     for (int i = 1; i <= range.Columns.Count; i++)
                     {
-                        dt.Columns.Add(i.ToString(), typeof(string));
+                        dt.Columns.Add(data[1,i].ToString(), typeof(string));
                     }
 
-                    for (int r = 1; r < range.Rows.Count; r++)
+                    for (int r = 2; r <= range.Rows.Count; r++)
                     {
                         DataRow dr = dt.Rows.Add();
-                        for (int c = 1; c < range.Columns.Count; c++)
+                        for (int c = 1; c <= range.Columns.Count; c++)
                         {
                             dr[c - 1] = data[r, c];
                         }
