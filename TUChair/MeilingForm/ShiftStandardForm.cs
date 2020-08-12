@@ -125,8 +125,8 @@ namespace TUChair
         }
         private void ExportOrderList()
         {
-            string sResult = ExcelExportImport.ExportToDataGridView<WorkOrderVO>(
-                (List<WorkOrderVO>)jeansGridView1.DataSource, "");
+            string sResult = ExcelExportImport.ExportToDataGridView<ShiftVO>(
+                (List<ShiftVO>)jeansGridView1.DataSource, "");
             if (sResult.Length > 0)
             {
                 MessageBox.Show(sResult);
@@ -222,7 +222,15 @@ namespace TUChair
                 if (cnt == 0)
                 {
                     upInsert = "Insert";
-                    ItemPopUp frm = new ItemPopUp(userID);
+                    ShiftPopUpForm frm = new ShiftPopUpForm();
+                    frm.Owner = this;
+                    //shiftPop.uptdic = updatedic;
+                    frm.uporInsert = upInsert;
+
+                    frm.faciNameList = FaciNameList;
+                    // shiftPop.sendshiftlist = shiftCbolist;
+                    // shiftPop.sendlist = FaciCodeList;
+                    frm.ShowDialog();
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         DataBinding();

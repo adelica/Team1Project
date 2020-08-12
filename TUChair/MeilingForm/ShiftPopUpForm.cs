@@ -44,7 +44,14 @@ namespace TUChair
             }else if (uporInsert == "Insert")
             {
                 MeilingService service = new MeilingService();
-
+                if(service.InsertShiftInfo(txtShiftID.Text, cboShift.SelectedItem.ToString(), txtStartTime.Text, txtEndTime.Text, dtpStartDate.Value, dtpEndDate.Value, Convert.ToInt32(txtPeople.Text), cboUseOrNot.Text, txtModifyName.Text, dtpModifyDate.Value, txtRemark.Text))
+                {
+                    MessageBox.Show("수정 되였습니다");
+                }
+                else
+                {
+                    MessageBox.Show("수정실패");
+                }
             }
         }
 

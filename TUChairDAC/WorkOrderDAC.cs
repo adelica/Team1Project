@@ -37,7 +37,7 @@ on s.Faci_Code = f.Faci_Code";
                 return null;
             }
         }
-        public void InsertShiftInfo(string Shift_ID, string Fac_Code, string Shift_StartTime, string Shift_EndTime, DateTime Shift_StartDate, DateTime Shift_EndDate, int Shift_InputPeople = 0, string Shift_UserOrNot = null, string Shift_Modifier = null,
+        public bool InsertShiftInfo(string Shift_ID, string Fac_Code, string Shift_StartTime, string Shift_EndTime, DateTime Shift_StartDate, DateTime Shift_EndDate, int Shift_InputPeople = 0, string Shift_UserOrNot = null, string Shift_Modifier = null,
             DateTime? Shift_ModifierDate = null, string Shift_Others = null)
         {
             try
@@ -46,8 +46,7 @@ on s.Faci_Code = f.Faci_Code";
 
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
                 string sql = @"insert into [dbo].[Shift]([Shift_ID], [Faci_Code], [Shift_StartTime], [Shift_EndTime], [Shift_StartDate], [Shift_EndDate], [Shift_InputPeople], [Shift_UserOrNot], [Shift_Modifier], [Shift_ModifierDate], [Shift_Others])
-                 values (@Shift_ID,@Faci_Code,@Shift_StartTime,@Shift_EndTime,
-                         @Shift_StartDate,@Shift_EndDate,@Shift_InputPeople,@Shift_UserOrNot,@Shift_Modifier,
+                 values (@Shift_ID,(select [Faci_Code] from [dbo].[Facility] where [Faci_Name]=@Faci_Code),@Shift_StartTime,@Shift_EndTime,        @Shift_StartDate,@Shift_EndDate,@Shift_InputPeople,@Shift_UserOrNot,@Shift_Modifier,
                          @Shift_ModifierDate,@Shift_Others) ";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
@@ -63,14 +62,15 @@ on s.Faci_Code = f.Faci_Code";
                     cmd.Parameters.AddWithValue("@Shift_ModifierDate", (Shift_ModifierDate == null) ? DBNull.Value : (object)Shift_ModifierDate);
                     cmd.Parameters.AddWithValue("@Shift_Others", (Shift_Others == null) ? DBNull.Value : (object)Shift_Others);
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                  var reac =  cmd.ExecuteNonQuery();
                     conn.Close();
+                    return reac > 0;
                 }
             }
             catch (Exception err)
             {
-                Debug.WriteLine(err.Message);
-
+                _log.WriteError(err.Message, err);
+                throw err;
 
             }
         }
@@ -213,6 +213,31 @@ where [WorkOrderID]=@WorkOrderID";
                     cmd.Connection.Close();
 
                     return rowsAffected > 0;
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
+                throw err;
+            }
+        }
+        public List<ShiftVO> SearchPivot(DateTime firstdate, DateTime enddate)
+        {
+            try
+            {
+                SqlConnection strConn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = strConn;
+                    cmd.CommandText = @"P_ShiftDate";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@P_Start_Data", firstdate);
+                    cmd.Parameters.AddWithValue("@P_End_Data", enddate);
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<ShiftVO> list = Helper.MeilingDataReaderMapToList<ShiftVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
                 }
             }
             catch (Exception err)
