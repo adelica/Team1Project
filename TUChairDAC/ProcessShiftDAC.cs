@@ -209,7 +209,7 @@ namespace TUChairDAC
                 return null;
             }
         }
-        public List<InOutVo> InOutSearch(string Fact, string Gubun, string Category, string itype, string start, string end, string txt) // 공정이동 진그리드1 검색조건
+        public List<InOutVo> InOutSearch(string Fact, string Gubun, string Category, string itype, string start, string end, string Icode) // 공정이동 진그리드1 검색조건
         {
             try
             {
@@ -219,13 +219,13 @@ namespace TUChairDAC
                     cmd.CommandText = "SP_SearchInOut";
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@Fact_Name", (object)Fact ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Fact_Name", (object)Gubun ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Fact_Name", (object)Category ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Fact_Name", (object)itype ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Item_Code", (object)start ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Item_Name", (object)end ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Item_Name", (object)txt ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Fact_Code", (object)Fact ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Gubun", (object)Gubun ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Category", (object)Category ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Type", (object)itype ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Start", (object)start ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@End", (object)end ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Item_Code", (object)Icode ?? DBNull.Value);
 
                     cmd.Connection.Open();
 

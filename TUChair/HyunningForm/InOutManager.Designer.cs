@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.jeansGridView1 = new JeanForm.JeansGridView();
             this.panel10 = new System.Windows.Forms.Panel();
             this.cboItemtype = new System.Windows.Forms.ComboBox();
@@ -40,7 +40,6 @@
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.txtItemCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.cboGubun = new System.Windows.Forms.ComboBox();
@@ -54,6 +53,8 @@
             this.cboFact = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.inDTP1 = new TUChair.InDTP();
+            this.cboItemCode = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -70,8 +71,8 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.jeansGridView1);
-            this.panel3.Location = new System.Drawing.Point(12, 141);
-            this.panel3.Size = new System.Drawing.Size(1092, 449);
+            this.panel3.Location = new System.Drawing.Point(12, 160);
+            this.panel3.Size = new System.Drawing.Size(1092, 430);
             // 
             // label1
             // 
@@ -83,7 +84,7 @@
             this.panel2.Controls.Add(this.dtp2);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.dtp1);
-            this.panel2.Location = new System.Drawing.Point(12, 97);
+            this.panel2.Location = new System.Drawing.Point(12, 116);
             this.panel2.Controls.SetChildIndex(this.dtp1, 0);
             this.panel2.Controls.SetChildIndex(this.label8, 0);
             this.panel2.Controls.SetChildIndex(this.label1, 0);
@@ -92,55 +93,56 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Size = new System.Drawing.Size(1092, 80);
+            this.panel1.Size = new System.Drawing.Size(1092, 92);
             // 
             // jeansGridView1
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Beige;
-            this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.jeansGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
+            this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.jeansGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.jeansGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.jeansGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jeansGridView1.IsAllCheckColumnHeader = false;
             this.jeansGridView1.Location = new System.Drawing.Point(0, 0);
             this.jeansGridView1.Name = "jeansGridView1";
             this.jeansGridView1.RowHeadersWidth = 30;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Bisque;
-            this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
+            this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView1.Size = new System.Drawing.Size(1090, 447);
+            this.jeansGridView1.Size = new System.Drawing.Size(1090, 428);
             this.jeansGridView1.TabIndex = 0;
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.cboItemtype);
             this.panel10.Controls.Add(this.label9);
-            this.panel10.Location = new System.Drawing.Point(729, 42);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(729, 48);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(357, 33);
+            this.panel10.Size = new System.Drawing.Size(358, 39);
             this.panel10.TabIndex = 23;
             // 
             // cboItemtype
             // 
             this.cboItemtype.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboItemtype.FormattingEnabled = true;
-            this.cboItemtype.Location = new System.Drawing.Point(122, 4);
+            this.cboItemtype.Location = new System.Drawing.Point(122, 7);
             this.cboItemtype.Name = "cboItemtype";
             this.cboItemtype.Size = new System.Drawing.Size(219, 27);
             this.cboItemtype.TabIndex = 7;
@@ -159,18 +161,19 @@
             // 
             this.panel5.Controls.Add(this.cboCategory);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(366, 42);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(392, 48);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(357, 33);
+            this.panel5.Size = new System.Drawing.Size(331, 39);
             this.panel5.TabIndex = 19;
             // 
             // cboCategory
             // 
             this.cboCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(119, 4);
+            this.cboCategory.Location = new System.Drawing.Point(119, 7);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(219, 27);
+            this.cboCategory.Size = new System.Drawing.Size(184, 27);
             this.cboCategory.TabIndex = 8;
             // 
             // label2
@@ -185,20 +188,13 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.txtItemCode);
+            this.panel7.Controls.Add(this.cboItemCode);
             this.panel7.Controls.Add(this.label4);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(729, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(357, 33);
+            this.panel7.Size = new System.Drawing.Size(358, 39);
             this.panel7.TabIndex = 20;
-            // 
-            // txtItemCode
-            // 
-            this.txtItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemCode.Location = new System.Drawing.Point(122, 2);
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(219, 27);
-            this.txtItemCode.TabIndex = 7;
             // 
             // label4
             // 
@@ -214,16 +210,17 @@
             // 
             this.panel8.Controls.Add(this.cboGubun);
             this.panel8.Controls.Add(this.label5);
-            this.panel8.Location = new System.Drawing.Point(3, 42);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(3, 48);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(357, 33);
+            this.panel8.Size = new System.Drawing.Size(383, 39);
             this.panel8.TabIndex = 21;
             // 
             // cboGubun
             // 
             this.cboGubun.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboGubun.FormattingEnabled = true;
-            this.cboGubun.Location = new System.Drawing.Point(116, 3);
+            this.cboGubun.Location = new System.Drawing.Point(116, 6);
             this.cboGubun.Name = "cboGubun";
             this.cboGubun.Size = new System.Drawing.Size(219, 27);
             this.cboGubun.TabIndex = 7;
@@ -240,10 +237,12 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.inDTP1);
             this.panel4.Controls.Add(this.label7);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(357, 33);
+            this.panel4.Size = new System.Drawing.Size(383, 39);
             this.panel4.TabIndex = 18;
             // 
             // label7
@@ -291,18 +290,19 @@
             // 
             this.panel9.Controls.Add(this.cboFact);
             this.panel9.Controls.Add(this.label6);
-            this.panel9.Location = new System.Drawing.Point(366, 3);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(392, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(357, 33);
+            this.panel9.Size = new System.Drawing.Size(331, 39);
             this.panel9.TabIndex = 22;
             // 
             // cboFact
             // 
             this.cboFact.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFact.FormattingEnabled = true;
-            this.cboFact.Location = new System.Drawing.Point(119, 3);
+            this.cboFact.Location = new System.Drawing.Point(119, 6);
             this.cboFact.Name = "cboFact";
-            this.cboFact.Size = new System.Drawing.Size(219, 27);
+            this.cboFact.Size = new System.Drawing.Size(184, 27);
             this.cboFact.TabIndex = 7;
             // 
             // label6
@@ -318,8 +318,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.68807F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.91743F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.Controls.Add(this.panel9, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
@@ -333,8 +333,28 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 78);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 90);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // inDTP1
+            // 
+            this.inDTP1.DateLimit = false;
+            this.inDTP1.End = new System.DateTime(2020, 8, 13, 0, 41, 7, 841);
+            this.inDTP1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.inDTP1.Location = new System.Drawing.Point(112, 2);
+            this.inDTP1.Name = "inDTP1";
+            this.inDTP1.Size = new System.Drawing.Size(268, 36);
+            this.inDTP1.Start = new System.DateTime(2020, 8, 13, 0, 41, 7, 848);
+            this.inDTP1.TabIndex = 7;
+            // 
+            // cboItemCode
+            // 
+            this.cboItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboItemCode.FormattingEnabled = true;
+            this.cboItemCode.Location = new System.Drawing.Point(122, 5);
+            this.cboItemCode.Name = "cboItemCode";
+            this.cboItemCode.Size = new System.Drawing.Size(219, 27);
+            this.cboItemCode.TabIndex = 8;
             // 
             // InOutManager
             // 
@@ -381,7 +401,6 @@
         private System.Windows.Forms.ComboBox cboGubun;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ComboBox cboCategory;
@@ -389,5 +408,7 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.ComboBox cboItemtype;
         private System.Windows.Forms.Label label9;
+        private InDTP inDTP1;
+        private System.Windows.Forms.ComboBox cboItemCode;
     }
 }

@@ -56,16 +56,22 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.jeansGridView1);
+            this.panel3.Location = new System.Drawing.Point(12, 106);
+            this.panel3.Size = new System.Drawing.Size(1092, 484);
             // 
             // label1
             // 
             this.label1.Size = new System.Drawing.Size(113, 23);
             this.label1.Text = "≡ 공정재고현황";
             // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(12, 62);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Size = new System.Drawing.Size(1092, 87);
+            this.panel1.Size = new System.Drawing.Size(1092, 44);
             // 
             // tableLayoutPanel1
             // 
@@ -79,10 +85,9 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 85);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 42);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel6
@@ -200,7 +205,7 @@
             this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView1.Size = new System.Drawing.Size(1090, 425);
+            this.jeansGridView1.Size = new System.Drawing.Size(1090, 482);
             this.jeansGridView1.TabIndex = 0;
             // 
             // ProcessStockManager

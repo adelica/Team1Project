@@ -46,10 +46,10 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.Search(Fact, code, txt);
         }
-        public List<InOutVo> InOutSearch(string Fact, string Gubun, string Category, string itype, string start, string end, string txt)//검색조건
+        public List<InOutVo> InOutSearch(string Fact, string Gubun, string Category, string itype, string start, string end, string Icode)//검색조건
         {
             ProcessShiftDAC dac = new ProcessShiftDAC();
-            return dac.InOutSearch(Fact, Gubun, Category, itype, start, end, txt);
+            return dac.InOutSearch(Fact, Gubun, Category, itype, start, end, Icode);
         }
 
 
