@@ -635,6 +635,9 @@ namespace TUChair
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
+
+            if (userInfoVO == null)
+                return;
             string UID = userInfoVO.CUser_ID;
             string Marks = string.Join("@", testlist);
           
