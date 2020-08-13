@@ -40,7 +40,7 @@
             this.dtpStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpStart.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(112, 21);
+            this.dtpStart.Size = new System.Drawing.Size(103, 21);
             this.dtpStart.TabIndex = 0;
             this.dtpStart.ValueChanged += new System.EventHandler(this.EndLimitCheck);
             this.dtpStart.Leave += new System.EventHandler(this.DateLimitCheck);
@@ -52,7 +52,7 @@
             this.dtpEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpEnd.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(111, 21);
+            this.dtpEnd.Size = new System.Drawing.Size(99, 21);
             this.dtpEnd.TabIndex = 0;
             this.dtpEnd.ValueChanged += new System.EventHandler(this.StartLimitCheck);
             this.dtpEnd.Leave += new System.EventHandler(this.DateLimitCheck);
@@ -60,8 +60,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(113, 6);
+            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(110, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 16);
             this.label1.TabIndex = 1;
@@ -77,7 +77,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InDTP";
-            this.Size = new System.Drawing.Size(245, 26);
+            this.Size = new System.Drawing.Size(237, 26);
             this.ResumeLayout(false);
             this.PerformLayout();
 

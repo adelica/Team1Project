@@ -40,7 +40,6 @@
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.txtItemCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.cboGubun = new System.Windows.Forms.ComboBox();
@@ -55,6 +54,7 @@
             this.cboFact = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cboItemCode = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -97,6 +97,7 @@
             // 
             // jeansGridView1
             // 
+            this.jeansGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
             this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -186,20 +187,12 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.txtItemCode);
+            this.panel7.Controls.Add(this.cboItemCode);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Location = new System.Drawing.Point(729, 3);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(357, 33);
             this.panel7.TabIndex = 20;
-            // 
-            // txtItemCode
-            // 
-            this.txtItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemCode.Location = new System.Drawing.Point(122, 2);
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(219, 27);
-            this.txtItemCode.TabIndex = 7;
             // 
             // label4
             // 
@@ -349,6 +342,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 78);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // cboItemCode
+            // 
+            this.cboItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboItemCode.FormattingEnabled = true;
+            this.cboItemCode.Location = new System.Drawing.Point(122, 3);
+            this.cboItemCode.Name = "cboItemCode";
+            this.cboItemCode.Size = new System.Drawing.Size(219, 27);
+            this.cboItemCode.TabIndex = 8;
+            // 
             // InOutManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -394,7 +396,6 @@
         private System.Windows.Forms.ComboBox cboGubun;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ComboBox cboCategory;
@@ -403,5 +404,6 @@
         private System.Windows.Forms.ComboBox cboItemtype;
         private System.Windows.Forms.Label label9;
         private InDTP inDTP1;
+        private System.Windows.Forms.ComboBox cboItemCode;
     }
 }

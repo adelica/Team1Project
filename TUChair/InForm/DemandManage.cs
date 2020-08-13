@@ -21,12 +21,8 @@ namespace TUChair
 
             CommonUtil.InitSettingGridView(dgvDemand);
             dgvDemand.AutoGenerateColumns = true;
-            CommonUtil.AddNewColumnToDataGridView(dgvDemand, "고객사코드", "Com_Code", true, 90, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvDemand, "고객사명", "Com_Name", true, 100, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvDemand, "고객주문번호", "So_PurchaseOrder", true, 150, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvDemand, "품목", "Item_Code", true, 100, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvDemand, "Plan_ID", "Sales_ID", false);
-
+            dgvDemand.ReadOnly = true;
+        
             GetComboBinding();
             
             dtpDate.DateLimit = true;
@@ -37,6 +33,15 @@ namespace TUChair
         {
             if(((TUChairMain2)this.MdiParent).ActiveMdiChild==this)
             {
+                dgvDemand.DataSource = null;
+
+                CommonUtil.AddNewColumnToDataGridView(dgvDemand, "고객사코드", "Com_Code", true, 90, DataGridViewContentAlignment.MiddleCenter);
+                CommonUtil.AddNewColumnToDataGridView(dgvDemand, "고객사명", "Com_Name", true, 100, DataGridViewContentAlignment.MiddleCenter);
+                CommonUtil.AddNewColumnToDataGridView(dgvDemand, "고객주문번호", "So_PurchaseOrder", true, 150, DataGridViewContentAlignment.MiddleCenter);
+                CommonUtil.AddNewColumnToDataGridView(dgvDemand, "품목", "Item_Code", true, 100, DataGridViewContentAlignment.MiddleCenter);
+                CommonUtil.AddNewColumnToDataGridView(dgvDemand, "Plan_ID", "Sales_ID", false);
+      
+
                 string startDate= string.Empty;
                 string endDate = string.Empty;
 

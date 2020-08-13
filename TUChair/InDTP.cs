@@ -21,12 +21,12 @@ namespace TUChair
         public DateTime Start
         {
             get { return dtpStart.Value; }
-            set { value = dtpStart.Value; }
+            set { dtpStart.Value = value; }
         }
         public DateTime End
         {
             get { return dtpEnd.Value; }
-            set { value = dtpEnd.Value; }
+            set { dtpEnd.Value = value; }
         }
 
         public bool DateLimit
@@ -51,14 +51,14 @@ namespace TUChair
                 if (dtpEnd.MaxDate > dtpEnd.MinDate && dtpEnd.MaxDate > dtpStart.Value)
                 {
                     dtpEnd.MinDate = dtpStart.Value;
-                    dtpEnd.MaxDate = dtpStart.Value.AddDays(50);
+                    dtpEnd.MaxDate = dtpStart.Value.AddDays(60);
                 }
                 else if (dtpEnd.MaxDate > dtpEnd.MinDate)
                 {
-                    dtpEnd.MaxDate = dtpStart.Value.AddDays(50);
+                    dtpEnd.MaxDate = dtpStart.Value.AddDays(60);
                     dtpEnd.MinDate = dtpStart.Value;
                 }
-           }
+            }
 
         }
         public void StartLimitCheck(object sender, EventArgs e)
@@ -66,6 +66,7 @@ namespace TUChair
             if (check)
             {                
                dtpEnd.MinDate = dtpStart.Value;
+              dtpStart.Value = dtpEnd.Value.AddDays(-60);
             }
         }
     }

@@ -19,19 +19,19 @@ namespace TUChair
         public POUpLoad()
         {
             InitializeComponent();
-            CommonUtil.InitSettingGridView(dgvPO);
-
+           CommonUtil.InitSettingGridView(dgvPO);
+            dgvPO.AutoGenerateColumns = true;
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "planDate", "Plan_Date", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "순번", "no", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "WORK-ORDER-ID", "WorkOrderNo", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "업체코드", "Com_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "납품처", "Com_Name", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "순번", "순번", true, 70, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "WORK_ORDER_ID", "WORK_ORDER_ID", true, 150, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "업체코드", "업체 CODE", true,130, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "납품처", "납품처", true,100, DataGridViewContentAlignment.MiddleCenter);
 
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "SIZE", "Item_Size", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "입고P/NO", "Item_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "품명", "Item_Name", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "계획수량합계", "Sales_Qty", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "납기일", "Vo_EndDate", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "SIZE", "SIZE", true,130, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "입고P/NO", "입고P/NO", true,120, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "품명", "품명", true,120, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "계획수량합계", "계획수량합계", true,100,DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "납기일", "납기일", true,150, DataGridViewContentAlignment.MiddleCenter);
 
            
         }
