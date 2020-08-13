@@ -21,9 +21,8 @@ namespace TUChair
         {
             InitializeComponent();
 
+   
 
-
-            dtpDate.Value = DateTime.Now;
 
             jeansGridView1.IsAllCheckColumnHeader = true;
 
@@ -82,20 +81,7 @@ namespace TUChair
             frm.New -= New;
             frm.Excel -= Excel;
         }
-        private void chbDate_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chbDate.Checked == true)
-            {
-                dtpDate.Enabled = true;
-                dtpDate.Format = DateTimePickerFormat.Short;
-            }
-            else
-            {
-                dtpDate.Enabled = false;
-                dtpDate.Format = DateTimePickerFormat.Custom;
-                dtpDate.CustomFormat = " ";
-            }
-        }
+       
 
         private void Save(object sender, EventArgs e)
         {
@@ -110,17 +96,12 @@ namespace TUChair
                 cboFact.SelectedIndex = 0;
                 cboItemCode.SelectedIndex = 0;
                 txtItemCode.Text = "";
-                chbDate.Checked = false;
                 DataLoad();
             }
         }
         private void Search(object sender, EventArgs e)
         {
-            string date;
-            if (chbDate.Checked == false)
-                date = string.Empty;
-            else
-                date = dtpDate.Value.ToShortDateString().Trim();
+           
             string item;
             if (cboItemCode.SelectedIndex == 0)
                 item = string.Empty;
@@ -133,14 +114,14 @@ namespace TUChair
                 Fact = cboFact.Text;
             string txt = txtItemCode.Text.Trim();
 
-            if (date.ToString().Trim().Length < 1 && txt.ToString().Trim().Length < 1 && cboItemCode.SelectedIndex == 0 && cboFact.SelectedIndex == 0)
+            if (/*date.ToString().Trim().Length < 1 &&*/ txt.ToString().Trim().Length < 1 && cboItemCode.SelectedIndex == 0 && cboFact.SelectedIndex == 0)
                 return;
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
 
 
                 JeanServicePShift service = new JeanServicePShift();
-                list = service.PSMMSearch(date, item, Fact, txt);
+                list = service.PSMMSearch( item, Fact, txt);
                 jeansGridView1.DataSource = null;
                 jeansGridView1.DataSource = list;
             }

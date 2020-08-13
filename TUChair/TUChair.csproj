@@ -152,6 +152,7 @@
     <Compile Include="Service\balzuService.cs" />
     <Compile Include="Service\CompanyService.cs" />
     <Compile Include="Service\DemandManageService.cs" />
+    <Compile Include="Service\JeanProductOut.cs" />
     <Compile Include="Service\JeanServicePShift.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>

@@ -52,8 +52,8 @@ namespace TUChairDAC
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "Delete from Factory where Fact_Code=@fCode";
-                    cmd.Parameters.AddWithValue("@fCode", fact_Code);
+                    cmd.CommandText = @"Delete from Factory where Fact_Code in (" + fact_Code + ")";
+                    //cmd.Parameters.AddWithValue("@fCode", fact_Code);
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Connection.Open();
                     cmd.ExecuteNonQuery();

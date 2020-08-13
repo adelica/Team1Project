@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.jeansGridView1 = new JeanForm.JeansGridView();
             this.panel10 = new System.Windows.Forms.Panel();
             this.cboItemtype = new System.Windows.Forms.ComboBox();
@@ -40,21 +40,21 @@
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.txtItemcode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.cboGubun = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.inDTP1 = new TUChair.InDTP();
             this.label7 = new System.Windows.Forms.Label();
+            this.dtp2 = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtp1 = new System.Windows.Forms.DateTimePicker();
             this.panel9 = new System.Windows.Forms.Panel();
             this.cboFact = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.inDTP1 = new TUChair.InDTP();
+            this.cboItemCode = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,14 +81,14 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dateTimePicker2);
+            this.panel2.Controls.Add(this.dtp2);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.dtp1);
             this.panel2.Location = new System.Drawing.Point(12, 97);
-            this.panel2.Controls.SetChildIndex(this.dateTimePicker1, 0);
+            this.panel2.Controls.SetChildIndex(this.dtp1, 0);
             this.panel2.Controls.SetChildIndex(this.label1, 0);
             this.panel2.Controls.SetChildIndex(this.label8, 0);
-            this.panel2.Controls.SetChildIndex(this.dateTimePicker2, 0);
+            this.panel2.Controls.SetChildIndex(this.dtp2, 0);
             // 
             // panel1
             // 
@@ -97,32 +97,33 @@
             // 
             // jeansGridView1
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Beige;
-            this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.jeansGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.jeansGridView1.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
+            this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.jeansGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.jeansGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.jeansGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jeansGridView1.IsAllCheckColumnHeader = false;
             this.jeansGridView1.Location = new System.Drawing.Point(0, 0);
             this.jeansGridView1.Name = "jeansGridView1";
             this.jeansGridView1.RowHeadersWidth = 30;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Bisque;
-            this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
+            this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jeansGridView1.Size = new System.Drawing.Size(1090, 447);
@@ -186,20 +187,12 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.txtItemcode);
+            this.panel7.Controls.Add(this.cboItemCode);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Location = new System.Drawing.Point(729, 3);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(357, 33);
             this.panel7.TabIndex = 20;
-            // 
-            // txtItemcode
-            // 
-            this.txtItemcode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemcode.Location = new System.Drawing.Point(122, 2);
-            this.txtItemcode.Name = "txtItemcode";
-            this.txtItemcode.Size = new System.Drawing.Size(219, 27);
-            this.txtItemcode.TabIndex = 7;
             // 
             // label4
             // 
@@ -224,7 +217,7 @@
             // 
             this.cboGubun.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboGubun.FormattingEnabled = true;
-            this.cboGubun.Location = new System.Drawing.Point(119, 3);
+            this.cboGubun.Location = new System.Drawing.Point(116, 3);
             this.cboGubun.Name = "cboGubun";
             this.cboGubun.Size = new System.Drawing.Size(219, 27);
             this.cboGubun.TabIndex = 7;
@@ -248,35 +241,16 @@
             this.panel4.Size = new System.Drawing.Size(357, 33);
             this.panel4.TabIndex = 18;
             // 
-            // dateTimePicker2
+            // inDTP1
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(246, 6);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(95, 27);
-            this.dateTimePicker2.TabIndex = 10;
-            this.dateTimePicker2.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(223, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(17, 19);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "~";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(122, 6);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(95, 27);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.Value = new System.DateTime(2020, 7, 22, 0, 0, 0, 0);
+            this.inDTP1.DateLimit = false;
+            this.inDTP1.End = new System.DateTime(2020, 8, 13, 15, 33, 31, 13);
+            this.inDTP1.Location = new System.Drawing.Point(111, 4);
+            this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inDTP1.Name = "inDTP1";
+            this.inDTP1.Size = new System.Drawing.Size(243, 24);
+            this.inDTP1.Start = new System.DateTime(2020, 8, 13, 15, 33, 31, 16);
+            this.inDTP1.TabIndex = 7;
             // 
             // label7
             // 
@@ -288,6 +262,36 @@
             this.label7.Size = new System.Drawing.Size(72, 19);
             this.label7.TabIndex = 6;
             this.label7.Text = "◆ 입출고일";
+            // 
+            // dtp2
+            // 
+            this.dtp2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp2.Location = new System.Drawing.Point(243, 3);
+            this.dtp2.Name = "dtp2";
+            this.dtp2.Size = new System.Drawing.Size(95, 27);
+            this.dtp2.TabIndex = 10;
+            this.dtp2.Value = new System.DateTime(2020, 8, 12, 0, 0, 0, 0);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(220, 7);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(17, 19);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "~";
+            // 
+            // dtp1
+            // 
+            this.dtp1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp1.Location = new System.Drawing.Point(119, 5);
+            this.dtp1.Name = "dtp1";
+            this.dtp1.Size = new System.Drawing.Size(95, 27);
+            this.dtp1.TabIndex = 7;
+            this.dtp1.Value = new System.DateTime(2020, 8, 12, 0, 0, 0, 0);
             // 
             // panel9
             // 
@@ -338,16 +342,14 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 78);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // inDTP1
+            // cboItemCode
             // 
-            this.inDTP1.DateLimit = false;
-            this.inDTP1.End = new System.DateTime(2020, 8, 12, 3, 55, 18, 633);
-            this.inDTP1.Location = new System.Drawing.Point(119, 5);
-            this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.inDTP1.Name = "inDTP1";
-            this.inDTP1.Size = new System.Drawing.Size(235, 26);
-            this.inDTP1.Start = new System.DateTime(2020, 8, 12, 3, 55, 18, 640);
-            this.inDTP1.TabIndex = 7;
+            this.cboItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboItemCode.FormattingEnabled = true;
+            this.cboItemCode.Location = new System.Drawing.Point(122, 3);
+            this.cboItemCode.Name = "cboItemCode";
+            this.cboItemCode.Size = new System.Drawing.Size(219, 27);
+            this.cboItemCode.TabIndex = 8;
             // 
             // InOutManager
             // 
@@ -386,15 +388,14 @@
         private System.Windows.Forms.ComboBox cboFact;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtp2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.ComboBox cboGubun;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtItemcode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ComboBox cboCategory;
@@ -403,5 +404,6 @@
         private System.Windows.Forms.ComboBox cboItemtype;
         private System.Windows.Forms.Label label9;
         private InDTP inDTP1;
+        private System.Windows.Forms.ComboBox cboItemCode;
     }
 }

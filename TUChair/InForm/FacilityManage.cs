@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.Utils.Extensions;
+using DevExpress.Xpo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,31 +16,35 @@ namespace TUChair
 {
     public partial class FacilityManage : Form
     {
-        DataTable dtFacility = new DataTable();
-        DataTable dtFacilityG = new DataTable();
+        DataTable dtFacility;
+        DataTable dtFacilityG;
         DataTable dtFacG_code; // 현재 존재하는 설비군 코드
         DataTable dtFaci_code;//현재 존재하는 설비 코드
+
+        TUChairMain2 frm = new TUChairMain2();
         bool typeCheck = true;
 
         public FacilityManage()
         {
             InitializeComponent();
-          //  dgvFacility. = false;
+        
+        
             CommonUtil.InitSettingGridView(dgvFacilityG);
             CommonUtil.InitSettingGridView(dgvFacility);
+
             dgvFacilityG.AutoGenerateColumns = false;
             dgvFacility.AutoGenerateColumns = false;
 
+            dgvFacility.IsAllCheckColumnHeader = true;
+
+            //설비군 dgv
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "설비군 코드", "FacG_Code", true,110);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "설비군 명", "FacG_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "사용유무", "FacG_UseOrNot", true, 80);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "정보", "FacG_Information", false);
             CommonUtil.AddNewColumnToDataGridView(dgvFacilityG, "수정자", "FacG_Modifier", true,80);
 
-
-
-            dgvFacility.IsAllCheckColumnHeader = true;
-
+            //설비 dgv
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "No.", "no", true, 40, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "설비코드", "Faci_Code", true, 170);
             CommonUtil.AddNewColumnToDataGridView(dgvFacility, "설비명", "Faci_Name", true, 150);
@@ -55,8 +61,13 @@ namespace TUChair
 
         private void FacilityManage_Load(object sender, EventArgs e)
         {
+            frm = (TUChairMain2)this.MdiParent;
+            //frm.Save +=
+            //frm.Delete += Delete;
+            frm.New += LoadD;
+            frm.Delete += Delete;
+            frm.Readed += Readed_BarCode;
             LoadData();
-            ((TUChairMain2)this.MdiParent).Readed += Readed_BarCode;
         }
         //바코드 찍을 시
         private void Readed_BarCode(object sender, ReadEventArgs e)
@@ -86,6 +97,7 @@ namespace TUChair
             dtFacG_code = dtFacilityG.DefaultView.ToTable(false, "FacG_Code");
             dtFaci_code = dtFacility.DefaultView.ToTable(false, "Faci_Code");
         }
+
         private void btnFGInsert_Click(object sender, EventArgs e) //설비군 등록
         {
             FacilityGroupInfoRegi frm = new FacilityGroupInfoRegi(dtFacG_code);
@@ -118,7 +130,6 @@ namespace TUChair
             if (e.RowIndex < 0 || e.RowIndex > dgvFacilityG.Rows.Count)
                 return;
 
-
             string code = dgvFacilityG.Rows[e.RowIndex].Cells[0].Value.ToString();
 
             var facility = (from fdata in dtFacility.AsEnumerable()
@@ -147,22 +158,6 @@ namespace TUChair
                 dgvFacilityG.Rows[e.RowIndex].Selected = true;
                 dgvFacilityG.CurrentCell = dgvFacilityG.Rows[e.RowIndex].Cells[0];
                 contextMenuStrip1.Show(dgvFacilityG, e.Location);
-                contextMenuStrip1.Show(Cursor.Position);
-            }
-        }
-
-        private void dgvFacility_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.RowIndex > dgvFacility.Rows.Count)
-            {
-                return;
-            }
-            if (e.Button == MouseButtons.Right)
-            {
-                typeCheck = false;
-                dgvFacility.Rows[e.RowIndex].Selected = true;
-                dgvFacility.CurrentCell = dgvFacility.Rows[e.RowIndex].Cells[0];
-                contextMenuStrip1.Show(dgvFacility, e.Location);
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }
@@ -213,6 +208,11 @@ namespace TUChair
             }
         }
 
+        
+ 
+
+
+        //설비군용
         private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bool check;
@@ -248,12 +248,13 @@ namespace TUChair
                 }
                 return;
             }
+
             else
             {
                 if (DialogResult.OK == (MessageBox.Show("정말 삭제하시겠습니까?", "삭제확인", MessageBoxButtons.OKCancel)))
                 {
                     var row = dgvFacility.CurrentRow;
-                    string faci_Code = row.Cells[1].Value.ToString();
+                    string faci_Code = row.Cells[0].Value.ToString();
                     FacilityService service = new FacilityService();
                     check = service.DeleteFacilityInfo(faci_Code);
                     if (check)
@@ -269,6 +270,7 @@ namespace TUChair
                 return;
             }
         }
+
         //바코드 생성
         private void btnBar_Click(object sender, EventArgs e)
         {
@@ -298,10 +300,89 @@ namespace TUChair
             PreviewForm frm = new PreviewForm(rpt);
             
         }
+        //조회
+        private void LoadD(object sender, EventArgs e)
+        {
+           if(((TUChairMain2)this.MdiParent).ActiveMdiChild==this)
+            {
+                LoadData(); ;
+            }
+        }
+        //설비용 삭제
+        private void Delete(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> chkList = Check();
+                if (chkList.Count == 0)
+                {
+                    MessageBox.Show("삭제할 데이터를 클릭해주세요.");
+                    return;
+                }
+
+                if (DialogResult.OK == (MessageBox.Show("정말로 삭제하시겠습니까?", "삭제확인", MessageBoxButtons.OKCancel)))
+                {
+                    string code = "'" + string.Join("','", chkList) + "'";
+
+                    FacilityService service = new FacilityService();
+                    if (service.DeleteFacilityInfo(code))
+                    {
+                        MessageBox.Show("삭제되었습니다.", "삭제완료");
+                        LoadData();
+                    }
+
+                }
+                else
+                    return;
+            }
+        }
+        //private void UpdateFacility(object sender, EventArgs e)
+        //{
+        //    if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+        //    {
+        //        List<string> chkList = Check();
+        //        bool check = false;
+
+        //        if (chkList.Count == 1) // 수정
+        //        {
+        //            List<string> updateList = (from com in chkList
+        //                                          where com == chkList[0]
+        //                                          select com).ToList();
+
+        //            CompanyInfoRegi frm = new CompanyInfoRegi(cList, codeList, updateList);
+        //            frm.StartPosition = FormStartPosition.CenterParent;
+        //            frm.ShowDialog();
+        //            check = frm.Check;
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("수정할 데이터 하나만 선택해주세요", "수정실패");
+        //            return;
+        //        }
+        //        if (check)
+        //            LoadData();
+        //    }
+        //}
+        private List<String> Check()
+        {
+            List<string> chkList = new List<string>();
+
+            for (int i = 0; i < dgvFacility.Rows.Count; i++)
+            {
+                bool IsCellChecked = (bool)dgvFacility.Rows[i].Cells[0].EditedFormattedValue;
+                if (IsCellChecked)
+                {
+                    chkList.Add(dgvFacility.Rows[i].Cells[2].Value.ToString());
+                }
+            }
+            return chkList;
+        }
 
         private void FacilityManage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ((TUChairMain2)this.MdiParent).Readed -= Readed_BarCode;
+            frm.Readed -= Readed_BarCode;
+            frm.Delete -= Delete;
+            frm.New -= LoadD;
         }
     }
 }

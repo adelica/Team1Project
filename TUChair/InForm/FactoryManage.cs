@@ -16,16 +16,19 @@ namespace TUChair
     public partial class FactoryManage : Form
     {
         List<FactoryVO> list;
+        TUChairMain2 frm = new TUChairMain2();
         public FactoryManage()
         {
             InitializeComponent();
 
+
             CommonUtil.InitSettingGridView(dgvFactory);
+            dgvFactory.IsAllCheckColumnHeader = true;
 
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "No.", "no.", true, 50, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설군", "Fact_Group", true, 70, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설구분", "Fact_Class", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설타입", "Fact_Type", true, 150);
+            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설구분", "Fact_Class", true, 100, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설타입", "Fact_Type", true, 150, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설코드", "Fact_Code", true, 230);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설명", "Fact_Name", true, 150);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설명", "Fact_BOM", true, 150);
@@ -39,21 +42,18 @@ namespace TUChair
         private void dgvFactory_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             // 원하는 칼럼에 자동 번호 매기기
-            this.dgvFactory.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+            this.dgvFactory.Rows[e.RowIndex].Cells[1].Value = (e.RowIndex + 1).ToString();
         }
 
-
-        private void FactoryManage_Load(object sender, EventArgs e)
-        {
-            LoadData();
-            CboBinding();
-        }
 
         private void LoadData() //전체데이터 바인딩
         {
             FactoryService service = new FactoryService();
             list = service.GetFactoryData();
             dgvFactory.DataSource = list;
+            txtFacName.Text = "";
+            if(cboFacGroup.Items.Count>0)
+                 cboFacGroup.SelectedIndex = 0;
         }
 
         private void CboBinding() //콤보박스 바인딩용
@@ -68,17 +68,13 @@ namespace TUChair
             }
             cboFacGroup.SelectedIndex = 0;
         }
-
-        private void btnInsert_Click(object sender, EventArgs e) //임시 공장정보등록
+        //새로고침
+        private void LoadD(object sender, EventArgs e)
         {
-            FactoryInfoRegi frm = new FactoryInfoRegi(list);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            if (frm.Check)
-                LoadData();
+            LoadData();
         }
-
-        private void btnSearch_Click(object sender, EventArgs e)
+        //검색
+        private void Search(object sender, EventArgs e)
         {
             List<FactoryVO> groupList = null;
             if (cboFacGroup.SelectedItem.ToString() == "전체" && txtFacName.Text.Trim().Length < 1)
@@ -106,78 +102,165 @@ namespace TUChair
             if (groupList.Count < 1)
             { MessageBox.Show("검색한 데이터가 존재하지않습니다.", "검색실패"); }
         }
-
-        private void txtFacName_KeyPress(object sender, KeyPressEventArgs e)
+        //등록, 수정
+        private void Save(object sender, EventArgs e)
         {
-            if (e.KeyChar == 13)
-                btnSearch.PerformClick();
-        }
+            List<string> codeList = (from code in list
+                                     select code.Fact_Code).ToList();
 
-        private void 수정ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var row = dgvFactory.CurrentRow;
-
-            string facG_Code = row.Cells[1].Value.ToString();
-            string fact_Class= row.Cells[2].Value.ToString();
-            string fact_Code = row.Cells[4].Value.ToString();
-            string fact_Name= row.Cells[5].Value.ToString();
-            string fact_Parent= row.Cells[7].Value.ToString();
-            string fact_Info = row.Cells[8].Value== null ? "" : row.Cells[8].Value.ToString();
-            string UseOrNot= row.Cells[10].Value.ToString();
-
-            FactoryInfoRegi frm = new FactoryInfoRegi(facG_Code, fact_Class, fact_Code, fact_Name, fact_Parent, fact_Info, UseOrNot,list);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            if(frm.Check)
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                LoadData();
-            }
-
-        }
-
-        private void dgvFactory_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex < 1 || e.RowIndex > dgvFactory.Rows.Count)
-                return;
-            if (e.Button == MouseButtons.Right)
-            {
-                dgvFactory.Rows[e.RowIndex].Selected = true;
-                dgvFactory.CurrentCell = dgvFactory.Rows[e.RowIndex].Cells[0];
-                contextMenuStrip1.Show(dgvFactory, e.Location);
-                contextMenuStrip1.Show(Cursor.Position);
-            }
-        }
-
-        private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(DialogResult.OK==(MessageBox.Show("정말로 삭제하시겠습니까?","삭제확인",MessageBoxButtons.OKCancel)))
-            {
-                var row = dgvFactory.CurrentRow;
-                string fact_Code = row.Cells[4].Value.ToString();
-
-                List<FactoryVO> parentCheck = null;
-                parentCheck = (from pCheck in list
-                               where pCheck.Fact_Parent == fact_Code
-                               select pCheck).ToList();
-
-                if (parentCheck.Count > 0)
+                List<string> chkList = Check();
+                bool check = false;
+                if (chkList.Count == 1) // 수정
                 {
-                    MessageBox.Show("하위시설군이 존재합니다.", "삭제실패");
+                    var row = dgvFactory.CurrentRow;
+
+                    string facG_Code = row.Cells[2].Value.ToString();
+                    string fact_Class = row.Cells[3].Value.ToString();
+                    string fact_Code = row.Cells[5].Value.ToString();
+                    string fact_Name = row.Cells[6].Value.ToString();
+                    string fact_Parent = row.Cells[8].Value.ToString();
+                    string fact_Info = row.Cells[9].Value == null ? "" : row.Cells[9].Value.ToString();
+                    string UseOrNot = row.Cells[11].Value.ToString();
+
+                    FactoryInfoRegi frm = new FactoryInfoRegi(facG_Code, fact_Class, fact_Code, fact_Name, fact_Parent, fact_Info, UseOrNot, list);
+
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    check = frm.Check;
+                }
+
+                else if (chkList.Count == 0) // 신규
+                {
+                    FactoryInfoRegi frm = new FactoryInfoRegi(list);
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    check = frm.Check;
+                }
+                else //2개 이상 선택
+                {
+                    MessageBox.Show("수정할 데이터 하나만 선택해주세요", "수정실패");
                     return;
                 }
-                else
+                if (check)
+                    LoadData();
+            }
+        }
+
+        #region
+        //private void dgvFactory_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        //{
+        //    if (e.RowIndex < 1 || e.RowIndex > dgvFactory.Rows.Count)
+        //        return;
+        //    if (e.Button == MouseButtons.Right)
+        //    {
+        //        dgvFactory.Rows[e.RowIndex].Selected = true;
+        //        dgvFactory.CurrentCell = dgvFactory.Rows[e.RowIndex].Cells[1];
+        //        contextMenuStrip1.Show(dgvFactory, e.Location);
+        //        contextMenuStrip1.Show(Cursor.Position);
+        //    }
+        //}
+
+        //private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if(DialogResult.OK==(MessageBox.Show("정말로 삭제하시겠습니까?","삭제확인",MessageBoxButtons.OKCancel)))
+        //    {
+        //        var row = dgvFactory.CurrentRow;
+        //        string fact_Code = row.Cells[5].Value.ToString();
+
+        //        List<string> parentCheck = null;
+        //        parentCheck = (from pCheck in list
+        //                       where pCheck.Fact_Parent == fact_Code
+        //                       select pCheck.Fact_Code).Distinct().ToList();
+
+        //        if (parentCheck.Count > 0)
+        //        {
+        //            MessageBox.Show("하위시설군이 존재합니다.", "삭제실패");
+        //            return;
+        //        }
+        //        else
+        //        {
+        //            FactoryService service = new FactoryService();
+        //            bool check = service.DeleteFactoryInfo(fact_Code);
+        //            if (check)
+        //            {
+        //                MessageBox.Show("삭제되었습니다.", "삭제완료");
+        //                LoadData();
+        //            }
+        //        }
+        //    }
+        //    return;
+
+        //}
+        //------------
+        #endregion
+
+        //삭제
+        private void Delete(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> chkList = Check();
+                if (chkList.Count == 0)
                 {
+                    MessageBox.Show("삭제할 데이터를 클릭해주세요.");
+                    return;
+                }
+
+                if (DialogResult.OK == (MessageBox.Show("정말로 삭제하시겠습니까?", "삭제확인", MessageBoxButtons.OKCancel)))
+                {
+                    string code = "'" + string.Join("','", chkList) + "'";
+
                     FactoryService service = new FactoryService();
-                    bool check = service.DeleteFactoryInfo(fact_Code);
-                    if (check)
+                    if (service.DeleteFactoryInfo(code))
                     {
-                        MessageBox.Show("삭제되었습니다.", "삭제완료");
+                        MessageBox.Show($"{code}이/가 삭제되었습니다.", "삭제완료");
                         LoadData();
                     }
+
+                }
+                else
+                    return;
+            }
+        }
+        //폼 종료시 이벤트 제거
+        private void FactoryManage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frm.Save -= Save;
+            frm.Search -= Search;
+            frm.Delete -= Delete;
+            frm.New -= LoadD;
+        }
+
+        //체크박스 체크확인
+        private List<String> Check()
+        {
+            List<string> chkList = new List<string>();
+
+            for (int i = 0; i < dgvFactory.Rows.Count; i++)
+            {
+                bool IsCellChecked = (bool)dgvFactory.Rows[i].Cells[0].EditedFormattedValue;
+                if (IsCellChecked)
+                {
+                    chkList.Add(dgvFactory.Rows[i].Cells[5].Value.ToString());
                 }
             }
-            return;
+            return chkList;
+        }
 
+
+        private void FactoryManage_Load(object sender, EventArgs e)
+        {
+            frm = (TUChairMain2)this.MdiParent;
+
+            frm.Save += Save;
+            frm.Search += Search;
+            frm.Delete += Delete;
+            frm.New += LoadD;
+
+            LoadData();
+            CboBinding();
         }
     }
 }

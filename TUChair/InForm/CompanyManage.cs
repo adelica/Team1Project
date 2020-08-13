@@ -240,8 +240,8 @@ namespace TUChair
                 {
                     string code = "'" + string.Join("','", chkList) + "'";
 
-                    CompanyService service = new CompanyService();
-                    if (service.DeleteCompanyInfo(code))
+                    FactoryService service = new FactoryService();
+                    if (service.DeleteFactoryInfo(code))
                     {
                         MessageBox.Show($"{code}이/가 삭제되었습니다.", "삭제완료");
                         LoadData();

@@ -25,6 +25,7 @@ namespace TUChair
         List<ShiftVO> list;
         Dictionary<String, String> updatedic;
         string upInsert;
+        List<string> FaciNameList;
         private void ShiftStandardForm_Load(object sender, EventArgs e)
         {
 
@@ -91,8 +92,8 @@ namespace TUChair
 
             };
             FaciCodeList = FaciCodeList.Distinct().ToList();
-            List<string> FaciNameList = new List<string>();
-            FaciNameList.Insert(0,"선택");
+            FaciNameList = new List<string>();
+            FaciNameList.Insert(0, "선택");
             for (int i = 0; i < jeansGridView1.RowCount; i++)
             {
                 FaciNameList.Add(jeansGridView1.Rows[i].Cells[3].Value.ToString());
@@ -100,14 +101,14 @@ namespace TUChair
             };
             FaciNameList = FaciNameList.Distinct().ToList();
             Dictionary<string, string> ComboDic = new Dictionary<string, string>();
-           // ComboDic.Add("선택", "선택");
-            ComboDic = FaciNameList.Zip(FaciCodeList, (k, v) => new { k, v }).ToDictionary(a => a.k, a => a.v);           
+            // ComboDic.Add("선택", "선택");
+            ComboDic = FaciNameList.Zip(FaciCodeList, (k, v) => new { k, v }).ToDictionary(a => a.k, a => a.v);
             comboBox2.Items.Clear();
-            comboBox2.DataSource =new BindingSource(ComboDic,null);
+            //   comboBox2.DataSource =new BindingSource(ComboDic,null);
             comboBox2.DisplayMember = "key";
             comboBox2.ValueMember = "value";
-            comboBox2.SelectedIndex = 0;
-           // comboBox2.Items.AddRange(FaciNameList.ToArray());          
+            //comboBox2.SelectedIndex = 0;
+            comboBox2.Items.AddRange(FaciNameList.ToArray());
         }
 
       
@@ -124,8 +125,8 @@ namespace TUChair
         }
         private void ExportOrderList()
         {
-            string sResult = ExcelExportImport.ExportToDataGridView<WorkOrderVO>(
-                (List<WorkOrderVO>)jeansGridView1.DataSource, null);
+            string sResult = ExcelExportImport.ExportToDataGridView<ShiftVO>(
+                (List<ShiftVO>)jeansGridView1.DataSource, "");
             if (sResult.Length > 0)
             {
                 MessageBox.Show(sResult);
@@ -145,7 +146,30 @@ namespace TUChair
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-
+                List<string> sb = new List<string>();
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.RowCount; i++)
+                {
+                    bool isn = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isn)
+                    {
+                        sb.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
+                    }
+                }
+                if (sb.Count < 1)
+                {
+                    MessageBox.Show("삭제할 항목을 선택해주세요");
+                    return;
+                }
+                string condition = string.Join("@", sb);
+                MeilingService service = new MeilingService();
+                if (service.DeleteShift(condition))
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                }
+                else
+                    MessageBox.Show("삭제에 실패하였습니다.");
+                DataBinding();
             }
         }
 
@@ -182,8 +206,78 @@ namespace TUChair
 
         private void Save(object sender, EventArgs e)
         {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
 
+                int cnt=0;
+                int row=0;
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.Rows.Count; i++)
+                {
+                    bool isbool = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isbool)
+                    { cnt++; row = i; }
+                }
+                string userID = ((TUChairMain2)this.MdiParent).userInfoVO.CUser_ID;
+                if (cnt == 0)
+                {
+                    upInsert = "Insert";
+                    ShiftPopUpForm frm = new ShiftPopUpForm();
+                    frm.Owner = this;
+                    //shiftPop.uptdic = updatedic;
+                    frm.uporInsert = upInsert;
+
+                    frm.faciNameList = FaciNameList;
+                    // shiftPop.sendshiftlist = shiftCbolist;
+                    // shiftPop.sendlist = FaciCodeList;
+                    frm.ShowDialog();
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        DataBinding();
+                    }
+                }
+                else if (cnt > 1)
+                {
+                    MessageBox.Show("수정은 하나씩만 가능합니다.");
+                    return;
+                }
+                else
+                {
+                    upInsert = "Update";
+                   
+                    ShiftVO shifti = new ShiftVO();
+                    shifti.Shift_ID = jeansGridView1.Rows[row].Cells[1].Value.ToString();
+                    shifti.Faci_Code = jeansGridView1.Rows[row].Cells[2].Value.ToString();
+                    shifti.Faci_Name = jeansGridView1.Rows[row].Cells[3].Value.ToString();                   
+                    shifti.Shift_StartDate = Convert.ToDateTime(jeansGridView1.Rows[row].Cells[4].Value);
+                    shifti.Shift_EndDate =Convert.ToDateTime(jeansGridView1.Rows[row].Cells[5].Value);
+                    shifti.Shift_StartTime = jeansGridView1.Rows[row].Cells[6].Value.ToString();
+                    shifti.Shift_EndTime = jeansGridView1.Rows[row].Cells[7].Value.ToString();
+                    shifti.Shift_InputPeople =(jeansGridView1.Rows[row].Cells[8].Value == null) ? 0 : Convert.ToInt32(jeansGridView1.Rows[row].Cells[8].Value);
+                    shifti.Shift_UserOrNot = (jeansGridView1.Rows[row].Cells[9].Value == null) ? "" : jeansGridView1.Rows[row].Cells[9].Value.ToString();
+                    shifti.Shift_Modifier = (jeansGridView1.Rows[row].Cells[10].Value == null) ? "": jeansGridView1.Rows[row].Cells[10].Value.ToString();
+                    
+                    if (jeansGridView1.Rows[row].Cells[11].Value != null)
+                        shifti.Shift_ModifierDate =  Convert.ToDateTime(jeansGridView1.Rows[row].Cells[11].Value);
+
+                    shifti.Shift_Others = (jeansGridView1.Rows[row].Cells[12].Value == null) ? "" : jeansGridView1.Rows[row].Cells[12].Value.ToString();
+                    ShiftPopUpForm shiftPop = new ShiftPopUpForm();
+                    shiftPop.Owner = this;
+                    //shiftPop.uptdic = updatedic;
+                    shiftPop.uporInsert = upInsert;
+                    shiftPop.Shift = shifti;
+                    shiftPop.faciNameList = FaciNameList;
+                    // shiftPop.sendshiftlist = shiftCbolist;
+                    // shiftPop.sendlist = FaciCodeList;
+                    shiftPop.ShowDialog();
+                }
+            }
         }
+
+       
+          
+       
+    
 
         // 설비 선택 콤보박스
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -233,6 +327,7 @@ namespace TUChair
 
        
         }
+    
 
         private void dataGridView_ExportToExcel(string fileName, JeansGridView jeansGridView1)
         {
@@ -290,8 +385,8 @@ namespace TUChair
                 shiftPop.Owner = this;
                 shiftPop.uptdic = updatedic;
                 shiftPop.uporInsert = upInsert;
-               // shiftPop.sendshiftlist = shiftCbolist;
-               // shiftPop.sendlist = FaciCbolist;
+                 //shiftPop.FaciNameList = faciNameList;
+                // shiftPop.sendlist = FaciCbolist;
                 shiftPop.ShowDialog();
             }
         }

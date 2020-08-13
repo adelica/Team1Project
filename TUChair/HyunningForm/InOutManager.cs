@@ -42,16 +42,80 @@ namespace TUChair
 
             commonService service = new commonService();
 
-            comboItems = service.getCommonCode("창고");
+            comboItems = service.getCommonCode("창고@재고상태@품목유형@Item");
 
             List<ComboItemVO> cList = (from item in comboItems
                                        where item.CodeType == "창고"
                                        select item).ToList();
             CommonUtil.ReComboBinding(cboFact, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "재고상태"
+                     select item).ToList();
+            CommonUtil.ReComboBinding(cboGubun, cList, "선택");
+            cList = (from item in comboItems
+                     where item.CodeType == "재고상태"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboCategory, cList, "선택");
+
+            cList = (from item in comboItems
+                     where item.CodeType == "품목유형"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboItemtype, cList, "선택");
+            
+            cList = (from item in comboItems
+                     where item.CodeType == "Item"
+                     select item).ToList();
+            CommonUtil.ReComboBinding(cboItemCode, cList, "선택");
+
+
             DataLoad();
         }
+        private void Search(object sender, EventArgs e)
+        {
+          
+                string Fact;
+                if (cboFact.SelectedIndex == 0)
+                    Fact = string.Empty;
+                else
+                    Fact = cboFact.Text;
+                string Gubun;
+                if (cboGubun.SelectedIndex == 0)
+                    Gubun = string.Empty;
+                else
+                    Gubun = cboGubun.Text;
+                string Category;
+                if (cboCategory.SelectedIndex == 0)
+                    Category = string.Empty;
+                else
+                    Category = cboCategory.Text;
+                string itype;
+                if (cboItemtype.SelectedIndex == 0)
+                    itype = string.Empty;
+                else
+                    itype = cboItemtype.Text;
+                string start = inDTP1.Start.ToShortDateString();
+                string end = inDTP1.End.ToShortDateString();
 
-            private void InOutManager_Load(object sender, EventArgs e)
+                string Icode;
+                if (cboItemCode.SelectedIndex == 0)
+                   Icode = string.Empty;
+                else
+                    Icode = cboItemCode.Text;
+
+
+                if (cboFact.SelectedIndex == 0 && cboItemCode.SelectedIndex == 0 && cboGubun.SelectedIndex == 0 && cboCategory.SelectedIndex == 0 && cboItemtype.SelectedIndex == 0)
+                    return;
+                if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                {
+                    JeanServicePShift service = new JeanServicePShift();
+                    Inoutlist = service.InOutSearch(Fact, Gubun , Category, itype, start, end, Icode);
+                    jeansGridView1.DataSource = null;
+                    jeansGridView1.DataSource = Inoutlist;
+                }
+            
+        }
+
+        private void InOutManager_Load(object sender, EventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
             frm.Save += Save;
@@ -77,6 +141,7 @@ namespace TUChair
             frm.Delete -= Delete;
             frm.New -= New;
             frm.Excel -= Excel;
+        
         }
         private void Save(object sender, EventArgs e)
         {
@@ -88,39 +153,17 @@ namespace TUChair
         private void New(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                DataLoad();
-        }
-        private void Search(object sender, EventArgs e)
-        {
-            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                //    string Fact;
-                //    if (cboFact.SelectedIndex == 0)
-                //        Fact = string.Empty;
-                //    else
-                //        Fact = cboFact.Text;
-                //    string code;
-                //    if (cboItemCode.SelectedIndex == 0)
-                //        code = string.Empty;
-                //    else
-                //        code = cboItemCode.Text;
-                //    string txt = txtItemName.Text.Trim();
-
-                //    if (cboFact.SelectedIndex == 0 && txt.ToString().Trim().Length < 1 && cboItemCode.SelectedIndex == 0)
-                //        return;
-                //    if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                //    {
+                cboFact.SelectedIndex = 0;
+                cboItemCode.SelectedIndex = 0;
+                cboGubun.SelectedIndex = 0;
+                cboCategory.SelectedIndex = 0;
+                cboItemtype.SelectedIndex = 0;
 
 
-                //        JeanServicePShift service = new JeanServicePShift();
-                //        list = service.Search(Fact, code, txt);
-                //        jeansGridView1.DataSource = null;
-                //        jeansGridView1.DataSource = list;
-                //    }
-                }
-
-
+                DataLoad();
             }
+        }
         private void Delete(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
@@ -132,5 +175,6 @@ namespace TUChair
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
                 MessageBox.Show("엑셀만들어");
         }
+            
     }
 }

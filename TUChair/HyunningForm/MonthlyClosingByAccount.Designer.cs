@@ -319,7 +319,6 @@
             this.jeansGridView2.IsAllCheckColumnHeader = false;
             this.jeansGridView2.Location = new System.Drawing.Point(0, 0);
             this.jeansGridView2.Name = "jeansGridView2";
-            this.jeansGridView2.ReadOnly = true;
             this.jeansGridView2.RowHeadersWidth = 30;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.Bisque;
             this.jeansGridView2.RowsDefaultCellStyle = dataGridViewCellStyle8;
