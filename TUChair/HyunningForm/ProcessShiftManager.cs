@@ -203,7 +203,6 @@ namespace TUChair
             JeanServicePShift sv = new JeanServicePShift();
             Shiftview = sv.ShiftLoad();
             jeansGridView2.DataSource = null;
-            jeansGridView2.DataSource = Shiftlist;
 
         }
 

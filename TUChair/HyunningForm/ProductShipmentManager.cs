@@ -70,5 +70,34 @@ namespace TUChair
                 return;
             }
         }
+
+        private void btnShift_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < jeansGridView1.Rows.Count; i++)
+            {
+
+                bool isCellChecked = (bool)jeansGridView1.Rows[i].Cells[0].EditedFormattedValue;
+                if (isCellChecked)
+                {
+                    string Primary = jeansGridView1.Rows[i].Cells[1].Value.ToString();
+                    string Item = jeansGridView1.Rows[i].Cells[2].Value.ToString();
+                    string Fact = jeansGridView1.Rows[i].Cells[6].Value.ToString();
+                    string From_Fact = cboInsertF.Text;
+                    string Modifier = LoginFrm.userName;
+                    int Qty = (Convert.ToInt32(jeansGridView1.Rows[i].Cells[10].Value));
+
+                    JeanServicePShift shift = new JeanServicePShift();
+                    shift.ThisIsShift(Primary, Item, Fact, From_Fact, Modifier, Qty);
+                }
+                if (Convert.ToInt32(jeansGridView1.Rows[i].Cells[10].Value) == 0)
+                {
+                    MessageBox.Show("이동 수량을 입력해주세요");
+                    return;
+                }
+            }
+            MessageBox.Show("공정이동이 완료되었습니다.");
+            DataLoad();
+            jeansGridView1.DataSource = null;
+        }
     }
 }

@@ -367,7 +367,8 @@ namespace TUChairDAC
                                                 ss.Item_Code Item_Code, item_Name, Item_Size, Item_Type, Shift_Qty,
 	                                            case when Category = '자재출고' then '0'
                                                      when Category = '자재입고' then '0'
-                                                     else isnull(u.Price_Present, 0) end Price_Present,
+                                                     else isnull((select u.Price_Present from UnitPrice where Price_EndDate = '3333-12-31'), 0) 
+													 end Price_Present,
  	                                            (Shift_Qty * case when Category = '자재출고' then 0
                                                      when Category = '자재입고' then 0
                                                      else isnull(u.Price_Present, 0) end ) Price,
