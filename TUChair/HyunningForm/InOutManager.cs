@@ -42,7 +42,7 @@ namespace TUChair
 
             commonService service = new commonService();
 
-            comboItems = service.getCommonCode("창고@재고상태@품목유형");
+            comboItems = service.getCommonCode("창고@재고상태@품목유형@Item");
 
             List<ComboItemVO> cList = (from item in comboItems
                                        where item.CodeType == "창고"
@@ -51,16 +51,21 @@ namespace TUChair
             cList = (from item in comboItems
                      where item.CodeType == "재고상태"
                      select item).ToList();
-            CommonUtil.ComboBinding(cboGubun, cList, "선택");
+            CommonUtil.ReComboBinding(cboGubun, cList, "선택");
             cList = (from item in comboItems
                      where item.CodeType == "재고상태"
                      select item).ToList();
-            CommonUtil.ReComboBinding(cboCategory, cList, "선택");
+            CommonUtil.ComboBinding(cboCategory, cList, "선택");
 
             cList = (from item in comboItems
                      where item.CodeType == "품목유형"
                      select item).ToList();
-            CommonUtil.ReComboBinding(cboItemtype, cList, "선택");
+            CommonUtil.ComboBinding(cboItemtype, cList, "선택");
+            
+            cList = (from item in comboItems
+                     where item.CodeType == "Item"
+                     select item).ToList();
+            CommonUtil.ReComboBinding(cboItemCode, cList, "선택");
 
 
             DataLoad();
@@ -92,15 +97,19 @@ namespace TUChair
                 string start = inDTP1.Start.ToShortDateString();
                 string end = inDTP1.End.ToShortDateString();
 
+                string Icode;
+                if (cboItemCode.SelectedIndex == 0)
+                    Icode = string.Empty;
+                else
+                    Icode = cboItemCode.Text;
 
-                string txt = txtItemCode.Text.Trim();
 
-                if (cboFact.SelectedIndex == 0 && txt.ToString().Trim().Length < 1 && cboGubun.SelectedIndex == 0 && cboCategory.SelectedIndex == 0 && cboItemtype.SelectedIndex == 0)
+                if (cboFact.SelectedIndex == 0 && cboItemCode.SelectedIndex == 0 && cboGubun.SelectedIndex == 0 && cboCategory.SelectedIndex == 0 && cboItemtype.SelectedIndex == 0)
                     return;
                 if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
                 {
                     JeanServicePShift service = new JeanServicePShift();
-                    Inoutlist = service.InOutSearch(Fact, Gubun , Category, itype, start, end, txt);
+                    Inoutlist = service.InOutSearch(Fact, Gubun , Category, itype, start, end, Icode);
                     jeansGridView1.DataSource = null;
                     jeansGridView1.DataSource = Inoutlist;
                 }
@@ -145,7 +154,16 @@ namespace TUChair
         private void New(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                cboFact.SelectedIndex = 0;
+                cboItemCode.SelectedIndex = 0;
+                cboGubun.SelectedIndex = 0;
+                cboCategory.SelectedIndex = 0;
+                cboItemtype.SelectedIndex = 0;
+
+
                 DataLoad();
+            }
         }
         private void Delete(object sender, EventArgs e)
         {

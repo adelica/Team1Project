@@ -152,12 +152,13 @@
             // 
             // dtpDate
             // 
-            this.dtpDate.End = new System.DateTime(2020, 8, 7, 13, 57, 11, 78);
+            this.dtpDate.DateLimit = false;
+            this.dtpDate.End = new System.DateTime(2020, 8, 13, 6, 33, 3, 235);
             this.dtpDate.Location = new System.Drawing.Point(81, 1);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(245, 26);
-            this.dtpDate.Start = new System.DateTime(2020, 8, 7, 13, 57, 11, 80);
+            this.dtpDate.Start = new System.DateTime(2020, 8, 13, 6, 33, 3, 238);
             this.dtpDate.TabIndex = 12;
             // 
             // label4
