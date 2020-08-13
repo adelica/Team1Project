@@ -30,7 +30,7 @@ namespace JeanForm
         public JeansGridView()
         {
             InitializeComponent();
-           JeanGridDrawing();
+            JeanGridDrawing();
         }
 
         public void JeanGridDrawing()
@@ -38,8 +38,11 @@ namespace JeanForm
 
             this.DefaultCellStyle.Font = new Font("Calibri", 11, FontStyle.Bold);
 
-           this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.RowHeadersWidth = 30;
+            this.AllowUserToAddRows = false;
+            this.AutoGenerateColumns = false;
+           
             //this.EnableHeadersVisualStyles = false;
             //this.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.ColumnHeadersHeight = 30;
@@ -49,7 +52,7 @@ namespace JeanForm
             this.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(52, 52, 52);
             this.ColumnHeadersDefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
 
-            //this.ReadOnly = true;
+            //this.ReadOnly = false;
             this.DefaultCellStyle.BackColor = Color.White;
             this.DefaultCellStyle.ForeColor = Color.FromArgb(52, 52, 52);
             this.DefaultCellStyle.SelectionBackColor = Color.Gray;
@@ -67,6 +70,7 @@ namespace JeanForm
                 chk.HeaderText = "";
                 chk.Name = "chk";
                 chk.Width = 30;
+                chk.ReadOnly = false;
                 this.Columns.Add(chk);
 
                 Point headerCellLocation = this.GetCellDisplayRectangle(-1, -1, true).Location;

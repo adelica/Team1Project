@@ -45,6 +45,7 @@
             this.cboGubun = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.inDTP1 = new TUChair.InDTP();
             this.label7 = new System.Windows.Forms.Label();
             this.dtp2 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.cboFact = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.inDTP1 = new TUChair.InDTP();
             this.cboItemCode = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,8 +71,8 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.jeansGridView1);
-            this.panel3.Location = new System.Drawing.Point(12, 160);
-            this.panel3.Size = new System.Drawing.Size(1092, 430);
+            this.panel3.Location = new System.Drawing.Point(12, 141);
+            this.panel3.Size = new System.Drawing.Size(1092, 449);
             // 
             // label1
             // 
@@ -84,19 +84,20 @@
             this.panel2.Controls.Add(this.dtp2);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.dtp1);
-            this.panel2.Location = new System.Drawing.Point(12, 116);
+            this.panel2.Location = new System.Drawing.Point(12, 97);
             this.panel2.Controls.SetChildIndex(this.dtp1, 0);
-            this.panel2.Controls.SetChildIndex(this.label8, 0);
             this.panel2.Controls.SetChildIndex(this.label1, 0);
+            this.panel2.Controls.SetChildIndex(this.label8, 0);
             this.panel2.Controls.SetChildIndex(this.dtp2, 0);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Size = new System.Drawing.Size(1092, 92);
+            this.panel1.Size = new System.Drawing.Size(1092, 80);
             // 
             // jeansGridView1
             // 
+            this.jeansGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
             this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -125,24 +126,23 @@
             this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView1.Size = new System.Drawing.Size(1090, 428);
+            this.jeansGridView1.Size = new System.Drawing.Size(1090, 447);
             this.jeansGridView1.TabIndex = 0;
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.cboItemtype);
             this.panel10.Controls.Add(this.label9);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(729, 48);
+            this.panel10.Location = new System.Drawing.Point(729, 42);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(358, 39);
+            this.panel10.Size = new System.Drawing.Size(357, 33);
             this.panel10.TabIndex = 23;
             // 
             // cboItemtype
             // 
             this.cboItemtype.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboItemtype.FormattingEnabled = true;
-            this.cboItemtype.Location = new System.Drawing.Point(122, 7);
+            this.cboItemtype.Location = new System.Drawing.Point(122, 4);
             this.cboItemtype.Name = "cboItemtype";
             this.cboItemtype.Size = new System.Drawing.Size(219, 27);
             this.cboItemtype.TabIndex = 7;
@@ -161,19 +161,18 @@
             // 
             this.panel5.Controls.Add(this.cboCategory);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(392, 48);
+            this.panel5.Location = new System.Drawing.Point(366, 42);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(331, 39);
+            this.panel5.Size = new System.Drawing.Size(357, 33);
             this.panel5.TabIndex = 19;
             // 
             // cboCategory
             // 
             this.cboCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(119, 7);
+            this.cboCategory.Location = new System.Drawing.Point(119, 4);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(184, 27);
+            this.cboCategory.Size = new System.Drawing.Size(219, 27);
             this.cboCategory.TabIndex = 8;
             // 
             // label2
@@ -190,10 +189,9 @@
             // 
             this.panel7.Controls.Add(this.cboItemCode);
             this.panel7.Controls.Add(this.label4);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(729, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(358, 39);
+            this.panel7.Size = new System.Drawing.Size(357, 33);
             this.panel7.TabIndex = 20;
             // 
             // label4
@@ -210,17 +208,16 @@
             // 
             this.panel8.Controls.Add(this.cboGubun);
             this.panel8.Controls.Add(this.label5);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 48);
+            this.panel8.Location = new System.Drawing.Point(3, 42);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(383, 39);
+            this.panel8.Size = new System.Drawing.Size(357, 33);
             this.panel8.TabIndex = 21;
             // 
             // cboGubun
             // 
             this.cboGubun.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboGubun.FormattingEnabled = true;
-            this.cboGubun.Location = new System.Drawing.Point(116, 6);
+            this.cboGubun.Location = new System.Drawing.Point(116, 3);
             this.cboGubun.Name = "cboGubun";
             this.cboGubun.Size = new System.Drawing.Size(219, 27);
             this.cboGubun.TabIndex = 7;
@@ -239,11 +236,21 @@
             // 
             this.panel4.Controls.Add(this.inDTP1);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(383, 39);
+            this.panel4.Size = new System.Drawing.Size(357, 33);
             this.panel4.TabIndex = 18;
+            // 
+            // inDTP1
+            // 
+            this.inDTP1.DateLimit = false;
+            this.inDTP1.End = new System.DateTime(2020, 8, 13, 15, 33, 31, 13);
+            this.inDTP1.Location = new System.Drawing.Point(111, 4);
+            this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inDTP1.Name = "inDTP1";
+            this.inDTP1.Size = new System.Drawing.Size(243, 24);
+            this.inDTP1.Start = new System.DateTime(2020, 8, 13, 15, 33, 31, 16);
+            this.inDTP1.TabIndex = 7;
             // 
             // label7
             // 
@@ -260,7 +267,7 @@
             // 
             this.dtp2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp2.Location = new System.Drawing.Point(243, 5);
+            this.dtp2.Location = new System.Drawing.Point(243, 3);
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(95, 27);
             this.dtp2.TabIndex = 10;
@@ -270,7 +277,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(220, 11);
+            this.label8.Location = new System.Drawing.Point(220, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(17, 19);
             this.label8.TabIndex = 9;
@@ -290,19 +297,18 @@
             // 
             this.panel9.Controls.Add(this.cboFact);
             this.panel9.Controls.Add(this.label6);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(392, 3);
+            this.panel9.Location = new System.Drawing.Point(366, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(331, 39);
+            this.panel9.Size = new System.Drawing.Size(357, 33);
             this.panel9.TabIndex = 22;
             // 
             // cboFact
             // 
             this.cboFact.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFact.FormattingEnabled = true;
-            this.cboFact.Location = new System.Drawing.Point(119, 6);
+            this.cboFact.Location = new System.Drawing.Point(119, 3);
             this.cboFact.Name = "cboFact";
-            this.cboFact.Size = new System.Drawing.Size(184, 27);
+            this.cboFact.Size = new System.Drawing.Size(219, 27);
             this.cboFact.TabIndex = 7;
             // 
             // label6
@@ -318,8 +324,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.68807F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.91743F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.Controls.Add(this.panel9, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
@@ -333,25 +339,14 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 90);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 78);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // inDTP1
-            // 
-            this.inDTP1.DateLimit = false;
-            this.inDTP1.End = new System.DateTime(2020, 8, 13, 0, 41, 7, 841);
-            this.inDTP1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.inDTP1.Location = new System.Drawing.Point(112, 2);
-            this.inDTP1.Name = "inDTP1";
-            this.inDTP1.Size = new System.Drawing.Size(268, 36);
-            this.inDTP1.Start = new System.DateTime(2020, 8, 13, 0, 41, 7, 848);
-            this.inDTP1.TabIndex = 7;
             // 
             // cboItemCode
             // 
             this.cboItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboItemCode.FormattingEnabled = true;
-            this.cboItemCode.Location = new System.Drawing.Point(122, 5);
+            this.cboItemCode.Location = new System.Drawing.Point(122, 3);
             this.cboItemCode.Name = "cboItemCode";
             this.cboItemCode.Size = new System.Drawing.Size(219, 27);
             this.cboItemCode.TabIndex = 8;

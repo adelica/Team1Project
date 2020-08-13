@@ -21,7 +21,7 @@ namespace TUChair
         {
             InitializeComponent();
 
-
+   
 
 
             jeansGridView1.IsAllCheckColumnHeader = true;

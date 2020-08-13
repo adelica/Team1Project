@@ -72,8 +72,7 @@ namespace TUChair
         }
         private void Search(object sender, EventArgs e)
         {
-            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-            {
+          
                 string Fact;
                 if (cboFact.SelectedIndex == 0)
                     Fact = string.Empty;
@@ -99,7 +98,7 @@ namespace TUChair
 
                 string Icode;
                 if (cboItemCode.SelectedIndex == 0)
-                    Icode = string.Empty;
+                   Icode = string.Empty;
                 else
                     Icode = cboItemCode.Text;
 
@@ -113,7 +112,7 @@ namespace TUChair
                     jeansGridView1.DataSource = null;
                     jeansGridView1.DataSource = Inoutlist;
                 }
-            }
+            
         }
 
         private void InOutManager_Load(object sender, EventArgs e)
