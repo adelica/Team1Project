@@ -121,6 +121,7 @@
             // 
             // jeansGridView1
             // 
+            this.jeansGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Beige;
             this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -180,7 +181,6 @@
             this.jeansGridView2.IsAllCheckColumnHeader = false;
             this.jeansGridView2.Location = new System.Drawing.Point(0, 0);
             this.jeansGridView2.Name = "jeansGridView2";
-            this.jeansGridView2.ReadOnly = true;
             this.jeansGridView2.RowHeadersWidth = 30;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
             this.jeansGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
