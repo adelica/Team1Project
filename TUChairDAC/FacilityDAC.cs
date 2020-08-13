@@ -103,8 +103,8 @@ namespace TUChairDAC
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = @"Delete from Facility where Faci_Code=@faci_Code";
-                    cmd.Parameters.AddWithValue("@faci_Code", faci_Code);
+                    cmd.CommandText = @"Delete from Facility where Faci_Code in (" + faci_Code+ ")";
+                   // cmd.Parameters.AddWithValue("@faci_Code", faci_Code);
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Connection.Open();
                     cmd.ExecuteNonQuery();
