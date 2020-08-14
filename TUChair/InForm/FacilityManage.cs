@@ -6,11 +6,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TUChair.Service;
 using TUChair.Util;
+using TUChairVO;
 
 namespace TUChair
 {
@@ -62,9 +64,8 @@ namespace TUChair
         private void FacilityManage_Load(object sender, EventArgs e)
         {
             frm = (TUChairMain2)this.MdiParent;
-            //frm.Save +=
-            //frm.Delete += Delete;
-            frm.New += LoadD;
+            frm.Save += Save;
+            frm.New += New;
             frm.Delete += Delete;
             frm.Readed += Readed_BarCode;
             LoadData();
@@ -85,7 +86,8 @@ namespace TUChair
                 frm.ShowDialog();
             }             
         }
-        private void LoadData() //데이터바인딩
+        //데이터바인딩
+        private void LoadData() 
         {
             FacilityService service = new FacilityService();
             DataSet ds = service.GetFacilityData();
@@ -97,8 +99,8 @@ namespace TUChair
             dtFacG_code = dtFacilityG.DefaultView.ToTable(false, "FacG_Code");
             dtFaci_code = dtFacility.DefaultView.ToTable(false, "Faci_Code");
         }
-
-        private void btnFGInsert_Click(object sender, EventArgs e) //설비군 등록
+        //설비군 등록
+        private void btnFGInsert_Click(object sender, EventArgs e) 
         {
             FacilityGroupInfoRegi frm = new FacilityGroupInfoRegi(dtFacG_code);
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -108,8 +110,8 @@ namespace TUChair
                 LoadData();
             }
         }
-
-        private void btnFInsert_Click(object sender, EventArgs e) //설비 등록
+        //설비 등록
+        private void btnFInsert_Click(object sender, EventArgs e) 
         {
             FacilityInfoRegi frm = new FacilityInfoRegi(dtFacG_code,dtFaci_code);
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -119,13 +121,13 @@ namespace TUChair
                 LoadData();
             }
         }
-
-        private void dgvFacility_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e) //그리드뷰 맨 앞에 no 자동 생성
+        //그리드뷰 맨 앞에 no 자동 생성
+        private void dgvFacility_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             this.dgvFacility.Rows[e.RowIndex].Cells[1].Value = (e.RowIndex + 1).ToString();
         }
-
-        private void dgvFacilityG_CellClick(object sender, DataGridViewCellEventArgs e) //설비군에 등록된 설비 없을 시 안됨
+        //설비군에 등록된 설비 없을 시 안됨
+        private void dgvFacilityG_CellClick(object sender, DataGridViewCellEventArgs e) 
         {
             if (e.RowIndex < 0 || e.RowIndex > dgvFacilityG.Rows.Count)
                 return;
@@ -161,7 +163,7 @@ namespace TUChair
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }
-
+        //설비군 삭제
         private void 수정ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (typeCheck) //설비군 수정
@@ -182,37 +184,33 @@ namespace TUChair
                     LoadData();
                 }
             }
-            else //설비수정 2~9 11,12
-            {
-                var row = dgvFacility.CurrentRow;
+            //else //설비수정 2~9 11,12
+            //{
+            //    var row = dgvFacility.CurrentRow;
 
-                string faci_Code = row.Cells[2].Value.ToString();
-                string faci_Name = row.Cells[3].Value.ToString();
-                string faci_Out = row.Cells[4].Value.ToString();
-                string faci_In = row.Cells[5].Value.ToString();
-                string faci_Bad = row.Cells[6].Value.ToString();
-                string faci_Detail = row.Cells[7].Value.ToString();
-                string faci_Others = row.Cells[8].Value.ToString();
-                string faci_UseOrNot = row.Cells[9].Value.ToString();
-                string faci_Modifier = row.Cells[10].Value.ToString();
-                string faci_ModifyDate = row.Cells[11].Value.ToString();
-                string facG_Code = row.Cells[12].Value.ToString();
+            //    string faci_Code = row.Cells[2].Value.ToString();
+            //    string faci_Name = row.Cells[3].Value.ToString();
+            //    string faci_Out = row.Cells[4].Value.ToString();
+            //    string faci_In = row.Cells[5].Value.ToString();
+            //    string faci_Bad = row.Cells[6].Value.ToString();
+            //    string faci_Detail = row.Cells[7].Value.ToString();
+            //    string faci_Others = row.Cells[8].Value.ToString();
+            //    string faci_UseOrNot = row.Cells[9].Value.ToString();
+            //    string faci_Modifier = row.Cells[10].Value.ToString();
+            //    string faci_ModifyDate = row.Cells[11].Value.ToString();
+            //    string facG_Code = row.Cells[12].Value.ToString();
 
-                FacilityInfoRegi frm = new FacilityInfoRegi(faci_Code, faci_Name, faci_Out, faci_In, faci_Bad, faci_Detail, faci_Others, faci_UseOrNot, faci_Modifier, faci_ModifyDate, facG_Code,dtFacG_code, dtFaci_code);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-                if(frm.Check)
-                {
-                    LoadData();
-                }
-            }
+            //    FacilityInfoRegi frm = new FacilityInfoRegi(faci_Code, faci_Name, faci_Out, faci_In, faci_Bad, faci_Detail, faci_Others, faci_UseOrNot, faci_Modifier, faci_ModifyDate, facG_Code,dtFacG_code, dtFaci_code);
+            //    frm.StartPosition = FormStartPosition.CenterParent;
+            //    frm.ShowDialog();
+            //    if(frm.Check)
+            //    {
+            //        LoadData();
+            //    }
+            //}
         }
 
-        
- 
-
-
-        //설비군용
+        //설비군용 삭제
         private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bool check;
@@ -300,14 +298,16 @@ namespace TUChair
             PreviewForm frm = new PreviewForm(rpt);
             
         }
+        
         //조회
-        private void LoadD(object sender, EventArgs e)
+        private void New(object sender, EventArgs e)
         {
            if(((TUChairMain2)this.MdiParent).ActiveMdiChild==this)
             {
                 LoadData(); ;
             }
         }
+
         //설비용 삭제
         private void Delete(object sender, EventArgs e)
         {
@@ -336,33 +336,65 @@ namespace TUChair
                     return;
             }
         }
-        //private void UpdateFacility(object sender, EventArgs e)
-        //{
-        //    if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-        //    {
-        //        List<string> chkList = Check();
-        //        bool check = false;
 
-        //        if (chkList.Count == 1) // 수정
-        //        {
-        //            List<string> updateList = (from com in chkList
-        //                                          where com == chkList[0]
-        //                                          select com).ToList();
+        //설비수정
+        private void Save(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> chkList = Check();
+                bool check = false;
 
-        //            CompanyInfoRegi frm = new CompanyInfoRegi(cList, codeList, updateList);
-        //            frm.StartPosition = FormStartPosition.CenterParent;
-        //            frm.ShowDialog();
-        //            check = frm.Check;
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("수정할 데이터 하나만 선택해주세요", "수정실패");
-        //            return;
-        //        }
-        //        if (check)
-        //            LoadData();
-        //    }
-        //}
+                if (chkList.Count == 1) // 수정 chkList  --------------------------------------------
+                {
+                    string code = chkList[0];
+                    List<FacilityVO> convert = ConvertToList<FacilityVO>(dtFacility);
+                    List<FacilityVO> list = (from data in convert
+                                             where data.Faci_Code == code
+                                             select data).ToList();
+
+                    FacilityInfoRegi frm = new FacilityInfoRegi(list, dtFacG_code, dtFaci_code);
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    check = frm.Check;
+                }
+                else if(chkList.Count>1)
+                {
+                    MessageBox.Show("수정할 데이터 하나만 선택해주세요", "수정실패");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("수정할 설비를 선택해주세요", "수정실패");
+                    return;
+                }
+                if (check)
+                    LoadData();
+            }
+        }
+
+        public List<T> ConvertToList<T>(DataTable dt)
+        {
+            var columnNames = dt.Columns.Cast<DataColumn>()
+                    .Select(c => c.ColumnName)
+                    .ToList();
+            var properties = typeof(T).GetProperties();
+            return dt.AsEnumerable().Select(row =>
+            {
+                var objT = Activator.CreateInstance<T>();
+                foreach (var pro in properties)
+                {
+                    if (columnNames.Contains(pro.Name))
+                    {
+                        PropertyInfo pI = objT.GetType().GetProperty(pro.Name);
+                        pro.SetValue(objT, row[pro.Name] == DBNull.Value ? null : Convert.ChangeType(row[pro.Name], pI.PropertyType));
+                    }
+                }
+                return objT;
+            }).ToList();
+        }
+
+        //체크박스에 체크된 설비 코드
         private List<String> Check()
         {
             List<string> chkList = new List<string>();
@@ -382,7 +414,8 @@ namespace TUChair
         {
             frm.Readed -= Readed_BarCode;
             frm.Delete -= Delete;
-            frm.New -= LoadD;
+            frm.Save -= Save;
+            frm.New -= New;
         }
     }
 }

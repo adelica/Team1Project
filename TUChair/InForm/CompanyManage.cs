@@ -45,8 +45,9 @@ namespace TUChair
 
             GetComboBinding();
             frm.Save += Save;
-            frm.Search += LoadData;
+            frm.Search += Search;
             frm.Delete += Delete;
+            frm.New += New;
 
             LoadData();
         }
@@ -74,117 +75,7 @@ namespace TUChair
             this.dgvCompany.Rows[e.RowIndex].Cells[1].Value = (e.RowIndex + 1);
         }
 
-        //검색 조건
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            List<CompanyVO> searchList = null;
-
-            if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1) // 전체
-            {
-                searchList = (from sList in list
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1) //1
-            {
-                searchList = (from sList in list
-                              where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper())
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1)//12
-            {
-                searchList = (from sList in list
-                              where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper())
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1)//123
-            {
-                searchList = (from sList in list
-                              where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//1234
-            {
-                searchList = (from sList in list
-                              where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text
-                              && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//234
-            {
-                searchList = (from sList in list
-                              where sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//34
-            {
-                searchList = (from sList in list
-                              where sList.Com_Type == cboCom_Type.Text && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//4
-            {
-                searchList = (from sList in list
-                              where sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1) //13
-            {
-                searchList = (from sList in list
-                              where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0) //134
-            {
-                searchList = (from sList in list
-                              where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0) //14
-            {
-                searchList = (from sList in list
-                              where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//124
-            {
-                searchList = (from sList in list
-                              where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1)//23
-            {
-                searchList = (from sList in list
-                              where sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text
-                              select sList).ToList();
-            }
-            else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//24
-            {
-                searchList = (from sList in list
-                              where sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
-                              select sList).ToList();
-            }
-
-            else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1)//2
-            {
-                searchList = (from sList in list
-                              where sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper())
-                              select sList).ToList();
-            }
-
-            else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1)//3
-            {
-                searchList = (from sList in list
-                              where sList.Com_Type == cboCom_Type.Text
-                              select sList).ToList();
-            }
-            if (searchList.Count < 1)
-            {
-                MessageBox.Show("해당하는 정보가 존재하지 않습니다.", "검색실패");
-                dgvCompany.DataSource = list;
-                return;
-            }
-            dgvCompany.DataSource = searchList;
-        }
+     
 
         //등록, 수정
         private void Save(object sender, EventArgs e)
@@ -251,7 +142,120 @@ namespace TUChair
                     return;
             }
         }
+        //검색 조건
+        private void Search(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<CompanyVO> searchList = null;
 
+                if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1) // 전체
+                {
+                    searchList = (from sList in list
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1) //1
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper())
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1)//12
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper())
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1)//123
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//1234
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text
+                                  && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//234
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//34
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Type == cboCom_Type.Text && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//4
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1) //13
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0) //134
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0) //14
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length > 0 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//124
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Code.ToUpper().Contains(txtCom_Code.Text.ToUpper()) && sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1)//23
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_Type == cboCom_Type.Text
+                                  select sList).ToList();
+                }
+                else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length > 0)//24
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper()) && sList.Com_CorporRegiNum.ToUpper().Contains(txtCom_CorporRegiNum.Text.ToUpper())
+                                  select sList).ToList();
+                }
+
+                else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length > 0 && cboCom_Type.SelectedIndex == 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1)//2
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Name.ToUpper().Contains(txtCom_Name.Text.ToUpper())
+                                  select sList).ToList();
+                }
+
+                else if (txtCom_Code.Text.Trim().Length < 1 && txtCom_Name.Text.Trim().Length < 1 && cboCom_Type.SelectedIndex != 0 && txtCom_CorporRegiNum.Text.Trim().Length < 1)//3
+                {
+                    searchList = (from sList in list
+                                  where sList.Com_Type == cboCom_Type.Text
+                                  select sList).ToList();
+                }
+                if (searchList.Count < 1)
+                {
+                    MessageBox.Show("해당하는 정보가 존재하지 않습니다.", "검색실패");
+                    dgvCompany.DataSource = list;
+                    return;
+                }
+                dgvCompany.DataSource = searchList;
+            }
+        }
         //체크박스 체크확인
         private List<String> Check()
         {
@@ -267,8 +271,8 @@ namespace TUChair
             }
             return chkList;
         }
-
-        private void LoadData(object sender, EventArgs e)
+        //조회
+        private void New(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
@@ -280,8 +284,11 @@ namespace TUChair
         {
 
             frm.Save -= Save;
-            frm.Search -= LoadData;
+            frm.Search -= Search;
             frm.Delete -= Delete;
+            frm.New -= New;
         }
+
+     
     }
 }

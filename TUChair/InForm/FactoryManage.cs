@@ -69,7 +69,7 @@ namespace TUChair
             cboFacGroup.SelectedIndex = 0;
         }
         //새로고침
-        private void LoadD(object sender, EventArgs e)
+        private void New(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -105,11 +105,11 @@ namespace TUChair
         //등록, 수정
         private void Save(object sender, EventArgs e)
         {
-            List<string> codeList = (from code in list
-                                     select code.Fact_Code).ToList();
-
+           
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
+                List<string> codeList = (from code in list
+                                         select code.Fact_Code).ToList();
                 List<string> chkList = Check();
                 bool check = false;
                 if (chkList.Count == 1) // 수정
@@ -224,13 +224,14 @@ namespace TUChair
                     return;
             }
         }
+
         //폼 종료시 이벤트 제거
         private void FactoryManage_FormClosing(object sender, FormClosingEventArgs e)
         {
             frm.Save -= Save;
             frm.Search -= Search;
             frm.Delete -= Delete;
-            frm.New -= LoadD;
+            frm.New -= New;
         }
 
         //체크박스 체크확인
@@ -257,7 +258,7 @@ namespace TUChair
             frm.Save += Save;
             frm.Search += Search;
             frm.Delete += Delete;
-            frm.New += LoadD;
+            frm.New += New;
 
             LoadData();
             CboBinding();
