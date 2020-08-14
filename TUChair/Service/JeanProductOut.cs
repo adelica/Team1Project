@@ -16,5 +16,10 @@ namespace TUChair.Service
             ProductOutDAC dac = new ProductOutDAC();
             return dac.POutBinding();
         }
+        public List<CProductOutVO> CProductBinding()
+        {
+            ProductOutDAC dac = new ProductOutDAC();
+            return dac.CProductBinding();
+        }
     }
 }

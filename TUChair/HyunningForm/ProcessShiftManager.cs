@@ -220,7 +220,7 @@ namespace TUChair
                         int Primary = (Convert.ToInt32(jeansGridView1.Rows[i].Cells[1].Value));
                         string fact = jeansGridView1.Rows[i].Cells[4].Value.ToString();
 
-                        shift.PSShiftInsert(Primary, fact);
+                        shift.PSShiftInsert(Primary, fact); 
 
                     }
 
@@ -266,7 +266,7 @@ namespace TUChair
         {
             if (textBox1.Text.Length > 0)
             {
-                btnShift.PerformClick();
+                btnSelect.PerformClick();
             }
         }
 
