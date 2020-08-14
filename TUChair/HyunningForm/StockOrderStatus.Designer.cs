@@ -106,6 +106,8 @@
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jeansGridView1.Size = new System.Drawing.Size(1090, 482);
             this.jeansGridView1.TabIndex = 0;
+            this.jeansGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.jeansGridView1_CellValueChanged);
+            this.jeansGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.jeansGridView1_EditingControlShowing);
             // 
             // tableLayoutPanel1
             // 

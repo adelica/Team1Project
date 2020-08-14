@@ -36,10 +36,6 @@ namespace TUChairVO
         public int Qty           {get;set;}
         public string ToFact        {get;set;}
         public int Out_Unit { get; set; }
-
-
-
-
-
+        public string So_WorkOrderID { get; set; }
     }
 }
