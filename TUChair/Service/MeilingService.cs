@@ -1,5 +1,7 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,10 +48,15 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
             return dac.DeleteShift(condition);
         }
-        public List<ShiftVO> SearchPivot(DateTime firstdate, DateTime enddate)
+        public DataTable SearchPivot(DateTime firstdate, DateTime enddate)
         {
             WorkOrderDAC dac = new WorkOrderDAC();
-            return dac.SearchPivot(firstdate, enddate);
+            return dac.SearchPivot(firstdate,enddate);
+        }
+        public DataTable SearchPivotFaci(DateTime firstdate, DateTime enddate, string facicode)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.SearchPivotFaci(firstdate, enddate, facicode);
         }
     }
 }

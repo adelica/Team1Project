@@ -21,18 +21,18 @@ namespace TUChair
         public DateTime Start
         {
             get { return dtpStart.Value; }
-            set { dtpStart.Value = value; }
+            set { value=dtpStart.Value; }
         }
         public DateTime End
         {
             get { return dtpEnd.Value; }
-            set { dtpEnd.Value = value; }
+            set { value=dtpEnd.Value ; }
         }
 
         public bool DateLimit
         {
             get { return check; }
-            set { check = value; }
+            set { value=check; }
         }
 
         public void DateLimitCheck(object sender, EventArgs e)

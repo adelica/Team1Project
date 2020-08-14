@@ -104,11 +104,11 @@ namespace TUChair
             // ComboDic.Add("선택", "선택");
             ComboDic = FaciNameList.Zip(FaciCodeList, (k, v) => new { k, v }).ToDictionary(a => a.k, a => a.v);
             comboBox2.Items.Clear();
-            //   comboBox2.DataSource =new BindingSource(ComboDic,null);
+            comboBox2.DataSource =new BindingSource(ComboDic,null);
             comboBox2.DisplayMember = "key";
             comboBox2.ValueMember = "value";
             //comboBox2.SelectedIndex = 0;
-            comboBox2.Items.AddRange(FaciNameList.ToArray());
+           // comboBox2.Items.AddRange(FaciNameList.ToArray());
         }
 
       

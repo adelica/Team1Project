@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace TUChairDAC
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = @"select s.Shift_ID,s.[Faci_Code],f.[Faci_Name],[Shift_StartDate],[Shift_EndTime],[Shift_EndDate],[Shift_StartTime],[Shift_EndTime],
+                    cmd.CommandText = @"select s.Shift_ID,s.[Faci_Code],f.[Faci_Name],[Shift_StartDate],[Shift_EndDate],[Shift_StartTime],[Shift_EndTime],
 [Shift_InputPeople],[Shift_UserOrNot],[Shift_Modifier],[Shift_ModifierDate],[Shift_Others]
 from [dbo].[Shift] s left outer join [dbo].[Facility] f 
 on s.Faci_Code = f.Faci_Code";
@@ -221,7 +222,7 @@ where [WorkOrderID]=@WorkOrderID";
                 throw err;
             }
         }
-        public List<ShiftVO> SearchPivot(DateTime firstdate, DateTime enddate)
+        public DataTable SearchPivot(DateTime firstdate, DateTime enddate)
         {
             try
             {
@@ -234,10 +235,44 @@ where [WorkOrderID]=@WorkOrderID";
                     cmd.Parameters.AddWithValue("@P_Start_Data", firstdate);
                     cmd.Parameters.AddWithValue("@P_End_Data", enddate);
                     cmd.Connection.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    List<ShiftVO> list = Helper.MeilingDataReaderMapToList<ShiftVO>(reader);
-                    cmd.Connection.Close();
-                    return list;
+                    using(SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                   
+                   
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
+                throw err;
+            }
+        }
+        public DataTable SearchPivotFaci(DateTime firstdate, DateTime enddate,string facicode)
+        {
+            try
+            {
+                SqlConnection strConn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = strConn;
+                    cmd.CommandText = @"P_ShiftDateCode";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@P_Start_Data", firstdate);
+                    cmd.Parameters.AddWithValue("@P_End_Data", enddate);
+                    cmd.Parameters.AddWithValue("@P_faci_code", facicode);
+                    cmd.Connection.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+
+
                 }
             }
             catch (Exception err)
