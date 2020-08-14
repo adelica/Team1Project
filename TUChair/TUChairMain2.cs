@@ -26,6 +26,7 @@ namespace TUChair
         public event EventHandler Delete;
         public event EventHandler Excel;
 
+
         public delegate void BarCodeReadComplete(object sender, ReadEventArgs e);
         public event BarCodeReadComplete Readed;
         public CUserVO userInfoVO = null;
@@ -308,7 +309,6 @@ namespace TUChair
             AuthorVO author =(AuthorVO)((UserControl1)sender).Tag;
             string progText = author.Program_Name;
             string progName = author.Program_ID;
-
             OpenOrCreateForm(progName, progText);
             if (this.ActiveMdiChild != null)
             {
@@ -318,7 +318,8 @@ namespace TUChair
                 var newflag = (openform.GetMethod("New", BindingFlags.NonPublic | BindingFlags.Instance) != null);
                 var excelflag = (openform.GetMethod("Excel", BindingFlags.NonPublic | BindingFlags.Instance) != null);
                 var searchflag = (openform.GetMethod("Search", BindingFlags.NonPublic | BindingFlags.Instance) != null);
-                Enablebutton(saveflag, deleteflag, newflag, excelflag, searchflag);
+               
+                Enablebutton(newflag, searchflag, saveflag, excelflag, deleteflag);
             }
         }
         private void button2_Click(object sender, EventArgs e)
