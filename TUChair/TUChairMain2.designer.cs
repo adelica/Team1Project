@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TUChairMain2));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -49,8 +50,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabForms = new TUChair.ucTabControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.모두닫기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -252,6 +256,7 @@
             // 
             // tabForms
             // 
+            this.tabForms.ContextMenuStrip = this.contextMenuStrip1;
             this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabForms.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabForms.Location = new System.Drawing.Point(149, 79);
@@ -262,6 +267,21 @@
             this.tabForms.TabIndex = 4;
             this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
             this.tabForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabForms_MouseDown);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.모두닫기ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            // 
+            // 모두닫기ToolStripMenuItem
+            // 
+            this.모두닫기ToolStripMenuItem.Name = "모두닫기ToolStripMenuItem";
+            this.모두닫기ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.모두닫기ToolStripMenuItem.Text = "모두 닫기";
+            this.모두닫기ToolStripMenuItem.Click += new System.EventHandler(this.모두닫기ToolStripMenuItem_Click);
             // 
             // TUChairMain2
             // 
@@ -286,6 +306,7 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,6 +334,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 모두닫기ToolStripMenuItem;
     }
 }
 

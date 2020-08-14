@@ -161,12 +161,11 @@ namespace TUChair
             }
             LoginMenuBInding();
             if (Properties.Settings.Default.PortName.Length > 0) //시리얼 포트가 연결되어야 연결
-                SerialPortConnecting();
-
-            BindingMenu();
-            requlUc();
+                  SerialPortConnecting();
+                  BindingMenu();
+                  requlUc();
+                  Enablebutton();
         }
-
         private void LoginMenuBInding()
         {
             LoginService service = new LoginService();
@@ -193,7 +192,6 @@ namespace TUChair
                               select A).ToList();
                 }
             }
-
             var item = (from A in author
                         group A by A.Module_ID
                         ).ToList();
@@ -202,7 +200,6 @@ namespace TUChair
                 menulist.Add(Convert.ToInt32(list.Key));
             }
         }
-
         #region 메뉴바인딩
         private void BindingMenu()
         {
@@ -230,7 +227,6 @@ namespace TUChair
                 for (int j = 0; j < menus.Count + 1; j++)
                 {
                     uclist[i].ResumeLayout(false);
-
                     //Button btn = new Button();
                     //btn.Height = 20;
                     //btn.Width = 130;
@@ -242,7 +238,6 @@ namespace TUChair
                           btn.Height = 30;
                         btn.Width = 130;
                         btn.Click += button2_Click;
-                      
                         btn.Text = menus[0].Module_Name;
                         btn.BackColor = Color.AliceBlue;
                         uclist[i].Controls.Add(btn);
@@ -252,7 +247,6 @@ namespace TUChair
                     else
                     {
                         UserControl1 btn = new UserControl1();
-                       
                         btn.Height = 30;
                         btn.Width = 130;
                         btn.Tag = menus[j - 1];
@@ -271,7 +265,6 @@ namespace TUChair
                         btn.Location = new Point(point.X, point.Y + j * 30);
                         btn.BringToFront();
                     }
-                  
                 }
                 int interval = 30 * menus.Count;
                 intevals.Add(interval);
@@ -310,13 +303,23 @@ namespace TUChair
                 testlist.Add(proName);
             }
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
-           AuthorVO author =(AuthorVO)((UserControl1)sender).Tag;
+            AuthorVO author =(AuthorVO)((UserControl1)sender).Tag;
+            string progText = author.Program_Name;
+            string progName = author.Program_ID;
 
-            OpenOrCreateForm(author.Program_ID);
-
+            OpenOrCreateForm(progName, progText);
+            if (this.ActiveMdiChild != null)
+            {
+                var openform = this.ActiveMdiChild.GetType();
+                var saveflag = (openform.GetMethod("Save", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var deleteflag = (openform.GetMethod("Delete", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var newflag = (openform.GetMethod("New", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var excelflag = (openform.GetMethod("Excel", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var searchflag = (openform.GetMethod("Search", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                Enablebutton(saveflag, deleteflag, newflag, excelflag, searchflag);
+            }
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -347,7 +350,6 @@ namespace TUChair
                 timers[Convert.ToInt32(btn.Tag)].Enabled = true;
                 timers[Convert.ToInt32(btn.Tag)].Start();
             }
-          
             //timers[Convert.ToInt32(btn.Tag)].Tag = Convert.ToInt32(btn.Tag);
             //    timers[Convert.ToInt32(btn.Tag)].Start();
         }
@@ -383,6 +385,34 @@ namespace TUChair
                 frm.Show();
             }
             catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+        private void OpenOrCreateForm(string progName,string progText)
+        {
+            try
+            {
+                string AppName = Assembly.GetEntryAssembly().GetName().Name;
+
+                Type frmType = Type.GetType($"{AppName}.{progName}");
+
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form.GetType() == frmType)
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+                Form frm = (Form)Activator.CreateInstance(frmType);
+                //T frm = new T();
+                frm.Text = progText;
+                frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Show();
+            }
+            catch (Exception err)
             {
                 MessageBox.Show(err.Message);
             }
@@ -488,7 +518,6 @@ namespace TUChair
             author.Clear();
             menulist.Clear();
             pribtn = null;
-
         }
         private void ReBindingMenu(object sender, EventArgs e)
         {
@@ -524,7 +553,6 @@ namespace TUChair
         {
             if (userInfoVO != null)
             {
-
                 foreach (Form form in this.MdiChildren)
                 {
                     form.Close();
@@ -561,7 +589,6 @@ namespace TUChair
                 MessageBox.Show("있다");
             else
                 MessageBox.Show("없다");
-
         }
         #region Methode 이벤트 발생
         private void btnNew_Click(object sender, EventArgs e)
@@ -627,7 +654,14 @@ namespace TUChair
             if (Properties.Settings.Default.PortName.Length > 0)
             { SerialPortConnecting(); }
         }
-
+        private void Enablebutton(bool newflag=false, bool searchflag = false, bool saveflag = false, bool excelflag = false, bool deleteflag = false)
+        {
+            btnNew.Enabled = newflag;
+            btnSearch.Enabled = searchflag;
+            btnSave.Enabled = saveflag;
+            btnExcel.Enabled = excelflag;
+            btnDelete.Enabled = deleteflag;
+        }
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             OpenorCreateForm<UpdateWorkOrder>();
@@ -635,7 +669,6 @@ namespace TUChair
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-
             if (userInfoVO == null)
                 return;
             string UID = userInfoVO.CUser_ID;
@@ -657,6 +690,14 @@ namespace TUChair
             {
                 MessageBox.Show(err.Message);
             }
+        }
+        private void 모두닫기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in this.MdiChildren)
+            {
+                form.Close();
+            }
+            //tabForms.TabPages.Clear();
         }
     }
     public class ReadEventArgs : EventArgs
