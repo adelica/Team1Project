@@ -20,6 +20,8 @@ namespace TUChairVO
         public string Item_Unit { get; set; }
         public string Stock_Other { get; set; }
 
+        public string Item_Type { get; set; }
+
     }
     public class EXProcessShiftVO
     {
