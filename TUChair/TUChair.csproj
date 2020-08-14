@@ -95,6 +95,12 @@
     <Compile Include="CommonForm\SearchTwoGridLeftRightFrom.Designer.cs">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="HyunningForm\StockOrderStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HyunningForm\StockOrderStatus.Designer.cs">
+      <DependentUpon>StockOrderStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="HyunningForm\XtraReport1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -565,6 +571,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\SearchTwoGridLeftRightFrom.resx">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HyunningForm\StockOrderStatus.resx">
+      <DependentUpon>StockOrderStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\XtraReport1.resx">
       <DependentUpon>XtraReport1.cs</DependentUpon>

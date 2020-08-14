@@ -82,12 +82,12 @@ namespace TUChair
                     string Primary = jeansGridView1.Rows[i].Cells[1].Value.ToString();
                     string Item = jeansGridView1.Rows[i].Cells[2].Value.ToString();
                     string Fact = jeansGridView1.Rows[i].Cells[6].Value.ToString();
-                    string From_Fact = cboInsertF.Text;
+                   // string From_Fact = cboInsertF.Text;
                     string Modifier = LoginFrm.userName;
                     int Qty = (Convert.ToInt32(jeansGridView1.Rows[i].Cells[10].Value));
 
                     JeanServicePShift shift = new JeanServicePShift();
-                    shift.ThisIsShift(Primary, Item, Fact, From_Fact, Modifier, Qty);
+                   // shift.ThisIsShift(Primary, Item, Fact, From_Fact, Modifier, Qty);
                 }
                 if (Convert.ToInt32(jeansGridView1.Rows[i].Cells[10].Value) == 0)
                 {

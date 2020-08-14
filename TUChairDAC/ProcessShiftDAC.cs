@@ -364,18 +364,18 @@ namespace TUChairDAC
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.CommandText = @"select convert(nvarchar, [Shift_date],23) Shift_date, Gubun , Category , From_Fact, Fact_Code,
-                                                ss.Item_Code Item_Code, item_Name, Item_Size, Item_Type, Shift_Qty,
+                                                ss.Item_Code Item_Code, i.item_Name, i.Item_Size, i.Item_Type, Shift_Qty,
 	                                            case when Category = '자재출고' then '0'
                                                      when Category = '자재입고' then '0'
                                                      else isnull((select u.Price_Present from UnitPrice where Price_EndDate = '3333-12-31'), 0) 
 													 end Price_Present,
  	                                            (Shift_Qty * case when Category = '자재출고' then 0
                                                      when Category = '자재입고' then 0
-                                                     else isnull(u.Price_Present, 0) end ) Price,
+                                                     else isnull((select u.Price_Present from UnitPrice where Price_EndDate = '3333-12-31'), 0) end ) Price,
 	                                            	 ss.modifier modifier
                                         from StockStatus ss left join Item i on ss.Item_Code = i.Item_Code
-                                                            left join UnitPrice u on ss.Item_Code = u.Item_Code
-                                        where 1=1 ";
+                                                            left join UnitPrice u on ss.Item_Code = u.Item_Code and Price_EndDate = '3333-12-31'
+                                        where 1=1";
 
               
                     cmd.Connection.Open();
