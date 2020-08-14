@@ -14,5 +14,10 @@ namespace TUChair.HyunningForm
         {
             InitializeComponent();
         }
+
+        private void StockOrderStatus_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
