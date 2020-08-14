@@ -15,20 +15,21 @@ namespace TUChair
     public partial class BORManage : TUChair.SearchCommomForm
     {
         List<BORVO> list;
+        TUChairMain2 frm = new TUChairMain2();
 
         public BORManage()
         {
             InitializeComponent();
             CommonUtil.InitSettingGridView(dgvBOR);
-            
+            dgvBOR.IsAllCheckColumnHeader=true;
 
-            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "No.", "No", true, 40);
+            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "No.", "No", true, 40,DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "품목", "Item_Code", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "품명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "공정", "FacG_Code", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "공정명", "FacG_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "설비", "Faci_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "설비명", "Faci_Name", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvBOR, "설비명", "Faci_Name", true,200);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "Tact Time(Sec)", "BOR_TactTime", true,120, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "우선순위", "BOR_Priority", true,70, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(dgvBOR, "수율", "BOR_Yeild", true,100, DataGridViewContentAlignment.MiddleRight);
@@ -42,59 +43,64 @@ namespace TUChair
         {
             LoadData();
             CommonUtil.CboSetting(cboFacG_Code);
+            frm = (TUChairMain2)this.MdiParent;
+
+            frm.New += New;
+            frm.Search += Search;
+            frm.Save += Save;
         }
-
-        private void LoadData()
+        //등록, 수정
+        private void Save(object sender, EventArgs e)
         {
-            BORService service = new BORService();
-            list = service.GetBORData();
-            dgvBOR.DataSource = list;
-
-            ComboBinding();
-        }
-
-        private void ComboBinding()
-        {
-            List<string> facG_code = (from code in list
-                                      select code.FacG_Code).Distinct().ToList();
-            cboFacG_Code.Items.Add("전체");
-            foreach (var cbo in facG_code)
+            List<string> chkList = Check();
+            if (chkList.Count < 1)
             {
-                cboFacG_Code.Items.Add(cbo);
+                BORInfoRegi frm = new BORInfoRegi(list);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                if (frm.Check)
+                {
+                    LoadData();
+                }
             }
-            
+            else if(chkList.Count==1)
+            {
+                List<BORVO> borList = (from code in list
+                                       where code.BOR_Code == Convert.ToInt32(chkList[0])
+                                       select code).ToList();
+                BORInfoRegi frm = new BORInfoRegi(borList,list);
+            }
+            else
+            {
+                MessageBox.Show("수정할 데이터 하나만 선택해주세요", "수정실패");
+                return;
+            }
+           
         }
-
-        //앞에 순번정해주기
-        private void dgvBOR_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        // 검색
+        private void Search(object sender, EventArgs e)
         {
-            this.dgvBOR.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
-        }
+            List<BORVO> searchList = null;
 
-        //검색조건
-        private void btnSearch_Click(object sender, EventArgs e) 
-        {
-            List<BORVO> searchList=null;
-
-            if(txtItem_Code.Text.Trim().Length>0 && cboFacG_Code.Text=="전체" && txtFaci_Code.Text.Trim().Length<1)
+            if (txtItem_Code.Text.Trim().Length > 0 && cboFacG_Code.Text == "전체" && txtFaci_Code.Text.Trim().Length < 1)
             {
                 searchList = (from search in list
                               where search.Item_Code.ToUpper().Contains(txtItem_Code.Text.ToUpper())
                               select search).ToList();
             }
-            else if(txtItem_Code.Text.Trim().Length > 0 && cboFacG_Code.Text !="전체" && txtFaci_Code.Text.Trim().Length < 1)
+            else if (txtItem_Code.Text.Trim().Length > 0 && cboFacG_Code.Text != "전체" && txtFaci_Code.Text.Trim().Length < 1)
             {
                 searchList = (from search in list
                               where search.Item_Code.ToUpper().Contains(txtItem_Code.Text.ToUpper()) && search.FacG_Code.ToUpper() == cboFacG_Code.Text.ToUpper()
                               select search).ToList();
             }
-            else if (txtItem_Code.Text.Trim().Length > 0 && cboFacG_Code.Text != "전체" && txtFaci_Code.Text.Trim().Length>0)
+            else if (txtItem_Code.Text.Trim().Length > 0 && cboFacG_Code.Text != "전체" && txtFaci_Code.Text.Trim().Length > 0)
             {
                 searchList = (from search in list
-                              where search.Item_Code.ToUpper().Contains(txtItem_Code.Text.ToUpper()) && search.FacG_Code.ToUpper() == cboFacG_Code.Text.ToUpper() &&search.Faci_Code.ToUpper().Contains(txtFaci_Code.Text.ToUpper())
+                              where search.Item_Code.ToUpper().Contains(txtItem_Code.Text.ToUpper()) && search.FacG_Code.ToUpper() == cboFacG_Code.Text.ToUpper() && search.Faci_Code.ToUpper().Contains(txtFaci_Code.Text.ToUpper())
                               select search).ToList();
             }
-            else if(txtItem_Code.Text.Trim().Length<1 && cboFacG_Code.Text !="전체" && txtFaci_Code.Text.Trim().Length < 1)
+            else if (txtItem_Code.Text.Trim().Length < 1 && cboFacG_Code.Text != "전체" && txtFaci_Code.Text.Trim().Length < 1)
             {
                 searchList = (from search in list
                               where search.FacG_Code.ToUpper() == cboFacG_Code.Text.ToUpper()
@@ -115,7 +121,7 @@ namespace TUChair
             else
             {
                 searchList = (from search in list
-                             select search).ToList();
+                              select search).ToList();
             }
             if (searchList.Count < 1)
             {
@@ -128,15 +134,44 @@ namespace TUChair
                 dgvBOR.DataSource = searchList;
             }
         }
-
-        // 엔터눌러서 검색
-        private void txtItem_Code_KeyPress(object sender, KeyPressEventArgs e)
+        //전체조회
+        private void New(object sender, EventArgs e)
         {
-            if(e.KeyChar==13)
+            if(((TUChairMain2)this.MdiParent).ActiveMdiChild==this)
             {
-                btnSearch.PerformClick();
+                txtFaci_Code.Text = txtItem_Code.Text = "";
+                LoadData();
+                cboFacG_Code.SelectedIndex = 0;
             }
         }
+
+        private void LoadData()
+        {
+            BORService service = new BORService();
+            list = service.GetBORData();
+            dgvBOR.DataSource = list;
+
+            ComboBinding();
+        }
+        //콤보박스 바인딩
+        private void ComboBinding()
+        {
+            List<string> facG_code = (from code in list
+                                      select code.FacG_Code).Distinct().ToList();
+            cboFacG_Code.Items.Add("전체");
+            foreach (var cbo in facG_code)
+            {
+                cboFacG_Code.Items.Add(cbo);
+            }
+            
+        }
+
+        //앞에 순번정해주기
+        private void dgvBOR_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            this.dgvBOR.Rows[e.RowIndex].Cells[1].Value = (e.RowIndex + 1).ToString();
+        }
+
 
         private void dgvBOR_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -171,17 +206,6 @@ namespace TUChair
             }
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-            BORInfoRegi frm = new BORInfoRegi(list);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            if(frm.Check)
-            {
-                LoadData();
-            }
-        }
-
         private void 수정ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var row = dgvBOR.CurrentRow;
@@ -196,13 +220,34 @@ namespace TUChair
             string uOrN= row.Cells[11].Value.ToString();
             string other = row.Cells[12].Value==null?"":row.Cells[11].Value.ToString()  ;
 
-            BORInfoRegi frm = new BORInfoRegi(itemC, facgC, faciC, tactT, prio, yei, processLead, uOrN, other, list);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            if(frm.Check)
+            //BORInfoRegi frm = new BORInfoRegi(itemC, facgC, faciC, tactT, prio, yei, processLead, uOrN, other, list);
+            //frm.StartPosition = FormStartPosition.CenterParent;
+            //frm.ShowDialog();
+            //if(frm.Check)
+            //{
+            //    LoadData();
+            //}
+        }
+        //체크박스 체크확인
+        private List<String> Check()
+        {
+            List<string> chkList = new List<string>();
+
+            for (int i = 0; i < dgvBOR.Rows.Count; i++)
             {
-                LoadData();
+                bool IsCellChecked = (bool)dgvBOR.Rows[i].Cells[0].EditedFormattedValue;
+                if (IsCellChecked)
+                {
+                    chkList.Add(dgvBOR.Rows[i].Cells[13].Value.ToString());
+                }
             }
+            return chkList;
+        }
+
+        private void BORManage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frm.New -= New;
+            frm.Search -= Search;
         }
     }
 }
