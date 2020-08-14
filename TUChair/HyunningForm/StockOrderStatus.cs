@@ -9,7 +9,7 @@ using TUChair.Service;
 using TUChair.Util;
 using TUChairVO;
 
-namespace TUChair.HyunningForm
+namespace TUChair
 {
     public partial class StockOrderStatus : TUChair.SearchCommomForm
     {
@@ -41,6 +41,11 @@ namespace TUChair.HyunningForm
         }
 
         private void StockOrderStatus_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnShift_Click(object sender, EventArgs e)
         {
 
         }

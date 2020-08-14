@@ -1,4 +1,4 @@
-﻿namespace TUChair.HyunningForm
+﻿namespace TUChair
 {
     partial class StockOrderStatus
     {
@@ -34,20 +34,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.jeansGridView1 = new JeanForm.JeansGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.cboItemCode = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.inDTP1 = new TUChair.InDTP();
             this.label7 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.cboItemCode = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnShift = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -123,34 +123,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 41);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.cboItemCode);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Location = new System.Drawing.Point(366, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(357, 34);
-            this.panel7.TabIndex = 21;
-            // 
-            // cboItemCode
-            // 
-            this.cboItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboItemCode.FormattingEnabled = true;
-            this.cboItemCode.Location = new System.Drawing.Point(122, 3);
-            this.cboItemCode.Name = "cboItemCode";
-            this.cboItemCode.Size = new System.Drawing.Size(219, 27);
-            this.cboItemCode.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 19);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "◆ 품목";
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.inDTP1);
@@ -183,6 +155,34 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "◆ 입출고일";
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.cboItemCode);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Location = new System.Drawing.Point(366, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(357, 34);
+            this.panel7.TabIndex = 21;
+            // 
+            // cboItemCode
+            // 
+            this.cboItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboItemCode.FormattingEnabled = true;
+            this.cboItemCode.Location = new System.Drawing.Point(122, 3);
+            this.cboItemCode.Name = "cboItemCode";
+            this.cboItemCode.Size = new System.Drawing.Size(219, 27);
+            this.cboItemCode.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 19);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "◆ 품목";
+            // 
             // btnShift
             // 
             this.btnShift.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -193,6 +193,7 @@
             this.btnShift.TabIndex = 6;
             this.btnShift.Text = "이동처리";
             this.btnShift.UseVisualStyleBackColor = true;
+            this.btnShift.Click += new System.EventHandler(this.btnShift_Click);
             // 
             // StockOrderStatus
             // 
@@ -207,10 +208,10 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
