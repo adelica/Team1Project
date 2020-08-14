@@ -60,17 +60,11 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.jeansGridView1);
-            this.panel3.Location = new System.Drawing.Point(12, 144);
-            this.panel3.Size = new System.Drawing.Size(1092, 446);
             // 
             // label1
             // 
             this.label1.Size = new System.Drawing.Size(83, 23);
             this.label1.Text = "≡ 재고현황";
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(13, 100);
             // 
             // panel1
             // 
@@ -108,7 +102,7 @@
             this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView1.Size = new System.Drawing.Size(1090, 444);
+            this.jeansGridView1.Size = new System.Drawing.Size(1090, 425);
             this.jeansGridView1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -176,7 +170,7 @@
             // 
             this.cboItemCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboItemCode.FormattingEnabled = true;
-            this.cboItemCode.Location = new System.Drawing.Point(115, 5);
+            this.cboItemCode.Location = new System.Drawing.Point(122, 3);
             this.cboItemCode.Name = "cboItemCode";
             this.cboItemCode.Size = new System.Drawing.Size(219, 27);
             this.cboItemCode.TabIndex = 8;
