@@ -89,11 +89,11 @@ namespace TUChair
                     JeanServicePShift shift = new JeanServicePShift();
                    // shift.ThisIsShift(Primary, Item, Fact, From_Fact, Modifier, Qty);
                 }
-                if (Convert.ToInt32(jeansGridView1.Rows[i].Cells[10].Value) == 0)
-                {
-                    MessageBox.Show("이동 수량을 입력해주세요");
-                    return;
-                }
+                //if (Convert.ToInt32(jeansGridView1.Rows[i].Cells[10].Value) == 0)
+                //{
+                //    MessageBox.Show("이동 수량을 입력해주세요");
+                //    return;
+                //}
             }
             MessageBox.Show("공정이동이 완료되었습니다.");
             DataLoad();

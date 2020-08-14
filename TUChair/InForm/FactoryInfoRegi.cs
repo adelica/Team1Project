@@ -33,17 +33,18 @@ namespace TUChair
             ComboBoxBinding();
         }
 
-        public FactoryInfoRegi(string facG_Code, string fact_Class, string fact_Code, string fact_Name, string fact_Parent, string fact_Info, string useOrNot, List<FactoryVO> list):this(list)
+        public FactoryInfoRegi(List<FactoryVO> codeList, List<FactoryVO> list):this(list)
         {
             txtFact_Code.Enabled = false;
+            FactoryVO item = codeList[0];
 
-            cboFact_Group.Text= facG_Code;
-            cboClass.Text= fact_Class;
-            txtFact_Code.Text = fact_Code;
-            txtName.Text = fact_Name;;
-           cboParent.Text = fact_Parent;
-           txtInformation.Text = fact_Info;
-            cboUseOrNot.Text = useOrNot;
+            cboFact_Group.Text= item.Fact_Group;
+            cboClass.Text= item.Fact_Class;
+            txtFact_Code.Text = item.Fact_Code;
+            txtName.Text = item.Fact_Name;;
+           cboParent.Text = item.Fact_Parent;
+           txtInformation.Text = item.Fact_Information;
+            cboUseOrNot.Text = item.Fact_UseOrNot;
             newInsert = false;
           
         }

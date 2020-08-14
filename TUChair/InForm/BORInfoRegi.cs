@@ -54,18 +54,20 @@ namespace TUChair
             CommonUtil.CboSetting(cboFaci_Code);
         }
 
-        public BORInfoRegi(string itemC, string facgC, string faciC, int tactT, int prio, decimal yei,int processLead, string uOrN, string other, List<BORVO> borList) :this(borList)
+        public BORInfoRegi(List<BORVO> list, List<BORVO> borList) :this(borList)
         {
             cboFacG_Code.Enabled = cboFaci_Code.Enabled = cboItem_Code.Enabled = false;
-            cboFacG_Code.Text = facgC;
-            cboFaci_Code.Text = faciC;
-            cboItem_Code.Text = itemC;
-            txtTactTime.Text = tactT.ToString();
-            txtPriority.Text = prio.ToString() ;
-            txtYeild.Text = yei.ToString();
-            txtProcessLead.Text = processLead.ToString();
-            cboUseOrNot.Text = uOrN;
-            txtOther.Text = other;
+            //----------------------------------
+
+            //cboFacG_Code.Text = facgC;
+            //cboFaci_Code.Text = faciC;
+            //cboItem_Code.Text = itemC;
+            //txtTactTime.Text = tactT.ToString();
+            //txtPriority.Text = prio.ToString() ;
+            //txtYeild.Text = yei.ToString();
+            //txtProcessLead.Text = processLead.ToString();
+            //cboUseOrNot.Text = uOrN;
+            //txtOther.Text = other;
 
             newInsert = false;
         }

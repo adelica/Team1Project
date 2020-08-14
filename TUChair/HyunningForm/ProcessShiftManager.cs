@@ -44,6 +44,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Stock_Other", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목타입", "Item_Type", true);
 
             jeansGridView2.IsAllCheckColumnHeader = true;
 
@@ -220,7 +221,7 @@ namespace TUChair
                         int Primary = (Convert.ToInt32(jeansGridView1.Rows[i].Cells[1].Value));
                         string fact = jeansGridView1.Rows[i].Cells[4].Value.ToString();
 
-                        shift.PSShiftInsert(Primary, fact);
+                        shift.PSShiftInsert(Primary, fact); 
 
                     }
 
@@ -266,7 +267,7 @@ namespace TUChair
         {
             if (textBox1.Text.Length > 0)
             {
-                btnShift.PerformClick();
+                btnSelect.PerformClick();
             }
         }
 

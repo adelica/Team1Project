@@ -16,9 +16,12 @@ namespace TUChairDAC
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select [No], s.[Item_Code] [Item_Code], [Item_Name],  s.[Fact_Code] [Fact_Code], [Fact_Name],[Fact_Type], [Insert_Date], [Qty],[Item_Size],[Item_Unit] ,[Stock_Other]
-                                from [dbo].[Stock] s left join [dbo].[Item] i on s.[Item_Code] = i.[Item_Code] left join [dbo].[Factory] f on s.[Fact_Code] = f.[Fact_Code]
-                                where [Insert_Date] is null and [Stock_Other] is null";
+                string sql = @"select [No], s.[Item_Code] [Item_Code], [Item_Name],  s.[Fact_Code] [Fact_Code], [Fact_Name],[Fact_Type], [Insert_Date],
+				                        [Qty],[Item_Size],[Item_Unit] ,[Stock_Other],Item_Type
+                                from [dbo].[Stock] s left join [dbo].[Item] i on s.[Item_Code] = i.[Item_Code] 
+													 left join [dbo].[Factory] f on s.[Fact_Code] = f.[Fact_Code]
+                                where [Insert_Date] is null and [Stock_Other] is null and Item_Type <> '완제품'
+";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
@@ -391,6 +394,40 @@ namespace TUChairDAC
                 Debug.WriteLine(err.Message);
 
                 return null;
+            }
+        }
+        public bool ShiftProduct(string Item, string Fact, string Modifier, int Qty,string primary) // 제품공정이동 프로시저
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_ShiftProduct";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+
+                    cmd.Parameters.AddWithValue("@Item_Code", Item);
+                    cmd.Parameters.AddWithValue("@Fact_Code", Fact);
+                    cmd.Parameters.AddWithValue("@Modifier", Modifier);
+                    cmd.Parameters.AddWithValue("@Out_Unit", Qty);
+                    cmd.Parameters.AddWithValue("@So_WorkOrderID", primary);
+
+
+
+
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception e)
+            {
+                _log.WriteError(e.Message, e);
+                throw e;
             }
         }
     }

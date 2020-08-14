@@ -11,6 +11,7 @@ using TUChairVO;
 using System.Reflection;
 using TUChair.Service;
 using TUChair.Util;
+using Excels = Microsoft.Office.Interop.Excel;
 
 namespace TUChair
 {
@@ -265,9 +266,57 @@ namespace TUChair
         private void Excel(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("엑셀만들어");
-        }
+            {
+                Excels.Application xlApp;
+                Excels.Workbook xlWorkBook;
+                Excels.Worksheet xlWorkSheet;
 
+                saveFileDialog1.Filter = "Excel Files(*.xls)|*.xls";
+                saveFileDialog1.Title = "품목 목록 저장";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    xlApp = new Excels.Application();
+                    xlWorkBook = xlApp.Workbooks.Open(Application.StartupPath + "\\ExcelTemplete\\품목.xls");
+                    xlWorkSheet = xlWorkBook.Worksheets.get_Item(1);
+                    xlApp.Visible = false;
+
+                    for (int i = 0; i < jeansGridView1.Rows.Count - 1; i++)
+                    {
+                        for (int k = 0; k < jeansGridView1.Columns.Count; k++)
+                        {
+                            if (jeansGridView1[0, 0].Visible == false)
+                                break;
+                            xlWorkSheet.Cells[i + 0, k + 1] = jeansGridView1[k, i].Value.ToString();
+                        }
+                    }
+
+                    xlWorkBook.SaveAs(saveFileDialog1.FileName, Excels.XlFileFormat.xlWorkbookNormal);
+                    xlWorkBook.Close(true);
+                    xlApp.Quit();
+
+                    releaseObject(xlWorkSheet);
+                    releaseObject(xlWorkBook);
+                    releaseObject(xlApp);
+                }
+            }
+        }
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
         private void ItemManage_FormClosing(object sender, FormClosingEventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;

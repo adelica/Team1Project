@@ -44,7 +44,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cboCom_Type = new System.Windows.Forms.ComboBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -75,7 +74,6 @@
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.btnSearch);
             // 
             // txtCom_Code
             // 
@@ -190,17 +188,6 @@
             this.cboCom_Type.Size = new System.Drawing.Size(162, 20);
             this.cboCom_Type.TabIndex = 2;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(979, 58);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(87, 23);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "조회";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.txtCom_Name);
@@ -243,6 +230,7 @@
             // 
             // dgvCompany
             // 
+            this.dgvCompany.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
             this.dgvCompany.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -303,8 +291,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ComboBox cboCom_Type;
         private System.Windows.Forms.TextBox txtCom_CorporRegiNum;
         private System.Windows.Forms.TextBox txtCom_Name;

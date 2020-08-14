@@ -69,7 +69,7 @@ namespace TUChair
             cboFacGroup.SelectedIndex = 0;
         }
         //새로고침
-        private void LoadD(object sender, EventArgs e)
+        private void New(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -105,26 +105,19 @@ namespace TUChair
         //등록, 수정
         private void Save(object sender, EventArgs e)
         {
-            List<string> codeList = (from code in list
-                                     select code.Fact_Code).ToList();
-
+           
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
+                
                 List<string> chkList = Check();
                 bool check = false;
                 if (chkList.Count == 1) // 수정
                 {
-                    var row = dgvFactory.CurrentRow;
+                    List<FactoryVO> codeList = (from code in list
+                                                where code.Fact_Code==chkList[0]
+                                             select code).ToList();
 
-                    string facG_Code = row.Cells[2].Value.ToString();
-                    string fact_Class = row.Cells[3].Value.ToString();
-                    string fact_Code = row.Cells[5].Value.ToString();
-                    string fact_Name = row.Cells[6].Value.ToString();
-                    string fact_Parent = row.Cells[8].Value.ToString();
-                    string fact_Info = row.Cells[9].Value == null ? "" : row.Cells[9].Value.ToString();
-                    string UseOrNot = row.Cells[11].Value.ToString();
-
-                    FactoryInfoRegi frm = new FactoryInfoRegi(facG_Code, fact_Class, fact_Code, fact_Name, fact_Parent, fact_Info, UseOrNot, list);
+                    FactoryInfoRegi frm = new FactoryInfoRegi(codeList, list);
 
                     frm.StartPosition = FormStartPosition.CenterParent;
                     frm.ShowDialog();
@@ -224,13 +217,14 @@ namespace TUChair
                     return;
             }
         }
+
         //폼 종료시 이벤트 제거
         private void FactoryManage_FormClosing(object sender, FormClosingEventArgs e)
         {
             frm.Save -= Save;
             frm.Search -= Search;
             frm.Delete -= Delete;
-            frm.New -= LoadD;
+            frm.New -= New;
         }
 
         //체크박스 체크확인
@@ -257,7 +251,7 @@ namespace TUChair
             frm.Save += Save;
             frm.Search += Search;
             frm.Delete += Delete;
-            frm.New += LoadD;
+            frm.New += New;
 
             LoadData();
             CboBinding();

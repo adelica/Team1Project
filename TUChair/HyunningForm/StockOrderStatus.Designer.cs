@@ -1,4 +1,4 @@
-﻿namespace TUChair.HyunningForm
+﻿namespace TUChair
 {
     partial class StockOrderStatus
     {
@@ -40,12 +40,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.cboItemCode = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.cboFact = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnShift = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -53,23 +48,30 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.jeansGridView1);
+            this.panel3.Location = new System.Drawing.Point(12, 106);
+            this.panel3.Size = new System.Drawing.Size(1092, 484);
             // 
             // label1
             // 
             this.label1.Size = new System.Drawing.Size(83, 23);
             this.label1.Text = "≡ 재고현황";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnShift);
+            this.panel2.Location = new System.Drawing.Point(13, 62);
+            this.panel2.Controls.SetChildIndex(this.label1, 0);
+            this.panel2.Controls.SetChildIndex(this.btnShift, 0);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Size = new System.Drawing.Size(1092, 82);
+            this.panel1.Size = new System.Drawing.Size(1092, 43);
             // 
             // jeansGridView1
             // 
@@ -102,8 +104,10 @@
             this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView1.Size = new System.Drawing.Size(1090, 425);
+            this.jeansGridView1.Size = new System.Drawing.Size(1090, 482);
             this.jeansGridView1.TabIndex = 0;
+            this.jeansGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.jeansGridView1_CellValueChanged);
+            this.jeansGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.jeansGridView1_EditingControlShowing);
             // 
             // tableLayoutPanel1
             // 
@@ -111,17 +115,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel9, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel5, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 80);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 41);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel4
@@ -131,7 +132,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(357, 34);
+            this.panel4.Size = new System.Drawing.Size(357, 35);
             this.panel4.TabIndex = 19;
             // 
             // inDTP1
@@ -160,8 +161,7 @@
             // 
             this.panel7.Controls.Add(this.cboItemCode);
             this.panel7.Controls.Add(this.label4);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 43);
+            this.panel7.Location = new System.Drawing.Point(366, 3);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(357, 34);
             this.panel7.TabIndex = 21;
@@ -185,70 +185,24 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "◆ 품목";
             // 
-            // panel9
+            // btnShift
             // 
-            this.panel9.Controls.Add(this.cboFact);
-            this.panel9.Controls.Add(this.label6);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(366, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(357, 34);
-            this.panel9.TabIndex = 23;
-            // 
-            // cboFact
-            // 
-            this.cboFact.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboFact.FormattingEnabled = true;
-            this.cboFact.Location = new System.Drawing.Point(119, 3);
-            this.cboFact.Name = "cboFact";
-            this.cboFact.Size = new System.Drawing.Size(219, 27);
-            this.cboFact.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 19);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "◆ 창고";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.comboBox1);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(729, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(358, 34);
-            this.panel5.TabIndex = 24;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(119, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(219, 27);
-            this.comboBox1.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 19);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "◆ 창고";
+            this.btnShift.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShift.Location = new System.Drawing.Point(1012, 9);
+            this.btnShift.Name = "btnShift";
+            this.btnShift.Size = new System.Drawing.Size(75, 23);
+            this.btnShift.TabIndex = 6;
+            this.btnShift.Text = "이동처리";
+            this.btnShift.UseVisualStyleBackColor = true;
+            this.btnShift.Click += new System.EventHandler(this.btnShift_Click);
             // 
             // StockOrderStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "StockOrderStatus";
-            this.Text = "고객별재고현황";
+            this.Text = "고객주문별재고현황";
             this.Load += new System.EventHandler(this.StockOrderStatus_Load);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -260,10 +214,6 @@
             this.panel4.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -278,11 +228,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.ComboBox cboItemCode;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.ComboBox cboFact;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnShift;
     }
 }

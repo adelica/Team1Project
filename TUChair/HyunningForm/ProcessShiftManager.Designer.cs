@@ -40,7 +40,6 @@
             this.btnSelect = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnShift = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.jeansGridView1 = new JeanForm.JeansGridView();
@@ -107,7 +106,6 @@
             this.panel4.Controls.Add(this.btnSelect);
             this.panel4.Controls.Add(this.textBox1);
             this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.btnShift);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Location = new System.Drawing.Point(13, 62);
             this.panel4.Name = "panel4";
@@ -118,7 +116,7 @@
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(732, 9);
+            this.btnSelect.Location = new System.Drawing.Point(1010, 9);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 4;
@@ -146,18 +144,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnShift
-            // 
-            this.btnShift.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShift.Location = new System.Drawing.Point(1010, 9);
-            this.btnShift.Name = "btnShift";
-            this.btnShift.Size = new System.Drawing.Size(75, 23);
-            this.btnShift.TabIndex = 1;
-            this.btnShift.Text = "공정이동";
-            this.btnShift.UseVisualStyleBackColor = true;
-            this.btnShift.Click += new System.EventHandler(this.btnShift_Click);
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -183,6 +169,7 @@
             // 
             // jeansGridView1
             // 
+            this.jeansGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Beige;
             this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -319,6 +306,7 @@
             // 
             // jeansGridView2
             // 
+            this.jeansGridView2.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
             this.jeansGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -439,7 +427,6 @@
         private System.Windows.Forms.Label label4;
         private JeanForm.JeansGridView jeansGridView2;
         private JeanForm.JeansGridView jeansGridView1;
-        private System.Windows.Forms.Button btnShift;
         private System.Windows.Forms.Button btnShiftCancle;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
