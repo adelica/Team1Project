@@ -21,7 +21,8 @@ namespace TUChairDAC
   	   So_Qty, So_ShipQty, 0 as 'Out_Unit'
 from  SalesOrder so inner join SalesMaster s on so.Sales_ID=s.Sales_ID
 					inner join Company c on s.Com_Code=c.Com_Code
-					inner join Item i on so.Item_Code = i.Item_Code";
+					inner join Item i on so.Item_Code = i.Item_Code
+where So_Qty <>So_ShipQty";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();

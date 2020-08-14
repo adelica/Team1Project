@@ -317,6 +317,7 @@
             this.btnShift.TabIndex = 6;
             this.btnShift.Text = "출하처리";
             this.btnShift.UseVisualStyleBackColor = true;
+            this.btnShift.Click += new System.EventHandler(this.btnShift_Click);
             // 
             // ProductShipmentManager
             // 
