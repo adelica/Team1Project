@@ -38,23 +38,27 @@ namespace TUChair
 
         }
 
-        public FacilityInfoRegi(string faci_Code, string faci_Name, string faci_Out, string faci_In, string faci_Bad, string faci_Detail, string faci_Others, string faci_UseOrNot,string faci_Modifier, string faci_ModifyDate, string facG_Code,DataTable dt, DataTable dtCode) :this(dt,dtCode)
+        public FacilityInfoRegi(List<FacilityVO> list,DataTable dt, DataTable dtCode) :this(dt,dtCode)
         {
+            if (list.Count > 0)
+            {
+                FacilityVO item = list[0];
 
-            txtFaci_Code.Enabled = false;
-            cboFacG_Code.Enabled = false;
-            txtFaci_Code.Text = faci_Code;
-            txtFaci_Name.Text = faci_Name;
-            cboFaci_OutWareHouse.Text = faci_Out;
-            cboFaci_InWareHouse.Text= faci_In;
-            cboFaci_BadWareHouse.Text= faci_Bad;
-           txtFaci_Detail.Text = faci_Detail;
-            txtFaci_Others.Text = faci_Others;
-            cboFaci_UseOrNot.Text = faci_UseOrNot;
-           cboFacG_Code.SelectedValue= facG_Code;
-            txtFaci_Modifier.Text = faci_Modifier;
-            txtModifyDate.Text = faci_ModifyDate;
-            newInsert = false;
+                txtFaci_Code.Enabled = false;
+                cboFacG_Code.Enabled = false;
+                txtFaci_Code.Text = item.Faci_Code;
+                txtFaci_Name.Text = item.Faci_Name;
+                cboFaci_OutWareHouse.Text = item.Faci_OutWareHouse;
+                cboFaci_InWareHouse.Text = item.Faci_InWareHouse;
+                cboFaci_BadWareHouse.Text = item.Faci_BadWareHouse;
+                txtFaci_Detail.Text = item.Faci_Detail;
+                txtFaci_Others.Text = item.Faci_Others;
+                cboFaci_UseOrNot.Text = item.Faci_UseOrNot;
+                cboFacG_Code.SelectedValue = item.FacG_Code;
+                txtFaci_Modifier.Text = item.Faci_Modifier;
+                txtModifyDate.Text = item.Faci_ModifyDate.ToString();
+                newInsert = false;
+            }
         }
 
         private void btnInsert_Click(object sender, EventArgs e) //등록
