@@ -68,5 +68,15 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
            return dac.ProductPlansearchPivot(firstdate, enddate, searchmsg);
         }
+        public DataTable OutPlanPivot(DateTime firstdate, DateTime enddate)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.OutPlanPivot(firstdate, enddate);
+        }
+        public DataTable OutPlansearchPivot(DateTime firstdate, DateTime enddate, string searchmsg)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.OutPlansearchPivot(firstdate, enddate, searchmsg);
+        }
     }
 }

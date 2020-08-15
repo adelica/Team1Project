@@ -336,5 +336,60 @@ where [WorkOrderID]=@WorkOrderID";
                 throw err;
             }
         }
+        public DataTable OutPlanPivot(DateTime firstdate, DateTime enddate)
+        {
+            try
+            {
+                SqlConnection strConn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = strConn;
+                    cmd.CommandText = @"OutPlanPivot";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@P_Start_Data", firstdate);
+                    cmd.Parameters.AddWithValue("@P_End_Data", enddate);
+                    cmd.Connection.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
+                throw err;
+            }
+        }
+        public DataTable OutPlansearchPivot(DateTime firstdate, DateTime enddate, string searchmsg)
+        {
+            try
+            {
+                SqlConnection strConn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = strConn;
+                    cmd.CommandText = @"OutPlanSearchPivot";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@P_Start_Data", firstdate);
+                    cmd.Parameters.AddWithValue("@P_End_Data", enddate);
+                    cmd.Parameters.AddWithValue("@search_col", searchmsg);
+                    cmd.Connection.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
+                throw err;
+            }
+        }
     }
 }

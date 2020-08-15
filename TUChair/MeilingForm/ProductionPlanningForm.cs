@@ -33,9 +33,9 @@ namespace TUChair
             inDTP1.End = new DateTime(int.Parse("2020"), int.Parse("09"), int.Parse("03"));
           
             DataBinding();
-            ComboBinding(comboBox1,2 );
-            ComboBinding(comboBox2,3 ); 
-            ComboBinding(cboplanID, 4);
+            ComboBinding(comboBox1,3 );
+           
+            ComboBinding(cboplanID,5);
         }
 
         private void ComboBinding(ComboBox comboBox,int a)
@@ -71,6 +71,8 @@ namespace TUChair
         private void New(object sender, EventArgs e)
         {
             DataBinding();
+            comboBox1.SelectedIndex = 0;
+            cboplanID.SelectedIndex = 0;
         }
 
         private void Search(object sender, EventArgs e)
@@ -99,7 +101,7 @@ namespace TUChair
                     if (item is ComboBox)
                     {
                         if (item.Text != "선택")
-                            sb.Add($"{item.Tag.ToString()}={((ComboBox)item).Text}");
+                            sb.Add($"{item.Tag.ToString()}='{((ComboBox)item).Text}'");
                     }
                     else if (item is TextBox)
                     {
