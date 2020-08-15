@@ -35,25 +35,27 @@
             // 
             // dtpStart
             // 
-            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStart.Location = new System.Drawing.Point(4, 3);
             this.dtpStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpStart.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(103, 21);
             this.dtpStart.TabIndex = 0;
+            this.dtpStart.Value = new System.DateTime(2020, 7, 15, 0, 0, 0, 0);
             this.dtpStart.ValueChanged += new System.EventHandler(this.EndLimitCheck);
             this.dtpStart.Leave += new System.EventHandler(this.DateLimitCheck);
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEnd.Location = new System.Drawing.Point(132, 3);
             this.dtpEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpEnd.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(99, 21);
             this.dtpEnd.TabIndex = 0;
+            this.dtpEnd.Value = new System.DateTime(2020, 9, 3, 0, 0, 0, 0);
             this.dtpEnd.ValueChanged += new System.EventHandler(this.StartLimitCheck);
             this.dtpEnd.Leave += new System.EventHandler(this.DateLimitCheck);
             // 

@@ -69,6 +69,7 @@ namespace TUChair
             DataTable dt = new DataTable();
             dt = service.SearchPivot(inDTP1.Start, inDTP1.End);
             jeansGridView1.AutoGenerateColumns = true;
+            jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = dt;
         }
 

@@ -28,7 +28,26 @@ namespace TUChair
             get { return dtpEnd.Value; }
             set { value=dtpEnd.Value ; }
         }
-
+        public DateTimePickerFormat startfomat
+        {
+            get { return dtpStart.Format; }
+            set { value = dtpStart.Format; }
+        }
+        public DateTimePickerFormat endfomat
+        {
+            get { return dtpEnd.Format; }
+            set { value = dtpEnd.Format; }
+        }
+        public string startCustomfomat
+        {
+            get { return dtpStart.CustomFormat; }
+            set { value = dtpStart.CustomFormat; }
+        }
+        public string endCustomfomat
+        {
+            get { return dtpEnd.CustomFormat; }
+            set { value = dtpEnd.CustomFormat; }
+        }
         public bool DateLimit
         {
             get { return check; }

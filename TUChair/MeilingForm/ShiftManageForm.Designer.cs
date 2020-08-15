@@ -124,12 +124,16 @@
             // inDTP1
             // 
             this.inDTP1.DateLimit = false;
-            this.inDTP1.End = new System.DateTime(2020, 8, 14, 19, 10, 28, 345);
+            this.inDTP1.End = new System.DateTime(2020, 8, 15, 13, 21, 33, 318);
+            this.inDTP1.endCustomfomat = null;
+            this.inDTP1.endfomat = System.Windows.Forms.DateTimePickerFormat.Short;
             this.inDTP1.Location = new System.Drawing.Point(102, 31);
             this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inDTP1.Name = "inDTP1";
             this.inDTP1.Size = new System.Drawing.Size(237, 26);
-            this.inDTP1.Start = new System.DateTime(2020, 8, 14, 19, 10, 28, 347);
+            this.inDTP1.Start = new System.DateTime(2020, 8, 15, 13, 21, 33, 322);
+            this.inDTP1.startCustomfomat = null;
+            this.inDTP1.startfomat = System.Windows.Forms.DateTimePickerFormat.Short;
             this.inDTP1.TabIndex = 9;
             // 
             // ShiftManageForm
