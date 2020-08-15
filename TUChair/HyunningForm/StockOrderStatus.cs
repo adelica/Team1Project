@@ -21,7 +21,7 @@ namespace TUChair
 
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목.", "Item_Code", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "납기일", "So_Duedate", true);

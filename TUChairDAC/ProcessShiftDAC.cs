@@ -251,7 +251,8 @@ namespace TUChairDAC
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select  s.[Fact_Code] [Fact_Code], [Fact_Name] , s.[Item_Code] [Item_Code],[Item_Name],[Item_Type],[Item_Size],[Qty],[Item_Unit],[Stock_Other] ,[Insert_Date]
+                string sql = @"select  s.[Fact_Code] [Fact_Code], [Fact_Name] , s.[Item_Code] [Item_Code],[Item_Name],[Item_Type],[Item_Size],[Qty],[Item_Unit]
+                                        ,[Stock_Other] ,convert(nvarchar, [Insert_Date]) [Insert_Date]
                                  from [dbo].[Stock] s inner join [dbo].[Factory] f on s.Fact_Code = f.Fact_Code
 					                                  inner join [dbo].[Item] i on s.Item_Code = i.Item_Code
                                 where 1=1";
@@ -370,10 +371,12 @@ namespace TUChairDAC
                                                 ss.Item_Code Item_Code, i.item_Name, i.Item_Size, i.Item_Type, Shift_Qty,
 	                                            case when Category = '자재출고' then '0'
                                                      when Category = '자재입고' then '0'
+													 when Category = '고객주문별이동' then '0'
                                                      else isnull(u.Price_Present, 0) 
 													 end Price_Present,
  	                                            (Shift_Qty * case when Category = '자재출고' then 0
-                                                     when Category = '자재입고' then 0
+																  when Category = '자재입고' then 0
+																  when Category = '고객주문별이동' then 0
                                                      else isnull(u.Price_Present, 0) end ) Price,
 	                                            	 ss.modifier modifier
                                         from StockStatus ss left join Item i on ss.Item_Code = i.Item_Code
@@ -415,6 +418,35 @@ namespace TUChairDAC
                     cmd.Parameters.AddWithValue("@So_WorkOrderID", primary);
 
 
+
+
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception e)
+            {
+                _log.WriteError(e.Message, e);
+                throw e;
+            }
+        }
+        public bool OutProduct(string Primary, string Item, string Modifier, int Qty) // 제품출하 프로시저
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_OutProdcut";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Primary", Primary);
+                    cmd.Parameters.AddWithValue("@Item", Item);
+                    cmd.Parameters.AddWithValue("@Modifier", Modifier);
+                    cmd.Parameters.AddWithValue("@Qty", Qty);
 
 
                     cmd.Connection.Open();
