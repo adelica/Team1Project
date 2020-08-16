@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TUChair.MeilingForm;
 using TUChair.Service;
 using TUChair.Util;
 using TUChairVO;
@@ -189,6 +190,11 @@ namespace TUChair
                 jeansGridView2.DataSource = null;
                 jeansGridView2.DataSource = dt;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)//자재차감
+        {
+        
         }
     }
 }

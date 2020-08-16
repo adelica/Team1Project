@@ -391,6 +391,32 @@ where [WorkOrderID]=@WorkOrderID";
                 throw err;
             }
         }
+        public List<WoOrderVO>  saleorderSelect()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"select [WorkOrderID], [Pro_ID], wo.[Item_Code],item.Item_Name, [Plan_Qty], [Plan_Date], 
+[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID],Deduction
+from [dbo].[WorkOrder] wo
+join [dbo].[Item] item
+on item.Item_Code = wo.Item_Code";
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<WoOrderVO> list = Helper.MeilingDataReaderMapToList<WoOrderVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return null;
+            }
+        }
         public List<WoOrderVO> WorkOderselect()
         {
             try
@@ -579,6 +605,34 @@ on item.Item_Code = wo.Item_Code where Wo_State='지시'";
                 return null;
             }
            
+        }
+        public List<WoOrderVO> selectWorkorder()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"select [WorkOrderID], [Pro_ID], [Item_Code], [Plan_Qty], [Plan_Date], [Prd_Date],
+[Wo_State], [Wo_Order], [Plan_StartTime], [Plan_EndTime], [In_Qty_Main], [Out_Qty_Main], 
+[Prd_Qty], [Sales_ID], [Remark], [Up_Date], [Up_Emp], [Deduction] from [dbo].[WorkOrder]";
+                   // cmd.CommandType = CommandType.StoredProcedure;
+                  //  cmd.Parameters.AddWithValue("@P_Condition", condition);
+                   // cmd.Parameters.AddWithValue("@P_Seperator", "@");
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<WoOrderVO> list = Helper.MeilingDataReaderMapToList<WoOrderVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return null;
+            }
+
         }
     }
 }

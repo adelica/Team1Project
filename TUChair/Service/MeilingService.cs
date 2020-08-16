@@ -117,5 +117,10 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
             return dac.MetrialDecount(condition);
         }
+        public List<WoOrderVO> selectWorkorder()
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+           return dac.selectWorkorder();
+        }
     }
 }
