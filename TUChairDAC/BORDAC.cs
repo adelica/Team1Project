@@ -72,14 +72,14 @@ from BOR b left outer join FacilityGroup fg on b.FacG_Code=fg.FacG_Code
             }
         }
 
-        public bool DeleteBORInfo(int code) //BOR정보 삭제
+        public bool DeleteBORInfo(string code) //BOR정보 삭제
         {
             try
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
-                    cmd.CommandText = @"Delete from BOR where BOR_Code=@code";
+                    cmd.CommandText = @"Delete from BOR where BOR_Code in  ( "+ code + ")";
                     cmd.Parameters.AddWithValue("@code", code);
 
                     cmd.Connection.Open();

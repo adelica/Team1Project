@@ -131,8 +131,8 @@ namespace TUChair
                 {
                     string code = "'" + string.Join("','", chkList) + "'";
 
-                    FactoryService service = new FactoryService();
-                    if (service.DeleteFactoryInfo(code))
+                    CompanyService service = new CompanyService();
+                    if (service.DeleteCompanyInfo(code))
                     {
                         MessageBox.Show($"{code}이/가 삭제되었습니다.", "삭제완료");
                         LoadData();
@@ -276,7 +276,9 @@ namespace TUChair
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
+                txtCom_Code.Text = txtCom_CorporRegiNum.Text = txtCom_Name.Text = "";
                 LoadData();
+                cboCom_Type.SelectedIndex = 0;
             }
         }
 

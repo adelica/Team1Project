@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MeilingForm\DispensingMaterialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\DispensingMaterialsForm.Designer.cs">
+      <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WooForm\BOMPopUP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -488,12 +494,6 @@
     <Compile Include="LoginFrm.Designer.cs">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MeilingForm\DispensingMaterialsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MeilingForm\DispensingMaterialsForm.Designer.cs">
-      <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MeilingForm\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -598,6 +598,9 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="MeilingForm\DispensingMaterialsForm.resx">
+      <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WooForm\BOMPopUP.resx">
       <DependentUpon>BOMPopUP.cs</DependentUpon>
     </EmbeddedResource>
@@ -778,9 +781,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MeilingForm\DispensingMaterialsForm.resx">
-      <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
