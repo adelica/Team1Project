@@ -552,7 +552,7 @@ on item.Item_Code = wo.Item_Code where Wo_State='지시'";
                 return null;
             }
         }
-        public List<WoOrderVO> WorkOrderStatus(int WOrderId)
+        public DataTable MetrialDecount(string condition)
         {
             try
             {
@@ -560,20 +560,17 @@ on item.Item_Code = wo.Item_Code where Wo_State='지시'";
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = @"select bom.[Item_Code],item.Item_Name,item.Item_Size, [BOM_Require]*wo.Plan_Qty '소요량',
-st.Qty '재고량',st.Fact_Code ,'' '요청일','' '출고수량','' '잔량'  from [dbo].[BOM]  bom
-join [dbo].[WorkOrder] wo 
-on bom.Item_Code = wo.Item_Code
-join [dbo].[Item] item
-on wo.Item_Code = item.Item_Code
-join [dbo].[Stock] st on item.Item_Code = st.Item_Code
-where [WorkOrderID]=@WOrderId and item.Item_Type='반제품'";
-                    cmd.Parameters.AddWithValue("@WOrderId", WOrderId);
+                    cmd.CommandText = @"MetrialDecount";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@P_Condition", condition);
+                    cmd.Parameters.AddWithValue("@P_Seperator", "@");
                     cmd.Connection.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    List<WoOrderVO> list = Helper.MeilingDataReaderMapToList<WoOrderVO>(reader);
-                    cmd.Connection.Close();
-                    return list;
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
                 }
             }
             catch (Exception err)
@@ -581,6 +578,7 @@ where [WorkOrderID]=@WOrderId and item.Item_Type='반제품'";
                 Debug.WriteLine(err.Message);
                 return null;
             }
+           
         }
     }
 }

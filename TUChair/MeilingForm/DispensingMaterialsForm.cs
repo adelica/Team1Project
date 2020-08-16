@@ -161,5 +161,34 @@ namespace TUChair
             frm.New -= New;
             frm.Excel -= Excel;
         }
+
+        private void button1_Click(object sender, EventArgs e)//자재불출요청
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> sb = new List<string>();
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.RowCount; i++)
+                {
+                    bool isn = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isn)
+                    {
+                        sb.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
+                    }
+                }
+                if (sb.Count < 1)
+                {
+                    MessageBox.Show("삭제할 항목을 선택해주세요");
+                    return;
+                }
+                string condition = string.Join("@", sb);
+                MeilingService service = new MeilingService();
+                DataTable dt = new DataTable();
+                dt = service.MetrialDecount(condition);
+                jeansGridView2.AutoGenerateColumns = true;
+                jeansGridView2.DataSource = null;
+                jeansGridView2.DataSource = dt;
+            }
+        }
     }
 }

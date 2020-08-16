@@ -112,5 +112,10 @@ namespace TUChair.Service
         //{
 
         //}
+        public DataTable MetrialDecount(string condition)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.MetrialDecount(condition);
+        }
     }
 }
