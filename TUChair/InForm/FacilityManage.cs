@@ -184,30 +184,7 @@ namespace TUChair
                     LoadData();
                 }
             }
-            //else //설비수정 2~9 11,12
-            //{
-            //    var row = dgvFacility.CurrentRow;
-
-            //    string faci_Code = row.Cells[2].Value.ToString();
-            //    string faci_Name = row.Cells[3].Value.ToString();
-            //    string faci_Out = row.Cells[4].Value.ToString();
-            //    string faci_In = row.Cells[5].Value.ToString();
-            //    string faci_Bad = row.Cells[6].Value.ToString();
-            //    string faci_Detail = row.Cells[7].Value.ToString();
-            //    string faci_Others = row.Cells[8].Value.ToString();
-            //    string faci_UseOrNot = row.Cells[9].Value.ToString();
-            //    string faci_Modifier = row.Cells[10].Value.ToString();
-            //    string faci_ModifyDate = row.Cells[11].Value.ToString();
-            //    string facG_Code = row.Cells[12].Value.ToString();
-
-            //    FacilityInfoRegi frm = new FacilityInfoRegi(faci_Code, faci_Name, faci_Out, faci_In, faci_Bad, faci_Detail, faci_Others, faci_UseOrNot, faci_Modifier, faci_ModifyDate, facG_Code,dtFacG_code, dtFaci_code);
-            //    frm.StartPosition = FormStartPosition.CenterParent;
-            //    frm.ShowDialog();
-            //    if(frm.Check)
-            //    {
-            //        LoadData();
-            //    }
-            //}
+           
         }
 
         //설비군용 삭제
@@ -242,27 +219,6 @@ namespace TUChair
                     else
                     {
                         MessageBox.Show("등록된 설비가 존재합니다.", "삭제실패");
-                    }
-                }
-                return;
-            }
-
-            else
-            {
-                if (DialogResult.OK == (MessageBox.Show("정말 삭제하시겠습니까?", "삭제확인", MessageBoxButtons.OKCancel)))
-                {
-                    var row = dgvFacility.CurrentRow;
-                    string faci_Code = row.Cells[0].Value.ToString();
-                    FacilityService service = new FacilityService();
-                    check = service.DeleteFacilityInfo(faci_Code);
-                    if (check)
-                    {
-                        MessageBox.Show("삭제되었습니다.", "삭제완료");
-                        LoadData();
-                    }
-                    else
-                    {
-                        MessageBox.Show("삭제를 실패하였습니다", "삭제실패");
                     }
                 }
                 return;

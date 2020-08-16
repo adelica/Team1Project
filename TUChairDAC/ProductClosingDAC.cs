@@ -41,5 +41,36 @@ namespace TUChairDAC
                 return null;
             }
         }
+        public bool PCDeadline(string Primary, string Item, string Modifier) //프로시저만들어야함
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_ProcessShift";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+
+                    cmd.Parameters.AddWithValue("@NO", Primary);
+                    cmd.Parameters.AddWithValue("@ThisDate", Item);
+                    cmd.Parameters.AddWithValue("@Fact_Code", Modifier);
+
+
+
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception e)
+            {
+                //_log.WriteError(e.Message, e);
+                throw e;
+            }
+        }
     }
 }
