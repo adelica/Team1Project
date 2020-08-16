@@ -567,7 +567,7 @@ on bom.Item_Code = wo.Item_Code
 join [dbo].[Item] item
 on wo.Item_Code = item.Item_Code
 join [dbo].[Stock] st on item.Item_Code = st.Item_Code
-where [WorkOrderID]=@WOrderId";
+where [WorkOrderID]=@WOrderId and item.Item_Type='반제품'";
                     cmd.Parameters.AddWithValue("@WOrderId", WOrderId);
                     cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
