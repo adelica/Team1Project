@@ -475,7 +475,7 @@ namespace TUChairDAC
                                 		            inner join Item i on so.Item_Code = i.Item_Code
                                 		            inner join UnitPrice u on so.Item_Code = u.Item_Code and Price_EndDate = '3333-12-31'
                                 		            inner join Stock s on so.Item_Code = s.Item_Code and Fact_Code = 'WH_M'
-                                where So_OutDate is not null";
+                                where So_OutDate is not null and so_deadline = 'n'";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();

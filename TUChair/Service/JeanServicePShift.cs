@@ -98,6 +98,17 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.PSStatus();
         }
-        
+        public List<ProductClosingVO> PClosing()
+        {
+            ProductClosingDAC dac = new ProductClosingDAC();
+            return dac.PClosing();
+        }
+      
+        public bool PCDeadline(string Primary, string Item, string Modifier)// 제품출하
+        {
+            ProductClosingDAC dac = new ProductClosingDAC();
+            return dac.PCDeadline(Primary, Item, Modifier);
+        }
+
     }
 }
