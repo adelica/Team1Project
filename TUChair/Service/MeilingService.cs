@@ -98,5 +98,10 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
            return dac.UpdateWorkOrder(condition);
         }
+        public List<WoOrderVO> WorkOrderStatus()
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.WorkOrderStatus();
+        }
     }
 }
