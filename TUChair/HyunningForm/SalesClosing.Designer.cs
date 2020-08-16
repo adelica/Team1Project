@@ -371,6 +371,8 @@
             // 
             // btnPclosing
             // 
+            this.btnPclosing.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPclosing.Location = new System.Drawing.Point(1012, 9);
             this.btnPclosing.Name = "btnPclosing";
             this.btnPclosing.Size = new System.Drawing.Size(75, 23);
