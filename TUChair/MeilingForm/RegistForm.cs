@@ -177,7 +177,42 @@ namespace TUChair
 
         private void button1_Click(object sender, EventArgs e)//작업실적등록
         {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
 
+                int cnt = 0;
+                int row = 0;
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.Rows.Count; i++)
+                {
+                    bool isbool = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isbool)
+                    { cnt++; row = i; }
+                }
+                string userID = ((TUChairMain2)this.MdiParent).userInfoVO.CUser_ID;
+                if (cnt == 1)
+                {
+
+                    RegistFormPopUp frm = new RegistFormPopUp();
+                    frm.Owner = this;
+                    //shiftPop.uptdic = updatedic;
+                    int ID = Convert.ToInt32(jeansGridView1.Rows[row].Cells[1].Value);
+                    frm.WorkOrderId = ID;
+
+
+
+                    frm.ShowDialog();
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        DataBinding();
+                    }
+                }
+                else if (cnt > 1)
+                {
+                    MessageBox.Show("수정은 하나씩만 가능합니다.");
+                    return;
+                }
+            }
         }
     }
 }

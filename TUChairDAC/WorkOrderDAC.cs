@@ -662,5 +662,36 @@ on item.Item_Code = wo.Item_Code where Wo_State='지시'";
             }
 
         }
+        public bool UpdateWorkOrder(int Out_Qty_Main, int Prd_Qty, string Up_Emp, int ID)
+        {
+            try
+            {
+                SqlConnection strConn = new SqlConnection(this.ConnectionString);
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = strConn;
+                    cmd.CommandText = @"update [dbo].[WorkOrder] set [Out_Qty_Main]=@Out_Qty_Main ,[Prd_Qty]=@Prd_Qty,[Up_Date] =@Up_Date ,[Up_Emp]=@Up_Emp
+where [WorkOrderID] =@WorkOrderID ";
+                   // cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Out_Qty_Main", Out_Qty_Main);
+                    cmd.Parameters.AddWithValue("@Prd_Qty", Prd_Qty);
+                    //cmd.Parameters.AddWithValue("@Up_Date", Up_Date);
+                    cmd.Parameters.AddWithValue("@Up_Emp", Up_Emp);
+                    cmd.Parameters.AddWithValue("@WorkOrderID", ID);
+                    cmd.Parameters.AddWithValue("@Up_Date", DateTime.Now) ;
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
+                throw err;
+            }
+        }
     }
 }
