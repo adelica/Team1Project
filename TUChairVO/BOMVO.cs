@@ -9,7 +9,8 @@ namespace TUChairVO
    public class BOMVO
     {
            public string        INFO                         {get; set;}
-           public string        Item_Type                   {get; set;}
+           public string        Item_Code                   { get; set; }
+        public string           Item_Type                   {get; set;}
            public int           BOM_No                     {get; set;}
            public string        ItemCode                { get; set;}
            public string        ParentItem_Code             {get; set;}

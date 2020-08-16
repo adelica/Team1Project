@@ -35,21 +35,23 @@ namespace TUChair
 
             List<ComboItemVO> cList = (from item in comboItems
                                        where item.CodeType == "사용여부"
+                                       orderby item.CodeNm descending
                                        select item).ToList();
-            CommonUtil.ComboBinding(cboUseOrNot, cList, "선택");
+            CommonUtil.ComboBinding(cboUseOrNot, cList);
        
             cList = (from item in comboItems
                      where item.CodeType == "BOM"
                      select item).ToList();
-            CommonUtil.ComboBinding(cboBOMType, cList, "선택");
+            CommonUtil.ComboBinding(cboBOMType, cList);
 
             dtpDate.Value = DateTime.Now;
 
             jeansGridView1.IsAllCheckColumnHeader = true;
-            
+        
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "bom번호", "BOM_No", false);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목코드", "Item_Code", false);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "상위코드", "ParentItem_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "INFO", true,200);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "ItemCode", true,200);
@@ -69,12 +71,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "소요계획", "BOM_RequirePlan", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "BOM_Others", true);
 
-            BOMService service1 = new BOMService();
-            BOM = service1.getALLBom();
-
-            jeansGridView1.DataSource = BOM;
-
-
+            BindingData();
         }
 
         private void BOMManage_FormClosing(object sender, FormClosingEventArgs e)
@@ -109,7 +106,62 @@ namespace TUChair
 
         private void Save(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                int cnt = 0;
+                int row = 0;
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.Rows.Count; i++)
+                {
+                    bool isbool = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isbool)
+                    { cnt++; row = i; }
+                }
+                string userID = ((TUChairMain2)this.MdiParent).userInfoVO.CUser_ID;
+                if (cnt == 0)
+                {
+                    BOMPopUP frm = new BOMPopUP(userID);
+                    frm.Tag = 0;
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        BindingData();
+                    }
+                }
+                else if (cnt > 1)
+                {
+                    MessageBox.Show("수정은 하나씩만 가능합니다.");
+                    return;
+                }
+                else
+                {
+                    BOMVO BOM = new BOMVO();
+                   BOM.Item_Code                  = jeansGridView1.Rows[row].Cells[2].Value.ToString();
+                   BOM.ParentItem_Code            = jeansGridView1.Rows[row].Cells[3].Value.ToString()   == "*" ? "" : jeansGridView1.Rows[row].Cells[3].Value.ToString();
+                    BOM.BOM_Require = Convert.ToInt32(jeansGridView1.Rows[row].Cells[7].Value);
+                    BOM.BOM_StartDate = Convert.ToDateTime(jeansGridView1.Rows[row].Cells[9].Value); 
+                    BOM.BOM_EndDate                = Convert.ToDateTime(jeansGridView1.Rows[row].Cells[10].Value);
+                    BOM.BOM_UserOrNot              = jeansGridView1.Rows[row].Cells[11].Value == null ? "" : jeansGridView1.Rows[row].Cells[11].Value.ToString();
+                   BOM.BOM_AutoDeducion           = jeansGridView1.Rows[row].Cells[14].Value == null ? "" : jeansGridView1.Rows[row].Cells[14].Value.ToString();
+                   BOM.BOM_RequirePlan            = jeansGridView1.Rows[row].Cells[15].Value == null ? "" : jeansGridView1.Rows[row].Cells[15].Value.ToString();
+                   BOM.BOM_Others                 = jeansGridView1.Rows[row].Cells[16].Value == null ? "" : jeansGridView1.Rows[row].Cells[16].Value.ToString();
+                    BOM.BOM_No                     =Convert.ToInt32(jeansGridView1.Rows[row].Cells[1].Value);
+
+                    BOMPopUP frm = new BOMPopUP(userID);
+                    frm.BomInfo = BOM;
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        BindingData();
+                    }
+                }
+            }
+        }
+
+        private void BindingData()
+        {
+            BOMService service1 = new BOMService();
+            BOM = service1.getALLBom();
+            jeansGridView1.DataSource = null;
+            jeansGridView1.DataSource = BOM;
         }
     }
 }

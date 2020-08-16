@@ -28,7 +28,6 @@ namespace TUChairVO
         public DateTime Up_Date { get; set; }
         public string Up_Emp { get; set; }
 
-        public string Item_InWarehouse { get; set; }
-        public string Item_OutWarehouse { get; set; }
+      
     }
 }

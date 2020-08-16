@@ -85,6 +85,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "계획시작일", "Plan_StartTime", true);//8
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "계획마감일", "Plan_EndTime", true);//9
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "PlanID", "Sales_ID", true);//10
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "자재차감여부", "Deduction", true);
             jeansGridView1.Columns["Pro_ID"].Frozen = true;
         }
 
