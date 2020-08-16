@@ -488,12 +488,6 @@
     <Compile Include="LoginFrm.Designer.cs">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MeilingForm\DispensingMaterialsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MeilingForm\DispensingMaterialsForm.Designer.cs">
-      <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MeilingForm\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -778,9 +772,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MeilingForm\DispensingMaterialsForm.resx">
-      <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

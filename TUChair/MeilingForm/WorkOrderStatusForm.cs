@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TUChair.HyunningForm;
@@ -25,7 +26,7 @@ namespace TUChair
         private void WorkOrderStatusForm_Load(object sender, EventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-            frm.Save += Save;
+            //frm.Save += Save;
             frm.Search += Search;
             frm.Delete += Delete;
             frm.New += New;
@@ -43,27 +44,114 @@ namespace TUChair
 
         private void New(object sender, EventArgs e)
         {
-            
+            DataBinding();
         }
 
         private void Delete(object sender, EventArgs e)
         {
-           
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> sb = new List<string>();
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.RowCount; i++)
+                {
+                    bool isn = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isn)
+                    {
+                        sb.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
+                    }
+                }
+                if (sb.Count < 1)
+                {
+                    MessageBox.Show("삭제할 항목을 선택해주세요");
+                    return;
+                }
+                string condition = string.Join("@", sb);
+                MeilingService service = new MeilingService();
+                if (service.DeleteWorkOrder(condition))
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                }
+                else
+                    MessageBox.Show("삭제에 실패하였습니다.");
+
+                DataBinding();
+            }
         }
 
         private void Search(object sender, EventArgs e)
         {
-           
-        }
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                //jeansGridView1.Columns.Clear();
 
-        private void Save(object sender, EventArgs e)
-        {
-          
+                //Setcolumn();
+                string sg = GetSearchCondition(panel4);
+                if (sg.Length < 1)
+                    return;
+                MeilingService service = new MeilingService();
+                List<WoOrderVO> list = service.WorkOderSearch(inDTP1.Start, inDTP1.End, sg);
+
+                jeansGridView1.DataSource = null;
+                jeansGridView1.DataSource = list;
+            }
         }
+        private string GetSearchCondition(Panel panel4)
+        {
+            List<string> sb = new List<string>();
+            foreach (Control Pitem in panel4.Controls)
+            {
+                foreach (Control item in Pitem.Controls)
+                {
+                    if (item is ComboBox)
+                    {
+                        if (item.Text != "선택")
+                            sb.Add($"{item.Tag.ToString()}='{((ComboBox)item).Text}'");
+                    }
+                    else if (item is TextBox)
+                    {
+                        if (item.Text != "")
+                            sb.Add($"{item.Tag.ToString()} like '%{item.Text}%'");
+                    }
+                    //else if (item is InDTP)
+                    //{
+                    //    if (item.Text != "")
+                    //        sb.Add($"between{((InDTP)item).Start.ToString()}and {((InDTP)item).End.ToString()}");
+                    //}
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+            MessageBox.Show(String.Join(" and ", sb));
+            return String.Join(" and ", sb);
+        }
+        //private void Save(object sender, EventArgs e)
+        //{
+
+        //}
 
         private void ComboBinding()
         {
+            List<string> ItemList = new List<string>();
+            ItemList.Insert(0, "선택");
+            for (int i = 0; i < jeansGridView1.RowCount; i++)
+            {
+                ItemList.Add(jeansGridView1.Rows[i].Cells[4].Value.ToString());
+            };
+            ItemList = ItemList.Distinct().ToList();
 
+            cboItem.Items.AddRange(ItemList.ToArray());
+            List<string> PlanIDList = new List<string>();
+            PlanIDList.Insert(0, "선택");
+            for (int i = 0; i < jeansGridView1.RowCount; i++)
+            {
+                PlanIDList.Add(jeansGridView1.Rows[i].Cells[12].Value.ToString());
+            };
+            PlanIDList = PlanIDList.Distinct().ToList();
+
+            cboplanID.Items.AddRange(PlanIDList.ToArray());
         }
 
         private void DataBinding()
@@ -97,7 +185,7 @@ namespace TUChair
         private void WorkOrderStatusForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-            frm.Save -= Save;
+            //frm.Save -= Save;
             frm.Search -= Search;
             frm.Delete -= Delete;
             frm.New -= New;

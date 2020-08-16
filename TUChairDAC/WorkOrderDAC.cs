@@ -524,5 +524,33 @@ on item.Item_Code = wo.Item_Code where Wo_State='지시'";
                 return null;
             }
         }
+        public List<WoOrderVO> SearchWorkOrderstatus(DateTime firstdate, DateTime enddate, string searchmsg)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+
+                    cmd.CommandText = @"SP_SearchWorkOrderstatus";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@First_date", firstdate);
+                    cmd.Parameters.AddWithValue("@end_date", enddate);
+                    cmd.Parameters.AddWithValue("@Search_cal", searchmsg);
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<WoOrderVO> list = Helper.MeilingDataReaderMapToList<WoOrderVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
     }
 }

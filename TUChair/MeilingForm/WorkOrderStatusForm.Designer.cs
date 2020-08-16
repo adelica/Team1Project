@@ -28,26 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.jeansGridView1 = new JeanForm.JeansGridView();
-            this.button3 = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.inDTP1 = new TUChair.InDTP();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.cboItem = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.cboplanID = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -59,154 +66,182 @@
             this.label1.Size = new System.Drawing.Size(70, 23);
             this.label1.Text = "작업지시";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.SetChildIndex(this.label1, 0);
-            this.panel2.Controls.SetChildIndex(this.button2, 0);
-            this.panel2.Controls.SetChildIndex(this.button3, 0);
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.label2);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(567, 21);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 20);
-            this.comboBox2.TabIndex = 36;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(516, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "설비";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 34;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "작업지시서";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(302, 18);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(153, 21);
-            this.dateTimePicker2.TabIndex = 32;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(282, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(14, 12);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "~";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(123, 18);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(153, 21);
-            this.dateTimePicker1.TabIndex = 30;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "시간";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(991, 50);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "조회";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(990, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 38;
-            this.button2.Text = "엑셀";
-            this.button2.UseVisualStyleBackColor = true;
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.panel4);
             // 
             // jeansGridView1
             // 
             this.jeansGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Beige;
-            this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
+            this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.jeansGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.jeansGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.jeansGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.jeansGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.jeansGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.jeansGridView1.IsAllCheckColumnHeader = false;
             this.jeansGridView1.Location = new System.Drawing.Point(3, 3);
             this.jeansGridView1.Name = "jeansGridView1";
             this.jeansGridView1.RowHeadersWidth = 30;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Bisque;
-            this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
+            this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 23;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jeansGridView1.Size = new System.Drawing.Size(1084, 419);
             this.jeansGridView1.TabIndex = 0;
             // 
-            // button3
+            // panel8
             // 
-            this.button3.Location = new System.Drawing.Point(887, 10);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 23);
-            this.button3.TabIndex = 39;
-            this.button3.Text = "바코드 출력";
-            this.button3.UseVisualStyleBackColor = true;
+            this.panel8.Controls.Add(this.inDTP1);
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Location = new System.Drawing.Point(733, 10);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(357, 34);
+            this.panel8.TabIndex = 41;
+            // 
+            // inDTP1
+            // 
+            this.inDTP1.DateLimit = false;
+            this.inDTP1.End = new System.DateTime(2020, 9, 3, 0, 0, 0, 0);
+            this.inDTP1.endCustomfomat = null;
+            this.inDTP1.endfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.inDTP1.Location = new System.Drawing.Point(81, 4);
+            this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inDTP1.Name = "inDTP1";
+            this.inDTP1.Size = new System.Drawing.Size(237, 26);
+            this.inDTP1.Start = new System.DateTime(2020, 7, 15, 0, 0, 0, 0);
+            this.inDTP1.startCustomfomat = null;
+            this.inDTP1.startfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.inDTP1.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(12, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 19);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "◆ 기간";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.panel7);
+            this.panel4.Controls.Add(this.panel11);
+            this.panel4.Location = new System.Drawing.Point(1, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(728, 99);
+            this.panel4.TabIndex = 40;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.cboStatus);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Location = new System.Drawing.Point(3, 52);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(357, 34);
+            this.panel5.TabIndex = 40;
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Items.AddRange(new object[] {
+            "선택",
+            "지시",
+            "미지시"});
+            this.cboStatus.Location = new System.Drawing.Point(119, 5);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(219, 27);
+            this.cboStatus.TabIndex = 7;
+            this.cboStatus.Tag = "Wo_State";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 19);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "◆ 상태";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.cboItem);
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Location = new System.Drawing.Point(4, 12);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(357, 34);
+            this.panel7.TabIndex = 37;
+            // 
+            // cboItem
+            // 
+            this.cboItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboItem.FormattingEnabled = true;
+            this.cboItem.Location = new System.Drawing.Point(119, 5);
+            this.cboItem.Name = "cboItem";
+            this.cboItem.Size = new System.Drawing.Size(219, 27);
+            this.cboItem.TabIndex = 7;
+            this.cboItem.Tag = "item.Item_Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "◆ Item";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.cboplanID);
+            this.panel11.Controls.Add(this.label10);
+            this.panel11.Location = new System.Drawing.Point(366, 12);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(357, 34);
+            this.panel11.TabIndex = 36;
+            // 
+            // cboplanID
+            // 
+            this.cboplanID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboplanID.FormattingEnabled = true;
+            this.cboplanID.Location = new System.Drawing.Point(119, 5);
+            this.cboplanID.Name = "cboplanID";
+            this.cboplanID.Size = new System.Drawing.Size(219, 27);
+            this.cboplanID.TabIndex = 7;
+            this.cboplanID.Tag = "wo.[Sales_ID]";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(15, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 19);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "◆ planID";
             // 
             // WorkOrderStatusForm
             // 
@@ -219,24 +254,34 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label2;
         private JeanForm.JeansGridView jeansGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel8;
+        private InDTP inDTP1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.ComboBox cboItem;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.ComboBox cboplanID;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox cboStatus;
+        private System.Windows.Forms.Label label2;
     }
 }
