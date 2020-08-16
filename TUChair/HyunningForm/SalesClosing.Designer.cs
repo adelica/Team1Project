@@ -33,12 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,29 +47,28 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.jeansGridView1 = new JeanForm.JeansGridView();
+            this.btnPclosing = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel10.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +85,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnPclosing);
             this.panel2.Location = new System.Drawing.Point(11, 143);
+            this.panel2.Controls.SetChildIndex(this.label1, 0);
+            this.panel2.Controls.SetChildIndex(this.btnPclosing, 0);
             // 
             // panel1
             // 
@@ -105,15 +101,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.Controls.Add(this.panel13, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel11, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel9, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel7, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel10, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel13, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel11, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -124,60 +118,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 123);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.textBox2);
-            this.panel13.Controls.Add(this.label12);
-            this.panel13.Location = new System.Drawing.Point(366, 85);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(357, 35);
-            this.panel13.TabIndex = 23;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(119, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(219, 27);
-            this.textBox2.TabIndex = 8;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(12, 8);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(84, 19);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "◆ 출하처리자";
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.textBox3);
-            this.panel11.Controls.Add(this.label10);
-            this.panel11.Location = new System.Drawing.Point(729, 85);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(357, 35);
-            this.panel11.TabIndex = 20;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(107, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(219, 27);
-            this.textBox3.TabIndex = 7;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(11, 10);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 19);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "◆ 고객주문번호";
             // 
             // panel9
             // 
@@ -314,34 +254,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "◆ 고객사";
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.comboBox1);
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(3, 85);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(357, 35);
-            this.panel6.TabIndex = 22;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(119, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(219, 27);
-            this.comboBox1.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 19);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "◆ B2B1마감수량";
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.textBox1);
@@ -369,36 +281,63 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "◆ 품목";
             // 
-            // panel10
+            // panel13
             // 
-            this.panel10.Controls.Add(this.comboBox6);
-            this.panel10.Controls.Add(this.label9);
-            this.panel10.Location = new System.Drawing.Point(729, 44);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(357, 35);
-            this.panel10.TabIndex = 23;
+            this.panel13.Controls.Add(this.textBox2);
+            this.panel13.Controls.Add(this.label12);
+            this.panel13.Location = new System.Drawing.Point(3, 85);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(357, 35);
+            this.panel13.TabIndex = 23;
             // 
-            // comboBox6
+            // textBox2
             // 
-            this.comboBox6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(107, 4);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(219, 27);
-            this.comboBox6.TabIndex = 8;
+            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(119, 5);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(219, 27);
+            this.textBox2.TabIndex = 8;
             // 
-            // label9
+            // label12
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 8);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 19);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "◆ MARKET";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(12, 8);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(84, 19);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "◆ 출하처리자";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.textBox3);
+            this.panel11.Controls.Add(this.label10);
+            this.panel11.Location = new System.Drawing.Point(729, 44);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(357, 35);
+            this.panel11.TabIndex = 20;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(107, 4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(219, 27);
+            this.textBox3.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(11, 10);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(96, 19);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "◆ 고객주문번호";
             // 
             // jeansGridView1
             // 
+            this.jeansGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
             this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -430,6 +369,16 @@
             this.jeansGridView1.Size = new System.Drawing.Size(1090, 401);
             this.jeansGridView1.TabIndex = 0;
             // 
+            // btnPclosing
+            // 
+            this.btnPclosing.Location = new System.Drawing.Point(1012, 9);
+            this.btnPclosing.Name = "btnPclosing";
+            this.btnPclosing.Size = new System.Drawing.Size(75, 23);
+            this.btnPclosing.TabIndex = 6;
+            this.btnPclosing.Text = "마감처리";
+            this.btnPclosing.UseVisualStyleBackColor = true;
+            this.btnPclosing.Click += new System.EventHandler(this.btnPclosing_Click);
+            // 
             // SalesClosing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -442,10 +391,6 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -454,12 +399,12 @@
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -487,16 +432,11 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label9;
         private JeanForm.JeansGridView jeansGridView1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Button btnPclosing;
     }
 }
