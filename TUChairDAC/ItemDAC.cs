@@ -37,7 +37,9 @@ Item";
             }
             catch (Exception err)
             {
-                throw err;
+				_log.WriteError(err.Message, err);
+				throw err;
+
             }
         }
 

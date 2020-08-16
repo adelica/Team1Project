@@ -37,6 +37,8 @@ from BOR b left outer join FacilityGroup fg on b.FacG_Code=fg.FacG_Code
             }
         }
 
+     
+
         public bool BORInfoRegi(string itemCode, string facgCode, string faciCode, int tactT, int priority, decimal yeild, int processLead,string useOrNot, string other)
         {
             try
