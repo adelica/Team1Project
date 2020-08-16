@@ -249,7 +249,7 @@
             this.btnProductionPlan.TabIndex = 12;
             this.btnProductionPlan.Text = "생산계획생성";
             this.btnProductionPlan.UseVisualStyleBackColor = true;
-            this.btnProductionPlan.Click += new System.EventHandler(this.LoadData);
+
             // 
             // dgvDemand
             // 

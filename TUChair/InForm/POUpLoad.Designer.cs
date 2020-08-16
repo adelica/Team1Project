@@ -32,6 +32,7 @@
             this.btnPOUpLoad = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPO = new System.Windows.Forms.DataGridView();
+            this.btnDownload = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
             this.SuspendLayout();
@@ -42,6 +43,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnDownload);
             this.panel2.Controls.Add(this.btnPOUpLoad);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(14, 26);
@@ -87,6 +89,18 @@
             this.dgvPO.Size = new System.Drawing.Size(1248, 620);
             this.dgvPO.TabIndex = 4;
             // 
+            // btnDownload
+            // 
+            this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDownload.Location = new System.Drawing.Point(906, 10);
+            this.btnDownload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(114, 29);
+            this.btnDownload.TabIndex = 7;
+            this.btnDownload.Text = "양식 다운로드";
+            this.btnDownload.UseVisualStyleBackColor = true;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
             // POUpLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -111,5 +125,6 @@
         protected System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPOUpLoad;
         private System.Windows.Forms.DataGridView dgvPO;
+        private System.Windows.Forms.Button btnDownload;
     }
 }

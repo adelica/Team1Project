@@ -214,24 +214,6 @@ namespace TUChair
             }
         }
 
-        //private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    if(DialogResult.OK==(MessageBox.Show("정말로 삭제하시겠습니까?","삭제확인",MessageBoxButtons.OKCancel)))
-        //    {
-        //        var row = dgvBOR.CurrentRow;
-        //        int code = Convert.ToInt32(row.Cells[13].Value);
-        //        BORService service = new BORService();
-        //        bool check = service.DeleteBORInfo(code);
-                
-        //        if(check)
-        //        {
-        //            MessageBox.Show("삭제되었습니다.", "삭제확인");
-        //            LoadData();
-        //        }
-        //        else
-        //            MessageBox.Show("삭제를 실패하였습니다.", "삭제실패");
-        //    }
-        //}
 
         //체크박스 체크확인
         private List<String> Check()
@@ -253,6 +235,8 @@ namespace TUChair
         {
             frm.New -= New;
             frm.Search -= Search;
+            frm.Save -= Save;
+            frm.Delete -= Delete;
         }
     }
 }
