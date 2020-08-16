@@ -88,6 +88,11 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
            return dac.WorkOderSearch(firstdate, enddate,searchmsg);
         }
+        public List<WoOrderVO> SearchUpdateWOrder(DateTime firstdate, DateTime enddate, string searchmsg)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.SearchUpdateWOrder(firstdate, enddate, searchmsg);
+        }
         public List<WoOrderVO> SearchWorkOrderstatus(DateTime firstdate, DateTime enddate, string searchmsg)
         {
             WorkOrderDAC dac = new WorkOrderDAC();
