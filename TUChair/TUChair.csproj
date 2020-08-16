@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WooForm\BOMPopUP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\BOMPopUP.Designer.cs">
+      <DependentUpon>BOMPopUP.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonForm\SearchTwoGridForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     </Compile>
     <Compile Include="CommonForm\SearchTwoGridLeftRightFrom.Designer.cs">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HyunningForm\ProductShipmentStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HyunningForm\ProductShipmentStatus.Designer.cs">
+      <DependentUpon>ProductShipmentStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="HyunningForm\StockOrderStatus.cs">
       <SubType>Form</SubType>
@@ -178,6 +190,7 @@
       <DependentUpon>PortSettingform.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\balzuService.cs" />
+    <Compile Include="Service\BOMService.cs" />
     <Compile Include="Service\CompanyService.cs" />
     <Compile Include="Service\DemandManageService.cs" />
     <Compile Include="Service\JeanProductOut.cs" />
@@ -585,6 +598,9 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="WooForm\BOMPopUP.resx">
+      <DependentUpon>BOMPopUP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\PreviewForm.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -593,6 +609,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\SearchTwoGridLeftRightFrom.resx">
       <DependentUpon>SearchTwoGridLeftRightFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HyunningForm\ProductShipmentStatus.resx">
+      <DependentUpon>ProductShipmentStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HyunningForm\StockOrderStatus.resx">
       <DependentUpon>StockOrderStatus.cs</DependentUpon>

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AuthorVO.cs" />
     <Compile Include="balzuVO.cs" />
+    <Compile Include="BOMVO.cs" />
     <Compile Include="BORVO.cs" />
     <Compile Include="ComboItemVO.cs" />
     <Compile Include="CompanyVO.cs" />

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="balzuDAC.cs" />
+    <Compile Include="BOMDAC.cs" />
     <Compile Include="BORDAC.cs" />
     <Compile Include="commonDAC.cs" />
     <Compile Include="CompanyDAC.cs" />

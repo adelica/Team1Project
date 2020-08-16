@@ -93,5 +93,11 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.OutProduct(Primary, Item, Modifier, Qty);
         }
+        public List<ProductSatus> PSStatus()// 출하현황 바인딩
+        {
+            ProcessShiftDAC dac = new ProcessShiftDAC();
+            return dac.PSStatus();
+        }
+        
     }
 }
