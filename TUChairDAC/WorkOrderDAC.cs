@@ -391,5 +391,31 @@ where [WorkOrderID]=@WorkOrderID";
                 throw err;
             }
         }
+        public List<WoOrderVO> WorkOderselect()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"select [WorkOrderID], [Pro_ID], wo.[Item_Code],item.Item_Name, [Plan_Qty], [Plan_Date], 
+[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID]
+from [dbo].[WorkOrder] wo
+join [dbo].[Item] item
+on item.Item_Code = wo.Item_Code";
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<WoOrderVO> list = Helper.MeilingDataReaderMapToList<WoOrderVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return null;
+            }
+        }
     }
 }
