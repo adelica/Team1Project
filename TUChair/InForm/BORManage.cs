@@ -48,7 +48,28 @@ namespace TUChair
             frm.New += New;
             frm.Search += Search;
             frm.Save += Save;
+            frm.Delete += Delete;
         }
+
+        private void Delete(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == (MessageBox.Show("정말로 삭제하시겠습니까?", "삭제확인", MessageBoxButtons.OKCancel)))
+            {
+                List<string> chkList = Check();
+                string code = "'" + string.Join("','", chkList) + "'";
+                BORService service = new BORService();
+                bool check = service.DeleteBORInfo(code);
+
+                if (check)
+                {
+                    MessageBox.Show("삭제되었습니다.", "삭제확인");
+                    LoadData();
+                }
+                else
+                    MessageBox.Show("삭제를 실패하였습니다.", "삭제실패");
+            }
+        }
+
         //등록, 수정
         private void Save(object sender, EventArgs e)
         {
@@ -69,6 +90,12 @@ namespace TUChair
                                        where code.BOR_Code == Convert.ToInt32(chkList[0])
                                        select code).ToList();
                 BORInfoRegi frm = new BORInfoRegi(borList,list);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                if (frm.Check)
+                {
+                    LoadData();
+                }
             }
             else
             {
@@ -187,47 +214,25 @@ namespace TUChair
             }
         }
 
-        private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(DialogResult.OK==(MessageBox.Show("정말로 삭제하시겠습니까?","삭제확인",MessageBoxButtons.OKCancel)))
-            {
-                var row = dgvBOR.CurrentRow;
-                int code = Convert.ToInt32(row.Cells[13].Value);
-                BORService service = new BORService();
-                bool check = service.DeleteBORInfo(code);
+        //private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if(DialogResult.OK==(MessageBox.Show("정말로 삭제하시겠습니까?","삭제확인",MessageBoxButtons.OKCancel)))
+        //    {
+        //        var row = dgvBOR.CurrentRow;
+        //        int code = Convert.ToInt32(row.Cells[13].Value);
+        //        BORService service = new BORService();
+        //        bool check = service.DeleteBORInfo(code);
                 
-                if(check)
-                {
-                    MessageBox.Show("삭제되었습니다.", "삭제확인");
-                    LoadData();
-                }
-                else
-                    MessageBox.Show("삭제를 실패하였습니다.", "삭제실패");
-            }
-        }
+        //        if(check)
+        //        {
+        //            MessageBox.Show("삭제되었습니다.", "삭제확인");
+        //            LoadData();
+        //        }
+        //        else
+        //            MessageBox.Show("삭제를 실패하였습니다.", "삭제실패");
+        //    }
+        //}
 
-        private void 수정ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var row = dgvBOR.CurrentRow;
-
-            string itemC = row.Cells[1].Value.ToString();
-            string facgC= row.Cells[3].Value.ToString();
-            string faciC= row.Cells[5].Value.ToString();
-            int tactT =Convert.ToInt32(row.Cells[7].Value);
-            int prio = Convert.ToInt32(row.Cells[8].Value.ToString());
-            decimal yei = Convert.ToDecimal(row.Cells[9].Value); //수율, null허용
-            int processLead = Convert.ToInt32(row.Cells[10].Value);
-            string uOrN= row.Cells[11].Value.ToString();
-            string other = row.Cells[12].Value==null?"":row.Cells[11].Value.ToString()  ;
-
-            //BORInfoRegi frm = new BORInfoRegi(itemC, facgC, faciC, tactT, prio, yei, processLead, uOrN, other, list);
-            //frm.StartPosition = FormStartPosition.CenterParent;
-            //frm.ShowDialog();
-            //if(frm.Check)
-            //{
-            //    LoadData();
-            //}
-        }
         //체크박스 체크확인
         private List<String> Check()
         {
@@ -238,7 +243,7 @@ namespace TUChair
                 bool IsCellChecked = (bool)dgvBOR.Rows[i].Cells[0].EditedFormattedValue;
                 if (IsCellChecked)
                 {
-                    chkList.Add(dgvBOR.Rows[i].Cells[13].Value.ToString());
+                    chkList.Add(dgvBOR.Rows[i].Cells[14].Value.ToString());
                 }
             }
             return chkList;

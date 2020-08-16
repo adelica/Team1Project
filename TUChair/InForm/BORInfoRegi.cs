@@ -57,17 +57,17 @@ namespace TUChair
         public BORInfoRegi(List<BORVO> list, List<BORVO> borList) :this(borList)
         {
             cboFacG_Code.Enabled = cboFaci_Code.Enabled = cboItem_Code.Enabled = false;
-            //----------------------------------
+            BORVO item = list[0];
 
-            //cboFacG_Code.Text = facgC;
-            //cboFaci_Code.Text = faciC;
-            //cboItem_Code.Text = itemC;
-            //txtTactTime.Text = tactT.ToString();
-            //txtPriority.Text = prio.ToString() ;
-            //txtYeild.Text = yei.ToString();
-            //txtProcessLead.Text = processLead.ToString();
-            //cboUseOrNot.Text = uOrN;
-            //txtOther.Text = other;
+            cboFacG_Code.Text =item.FacG_Code ;
+            cboFaci_Code.Text = item.Faci_Code;
+            cboItem_Code.Text = item.Item_Code;
+            txtTactTime.Text = item.BOR_TactTime.ToString();
+            txtPriority.Text = item.BOR_Priority.ToString();
+            txtYeild.Text = item.BOR_Yeild.ToString();
+            txtProcessLead.Text = item.BOR_ProcessLeadDate.ToString();
+            cboUseOrNot.Text = item.BOR_UseOrNot;
+            txtOther.Text = item.BOR_Other;
 
             newInsert = false;
         }
@@ -124,10 +124,10 @@ namespace TUChair
             string faciCode = cboFaci_Code.SelectedItem.ToString();
             int tactT = Convert.ToInt32(txtTactTime.Text);
             int priority = Convert.ToInt32(txtPriority.Text);
-            decimal yeild = Convert.ToDecimal(txtYeild.Text);
+            decimal yeild = txtYeild.Text=="" ? Convert.ToDecimal(0) : Convert.ToDecimal(txtYeild.Text);
             string useOrNot = cboUseOrNot.Text;
             string other = txtOther.Text;
-            int processLead = Convert.ToInt32(txtProcessLead.Text);
+            int processLead =txtProcessLead.Text==""?0:  Convert.ToInt32(txtProcessLead.Text);
 
             BORService service = new BORService();
             check = service.BORInfoRegi(itemCode, facgCode, faciCode, tactT, priority, yeild, processLead,useOrNot, other);

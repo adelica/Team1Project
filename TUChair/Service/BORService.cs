@@ -16,7 +16,7 @@ namespace TUChair.Service
             return dac.GetBORData();
         }
 
-        internal bool DeleteBORInfo(int code)
+        internal bool DeleteBORInfo(string code)
         {
             BORDAC dac = new BORDAC();
             return dac.DeleteBORInfo(code);
