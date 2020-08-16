@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MeilingForm\DispensingMaterialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\DispensingMaterialsForm.Designer.cs">
+      <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WooForm\BOMPopUP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -592,6 +598,9 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="MeilingForm\DispensingMaterialsForm.resx">
+      <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WooForm\BOMPopUP.resx">
       <DependentUpon>BOMPopUP.cs</DependentUpon>
     </EmbeddedResource>

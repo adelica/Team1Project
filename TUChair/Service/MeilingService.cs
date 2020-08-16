@@ -108,5 +108,9 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
             return dac.WorkOrderStatus();
         }
+        //public List<WoOrderVO> WorkOrderStatus(int WOrderId)
+        //{
+
+        //}
     }
 }

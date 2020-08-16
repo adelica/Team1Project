@@ -400,7 +400,7 @@ where [WorkOrderID]=@WorkOrderID";
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = @"select [WorkOrderID], [Pro_ID], wo.[Item_Code],item.Item_Name, [Plan_Qty], [Plan_Date], 
-[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID]
+[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID],Deduction
 from [dbo].[WorkOrder] wo
 join [dbo].[Item] item
 on item.Item_Code = wo.Item_Code";
@@ -507,7 +507,7 @@ on item.Item_Code = wo.Item_Code";
                     cmd.Connection = conn;
                     cmd.CommandText = @"select [WorkOrderID], [Pro_ID], wo.[Item_Code],item.Item_Name,item.Item_InWarehouse,item.Item_OutWarehouse,
 [Plan_Qty], [Plan_Date], 
-[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID]
+[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID],Deduction
 from [dbo].[WorkOrder] wo
 join [dbo].[Item] item
 on item.Item_Code = wo.Item_Code where Wo_State='지시'";
@@ -549,6 +549,36 @@ on item.Item_Code = wo.Item_Code where Wo_State='지시'";
             {
                 Debug.WriteLine(err.Message);
 
+                return null;
+            }
+        }
+        public List<WoOrderVO> WorkOrderStatus(int WOrderId)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"select bom.[Item_Code],item.Item_Name,item.Item_Size, [BOM_Require]*wo.Plan_Qty '소요량',
+st.Qty '재고량',st.Fact_Code ,'' '요청일','' '출고수량','' '잔량'  from [dbo].[BOM]  bom
+join [dbo].[WorkOrder] wo 
+on bom.Item_Code = wo.Item_Code
+join [dbo].[Item] item
+on wo.Item_Code = item.Item_Code
+join [dbo].[Stock] st on item.Item_Code = st.Item_Code
+where [WorkOrderID]=@WOrderId";
+                    cmd.Parameters.AddWithValue("@WOrderId", WOrderId);
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<WoOrderVO> list = Helper.MeilingDataReaderMapToList<WoOrderVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
                 return null;
             }
         }
