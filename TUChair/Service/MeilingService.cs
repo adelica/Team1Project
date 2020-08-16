@@ -78,5 +78,10 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
             return dac.OutPlansearchPivot(firstdate, enddate, searchmsg);
         }
+        public List<WoOrderVO> WorkOderselect()
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.WorkOderselect();
+        }
     }
 }
