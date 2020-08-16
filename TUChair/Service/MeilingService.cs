@@ -83,5 +83,20 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
             return dac.WorkOderselect();
         }
+        public List<WoOrderVO> WorkOderSearch(DateTime firstdate, DateTime enddate, string searchmsg)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+           return dac.WorkOderSearch(firstdate, enddate,searchmsg);
+        }
+        internal bool DeleteWorkOrder(string condition)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.DeleteWorkOrder(condition);
+        }
+        public bool UpdateWorkOrder(string condition)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+           return dac.UpdateWorkOrder(condition);
+        }
     }
 }

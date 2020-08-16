@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WooForm\BOMPopUP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\BOMPopUP.Designer.cs">
+      <DependentUpon>BOMPopUP.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonForm\SearchTwoGridForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,7 @@
       <DependentUpon>PortSettingform.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\balzuService.cs" />
+    <Compile Include="Service\BOMService.cs" />
     <Compile Include="Service\CompanyService.cs" />
     <Compile Include="Service\DemandManageService.cs" />
     <Compile Include="Service\JeanProductOut.cs" />
@@ -591,6 +598,9 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="WooForm\BOMPopUP.resx">
+      <DependentUpon>BOMPopUP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\PreviewForm.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
