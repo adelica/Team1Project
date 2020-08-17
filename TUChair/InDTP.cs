@@ -21,17 +21,17 @@ namespace TUChair
         public DateTime Start
         {
             get { return dtpStart.Value; }
-            set { dtpStart.Value= value; }
+            set { dtpStart.Value = value; }
         }
         public DateTime End
         {
             get { return dtpEnd.Value; }
-            set { dtpEnd.Value = value; }
+            set { dtpEnd.Value= value; }
         }
         public DateTimePickerFormat startfomat
         {
             get { return dtpStart.Format; }
-            set { dtpStart.Format = value; }
+            set { dtpStart.Format= value; }
         }
         public DateTimePickerFormat endfomat
         {
@@ -41,17 +41,17 @@ namespace TUChair
         public string startCustomfomat
         {
             get { return dtpStart.CustomFormat; }
-            set { dtpStart.CustomFormat= value; }
+            set {  dtpStart.CustomFormat= value ; }
         }
         public string endCustomfomat
         {
             get { return dtpEnd.CustomFormat; }
-            set {  dtpEnd.CustomFormat = value; }
+            set { dtpEnd.CustomFormat = value; }
         }
         public bool DateLimit
         {
             get { return check; }
-            set { check= value; }
+            set { check=value; }
         }
 
         public void DateLimitCheck(object sender, EventArgs e)

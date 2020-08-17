@@ -28,4 +28,9 @@ namespace TUChairVO
       public string  Item_Other              {get; set;}
        public string Item_OutSourcing     { get; set; }
     }
+
+    public class ItemCodeVO
+    {
+        public string Item_Code { get; set; }
+    }
 }

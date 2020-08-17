@@ -62,6 +62,7 @@ namespace TUChair
             try
             {
                 WebClient webClient = new WebClient();
+                webClient.Headers.Add("ContentType", "application/vnd.ms-excel");
                 webClient.DownloadFile(url, path);
                 return true;
             }
@@ -78,8 +79,8 @@ namespace TUChair
         {
             if (DialogResult.OK == (MessageBox.Show("양식을 다운로드하시겠습니까?", "다운로드 확인", MessageBoxButtons.OKCancel)))
             {
-                string url = @"https://github.com/adelica/Team1Project/blob/master/TUChair%20%EB%B0%9C%EC%A3%BC%EC%84%9C%20%EC%96%91%EC%8B%9D.xlsx";
-                string path = "\\TUChair 발주서 양식.xlsx";
+                string url = @"http://www.anypoint.co.kr/TUChair.xlsx";
+                string path = "\\TUChair.xlsx";
                 if (FileDownload(url, Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + path))
                 {
                     MessageBox.Show("다운로드를 완료하였습니다.", "다운로드 완료");

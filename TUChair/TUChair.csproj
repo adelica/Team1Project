@@ -117,6 +117,7 @@
     <Compile Include="MeilingForm\MetrialDecountPopUp.Designer.cs">
       <DependentUpon>MetrialDecountPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\POSOService.cs" />
     <Compile Include="WooForm\BOMPopUP.cs">
       <SubType>Form</SubType>
     </Compile>

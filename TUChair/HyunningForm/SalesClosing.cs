@@ -40,16 +40,17 @@ namespace TUChair
         {
             for (int i = 0; i < jeansGridView1.Rows.Count; i++)
             {
-
                 bool isCellChecked = (bool)jeansGridView1.Rows[i].Cells[0].EditedFormattedValue;
                 if (isCellChecked)
                 {
                     string Primary = jeansGridView1.Rows[i].Cells[1].Value.ToString();
-                    string Item = jeansGridView1.Rows[i].Cells[9].Value.ToString();
+                    string Item = jeansGridView1.Rows[i].Cells[4].Value.ToString();
+                    int qty = Convert.ToInt32(jeansGridView1.Rows[i].Cells[8].Value.ToString());
+
                     string Modifier = LoginFrm.userName;
 
                     JeanServicePShift shift = new JeanServicePShift();
-                    //shift.PCDeadline(Primary, Item, Modifier);
+                    shift.PCDeadline(Primary, Item,  Modifier);
                     if (Convert.ToInt32(jeansGridView1.Rows[i].Cells[14].Value) == 0)
                     {
                         MessageBox.Show("출하 수량을 입력해주세요.");

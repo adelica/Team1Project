@@ -52,10 +52,11 @@ namespace TUChair
                     string Primary = jeansGridView1.Rows[i].Cells[1].Value.ToString();
                     string Item = jeansGridView1.Rows[i].Cells[9].Value.ToString();
                     string Modifier = LoginFrm.userName;
+                    int Price = Convert.ToInt32(jeansGridView1.Rows[i].Cells[11].Value.ToString());
                     int Qty = (Convert.ToInt32(jeansGridView1.Rows[i].Cells[14].Value));
 
                     JeanServicePShift shift = new JeanServicePShift();
-                    shift.OutProduct(Primary, Item, Modifier, Qty);
+                    shift.OutProduct(Primary, Item, Price, Modifier, Qty);
                     if (Convert.ToInt32(jeansGridView1.Rows[i].Cells[14].Value) == 0)
                     {
                         MessageBox.Show("출하 수량을 입력해주세요.");
