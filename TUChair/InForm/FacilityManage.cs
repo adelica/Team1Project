@@ -163,10 +163,10 @@ namespace TUChair
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }
-        //설비군 삭제
+        //설비군 수정
         private void 수정ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (typeCheck) //설비군 수정
+            if (typeCheck) 
             {
                 var row = dgvFacilityG.CurrentRow;
 
