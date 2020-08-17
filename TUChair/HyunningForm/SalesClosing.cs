@@ -49,7 +49,7 @@ namespace TUChair
                     string Modifier = LoginFrm.userName;
 
                     JeanServicePShift shift = new JeanServicePShift();
-                    //shift.PCDeadline(Primary, Item, Modifier);
+                    shift.PCDeadline(Primary, Item, Modifier);
                     if (Convert.ToInt32(jeansGridView1.Rows[i].Cells[14].Value) == 0)
                     {
                         MessageBox.Show("출하 수량을 입력해주세요.");

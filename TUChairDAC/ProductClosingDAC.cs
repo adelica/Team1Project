@@ -48,7 +48,7 @@ namespace TUChairDAC
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
-                    cmd.CommandText = "SP_ProcessShift";
+                    cmd.CommandText = "SP_PDeadLine";
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
 
