@@ -73,7 +73,7 @@ namespace TUChair
             List<ComboItemVO> cList = (from item in comboItems
                                        where item.CodeType == "창고"
                                        select item).ToList();
-            CommonUtil.ComboBinding(cboFact, cList, "선택");
+            CommonUtil.ReComboBinding(cboFact, cList, "선택");
             cList = (from item in comboItems
                      where item.CodeType == "Item"
                      select item).ToList();
@@ -128,7 +128,11 @@ namespace TUChair
         private void New(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                cboFact.SelectedIndex = 0;
+                cboItemCode.SelectedIndex = 0;
                 DataLoad();
+            }
         }
         private void Search(object sender, EventArgs e)
         {

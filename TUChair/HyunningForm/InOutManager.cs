@@ -51,6 +51,7 @@ namespace TUChair
             cList = (from item in comboItems
                      where item.CodeType == "재고상태"
                      select item).ToList();
+            cList = cList.Distinct().ToList();
             CommonUtil.ReComboBinding(cboGubun, cList, "선택");
             cList = (from item in comboItems
                      where item.CodeType == "재고상태"
@@ -114,35 +115,6 @@ namespace TUChair
                 }
             
         }
-
-        private void InOutManager_Load(object sender, EventArgs e)
-        {
-            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-            frm.Save += Save;
-            frm.Search += Search;
-            frm.Delete += Delete;
-            frm.New += New;
-            frm.Excel += Excel;
-        }
-
-        private void DataLoad()
-        {
-            JeanServicePShift jean = new JeanServicePShift();
-            Inoutlist = jean.InOutBinding();
-
-            jeansGridView1.DataSource = Inoutlist;
-        }
-
-        private void InOutManager_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-            frm.Save -= Save;
-            frm.Search -= Search;
-            frm.Delete -= Delete;
-            frm.New -= New;
-            frm.Excel -= Excel;
-        
-        }
         private void Save(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
@@ -174,6 +146,35 @@ namespace TUChair
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
                 MessageBox.Show("엑셀만들어");
+        }
+
+        private void InOutManager_Load(object sender, EventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save += Save;
+            frm.Search += Search;
+            frm.Delete += Delete;
+            frm.New += New;
+            frm.Excel += Excel;
+        }
+
+        private void DataLoad()
+        {
+            JeanServicePShift jean = new JeanServicePShift();
+            Inoutlist = jean.InOutBinding();
+
+            jeansGridView1.DataSource = Inoutlist;
+        }
+
+        private void InOutManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save -= Save;
+            frm.Search -= Search;
+            frm.Delete -= Delete;
+            frm.New -= New;
+            frm.Excel -= Excel;
+        
         }
             
     }

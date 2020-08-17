@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TUChair.Service;
@@ -14,6 +15,8 @@ namespace TUChair
     public partial class StockOrderStatus : TUChair.SearchCommomForm
     {
         List<CProductOutVO> list;
+        List<ComboItemVO> comboItems = null;
+
         public StockOrderStatus()
         {
             InitializeComponent();
@@ -34,6 +37,63 @@ namespace TUChair
             jeansGridView1.Columns[9].ReadOnly = false;
             jeansGridView1.Columns[10].Visible = false;
             DataLoad();
+
+            commonService service = new commonService();
+
+            comboItems = service.getCommonCode("완제품");
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "완제품"
+                                       select item).ToList();
+            CommonUtil.ComboBinding(cboItemCode, cList, "선택");
+        }
+        private void Search(object sender, EventArgs e)
+        {
+
+            //string Fact;
+            //if (cboFact.SelectedIndex == 0)
+            //    Fact = string.Empty;
+            //else
+            //    Fact = cboFact.Text;
+
+
+
+            //if (cboFact.SelectedIndex == 0 && cboItemCode.SelectedIndex == 0 && cboGubun.SelectedIndex == 0 && cboCategory.SelectedIndex == 0 && cboItemtype.SelectedIndex == 0)
+            //    return;
+            //if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            //{
+            //    JeanServicePShift service = new JeanServicePShift();
+            //    Inoutlist = service.InOutSearch(Fact, Gubun, Category, itype, start, end, Icode);
+            //    jeansGridView1.DataSource = null;
+            //    jeansGridView1.DataSource = Inoutlist;
+            //}
+
+        }
+        private void Save(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("헤헤 수정");
+
+            DataLoad();
+        }
+        private void New(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                cboItemCode.SelectedIndex = 0;               
+                DataLoad();
+            }
+        }
+        private void Delete(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("삭제하던가");
+
+        }
+        private void Excel(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("엑셀만들어");
         }
         private void DataLoad()
         {
@@ -44,7 +104,12 @@ namespace TUChair
 
         private void StockOrderStatus_Load(object sender, EventArgs e)
         {
-
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save += Save;
+            frm.Search += Search;
+            frm.Delete += Delete;
+            frm.New += New;
+            frm.Excel += Excel;
         }
 
         private void btnShift_Click(object sender, EventArgs e)
@@ -100,6 +165,16 @@ namespace TUChair
                 return;
             }
          
+        }
+
+        private void StockOrderStatus_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save -= Save;
+            frm.Search -= Search;
+            frm.Delete -= Delete;
+            frm.New -= New;
+            frm.Excel -= Excel;
         }
     }
    
