@@ -16,7 +16,7 @@ namespace TUChairDAC
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select So_PurchaseOrder,convert(nvarchar ,So_Duedate, 23) So_Duedate ,So_WorkOrderID,  sm.Com_Code Com_Code, c.Com_Name Com_Name,
+                string sql = @"select So_PurchaseOrder,convert(nvarchar ,So_Duedate, 23) So_Duedate ,so.So_WorkOrderID So_WorkOrderID,  sm.Com_Code Com_Code, c.Com_Name Com_Name,
 		                              sm.Com_Code d_Com_Code, c.Com_Name d_Com_Name, so.Item_Code Item_Code, i.Item_Code d_Item_Code,i.Item_name Item_name,
   	                                  Price_Present Price ,So_Qty, So_ProQty, 0 as 'Out_Unit', s.Qty fact_qty
                                  from  SalesOrder so inner join SalesMaster sm on so.Sales_ID=sm.Sales_ID

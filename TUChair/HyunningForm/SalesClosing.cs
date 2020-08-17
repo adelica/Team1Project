@@ -45,6 +45,7 @@ namespace TUChair
                 {
                     string Primary = jeansGridView1.Rows[i].Cells[1].Value.ToString();
                     string Item = jeansGridView1.Rows[i].Cells[4].Value.ToString();
+                    int qty = Convert.ToInt32(jeansGridView1.Rows[i].Cells[8].Value.ToString());
 
                     string Modifier = LoginFrm.userName;
 
