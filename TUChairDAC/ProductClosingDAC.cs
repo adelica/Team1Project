@@ -53,9 +53,9 @@ namespace TUChairDAC
 
 
 
-                    cmd.Parameters.AddWithValue("@NO", Primary);
-                    cmd.Parameters.AddWithValue("@ThisDate", Item);
-                    cmd.Parameters.AddWithValue("@Fact_Code", Modifier);
+                    cmd.Parameters.AddWithValue("@Primary", Primary);
+                    cmd.Parameters.AddWithValue("@Item", Item);
+                    cmd.Parameters.AddWithValue("@Modifier", Modifier);
 
 
 

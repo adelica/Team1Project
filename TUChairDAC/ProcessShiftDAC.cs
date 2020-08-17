@@ -433,7 +433,7 @@ namespace TUChairDAC
                 throw e;
             }
         }
-        public bool OutProduct(string Primary, string Item, string Modifier, int Qty) // 제품출하 프로시저
+        public bool OutProduct(string Primary, string Item,int Price ,string Modifier, int Qty) // 제품출하 프로시저
         {
             try
             {
@@ -445,6 +445,7 @@ namespace TUChairDAC
 
                     cmd.Parameters.AddWithValue("@Primary", Primary);
                     cmd.Parameters.AddWithValue("@Item", Item);
+                    cmd.Parameters.AddWithValue("@Price", Price);
                     cmd.Parameters.AddWithValue("@Modifier", Modifier);
                     cmd.Parameters.AddWithValue("@Qty", Qty);
 
