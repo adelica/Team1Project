@@ -391,6 +391,32 @@ where [WorkOrderID]=@WorkOrderID";
                 throw err;
             }
         }
+        public List<WoOrderVO>  saleorderSelect()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"select [WorkOrderID], [Pro_ID], wo.[Item_Code],item.Item_Name, [Plan_Qty], [Plan_Date], 
+[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID],Deduction
+from [dbo].[WorkOrder] wo
+join [dbo].[Item] item
+on item.Item_Code = wo.Item_Code";
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<WoOrderVO> list = Helper.MeilingDataReaderMapToList<WoOrderVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return null;
+            }
+        }
         public List<WoOrderVO> WorkOderselect()
         {
             try
@@ -400,7 +426,7 @@ where [WorkOrderID]=@WorkOrderID";
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = @"select [WorkOrderID], [Pro_ID], wo.[Item_Code],item.Item_Name, [Plan_Qty], [Plan_Date], 
-[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID]
+[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID],Deduction
 from [dbo].[WorkOrder] wo
 join [dbo].[Item] item
 on item.Item_Code = wo.Item_Code";
@@ -427,6 +453,34 @@ on item.Item_Code = wo.Item_Code";
                     cmd.Connection = conn;
                
                     cmd.CommandText = @"SP_SearchWorkOrder";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@First_date", firstdate);
+                    cmd.Parameters.AddWithValue("@end_date", enddate);
+                    cmd.Parameters.AddWithValue("@Search_cal", searchmsg);
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<WoOrderVO> list = Helper.MeilingDataReaderMapToList<WoOrderVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
+        public List<WoOrderVO> SearchUpdateWOrder(DateTime firstdate, DateTime enddate, string searchmsg)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+
+                    cmd.CommandText = @"SP_SearchUpdateWOrder";
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@First_date", firstdate);
                     cmd.Parameters.AddWithValue("@end_date", enddate);
@@ -507,7 +561,7 @@ on item.Item_Code = wo.Item_Code";
                     cmd.Connection = conn;
                     cmd.CommandText = @"select [WorkOrderID], [Pro_ID], wo.[Item_Code],item.Item_Name,item.Item_InWarehouse,item.Item_OutWarehouse,
 [Plan_Qty], [Plan_Date], 
-[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID]
+[Wo_State], [Plan_StartTime], [Plan_EndTime],  wo.[Sales_ID],Deduction
 from [dbo].[WorkOrder] wo
 join [dbo].[Item] item
 on item.Item_Code = wo.Item_Code where Wo_State='지시'";
@@ -550,6 +604,93 @@ on item.Item_Code = wo.Item_Code where Wo_State='지시'";
                 Debug.WriteLine(err.Message);
 
                 return null;
+            }
+        }
+        public DataTable MetrialDecount(string condition)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"MetrialDecount";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@P_Condition", condition);
+                    cmd.Parameters.AddWithValue("@P_Seperator", "@");
+                    cmd.Connection.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return null;
+            }
+           
+        }
+        public List<WoOrderVO> selectWorkorder()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"select [WorkOrderID], [Pro_ID], [Item_Code], [Plan_Qty], [Plan_Date], [Prd_Date],
+[Wo_State], [Wo_Order], [Plan_StartTime], [Plan_EndTime], [In_Qty_Main], [Out_Qty_Main], 
+[Prd_Qty], [Sales_ID], [Remark], [Up_Date], [Up_Emp], [Deduction] from [dbo].[WorkOrder]";
+                   // cmd.CommandType = CommandType.StoredProcedure;
+                  //  cmd.Parameters.AddWithValue("@P_Condition", condition);
+                   // cmd.Parameters.AddWithValue("@P_Seperator", "@");
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<WoOrderVO> list = Helper.MeilingDataReaderMapToList<WoOrderVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return null;
+            }
+
+        }
+        public bool UpdateWorkOrder(int Out_Qty_Main, int Prd_Qty, string Up_Emp, int ID)
+        {
+            try
+            {
+                SqlConnection strConn = new SqlConnection(this.ConnectionString);
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = strConn;
+                    cmd.CommandText = @"update [dbo].[WorkOrder] set [Out_Qty_Main]=@Out_Qty_Main ,[Prd_Qty]=@Prd_Qty,[Up_Date] =@Up_Date ,[Up_Emp]=@Up_Emp
+where [WorkOrderID] =@WorkOrderID ";
+                   // cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Out_Qty_Main", Out_Qty_Main);
+                    cmd.Parameters.AddWithValue("@Prd_Qty", Prd_Qty);
+                    //cmd.Parameters.AddWithValue("@Up_Date", Up_Date);
+                    cmd.Parameters.AddWithValue("@Up_Emp", Up_Emp);
+                    cmd.Parameters.AddWithValue("@WorkOrderID", ID);
+                    cmd.Parameters.AddWithValue("@Up_Date", DateTime.Now) ;
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
+                throw err;
             }
         }
     }

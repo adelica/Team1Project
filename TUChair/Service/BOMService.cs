@@ -15,5 +15,11 @@ namespace TUChair.Service
             BOMDAC dac = new BOMDAC();
             return dac.getALLBom();
         }
+
+        internal bool SaveBOM(BOMVO bomInfo)
+        {
+            BOMDAC dac = new BOMDAC();
+            return dac.SaveBOM(bomInfo);
+        }
     }
 }

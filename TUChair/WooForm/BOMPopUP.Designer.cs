@@ -46,9 +46,6 @@
             this.cboUseOrNot = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtModifyDate = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -58,11 +55,21 @@
             this.nmRequied = new System.Windows.Forms.NumericUpDown();
             this.cboUsePlan = new System.Windows.Forms.ComboBox();
             this.cboAutoRedution = new System.Windows.Forms.ComboBox();
+            this.txtOther = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmRequied)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.txtOther);
+            this.panel4.Controls.Add(this.label29);
+            this.panel4.Controls.Add(this.label30);
             // 
             // panel3
             // 
@@ -74,9 +81,6 @@
             this.panel3.Controls.Add(this.cboUseOrNot);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.txtModifyDate);
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.label19);
@@ -103,6 +107,7 @@
             // btnInsert
             // 
             this.btnInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnCancel
             // 
@@ -297,43 +302,13 @@
             this.label12.TabIndex = 52;
             this.label12.Text = "사용유무";
             // 
-            // txtModifyDate
-            // 
-            this.txtModifyDate.Location = new System.Drawing.Point(172, 213);
-            this.txtModifyDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtModifyDate.Name = "txtModifyDate";
-            this.txtModifyDate.Size = new System.Drawing.Size(237, 25);
-            this.txtModifyDate.TabIndex = 43;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label13.Font = new System.Drawing.Font("굴림", 5F);
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(21, 222);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(13, 9);
-            this.label13.TabIndex = 50;
-            this.label13.Text = "■";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(35, 218);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(67, 15);
-            this.label14.TabIndex = 49;
-            this.label14.Text = "수정일자";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label15.Font = new System.Drawing.Font("굴림", 5F);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label15.Location = new System.Drawing.Point(21, 282);
+            this.label15.Location = new System.Drawing.Point(21, 220);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(13, 9);
             this.label15.TabIndex = 47;
@@ -343,7 +318,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label16.Location = new System.Drawing.Point(35, 278);
+            this.label16.Location = new System.Drawing.Point(35, 216);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(67, 15);
             this.label16.TabIndex = 45;
@@ -395,7 +370,7 @@
             // cboUsePlan
             // 
             this.cboUsePlan.FormattingEnabled = true;
-            this.cboUsePlan.Location = new System.Drawing.Point(172, 273);
+            this.cboUsePlan.Location = new System.Drawing.Point(172, 211);
             this.cboUsePlan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboUsePlan.Name = "cboUsePlan";
             this.cboUsePlan.Size = new System.Drawing.Size(237, 23);
@@ -410,6 +385,35 @@
             this.cboAutoRedution.Size = new System.Drawing.Size(237, 23);
             this.cboAutoRedution.TabIndex = 58;
             // 
+            // txtOther
+            // 
+            this.txtOther.Location = new System.Drawing.Point(98, 25);
+            this.txtOther.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOther.Multiline = true;
+            this.txtOther.Name = "txtOther";
+            this.txtOther.Size = new System.Drawing.Size(660, 65);
+            this.txtOther.TabIndex = 94;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label29.Location = new System.Drawing.Point(16, 25);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(26, 19);
+            this.label29.TabIndex = 93;
+            this.label29.Text = "■";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label30.Location = new System.Drawing.Point(45, 25);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(47, 19);
+            this.label30.TabIndex = 92;
+            this.label30.Text = "비고";
+            // 
             // BOMPopUP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -418,6 +422,8 @@
             this.Name = "BOMPopUP";
             this.Text = "BOMPopUP";
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -437,9 +443,6 @@
         private System.Windows.Forms.ComboBox cboUseOrNot;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtModifyDate;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label19;
@@ -459,5 +462,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtOther;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
     }
 }

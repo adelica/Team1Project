@@ -31,7 +31,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.btnFileSelect = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPlanID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtFilePath = new System.Windows.Forms.TextBox();
@@ -54,7 +54,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dtpDate);
             this.panel2.Controls.Add(this.btnFileSelect);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.txtPlanID);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtFilePath);
@@ -72,7 +72,8 @@
             // 
             // dtpDate
             // 
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.CustomFormat = "yyyy-MM-dd";
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDate.Location = new System.Drawing.Point(130, 144);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpDate.Name = "dtpDate";
@@ -90,13 +91,13 @@
             this.btnFileSelect.UseVisualStyleBackColor = true;
             this.btnFileSelect.Click += new System.EventHandler(this.btnFileSelect_Click);
             // 
-            // textBox3
+            // txtPlanID
             // 
-            this.textBox3.Location = new System.Drawing.Point(130, 200);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(237, 25);
-            this.textBox3.TabIndex = 3;
+            this.txtPlanID.Location = new System.Drawing.Point(130, 200);
+            this.txtPlanID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPlanID.Name = "txtPlanID";
+            this.txtPlanID.Size = new System.Drawing.Size(237, 25);
+            this.txtPlanID.TabIndex = 3;
             // 
             // label8
             // 
@@ -249,7 +250,7 @@
         protected System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Button btnFileSelect;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPlanID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtFilePath;
