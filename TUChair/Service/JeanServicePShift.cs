@@ -88,10 +88,10 @@ namespace TUChair.Service
             ProcessShiftDAC dac = new ProcessShiftDAC();
             return dac.ShiftProduct(Item, Fact, Modifier, Qty, primary);
         }
-        public bool OutProduct(string Primary, string Item, string Modifier, int Qty)// 제품출하
+        public bool OutProduct(string Primary, string Item,int Price, string Modifier, int Qty)// 제품출하
         {
             ProcessShiftDAC dac = new ProcessShiftDAC();
-            return dac.OutProduct(Primary, Item, Modifier, Qty);
+            return dac.OutProduct(Primary, Item, Price, Modifier, Qty);
         }
         public List<ProductSatus> PSStatus()// 출하현황 바인딩
         {
@@ -107,7 +107,7 @@ namespace TUChair.Service
         public bool PCDeadline(string Primary, string Item, string Modifier)// 제품출하
         {
             ProductClosingDAC dac = new ProductClosingDAC();
-            return dac.PCDeadline(Primary, Item, Modifier);
+            return dac.PCDeadline(Primary, Item,  Modifier);
         }
 
     }
