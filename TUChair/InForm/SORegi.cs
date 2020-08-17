@@ -21,7 +21,7 @@ namespace TUChair
             InitializeComponent();
         
             ComboBinding();
-
+            dtpDueDate.MinDate = DateTime.Now;
         }
         public SOVO Item
         {
@@ -30,7 +30,7 @@ namespace TUChair
                 SOVO sItem = new SOVO();
                 sItem.Com_Code = cboComCode.Text ==""? "": cboComCode.Text;
                 sItem.Item_Code = cboItemCode.Text == "" ? "" : cboItemCode.Text;
-                sItem.So_Duedate = dtpDueDate.Value;
+                sItem.So_Duedate = dtpDueDate.Value.Date;
                 sItem.So_Other = txtOther.Text == "" ? "" : txtOther.Text;
                 sItem.So_PurchaseOrder = txtPurchaseOrder.Text == "" ? "" : txtPurchaseOrder.Text;
                 sItem.So_Qty = Convert.ToInt32(txtQty.Text);

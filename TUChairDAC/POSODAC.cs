@@ -13,6 +13,7 @@ namespace TUChairDAC
 {
     public class POSODAC:ConnectionAccess
     {
+        //콤보박스 바인딩용 아이템코드, 회사코드 받아오기
         public DataSet ItemCode()
         {
             try
@@ -39,7 +40,45 @@ namespace TUChairDAC
                 return null;
             }
         }
+        //엑셀등록한 영업마스터 DB에 등록
+        public bool SetPOData(List<UpLoadVO> upList)
+        {
+            try
+            {
+                using(SqlCommand cmd = new SqlCommand())
+                {
+                    //cmd.CommandText
+                }
+                return true;
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+                return false;
+            }
+        }
 
+        public List<string> CheckSalesID()
+        {
+            try
+            {
+                using(SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = @"Select Sales_ID from SalesMaster";
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<string> list = Helper.DataReaderMapToList<string>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch(Exception err)
+            {
+                return null;
+            }
+        }
+        //영업마스터 데이터 가져오기
         public List<POVO> GetPOData()
         {
             try
@@ -60,11 +99,11 @@ namespace TUChairDAC
             }
             catch(Exception err)
             {
-                MessageBox.Show(err.Message);
+               _log.WriteError(err.Message);
                 return null;
             }
         }
-
+        //수요계획 등록, 수정
         public bool SOInfoRegi(SOVO item)
         {
             try
