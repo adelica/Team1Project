@@ -25,7 +25,7 @@ namespace TUChair
         private void btnInsert_Click(object sender, EventArgs e)
         {
             MeilingService service = new MeilingService();
-           if( service.UpdateWorkOrder(Convert.ToInt32(textBox5.Text), Convert.ToInt32(textBox6.Text),textBox4.Text, Convert.ToInt32(textBox2.Text)))
+            if (service.UpdateWorkOrder(Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox5.Text), Convert.ToInt32(textBox6.Text), textBox4.Text))
             {
                 MessageBox.Show("수정 되였습니다");
             }
@@ -33,6 +33,11 @@ namespace TUChair
             {
                 MessageBox.Show("수정실패");
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)//취소 버튼
+        {
+            this.Close();
         }
     }
 }

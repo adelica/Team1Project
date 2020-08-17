@@ -76,6 +76,7 @@
             // btnCancel
             // 
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // textBox4
             // 

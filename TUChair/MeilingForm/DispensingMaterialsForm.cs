@@ -102,7 +102,8 @@ namespace TUChair
 
         private void New(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            DataBinding();
+            jeansGridView2.DataSource = null;
         }
 
         private void Search(object sender, EventArgs e)
@@ -179,7 +180,7 @@ namespace TUChair
                 }
                 if (sb.Count < 1)
                 {
-                    MessageBox.Show("삭제할 항목을 선택해주세요");
+                    MessageBox.Show("요청할 항목을 선택해주세요");
                     return;
                 }
                 string condition = string.Join("@", sb);
@@ -194,7 +195,34 @@ namespace TUChair
 
         private void button2_Click(object sender, EventArgs e)//자재차감
         {
-        
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> sb = new List<string>();
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.RowCount; i++)
+                {
+                    bool isn = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isn)
+                    {
+                        sb.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
+                    }
+                }
+                if (sb.Count < 1)
+                {
+                    MessageBox.Show("자제차감할 항목을 선택해주세요");
+                    return;
+                }
+                string condition = string.Join("@", sb);
+                MeilingService service = new MeilingService();
+                if (service.DeleteMetrial(condition))
+                {
+                    MessageBox.Show("자재차감 성공");
+                }
+                else
+                {
+                    MessageBox.Show("자재차감 실패");
+                }
+            }
         }
     }
 }
