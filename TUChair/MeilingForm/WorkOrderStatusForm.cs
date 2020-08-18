@@ -39,9 +39,23 @@ namespace TUChair
 
         private void Excel(object sender, EventArgs e)
         {
-            
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                using (waitFrm frm = new waitFrm(ExportOrderList))
+                {
+                    frm.ShowDialog(this);
+                }
+            }
         }
-
+        private void ExportOrderList()
+        {
+            string sResult = ExcelExportImport.ExportToDataGridView<ShiftVO>(
+                (List<ShiftVO>)jeansGridView1.DataSource, "");
+            if (sResult.Length > 0)
+            {
+                MessageBox.Show(sResult);
+            }
+        }
         private void New(object sender, EventArgs e)
         {
             DataBinding();

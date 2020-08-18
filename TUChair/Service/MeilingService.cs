@@ -137,5 +137,10 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
             return dac.DeleteMetrial(condition);
         }
+        public List<metrailDeductionVO> MetrailDeduction()
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.MetrailDeduction();
+        }
     }
 }

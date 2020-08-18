@@ -37,7 +37,7 @@ namespace TUChair
         }
 
         private void DBindingDecount()
-        {
+        {            
             MeilingService service = new MeilingService();
             List<WoOrderVO> list = service.WorkOderselect();
             jeansGridView1.DataSource = null;
@@ -214,13 +214,35 @@ namespace TUChair
                 }
                 string condition = string.Join("@", sb);
                 MeilingService service = new MeilingService();
-                if (service.DeleteMetrial(condition))
+                List<string> listname = new List<string>();
+                for(int i = 0; i < jeansGridView2.RowCount; i++)
                 {
-                    MessageBox.Show("자재차감 성공");
+                    // 소요량
+                   int needcnt =  Convert.ToInt32(jeansGridView2.Rows[i].Cells[4].Value);
+                    //재고량
+                   int inven = Convert.ToInt32(jeansGridView2.Rows[i].Cells[5].Value);
+                    string itemName = jeansGridView2.Rows[i].Cells[2].Value.ToString();
+                    if (needcnt > inven)
+                    {
+                        listname.Add(itemName);
+                    }
+                }
+                if (listname.Count > 0)
+                {
+                    string iteName = string.Join(",", listname);
+                    MessageBox.Show($"{iteName}의 재고가 부족합니다");
                 }
                 else
                 {
-                    MessageBox.Show("자재차감 실패");
+                    if (service.DeleteMetrial(condition))
+                    {
+                        MessageBox.Show("자재차감 성공");
+                        DataBinding();
+                    }
+                    else
+                    {
+                        MessageBox.Show("자재차감 실패");
+                    }
                 }
             }
         }
