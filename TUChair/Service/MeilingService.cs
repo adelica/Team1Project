@@ -88,6 +88,11 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
            return dac.WorkOderSearch(firstdate, enddate,searchmsg);
         }
+        public List<WoOrderVO> SearchUpdateWOrder(DateTime firstdate, DateTime enddate, string searchmsg)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.SearchUpdateWOrder(firstdate, enddate, searchmsg);
+        }
         public List<WoOrderVO> SearchWorkOrderstatus(DateTime firstdate, DateTime enddate, string searchmsg)
         {
             WorkOrderDAC dac = new WorkOrderDAC();
@@ -112,5 +117,30 @@ namespace TUChair.Service
         //{
 
         //}
+        public DataTable MetrialDecount(string condition)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.MetrialDecount(condition);
+        }
+        public List<WoOrderVO> selectWorkorder()
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+           return dac.selectWorkorder();
+        }
+        public bool UpdateWorkOrder(int WorkOrderID, int Out_Qty_Main, int Prd_Qty, string Up_Emp)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+           return dac.UpdateWorkOrder(WorkOrderID, Out_Qty_Main, Prd_Qty, Up_Emp);
+        }
+        public bool DeleteMetrial(string condition)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.DeleteMetrial(condition);
+        }
+        public List<metrailDeductionVO> MetrailDeduction()
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            return dac.MetrailDeduction();
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TUChair.MeilingForm;
 using TUChair.Service;
 using TUChair.Util;
 using TUChairVO;
@@ -36,7 +37,7 @@ namespace TUChair
         }
 
         private void DBindingDecount()
-        {
+        {            
             MeilingService service = new MeilingService();
             List<WoOrderVO> list = service.WorkOderselect();
             jeansGridView1.DataSource = null;
@@ -101,7 +102,8 @@ namespace TUChair
 
         private void New(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            DataBinding();
+            jeansGridView2.DataSource = null;
         }
 
         private void Search(object sender, EventArgs e)
@@ -160,6 +162,89 @@ namespace TUChair
             //frm.Delete -= Delete;
             frm.New -= New;
             frm.Excel -= Excel;
+        }
+
+        private void button1_Click(object sender, EventArgs e)//자재불출요청
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> sb = new List<string>();
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.RowCount; i++)
+                {
+                    bool isn = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isn)
+                    {
+                        sb.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
+                    }
+                }
+                if (sb.Count < 1)
+                {
+                    MessageBox.Show("요청할 항목을 선택해주세요");
+                    return;
+                }
+                string condition = string.Join("@", sb);
+                MeilingService service = new MeilingService();
+                DataTable dt = new DataTable();
+                dt = service.MetrialDecount(condition);
+                jeansGridView2.AutoGenerateColumns = true;
+                jeansGridView2.DataSource = null;
+                jeansGridView2.DataSource = dt;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)//자재차감
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> sb = new List<string>();
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.RowCount; i++)
+                {
+                    bool isn = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isn)
+                    {
+                        sb.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
+                    }
+                }
+                if (sb.Count < 1)
+                {
+                    MessageBox.Show("자제차감할 항목을 선택해주세요");
+                    return;
+                }
+                string condition = string.Join("@", sb);
+                MeilingService service = new MeilingService();
+                List<string> listname = new List<string>();
+                for(int i = 0; i < jeansGridView2.RowCount; i++)
+                {
+                    // 소요량
+                   int needcnt =  Convert.ToInt32(jeansGridView2.Rows[i].Cells[4].Value);
+                    //재고량
+                   int inven = Convert.ToInt32(jeansGridView2.Rows[i].Cells[5].Value);
+                    string itemName = jeansGridView2.Rows[i].Cells[2].Value.ToString();
+                    if (needcnt > inven)
+                    {
+                        listname.Add(itemName);
+                    }
+                }
+                if (listname.Count > 0)
+                {
+                    string iteName = string.Join(",", listname);
+                    MessageBox.Show($"{iteName}의 재고가 부족합니다");
+                }
+                else
+                {
+                    if (service.DeleteMetrial(condition))
+                    {
+                        MessageBox.Show("자재차감 성공");
+                        DataBinding();
+                    }
+                    else
+                    {
+                        MessageBox.Show("자재차감 실패");
+                    }
+                }
+            }
         }
     }
 }

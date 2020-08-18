@@ -111,6 +111,13 @@
     <Compile Include="MeilingForm\DispensingMaterialsForm.Designer.cs">
       <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MeilingForm\MetrialDecountPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\MetrialDecountPopUp.Designer.cs">
+      <DependentUpon>MetrialDecountPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service\POSOService.cs" />
     <Compile Include="WooForm\BOMPopUP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -600,6 +607,9 @@
     <Compile Include="Util\ServiceHelp.cs" />
     <EmbeddedResource Include="MeilingForm\DispensingMaterialsForm.resx">
       <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\MetrialDecountPopUp.resx">
+      <DependentUpon>MetrialDecountPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WooForm\BOMPopUP.resx">
       <DependentUpon>BOMPopUP.cs</DependentUpon>

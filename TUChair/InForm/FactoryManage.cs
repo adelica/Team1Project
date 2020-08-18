@@ -34,7 +34,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설명", "Fact_BOM", true, 150);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "상위시설", "Fact_Parent", true, 150);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "시설설명", "Fact_Information", true, 200);
-            CommonUtil.AddNewColumnToDataGridView(dgvFactory, "자재차감", "Fact_MatDeducation", true, 100, DataGridViewContentAlignment.MiddleCenter);
+           // CommonUtil.AddNewColumnToDataGridView(dgvFactory, "자재차감", "Fact_MatDeducation", true, 100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "사용유무", "Fact_UseOrNot", true, 100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "수정자", "Fact_Modifier", true, 100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvFactory, "수정시간", "Fact_ModifyDate", true, 150, DataGridViewContentAlignment.MiddleCenter);

@@ -54,6 +54,8 @@
     <Compile Include="InOutVo.cs" />
     <Compile Include="ItemVO.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="metrailDeductionVO.cs" />
+    <Compile Include="POSOVO.cs" />
     <Compile Include="ProcessShiftVO.cs" />
     <Compile Include="ProductClosingVO.cs" />
     <Compile Include="ProductOutVO.cs" />

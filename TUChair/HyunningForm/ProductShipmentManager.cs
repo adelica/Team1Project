@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TUChair.Service;
@@ -14,6 +15,10 @@ namespace TUChair
     public partial class ProductShipmentManager : TUChair.SearchCommomForm
     {
         List<ProductOutVO> list;
+        List<ComboItemVO> comboItems = null;
+
+
+
         public ProductShipmentManager()
         {
             InitializeComponent();
@@ -39,6 +44,72 @@ namespace TUChair
 
             jeansGridView1.Columns[14].ReadOnly = false;
             DataLoad();
+
+            commonService service = new commonService();
+
+            comboItems = service.getCommonCode("고객사");
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "고객사"
+                                       select item).ToList();
+            CommonUtil.ComboBinding(cboComcode, cList, "선택");
+            
+        }
+        private void Search(object sender, EventArgs e)
+        {
+
+            string Ccode;
+            if (cboComcode.SelectedIndex == 0)
+                Ccode = string.Empty;
+            else
+                Ccode = cboComcode.Text;
+            
+            string start = inDTP1.Start.ToShortDateString();
+            string end = inDTP1.End.ToShortDateString();
+
+            string comno = txtComNo.Text.Trim();
+            string item = txtItem.Text.Trim();
+
+
+            if (cboComcode.SelectedIndex == 0 && comno.ToString().Trim().Length < 1 && item.ToString().Trim().Length < 1)
+                return;
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                JeanServicePShift service = new JeanServicePShift();
+                list = service.PSMSearch(Ccode, start, end, comno, item);
+                jeansGridView1.DataSource = null;
+                jeansGridView1.DataSource = list;
+            }
+
+        }
+        private void Save(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("헤헤 수정");
+
+            DataLoad();
+        }
+        private void New(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                cboComcode.SelectedIndex = 0;
+                txtComNo.Text = string.Empty;
+                txtItem.Text = string.Empty;
+
+                DataLoad();
+            }
+        }
+        private void Delete(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("삭제하던가");
+
+        }
+        private void Excel(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+                MessageBox.Show("엑셀만들어");
         }
         private void btnShift_Click(object sender, EventArgs e)
         {
@@ -52,24 +123,25 @@ namespace TUChair
                     string Primary = jeansGridView1.Rows[i].Cells[1].Value.ToString();
                     string Item = jeansGridView1.Rows[i].Cells[9].Value.ToString();
                     string Modifier = LoginFrm.userName;
+                    int Price = Convert.ToInt32(jeansGridView1.Rows[i].Cells[11].Value.ToString());
                     int Qty = (Convert.ToInt32(jeansGridView1.Rows[i].Cells[14].Value));
 
                     JeanServicePShift shift = new JeanServicePShift();
-                    shift.OutProduct(Primary, Item, Modifier, Qty);
+                    shift.OutProduct(Primary, Item, Price, Modifier, Qty);
                     if (Convert.ToInt32(jeansGridView1.Rows[i].Cells[14].Value) == 0)
                     {
                         MessageBox.Show("출하 수량을 입력해주세요.");
                         return;
                     }
                     c++;
-                }                        
+                }
             }
-            if(c >0)
+            if (c > 0)
             {
-            MessageBox.Show("제품 출하가 완료되었습니다.");
-            DataLoad();
-            }    
-            else if(c==0)
+                MessageBox.Show("제품 출하가 완료되었습니다.");
+                DataLoad();
+            }
+            else if (c == 0)
                 MessageBox.Show("제품 출하할 항목을 선택해주세요");
 
         }
@@ -106,6 +178,25 @@ namespace TUChair
             }
         }
 
+        private void ProductShipmentManager_Load(object sender, EventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save += Save;
+            frm.Search += Search;
+            frm.Delete += Delete;
+            frm.New += New;
+            frm.Excel += Excel;
+        }
 
+        private void ProductShipmentManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save -= Save;
+            frm.Search -= Search;
+            frm.Delete -= Delete;
+            frm.New -= New;
+            frm.Excel -= Excel;
+
+        }
     }
 }

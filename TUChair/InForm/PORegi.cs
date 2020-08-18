@@ -80,6 +80,18 @@ namespace TUChair
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if(txtFilePath.Text.Trim().Length<1)
+            {
+                MessageBox.Show("등록할 엑셀파일을 선택하십시오", "등록실패");
+                return;
+            }
+            DataColumn planColumn = poData.Columns.Add("planDate", typeof(DateTime));
+            DataColumn idColumn = poData.Columns.Add("Sales_ID", typeof(string));
+            for (int i=0; i<poData.Rows.Count; i++)
+            {
+                poData.Rows[i]["planDate"] = dtpDate.Value.Date;
+                poData.Rows[i]["Sales_ID"] = txtPlanID.Text =="" ? "":txtPlanID.Text;
+            }
             check = true;
             this.Close();
         }

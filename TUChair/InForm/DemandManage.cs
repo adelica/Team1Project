@@ -29,7 +29,7 @@ namespace TUChair
         }
 
 
-        public void LoadData(object sender, EventArgs e)
+        private void Search(object sender, EventArgs e)
         {
             if(((TUChairMain2)this.MdiParent).ActiveMdiChild==this)
             {
@@ -98,7 +98,6 @@ namespace TUChair
                             select Id.Sales_ID).Distinct().ToList();
             com.Insert(0, "전체");
             id.Insert(0, "전체");
-            ///id.Add("전체");
             foreach (string c in com)
                 cboCompany.Items.Add(c);
             foreach (string i in id)
@@ -111,13 +110,13 @@ namespace TUChair
         private void DemandManage_Load(object sender, EventArgs e)
         {
             frm = (TUChairMain2)this.MdiParent;
-            frm.Search += LoadData;
+            frm.Search += Search;
 
         }
 
         private void DemandManage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frm.Search -= LoadData;
+            frm.Search -= Search;
         }
     }
 }

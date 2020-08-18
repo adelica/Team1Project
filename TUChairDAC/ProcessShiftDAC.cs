@@ -193,7 +193,7 @@ namespace TUChairDAC
                     cmd.CommandText = "SP_PSMSearch";
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@Fact_Name", (object)Fact ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Fact_Code", (object)Fact ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Item_Code", (object)code ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Item_Name", (object)txt ?? DBNull.Value);
 
@@ -245,6 +245,131 @@ namespace TUChairDAC
                 return null;
             }
         }
+        public List<ProductOutVO> PSMSearch(string Ccode, string start, string end, string comno, string item) // 제품출하 검색조건
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_ProductOutSearch";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Ccode", (object)Ccode ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@start", (object)start ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@end", (object)end ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@comno", (object)comno ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@item", (object)item ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<ProductOutVO> list = Helper.MeilingDataReaderMapToList<ProductOutVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
+        public List<ProductSatus> PSMSSearch(string Ccode, string start, string end, string comno, string item) // 제품현황 검색조건
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_ProductStatusSearch";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Ccode", (object)Ccode ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@start", (object)start ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@end", (object)end ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@comno", (object)comno ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@item", (object)item ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<ProductSatus> list = Helper.MeilingDataReaderMapToList<ProductSatus>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
+        public List<ProductClosingVO> ClosingSearch(string Ccode, string start, string end, string comno, string item) // 제품현황 검색조건
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_ClosingSearch";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Ccode", (object)Ccode ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@start", (object)start ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@end", (object)end ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@comno", (object)comno ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@item", (object)item ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<ProductClosingVO> list = Helper.MeilingDataReaderMapToList<ProductClosingVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
+
+        public List<ProductClosingVO> ClosingStatusSearch(string Ccode, string start, string end, string comno, string item) // 제품현황 검색조건
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_ClosingStatusSearch";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Ccode", (object)Ccode ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@start", (object)start ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@end", (object)end ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@comno", (object)comno ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@item", (object)item ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<ProductClosingVO> list = Helper.MeilingDataReaderMapToList<ProductClosingVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
 
         public List<PSMManager> PSMManager() // 자재단가 관리 (전체)
         {
@@ -272,7 +397,7 @@ namespace TUChairDAC
                 return null;
             }
         }
-        public List<PSMManager> PSMMSearch( string item, string Fact, string txt) // 공정이동 진그리드1 검색조건
+        public List<PSMManager> PSMMSearch(string item, string Fact, string txt) // 공정이동 진그리드1 검색조건
         {
             try
             {
@@ -311,7 +436,7 @@ namespace TUChairDAC
                     cmd.CommandText = @"select s.no  no, s.Item_Code Item_Code, Item_Name, Item_Size,Item_Type,s.Fact_Code, Qty, 
 	                                            null From_Fact ,CONVERT(varchar(10),getdate(), 23) Shift_date , 0 as 'N_HOUR'
 	                                            from Stock s left join Item i on s.Item_Code = i.Item_Code
-                                        where s.no in(" + pry + ")";                    
+                                        where s.no in(" + pry + ")";
 
                     cmd.Connection.Open();
 
@@ -340,7 +465,7 @@ namespace TUChairDAC
 
                     cmd.Parameters.AddWithValue("@No", Primary);
                     cmd.Parameters.AddWithValue("@Item", Item);
-                    cmd.Parameters.AddWithValue("@Fact", Fact) ;
+                    cmd.Parameters.AddWithValue("@Fact", Fact);
                     cmd.Parameters.AddWithValue("@From_Fact", From_Fact);
                     cmd.Parameters.AddWithValue("@Modifier", Modifier);
                     cmd.Parameters.AddWithValue("@Shift_Qty", Qty);
@@ -383,7 +508,7 @@ namespace TUChairDAC
                                                             left join UnitPrice u on ss.Item_Code = u.Item_Code and Price_EndDate = '3333-12-31'
                                         where 1=1";
 
-              
+
                     cmd.Connection.Open();
 
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -399,7 +524,7 @@ namespace TUChairDAC
                 return null;
             }
         }
-        public bool ShiftProduct(string Item, string Fact, string Modifier, int Qty,string primary) // 제품공정이동 프로시저
+        public bool ShiftProduct(string Item, string Fact, string Modifier, int Qty, string primary) // 제품공정이동 프로시저
         {
             try
             {
@@ -433,7 +558,7 @@ namespace TUChairDAC
                 throw e;
             }
         }
-        public bool OutProduct(string Primary, string Item, string Modifier, int Qty) // 제품출하 프로시저
+        public bool OutProduct(string Primary, string Item, int Price, string Modifier, int Qty) // 제품출하 프로시저
         {
             try
             {
@@ -441,6 +566,36 @@ namespace TUChairDAC
                 {
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.CommandText = "SP_OutProdcut";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Primary", Primary);
+                    cmd.Parameters.AddWithValue("@Item", Item);
+                    cmd.Parameters.AddWithValue("@Price", Price);
+                    cmd.Parameters.AddWithValue("@Modifier", Modifier);
+                    cmd.Parameters.AddWithValue("@Qty", Qty);
+
+
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception e)
+            {
+                _log.WriteError(e.Message, e);
+                throw e;
+            }
+        }
+        public bool OutProductCancle(string Primary, string Item, string Modifier, int Qty) // 제품출하 프로시저
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_OutProductCancle";
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@Primary", Primary);
@@ -468,12 +623,11 @@ namespace TUChairDAC
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
                 string sql = @"select So_PurchaseOrder, c.Com_Name Com_Name, c.Com_Name d_Com_Name,  so.Item_Code Item_Code, i.Item_Code d_Item_Code, i.Item_name Item_name, 
-		                              convert(nvarchar ,So_Duedate, 23) So_Duedate ,  convert(nvarchar ,So_OutDate, 23) So_OutDate ,Price_Present Price , So_Qty,
+		                              convert(nvarchar ,So_Duedate, 23) So_Duedate ,  convert(nvarchar ,So_OutDate, 23) So_OutDate ,so_Price Price , So_Qty,
 		                              So_ProQty, so.Modifier
                                 from  SalesOrder so inner join SalesMaster sm on so.Sales_ID=sm.Sales_ID
                                 		            inner join Company c on sm.Com_Code=c.Com_Code
                                 		            inner join Item i on so.Item_Code = i.Item_Code
-                                		            inner join UnitPrice u on so.Item_Code = u.Item_Code and Price_EndDate = '3333-12-31'
                                 		            inner join Stock s on so.Item_Code = s.Item_Code and Fact_Code = 'WH_M'
                                 where So_OutDate is not null and so_deadline = 'n'";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
