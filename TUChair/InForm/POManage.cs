@@ -38,7 +38,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "생산납기일", "So_Duedate", true,150, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "주문수량", "So_Qty", true,100, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "출고수량", "So_ShipQty", true,100, DataGridViewContentAlignment.MiddleRight);
-
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "등록날짜", "Sales_Plandate", true, 100, DataGridViewContentAlignment.MiddleRight);
             LoadData();
         }
 
@@ -111,73 +111,69 @@ namespace TUChair
             frm.New += New;
             frm.Delete += Delete;
             frm.Save += Save;
-
+            frm.Search += Search;
         }
         //조건에 따른 검색
         private void Search(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-
-                string startDate = string.Empty;
-                string endDate = string.Empty;
-
-                startDate = inDTP1.Start.ToString();
-                endDate = inDTP1.End.ToString();
+             
                 List<POVO> searchList;
 
                 if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length < 1 && txtItem.Text.Trim().Length < 1)
                 {
                     searchList = (from search in list
-                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate == dtpPlanDate.Value
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate.Date == dtpPlanDate.Value.Date
                                   select search).ToList();
                 }
                 else if (cboCustomer.SelectedIndex != 0 && txtCusNumber.Text.Trim().Length < 1 && txtItem.Text.Trim().Length < 1)
                 {
                     searchList = (from search in list
-                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.SelectedText && search.Sales_Plandate == dtpPlanDate.Value
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.Text && search.Sales_Plandate.Date == dtpPlanDate.Value.Date
                                   select search).ToList();
                 }
                 else if (cboCustomer.SelectedIndex != 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length < 1)
                 {
                     searchList = (from search in list
-                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.SelectedText && search.Sales_Plandate == dtpPlanDate.Value
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.Text && search.Sales_Plandate.Date == dtpPlanDate.Value.Date
                                   && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper())
                                   select search).ToList();
                 }
                 else if (cboCustomer.SelectedIndex != 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length > 0)
                 {
                     searchList = (from search in list
-                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.SelectedText && search.Sales_Plandate == dtpPlanDate.Value
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.Text && search.Sales_Plandate.Date == dtpPlanDate.Value.Date
                                   && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper()) && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
                                   select search).ToList();
                 }
                 else if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length < 1)
                 {
                     searchList = (from search in list
-                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate == dtpPlanDate.Value && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper())
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate.Date == dtpPlanDate.Value.Date && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper())
                                   select search).ToList();
                 }
                 else if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length < 1 && txtItem.Text.Trim().Length > 0)
                 {
                     searchList = (from search in list
-                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate == dtpPlanDate.Value && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate.Date == dtpPlanDate.Value.Date && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
                                   select search).ToList();
                 }
                 else if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length > 0)
                 {
                     searchList = (from search in list
-                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate == dtpPlanDate.Value && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper()) && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate.Date == dtpPlanDate.Value.Date && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper()) && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
                                   select search).ToList();
                 }
                 else
                 {
                     searchList = (from search in list
-                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate == dtpPlanDate.Value && search.Com_Code == cboCustomer.SelectedText && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate.Date == dtpPlanDate.Value.Date && search.Com_Code == cboCustomer.Text && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
                                   select search).ToList();
                 }
+                dgvPO.DataSource = searchList;
             }
-           }
+        }
 
         //수정
         private void Save(object sender, EventArgs e)

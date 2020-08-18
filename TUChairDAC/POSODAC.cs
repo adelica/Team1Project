@@ -23,7 +23,7 @@ namespace TUChairDAC
                 string sql = string.Empty;
                 using (SqlConnection conn = new SqlConnection(this.ConnectionString))
                 {
-                    sql = @"select Item_Code from item";
+                    sql = @"select Item_Code from item where Item_Type='완제품'";
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     da.Fill(ds, "item_Code");
                     sql = @"select Com_Code from Company";
