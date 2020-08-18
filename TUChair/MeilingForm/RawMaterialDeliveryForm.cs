@@ -90,5 +90,10 @@ namespace TUChair
             frm.New -= New;
             frm.Excel -= Excel;
         }
+
+        private void button2_Click(object sender, EventArgs e)//출고 버튼 클릭
+        {
+
+        }
     }
 }

@@ -51,15 +51,10 @@ namespace TUChairDAC
                     cmd.CommandText = "SP_PDeadLine";
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-
-
                     cmd.Parameters.AddWithValue("@Primary", Primary);
                     cmd.Parameters.AddWithValue("@Item", Item);
                     cmd.Parameters.AddWithValue("@Qty", Qty);
-
                     cmd.Parameters.AddWithValue("@Modifier", Modifier);
-
-
 
                     cmd.Connection.Open();
                     var rowsAffected = cmd.ExecuteNonQuery();
