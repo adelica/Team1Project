@@ -58,6 +58,7 @@ namespace TUChairDAC
             }
             catch(Exception err)
             {
+                _log.WriteError(err.Message);
                 return null;
             }
         }
