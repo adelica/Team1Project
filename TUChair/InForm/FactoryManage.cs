@@ -201,7 +201,7 @@ namespace TUChair
                     return;
                 }
 
-                if (DialogResult.OK == (MessageBox.Show("정말로 삭제하시겠습니까?", "삭제확인", MessageBoxButtons.OKCancel)))
+                if (DialogResult.OK == (MessageBox.Show("정말 삭제하시겠습니까?", "삭제확인", MessageBoxButtons.OKCancel)))
                 {
                     string code = "'" + string.Join("','", chkList) + "'";
 

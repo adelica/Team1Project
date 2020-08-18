@@ -52,19 +52,17 @@
             this.panel2.Controls.Add(this.btnDownload);
             this.panel2.Controls.Add(this.btnExcel);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(14, 26);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Location = new System.Drawing.Point(12, 21);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1248, 47);
+            this.panel2.Size = new System.Drawing.Size(1092, 38);
             this.panel2.TabIndex = 3;
             // 
             // btnPOUpLoad
             // 
             this.btnPOUpLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPOUpLoad.Location = new System.Drawing.Point(841, 10);
-            this.btnPOUpLoad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPOUpLoad.Location = new System.Drawing.Point(736, 8);
             this.btnPOUpLoad.Name = "btnPOUpLoad";
-            this.btnPOUpLoad.Size = new System.Drawing.Size(146, 29);
+            this.btnPOUpLoad.Size = new System.Drawing.Size(128, 23);
             this.btnPOUpLoad.TabIndex = 8;
             this.btnPOUpLoad.Text = "영업마스터생성";
             this.btnPOUpLoad.UseVisualStyleBackColor = true;
@@ -73,10 +71,9 @@
             // btnDownload
             // 
             this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDownload.Location = new System.Drawing.Point(998, 10);
-            this.btnDownload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDownload.Location = new System.Drawing.Point(873, 8);
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(114, 29);
+            this.btnDownload.Size = new System.Drawing.Size(100, 23);
             this.btnDownload.TabIndex = 7;
             this.btnDownload.Text = "양식 다운로드";
             this.btnDownload.UseVisualStyleBackColor = true;
@@ -85,10 +82,9 @@
             // btnExcel
             // 
             this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExcel.Location = new System.Drawing.Point(1120, 10);
-            this.btnExcel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExcel.Location = new System.Drawing.Point(980, 8);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(97, 29);
+            this.btnExcel.Size = new System.Drawing.Size(85, 23);
             this.btnExcel.TabIndex = 6;
             this.btnExcel.Text = "Excel 등록";
             this.btnExcel.UseVisualStyleBackColor = true;
@@ -99,9 +95,9 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(5, 10);
+            this.label1.Location = new System.Drawing.Point(4, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(295, 29);
+            this.label1.Size = new System.Drawing.Size(258, 23);
             this.label1.TabIndex = 5;
             this.label1.Text = "≡ 영업마스터업로드(PO)";
             // 
@@ -131,25 +127,25 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPO.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPO.IsAllCheckColumnHeader = false;
-            this.dgvPO.Location = new System.Drawing.Point(14, 85);
+            this.dgvPO.Location = new System.Drawing.Point(12, 68);
+            this.dgvPO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPO.Name = "dgvPO";
             this.dgvPO.RowHeadersWidth = 30;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
             this.dgvPO.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPO.RowTemplate.Height = 27;
             this.dgvPO.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPO.Size = new System.Drawing.Size(1248, 655);
+            this.dgvPO.Size = new System.Drawing.Size(1092, 524);
             this.dgvPO.TabIndex = 4;
             // 
             // POUpLoad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(1275, 752);
+            this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Controls.Add(this.dgvPO);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "POUpLoad";
             this.Text = "영업마스터업로드(PO)";
             this.Load += new System.EventHandler(this.POUpLoad_Load);

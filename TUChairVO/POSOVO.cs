@@ -38,6 +38,11 @@ namespace TUChairVO
         public string  Item_Code { get; set; }
         public string  So_WorkOrderID { get; set; }
         public DateTime So_Duedate { get; set; }
+        public string Modifier { get; set; }
 
+    }
+    public class SalesIDVO
+    {
+        public string Sales_ID { get; set; }
     }
 }

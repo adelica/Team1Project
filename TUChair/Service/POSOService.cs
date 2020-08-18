@@ -30,7 +30,7 @@ namespace TUChair.Service
             return dac.GetPOData();
         }
         //이미 존재하는 계획인지 구분하기 위해 SalesID들을 가져옴
-        internal List<string> CheckSalesID()
+        internal List<SalesIDVO> CheckSalesID()
         {
             POSODAC dac = new POSODAC();
             return dac.CheckSalesID();
@@ -40,6 +40,24 @@ namespace TUChair.Service
         {
             POSODAC dac = new POSODAC();
             return dac.SetPOData(upList);
+        }
+
+        internal bool DeleteSOInfo(string code)
+        {
+            POSODAC dac = new POSODAC();
+            return dac.DeleteSOInfo(code);
+        }
+
+        internal bool UpdateSO(List<POVO> soList)
+        {
+            POSODAC dac = new POSODAC();
+            return dac.UpdateSO(soList);
+        }
+        //SO 정보
+        internal List<SOVO> GetSOData()
+        {
+            POSODAC dac = new POSODAC();
+            return dac.GetSOData();
         }
     }
 }
