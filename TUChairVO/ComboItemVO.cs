@@ -8,9 +8,9 @@ namespace TUChairVO
 {
    public  class ComboItemVO
     {
-        public string Code { get; set; }
+        public string Code      { get; set; }
         public string CodeType { get; set; }
-        public string CodeNm { get; set; }
+        public string CodeNm         { get; set; }
 
         public ComboItemVO() { }
         public ComboItemVO(string blankText, string mode = "Y")

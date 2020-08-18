@@ -91,12 +91,39 @@ namespace TUChair
 
         private void New(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            BindingData();
         }
 
         private void Delete(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> sb = new List<string>();
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.RowCount; i++)
+                {
+                    bool isn = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isn)
+                    {
+                        sb.Add(jeansGridView1.Rows[i].Cells[1].Value.ToString());
+                    }
+                }
+                if (sb.Count < 1)
+                {
+                    MessageBox.Show("삭제할 항목을 선택해주세요");
+                    return;
+                }
+                string condition = string.Join("@", sb);
+                BOMService service = new BOMService();
+                if (service.DeleteBOM(condition))
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                }
+                else
+                    MessageBox.Show("삭제에 실패하였습니다.");
+
+                BindingData();
+            }
         }
 
         private void Search(object sender, EventArgs e)
