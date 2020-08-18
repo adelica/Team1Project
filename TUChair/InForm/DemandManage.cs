@@ -56,23 +56,23 @@ namespace TUChair
                 if (cboCompany.SelectedIndex != 0 && cboPlanID.SelectedIndex !=0)
                 {
                      query = from order in dt.AsEnumerable()
-                                                             where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim()) && order.Field<string>("Com_Name").Contains(cboCompany.Text.Trim())
+                                                             where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim()) && order.Field<string>("Com_Name")==cboCompany.Text.Trim()
                                                             && order.Field<int>("Sales_ID") ==Convert.ToInt32(cboPlanID.Text)
                                                              select order;
                 }
                 else if(cboCompany.SelectedIndex ==0 && cboPlanID.SelectedIndex !=0)
                 {
                      query = from order in dt.AsEnumerable()
-                                                             where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim()) && order.Field<string>("Sales_ID").Contains(cboPlanID.Text.Trim())
+                                                             where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim()) && order.Field<string>("Sales_ID")==cboPlanID.Text.Trim()
                              select order;
                 }
                 else if (cboCompany.SelectedIndex != 0 && cboPlanID.SelectedIndex == 0)
                 {
                     query = from order in dt.AsEnumerable()
-                            where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim()) && order.Field<string>("Com_Name").Contains(cboCompany.Text.Trim())
+                            where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim()) && order.Field<string>("Com_Name")==cboCompany.Text.Trim()
                             select order;
                 }
-                else
+                else 
                 {
                     query = from order in dt.AsEnumerable()
                             where order.Field<string>("Item_Code").Contains(txtItem_Code.Text.Trim())
@@ -92,9 +92,10 @@ namespace TUChair
             List<DemandManageVO> list = service.GetComboBinding();
  
             List<string> com = (from code in list
+                                where code.Com_Name !=""
                                 select code.Com_Name).Distinct().ToList();
             List<string>  id = (from Id in list
-                            where Id.Sales_ID !="0"
+                            where Id.Sales_ID !=""
                             select Id.Sales_ID).Distinct().ToList();
             com.Insert(0, "전체");
             id.Insert(0, "전체");

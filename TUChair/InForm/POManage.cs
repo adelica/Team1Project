@@ -69,6 +69,7 @@ namespace TUChair
                 LoadData();
             }
         }
+        //콤보박스 바인딩용
         private void GetComboBinding()
         {
             List<string> cboList = (from code in list
@@ -110,34 +111,104 @@ namespace TUChair
             frm.New += New;
             frm.Delete += Delete;
             frm.Save += Save;
-        }
 
-        private void Save(object sender, EventArgs e)
+        }
+        //조건에 따른 검색
+        private void Search(object sender, EventArgs e)
         {
-            List<string> chkList = Check();
-            if(chkList.Count<1)
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                MessageBox.Show("수정할 데이터를 선택하여주세요", "수정실패");
-                return;
-            }
-            else if(chkList.Count==1)
-            {
-                POSOService service = new POSOService();
-                List<SOVO> soList = (from sL in sList
-                                     where sL.So_WorkOrderID == chkList[0]
-                                     select sL).ToList();
-                SORegi frm = new SORegi(soList);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-                if(frm.Check)
+
+                string startDate = string.Empty;
+                string endDate = string.Empty;
+
+                startDate = inDTP1.Start.ToString();
+                endDate = inDTP1.End.ToString();
+                List<POVO> searchList;
+
+                if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length < 1 && txtItem.Text.Trim().Length < 1)
                 {
-                    LoadData();
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate == dtpPlanDate.Value
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex != 0 && txtCusNumber.Text.Trim().Length < 1 && txtItem.Text.Trim().Length < 1)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.SelectedText && search.Sales_Plandate == dtpPlanDate.Value
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex != 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length < 1)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.SelectedText && search.Sales_Plandate == dtpPlanDate.Value
+                                  && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper())
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex != 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length > 0)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.SelectedText && search.Sales_Plandate == dtpPlanDate.Value
+                                  && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper()) && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length < 1)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate == dtpPlanDate.Value && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper())
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length < 1 && txtItem.Text.Trim().Length > 0)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate == dtpPlanDate.Value && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length > 0)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate == dtpPlanDate.Value && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper()) && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  select search).ToList();
+                }
+                else
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate == dtpPlanDate.Value && search.Com_Code == cboCustomer.SelectedText && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  select search).ToList();
                 }
             }
-            else
+           }
+
+        //수정
+        private void Save(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                MessageBox.Show("데이터를  하나만 선택하여주세요", "수정실패");
-                return;
+                List<string> chkList = Check();
+                if (chkList.Count < 1)
+                {
+                    MessageBox.Show("수정할 데이터를 선택하여주세요", "수정실패");
+                    return;
+                }
+                else if (chkList.Count == 1)
+                {
+                    POSOService service = new POSOService();
+                    List<SOVO> soList = (from sL in sList
+                                         where sL.So_WorkOrderID == chkList[0]
+                                         select sL).ToList();
+                    SORegi frm = new SORegi(soList);
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    if (frm.Check)
+                    {
+                        LoadData();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("데이터를  하나만 선택하여주세요", "수정실패");
+                    return;
+                }
             }
         }
 
@@ -179,6 +250,7 @@ namespace TUChair
             frm.New -= New;
             frm.Delete -= Delete;
             frm.Save -= Save;
+            frm.Search -= Search;
         }
     }
 }

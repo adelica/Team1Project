@@ -61,6 +61,7 @@ namespace TUChairDAC
             }
             catch(Exception err)
             {
+                _log.WriteError(err.Message);
                 return false;
             }
         }
@@ -83,6 +84,7 @@ namespace TUChairDAC
             }
             catch(Exception err)
             {
+                _log.WriteError(err.Message);
                 return null;
             }
         }
@@ -162,6 +164,7 @@ namespace TUChairDAC
             }
             catch(Exception err)
             {
+                _log.WriteError(err.Message);
                 return null;
             }
         }
@@ -172,9 +175,10 @@ namespace TUChairDAC
             {
                 using(SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = @"select So_WorkOrderID, So_PurchaseOrder, so.Com_Code, Com_Name, so.Item_Code, Item_Name, So_Duedate, So_Qty, So_ShipQty
+                    cmd.CommandText = @"select so.So_WorkOrderID, So_PurchaseOrder, so.Com_Code, Com_Name, so.Item_Code, Item_Name, So_Duedate, So_Qty, So_ShipQty, Sales_Plandate
                                                         from SalesOrder so inner join Company c on so.Com_Code=c.Com_Code
-				                                                                	inner join Item i on so.Item_Code=i.Item_Code";
+				                                                                	inner join Item i on so.Item_Code=i.Item_Code
+																					inner join SalesMaster M on so.Sales_ID=m.Sales_ID";
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();

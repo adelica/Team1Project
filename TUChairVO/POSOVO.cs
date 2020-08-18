@@ -17,6 +17,7 @@ namespace TUChairVO
         public DateTime   So_Duedate { get; set; }
         public int   So_Qty { get; set; }
         public int   So_ShipQty { get; set; }
+        public DateTime Sales_Plandate { get; set; }
     }
     public class SOVO
     {
