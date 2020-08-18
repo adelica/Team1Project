@@ -21,5 +21,11 @@ namespace TUChair.Service
             BOMDAC dac = new BOMDAC();
             return dac.SaveBOM(bomInfo);
         }
+
+        internal bool DeleteBOM(string condition)
+        {
+            BOMDAC dac = new BOMDAC();
+            return dac.DeleteBOM(condition);
+        }
     }
 }

@@ -38,6 +38,32 @@ from [dbo].[vm_Bom2] order by [sortOrder] ";
             }
         }
 
+        public bool DeleteBOM(string condition)
+		{
+			try
+			{
+				SqlConnection strConn = new SqlConnection(this.ConnectionString);
+
+				using (SqlCommand cmd = new SqlCommand())
+				{
+					cmd.Connection = strConn;
+					cmd.CommandText = @"DeleteBOM";
+					cmd.CommandType = CommandType.StoredProcedure;
+					cmd.Parameters.AddWithValue("@P_Condition", condition);
+					cmd.Parameters.AddWithValue("@P_Seperator", "@");
+					cmd.Connection.Open();
+					var rowsAffected = cmd.ExecuteNonQuery();
+					cmd.Connection.Close();
+
+					return rowsAffected > 0;
+				}
+			}
+			catch (Exception err)
+			{
+				_log.WriteError(err.Message, err);
+				throw err;
+			}
+		}
         public bool SaveBOM(BOMVO bomInfo)
         {
 			try

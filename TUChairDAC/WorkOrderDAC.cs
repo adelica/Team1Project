@@ -718,5 +718,35 @@ on item.Item_Code = wo.Item_Code where Wo_State='지시'";
             }
 
         }
+        public List<metrailDeductionVO> MetrailDeduction()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"select [WorkOrderID],[Plan_StartTime],wo.[Item_Code],item.Item_Name,item.Item_Size,item.Item_Type,item.Item_OutWarehouse,
+item.Item_InWarehouse,stock.Qty,wo.Plan_Qty
+from [dbo].[WorkOrder] wo join [dbo].[Item] item on wo.Item_Code = item.Item_Code join [dbo].[Stock] stock
+on stock.Item_Code = item.Item_Code
+where item.Item_OutWarehouse = stock.Fact_Code";
+                    // cmd.CommandType = CommandType.StoredProcedure;
+                    //  cmd.Parameters.AddWithValue("@P_Condition", condition);
+                    // cmd.Parameters.AddWithValue("@P_Seperator", "@");
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<metrailDeductionVO> list = Helper.MeilingDataReaderMapToList<metrailDeductionVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return null;
+            }
+
+        }
     }
 }
