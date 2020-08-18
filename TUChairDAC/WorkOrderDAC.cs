@@ -748,5 +748,32 @@ where item.Item_OutWarehouse = stock.Fact_Code";
             }
 
         }
+        public bool rowMetrailDecount(string item,string inhouse,string outhouse,int outQTY)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"SP_rowmetraildecount";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@item ", item);
+                    cmd.Parameters.AddWithValue("@inhouse", inhouse);
+                    cmd.Parameters.AddWithValue("@outhouse", outhouse);
+                    cmd.Parameters.AddWithValue("@outQTY", outQTY);
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
+                throw err;
+            }
+
+        }
     }
 }

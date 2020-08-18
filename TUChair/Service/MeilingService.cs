@@ -142,5 +142,10 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
             return dac.MetrailDeduction();
         }
+        public bool rowMetrailDecount(string item, string inhouse, string outhouse, int outQTY)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+           return dac.rowMetrailDecount(item, inhouse, outhouse, outQTY);
+        }
     }
 }
