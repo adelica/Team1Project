@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TUChairDAC;
+using TUChairVO;
 
 namespace TUChair.Service
 {
@@ -26,6 +27,19 @@ namespace TUChair.Service
         {
             balzuDAC dac = new balzuDAC();
             return dac.GetBalzuMiip();
+        }
+
+       
+        internal DataTable GetBalzuItem(string text, DateTime start, DateTime end)
+        {
+            balzuDAC dac = new balzuDAC();
+            return dac.GetBalzuItem( text, start, end);
+        }
+
+        internal List<PbalzuVO> GetBalzuItemList(string planID)
+        {
+            balzuDAC dac = new balzuDAC();
+            return dac.GetBalzuItemList(planID);
         }
     }
 }
