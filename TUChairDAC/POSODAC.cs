@@ -61,7 +61,6 @@ namespace TUChairDAC
             }
             catch(Exception err)
             {
-                _log.WriteError(err.Message);
                 return false;
             }
         }
@@ -84,7 +83,6 @@ namespace TUChairDAC
             }
             catch(Exception err)
             {
-                _log.WriteError(err.Message);
                 return null;
             }
         }
@@ -164,7 +162,6 @@ namespace TUChairDAC
             }
             catch(Exception err)
             {
-                _log.WriteError(err.Message);
                 return null;
             }
         }
