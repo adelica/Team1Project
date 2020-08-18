@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Data.Common;
 using System.Windows.Forms;
+using System.Runtime.Remoting.Messaging;
 
 namespace TUChairDAC
 {
@@ -40,6 +41,65 @@ namespace TUChairDAC
                 return null;
             }
         }
+        //SO정보 삭제
+        public bool DeleteSOInfo(string code)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = @"DELETE FROM SalesOrder Where So_WorkOrderID IN (" + code + ")";
+
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+
+                    return true;
+                }
+            }
+            catch(Exception err)
+            {
+                return false;
+            }
+        }
+        //SO정보
+        public List<SOVO> GetSOData()
+        {
+            try
+            {
+                using(SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "select * from SalesOrder";
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<SOVO> list = Helper.DataReaderMapToList<SOVO>(reader);
+                    cmd.Connection.Close();
+
+                    return list;
+                }
+            }
+            catch(Exception err)
+            {
+                return null;
+            }
+        }
+
+        //S/O 업데이트
+        public bool UpdateSO(List<POVO> soList)
+        {
+            try
+            {
+                return true;
+            }
+            catch(Exception err)
+            {
+                return false;
+            }
+        }
+
         //엑셀등록한 영업마스터 DB에 등록
         public bool SetPOData(List<UpLoadVO> upList)
         {
@@ -47,18 +107,44 @@ namespace TUChairDAC
             {
                 using(SqlCommand cmd = new SqlCommand())
                 {
-                    //cmd.CommandText
+                    cmd.CommandText = "SP_SetSalesMaster";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.Connection.Open();
+                    cmd.Parameters.AddWithValue("@Sales_ID", upList[0].Sales_ID);
+                    cmd.Parameters.AddWithValue("@Com_Code", upList[0].Com_Code);
+                    cmd.Parameters.AddWithValue("@Sales_Plandate", upList[0].Sales_Plandate);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SP_SetSalesOrder";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    for (int i = 0; i < upList.Count; i++)
+                    {
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@Sales_ID", upList[i].Sales_ID);
+                        cmd.Parameters.AddWithValue("@Com_Code", upList[i].Com_Code);
+                        cmd.Parameters.AddWithValue("@Sales_Qty", upList[i].Sales_Qty);                  
+                        cmd.Parameters.AddWithValue("@Item_Code", upList[i].Item_Code);
+                        cmd.Parameters.AddWithValue("@So_WorkOrderID", upList[i].So_WorkOrderID);
+                        cmd.Parameters.AddWithValue("@So_Duedate", upList[i].So_Duedate);
+                        cmd.Parameters.AddWithValue("@Modifier", upList[i].Modifier);
+                    
+                        cmd.ExecuteNonQuery();
+                        
+                    }
+                    cmd.Connection.Close();
+
                 }
                 return true;
             }
             catch(Exception err)
             {
-                MessageBox.Show(err.Message);
+                _log.WriteError(err.Message);
                 return false;
             }
         }
 
-        public List<string> CheckSalesID()
+        public List<SalesIDVO> CheckSalesID()
         {
             try
             {
@@ -68,8 +154,9 @@ namespace TUChairDAC
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
-                    List<string> list = Helper.DataReaderMapToList<string>(reader);
+                    List<SalesIDVO> list = Helper.DataReaderMapToList<SalesIDVO>(reader);
                     cmd.Connection.Close();
+
                     return list;
                 }
             }

@@ -17,6 +17,7 @@ namespace TUChair
         {
             InitializeComponent();
             dtpDate.MinDate = DateTime.Now;
+            txtPlanID.Enabled = false;
         }
         DataTable poData = null;
         bool check = false;
@@ -26,20 +27,24 @@ namespace TUChair
 
         private void btnFileSelect_Click(object sender, EventArgs e)
         {
+            Cursor cursor = this.Cursor;
+
             try
             {
+             
                 Excel.Application xlApp = null;
                 Excel.Workbook xlWorkbook = null;
                 Excel.Worksheet xlWorksheet = null;
 
                 OpenFileDialog ofd = new OpenFileDialog();
-                
+
                 ofd.Filter = "Excel File (*.xlsx)|*.xlsx|Excel File 97~2003(*.xls)|*.xls|All Files(*.*)|*.*";
                 ofd.FilterIndex = 1;
 
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
+                    this.Cursor = Cursors.WaitCursor;
                     txtFilePath.Text = ofd.FileName;
                     DataTable dt = new DataTable();
 
@@ -53,10 +58,10 @@ namespace TUChair
 
                     for (int i = 1; i <= range.Columns.Count; i++)
                     {
-                        dt.Columns.Add(data[1,i].ToString(), typeof(string));
+                        dt.Columns.Add(data[1, i].ToString(), typeof(string));
                     }
 
-                    for (int r = 2; r <= range.Rows.Count; r++)
+                    for (int r = 2; r <=range.Rows.Count; r++)
                     {
                         DataRow dr = dt.Rows.Add();
                         for (int c = 1; c <= range.Columns.Count; c++)
@@ -66,16 +71,18 @@ namespace TUChair
                     }
                     xlWorkbook.Close(true);
                     xlApp.Quit();
-                 
+
                     poData = dt;
-                   
+                    txtPlanID.Text = dtpDate.Value.Year.ToString() + dtpDate.Value.Month.ToString() + dtpDate.Value.Day.ToString() + dtpDate.Value.ToString("ddd");
                 }
+                this.Cursor = cursor;
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message);
                 check = false;
             }
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -85,6 +92,7 @@ namespace TUChair
                 MessageBox.Show("등록할 엑셀파일을 선택하십시오", "등록실패");
                 return;
             }
+
             DataColumn planColumn = poData.Columns.Add("planDate", typeof(DateTime));
             DataColumn idColumn = poData.Columns.Add("Sales_ID", typeof(string));
             for (int i=0; i<poData.Rows.Count; i++)
@@ -100,6 +108,12 @@ namespace TUChair
         {
             check = false;
             this.Close();
+        }
+
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
+        {
+            if(txtFilePath.Text.Length>0)
+                txtPlanID.Text = dtpDate.Value.Year.ToString() + dtpDate.Value.Month.ToString() + dtpDate.Value.Day.ToString() + dtpDate.Value .ToString("ddd");
         }
     }
 }

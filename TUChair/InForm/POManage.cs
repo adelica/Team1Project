@@ -1,10 +1,12 @@
 ﻿using DevExpress.DirectX.Common.Direct2D;
+using DevExpress.XtraReports.Design.Snapping;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 using TUChair.Service;
@@ -16,6 +18,7 @@ namespace TUChair
     public partial class POManage : TUChair.SearchCommomForm
     {
         List<POVO> list;
+        List<SOVO> sList;
         TUChairMain2 frm = new TUChairMain2();
 
         public POManage()
@@ -43,8 +46,10 @@ namespace TUChair
         {
             POSOService service = new POSOService();
             list = service.GetPOData();
+            sList = service.GetSOData();
             dgvPO.DataSource = list;
         }
+
         //영업마스터생성 팝업
         private void btnPOUpLoad_Click(object sender, EventArgs e) 
         {
@@ -52,6 +57,7 @@ namespace TUChair
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+
         //수요계획생성 팝업
         private void btnSORegi_Click(object sender, EventArgs e)
         {
@@ -102,7 +108,63 @@ namespace TUChair
             GetComboBinding();
             frm = (TUChairMain2)this.MdiParent;
             frm.New += New;
+            frm.Delete += Delete;
+            frm.Save += Save;
         }
+
+        private void Save(object sender, EventArgs e)
+        {
+            List<string> chkList = Check();
+            if(chkList.Count<1)
+            {
+                MessageBox.Show("수정할 데이터를 선택하여주세요", "수정실패");
+                return;
+            }
+            else if(chkList.Count==1)
+            {
+                POSOService service = new POSOService();
+                List<SOVO> soList = (from sL in sList
+                                     where sL.So_WorkOrderID == chkList[0]
+                                     select sL).ToList();
+                SORegi frm = new SORegi(soList);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                if(frm.Check)
+                {
+                    LoadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("데이터를  하나만 선택하여주세요", "수정실패");
+                return;
+            }
+        }
+
+        //삭제
+        private void Delete(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> chkList = Check();
+                if(chkList.Count<1)
+                {
+                    MessageBox.Show("삭제할 데이터를 선택하여 주세요", "삭제실패");
+                    return;
+                }
+                if(DialogResult.OK==(MessageBox.Show("정말 삭제하시겠습니까?","삭제확인",MessageBoxButtons.OKCancel)))
+                {
+                    string code = "'" + string.Join("','", chkList) + "'";
+                    POSOService service = new POSOService();
+                    if(service.DeleteSOInfo(code))
+                    {
+                        MessageBox.Show($"{code}이/가 삭제되었습니다.", "삭제완료");
+                        LoadData();
+                    }
+                }
+            }
+        }
+
         //조회
         private void New(object sender, EventArgs e)
         {
@@ -115,6 +177,8 @@ namespace TUChair
         private void POManage_FormClosing(object sender, FormClosingEventArgs e)
         {
             frm.New -= New;
+            frm.Delete -= Delete;
+            frm.Save -= Save;
         }
     }
 }
