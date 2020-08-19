@@ -208,7 +208,7 @@ namespace TUChair
                 if (cnt == 1)
                 {
 
-                    RegistFormPopUp frm = new RegistFormPopUp();
+                    RegistFormPopUp  frm = new RegistFormPopUp();
                     frm.Owner = this;
                     //shiftPop.uptdic = updatedic;
                     int ID = Convert.ToInt32(jeansGridView1.Rows[row].Cells[1].Value);
