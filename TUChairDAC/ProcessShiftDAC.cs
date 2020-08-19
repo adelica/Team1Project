@@ -436,7 +436,7 @@ namespace TUChairDAC
                     cmd.CommandText = @"select s.no  no, s.Item_Code Item_Code, Item_Name, Item_Size,Item_Type,s.Fact_Code, Qty, 
 	                                            null From_Fact ,CONVERT(varchar(10),getdate(), 23) Shift_date , 0 as 'N_HOUR'
 	                                            from Stock s left join Item i on s.Item_Code = i.Item_Code
-                                        where s.no in(" + pry + ")";
+                                        where s.no in(" + pry + ") ";
 
                     cmd.Connection.Open();
 

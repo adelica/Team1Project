@@ -37,15 +37,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvcom = new JeanForm.JeansGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dgvbalzu = new JeanForm.JeansGridView();
             this.btnFInsert = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.dgvcom = new JeanForm.JeansGridView();
+            this.dgvbalzu = new JeanForm.JeansGridView();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvcom)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvbalzu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +60,56 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(360, 499);
             this.panel3.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(5, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "≡ 발주업체";
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.dgvbalzu);
+            this.panel4.Controls.Add(this.btnFInsert);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Location = new System.Drawing.Point(378, 13);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(885, 495);
+            this.panel4.TabIndex = 2;
+            // 
+            // btnFInsert
+            // 
+            this.btnFInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFInsert.Location = new System.Drawing.Point(792, 30);
+            this.btnFInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFInsert.Name = "btnFInsert";
+            this.btnFInsert.Size = new System.Drawing.Size(61, 29);
+            this.btnFInsert.TabIndex = 1;
+            this.btnFInsert.Text = "등록";
+            this.btnFInsert.UseVisualStyleBackColor = true;
+            this.btnFInsert.Click += new System.EventHandler(this.btnFInsert_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(5, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "≡ 발주";
             // 
             // dgvcom
             // 
@@ -98,32 +148,6 @@
             this.dgvcom.Size = new System.Drawing.Size(349, 426);
             this.dgvcom.TabIndex = 1;
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(5, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "≡ 발주업체";
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.dgvbalzu);
-            this.panel4.Controls.Add(this.btnFInsert);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Location = new System.Drawing.Point(378, 13);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(885, 495);
-            this.panel4.TabIndex = 2;
-            // 
             // dgvbalzu
             // 
             this.dgvbalzu.AllowUserToAddRows = false;
@@ -161,29 +185,6 @@
             this.dgvbalzu.Size = new System.Drawing.Size(877, 426);
             this.dgvbalzu.TabIndex = 2;
             // 
-            // btnFInsert
-            // 
-            this.btnFInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFInsert.Location = new System.Drawing.Point(792, 30);
-            this.btnFInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFInsert.Name = "btnFInsert";
-            this.btnFInsert.Size = new System.Drawing.Size(61, 29);
-            this.btnFInsert.TabIndex = 1;
-            this.btnFInsert.Text = "등록";
-            this.btnFInsert.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(5, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "≡ 발주";
-            // 
             // BalzuPopUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -197,9 +198,9 @@
             this.Load += new System.EventHandler(this.BalzuPopUp_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvcom)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvbalzu)).EndInit();
             this.ResumeLayout(false);
 
