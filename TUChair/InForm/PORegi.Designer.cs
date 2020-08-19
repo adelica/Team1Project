@@ -64,28 +64,26 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(13, 15);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Location = new System.Drawing.Point(11, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(384, 251);
+            this.panel2.Size = new System.Drawing.Size(336, 201);
             this.panel2.TabIndex = 1;
             // 
             // dtpDate
             // 
             this.dtpDate.CustomFormat = "yyyy-MM-dd";
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(130, 144);
-            this.dtpDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpDate.Location = new System.Drawing.Point(114, 115);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(228, 25);
+            this.dtpDate.Size = new System.Drawing.Size(200, 21);
             this.dtpDate.TabIndex = 2;
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
             // 
             // btnFileSelect
             // 
-            this.btnFileSelect.Location = new System.Drawing.Point(130, 26);
-            this.btnFileSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFileSelect.Location = new System.Drawing.Point(114, 21);
             this.btnFileSelect.Name = "btnFileSelect";
-            this.btnFileSelect.Size = new System.Drawing.Size(86, 29);
+            this.btnFileSelect.Size = new System.Drawing.Size(75, 23);
             this.btnFileSelect.TabIndex = 0;
             this.btnFileSelect.Text = "파일선택";
             this.btnFileSelect.UseVisualStyleBackColor = true;
@@ -93,19 +91,18 @@
             // 
             // txtPlanID
             // 
-            this.txtPlanID.Location = new System.Drawing.Point(130, 200);
-            this.txtPlanID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPlanID.Location = new System.Drawing.Point(114, 160);
             this.txtPlanID.Name = "txtPlanID";
-            this.txtPlanID.Size = new System.Drawing.Size(237, 25);
+            this.txtPlanID.Size = new System.Drawing.Size(208, 21);
             this.txtPlanID.TabIndex = 3;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("굴림", 5F);
-            this.label8.Location = new System.Drawing.Point(15, 205);
+            this.label8.Location = new System.Drawing.Point(13, 164);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 9);
+            this.label8.Size = new System.Drawing.Size(10, 7);
             this.label8.TabIndex = 11;
             this.label8.Text = "■";
             // 
@@ -114,37 +111,36 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 5F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(15, 148);
+            this.label4.Location = new System.Drawing.Point(13, 118);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 9);
+            this.label4.Size = new System.Drawing.Size(10, 7);
             this.label4.TabIndex = 11;
             this.label4.Text = "■";
             // 
             // txtFilePath
             // 
             this.txtFilePath.Enabled = false;
-            this.txtFilePath.Location = new System.Drawing.Point(130, 85);
-            this.txtFilePath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtFilePath.Location = new System.Drawing.Point(114, 68);
             this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(237, 25);
+            this.txtFilePath.Size = new System.Drawing.Size(208, 21);
             this.txtFilePath.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("굴림", 5F);
-            this.label6.Location = new System.Drawing.Point(15, 32);
+            this.label6.Location = new System.Drawing.Point(13, 26);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 9);
+            this.label6.Size = new System.Drawing.Size(10, 7);
             this.label6.TabIndex = 11;
             this.label6.Text = "■";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 202);
+            this.label7.Location = new System.Drawing.Point(24, 162);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 15);
+            this.label7.Size = new System.Drawing.Size(77, 12);
             this.label7.TabIndex = 10;
             this.label7.Text = "계획기준버전";
             // 
@@ -152,18 +148,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 5F);
-            this.label2.Location = new System.Drawing.Point(15, 90);
+            this.label2.Location = new System.Drawing.Point(13, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 9);
+            this.label2.Size = new System.Drawing.Size(10, 7);
             this.label2.TabIndex = 11;
             this.label2.Text = "■";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 30);
+            this.label5.Location = new System.Drawing.Point(24, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 15);
+            this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 10;
             this.label5.Text = "파일선택";
             // 
@@ -171,18 +167,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(27, 145);
+            this.label3.Location = new System.Drawing.Point(24, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 15);
+            this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 10;
             this.label3.Text = "계획일자";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 88);
+            this.label1.Location = new System.Drawing.Point(24, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 15);
+            this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 10;
             this.label1.Text = "선택계획파일";
             // 
@@ -190,18 +186,16 @@
             // 
             this.panel5.Controls.Add(this.btnSave);
             this.panel5.Controls.Add(this.btnCancel);
-            this.panel5.Location = new System.Drawing.Point(13, 281);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel5.Location = new System.Drawing.Point(11, 225);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(384, 50);
+            this.panel5.Size = new System.Drawing.Size(336, 40);
             this.panel5.TabIndex = 9;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(45, 10);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSave.Location = new System.Drawing.Point(39, 8);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(178, 29);
+            this.btnSave.Size = new System.Drawing.Size(156, 23);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "영업마스터 Upload";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -209,10 +203,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(242, 10);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancel.Location = new System.Drawing.Point(212, 8);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(86, 29);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -224,13 +217,12 @@
             // 
             // PORegi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 340);
+            this.ClientSize = new System.Drawing.Size(359, 272);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PORegi";

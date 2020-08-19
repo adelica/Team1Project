@@ -77,8 +77,8 @@
     <Reference Include="DevExpress.XtraReports.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v20.1.Extensions, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraWizard.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Office.Interop.Excel">
-      <HintPath>..\Microsoft.Office.Interop.Excel.dll</HintPath>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InForm\ProductPlanRegi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\ProductPlanRegi.Designer.cs">
+      <DependentUpon>ProductPlanRegi.cs</DependentUpon>
+    </Compile>
     <Compile Include="MeilingForm\DispensingMaterialsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,14 @@
     <Compile Include="MeilingForm\MetrialDecountPopUp.Designer.cs">
       <DependentUpon>MetrialDecountPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="MeilingForm\RowMetrialDecountPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeilingForm\RowMetrialDecountPopUp.Designer.cs">
+      <DependentUpon>RowMetrialDecountPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service\JeanMagamService.cs" />
+    <Compile Include="Service\MaterialRequirementService.cs" />
     <Compile Include="Service\POSOService.cs" />
     <Compile Include="WooForm\BOMPopUP.cs">
       <SubType>Form</SubType>
@@ -605,11 +619,17 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="InForm\ProductPlanRegi.resx">
+      <DependentUpon>ProductPlanRegi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\DispensingMaterialsForm.resx">
       <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\MetrialDecountPopUp.resx">
       <DependentUpon>MetrialDecountPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeilingForm\RowMetrialDecountPopUp.resx">
+      <DependentUpon>RowMetrialDecountPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WooForm\BOMPopUP.resx">
       <DependentUpon>BOMPopUP.cs</DependentUpon>
@@ -884,10 +904,9 @@
     <Content Include="Resources\Upsert.png" />
     <Content Include="Resources\등록수정.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TUChairDAC\TUChairDAC.csproj">
-      <Project>{78D08B8B-D504-453C-A530-0F168698CB2F}</Project>
+      <Project>{78d08b8b-d504-453c-a530-0f168698cb2f}</Project>
       <Name>TUChairDAC</Name>
     </ProjectReference>
     <ProjectReference Include="..\TUChairVO\TUChairVO.csproj">

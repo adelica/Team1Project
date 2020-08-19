@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Data.Common;
 using System.Windows.Forms;
+using System.Runtime.Remoting.Messaging;
 
 namespace TUChairDAC
 {
@@ -22,7 +23,7 @@ namespace TUChairDAC
                 string sql = string.Empty;
                 using (SqlConnection conn = new SqlConnection(this.ConnectionString))
                 {
-                    sql = @"select Item_Code from item";
+                    sql = @"select Item_Code from item where Item_Type='완제품'";
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     da.Fill(ds, "item_Code");
                     sql = @"select Com_Code from Company";
@@ -40,16 +41,30 @@ namespace TUChairDAC
                 return null;
             }
         }
-        //엑셀등록한 영업마스터 DB에 등록
-        public bool SetPOData(List<UpLoadVO> upList)
+
+        public bool ProductPlanRegi(string planID)
         {
             try
             {
                 using(SqlCommand cmd = new SqlCommand())
                 {
-                    //cmd.CommandText
+                    cmd.CommandText = "SP_ProductingPlan5";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Sales_ID", planID);
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+
+                    cmd.Connection.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SP_OutSorcingPlan";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                   
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Connection.Close();
+                    return true;
                 }
-                return true;
             }
             catch(Exception err)
             {
@@ -58,7 +73,99 @@ namespace TUChairDAC
             }
         }
 
-        public List<string> CheckSalesID()
+        //SO정보 삭제
+        public bool DeleteSOInfo(string code)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = @"DELETE FROM SalesOrder Where So_WorkOrderID IN (" + code + ")";
+
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+
+                    return true;
+                }
+            }
+            catch(Exception err)
+            {
+                _log.WriteError(err.Message);
+                return false;
+            }
+        }
+        //SO정보
+        public List<SOVO> GetSOData()
+        {
+            try
+            {
+                using(SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "select * from SalesOrder";
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.Connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<SOVO> list = Helper.DataReaderMapToList<SOVO>(reader);
+                    cmd.Connection.Close();
+
+                    return list;
+                }
+            }
+            catch(Exception err)
+            {
+                _log.WriteError(err.Message);
+                return null;
+            }
+        }
+
+        //엑셀등록한 영업마스터 DB에 등록
+        public bool SetPOData(List<UpLoadVO> upList)
+        {
+            try
+            {
+                using(SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SP_SetSalesMaster";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.Connection.Open();
+                    cmd.Parameters.AddWithValue("@Sales_ID", upList[0].Sales_ID);
+                    cmd.Parameters.AddWithValue("@Com_Code", upList[0].Com_Code);
+                    cmd.Parameters.AddWithValue("@Sales_Plandate", upList[0].Sales_Plandate);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SP_SetSalesOrder";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    for (int i = 0; i < upList.Count; i++)
+                    {
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@Sales_ID", upList[i].Sales_ID);
+                        cmd.Parameters.AddWithValue("@Com_Code", upList[i].Com_Code);
+                        cmd.Parameters.AddWithValue("@Sales_Qty", upList[i].Sales_Qty);                  
+                        cmd.Parameters.AddWithValue("@Item_Code", upList[i].Item_Code);
+                        cmd.Parameters.AddWithValue("@So_WorkOrderID", upList[i].So_WorkOrderID);
+                        cmd.Parameters.AddWithValue("@So_Duedate", upList[i].So_Duedate);
+                        cmd.Parameters.AddWithValue("@Modifier", upList[i].Modifier);
+                    
+                        cmd.ExecuteNonQuery();
+                        
+                    }
+                    cmd.Connection.Close();
+
+                }
+                return true;
+            }
+            catch(Exception err)
+            {
+                _log.WriteError(err.Message);
+                return false;
+            }
+        }
+
+        public List<SalesIDVO> CheckSalesID()
         {
             try
             {
@@ -68,13 +175,15 @@ namespace TUChairDAC
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
-                    List<string> list = Helper.DataReaderMapToList<string>(reader);
+                    List<SalesIDVO> list = Helper.DataReaderMapToList<SalesIDVO>(reader);
                     cmd.Connection.Close();
+
                     return list;
                 }
             }
             catch(Exception err)
             {
+                _log.WriteError(err.Message);
                 return null;
             }
         }
@@ -85,9 +194,10 @@ namespace TUChairDAC
             {
                 using(SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = @"select So_WorkOrderID, So_PurchaseOrder, so.Com_Code, Com_Name, so.Item_Code, Item_Name, So_Duedate, So_Qty, So_ShipQty
+                    cmd.CommandText = @"select so.So_WorkOrderID, So_PurchaseOrder, so.Com_Code, Com_Name, so.Item_Code, Item_Name, So_Duedate, So_Qty, So_ShipQty, Sales_Plandate
                                                         from SalesOrder so inner join Company c on so.Com_Code=c.Com_Code
-				                                                                	inner join Item i on so.Item_Code=i.Item_Code";
+				                                                                	inner join Item i on so.Item_Code=i.Item_Code
+																					inner join SalesMaster M on so.Sales_ID=m.Sales_ID";
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();

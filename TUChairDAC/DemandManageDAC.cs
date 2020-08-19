@@ -45,7 +45,9 @@ namespace TUChairDAC
             {
                 using(SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = @"select Com_Name, isnull(Sales_ID,0) as Sales_ID from SalesMaster m right outer join Company C on m.Com_Code=c.Com_Code";
+                    cmd.CommandText = @"select Sales_ID, '' as Com_Name from SalesMaster
+                                                        union all
+                                                        select ''as Sales_ID, Com_Name from Company";
                     cmd.Connection = new SqlConnection(this.ConnectionString);
 
                     cmd.Connection.Open();
@@ -58,6 +60,7 @@ namespace TUChairDAC
             }
             catch(Exception err)
             {
+                _log.WriteError(err.Message);
                 return null;
             }
         }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
             this.inDTP1 = new TUChair.InDTP();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpPlanDate = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -53,7 +53,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.dgvPO = new JeanForm.JeansGridView();
-            this.btnPOUpLoad = new System.Windows.Forms.Button();
             this.btnSORegi = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,12 +80,11 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnSORegi);
-            this.panel2.Controls.Add(this.btnPOUpLoad);
             this.panel2.Location = new System.Drawing.Point(13, 158);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Size = new System.Drawing.Size(1091, 38);
             this.panel2.TabIndex = 1;
             this.panel2.Controls.SetChildIndex(this.label1, 0);
-            this.panel2.Controls.SetChildIndex(this.btnPOUpLoad, 0);
             this.panel2.Controls.SetChildIndex(this.btnSORegi, 0);
             // 
             // panel1
@@ -227,7 +225,7 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.dateTimePicker1);
+            this.panel10.Controls.Add(this.dtpPlanDate);
             this.panel10.Controls.Add(this.label14);
             this.panel10.Controls.Add(this.label15);
             this.panel10.Location = new System.Drawing.Point(405, 79);
@@ -235,15 +233,15 @@
             this.panel10.Size = new System.Drawing.Size(312, 34);
             this.panel10.TabIndex = 7;
             // 
-            // dateTimePicker1
+            // dtpPlanDate
             // 
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(99, 6);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(208, 21);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dtpPlanDate.CustomFormat = "yyyy-MM-dd";
+            this.dtpPlanDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpPlanDate.Location = new System.Drawing.Point(99, 6);
+            this.dtpPlanDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpPlanDate.Name = "dtpPlanDate";
+            this.dtpPlanDate.Size = new System.Drawing.Size(208, 21);
+            this.dtpPlanDate.TabIndex = 7;
             // 
             // label14
             // 
@@ -273,12 +271,12 @@
             this.panel12.Controls.Add(this.label19);
             this.panel12.Location = new System.Drawing.Point(741, 25);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(312, 34);
+            this.panel12.Size = new System.Drawing.Size(335, 34);
             this.panel12.TabIndex = 2;
             // 
             // txtCusNumber
             // 
-            this.txtCusNumber.Location = new System.Drawing.Point(100, 7);
+            this.txtCusNumber.Location = new System.Drawing.Point(121, 7);
             this.txtCusNumber.Name = "txtCusNumber";
             this.txtCusNumber.Size = new System.Drawing.Size(208, 21);
             this.txtCusNumber.TabIndex = 2;
@@ -307,25 +305,25 @@
             // dgvPO
             // 
             this.dgvPO.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
-            this.dgvPO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPO.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Beige;
+            this.dgvPO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPO.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPO.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPO.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvPO.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPO.EnableHeadersVisualStyles = false;
             this.dgvPO.IsAllCheckColumnHeader = false;
@@ -333,35 +331,24 @@
             this.dgvPO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPO.Name = "dgvPO";
             this.dgvPO.RowHeadersWidth = 30;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
-            this.dgvPO.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Bisque;
+            this.dgvPO.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvPO.RowTemplate.Height = 27;
             this.dgvPO.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPO.Size = new System.Drawing.Size(1090, 389);
             this.dgvPO.TabIndex = 0;
             this.dgvPO.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvPO_RowPostPaint);
             // 
-            // btnPOUpLoad
-            // 
-            this.btnPOUpLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPOUpLoad.Location = new System.Drawing.Point(849, 9);
-            this.btnPOUpLoad.Name = "btnPOUpLoad";
-            this.btnPOUpLoad.Size = new System.Drawing.Size(109, 23);
-            this.btnPOUpLoad.TabIndex = 0;
-            this.btnPOUpLoad.Text = "영업마스터생성";
-            this.btnPOUpLoad.UseVisualStyleBackColor = true;
-            this.btnPOUpLoad.Click += new System.EventHandler(this.btnPOUpLoad_Click);
-            // 
             // btnSORegi
             // 
             this.btnSORegi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSORegi.Location = new System.Drawing.Point(973, 9);
+            this.btnSORegi.Location = new System.Drawing.Point(972, 7);
             this.btnSORegi.Name = "btnSORegi";
             this.btnSORegi.Size = new System.Drawing.Size(102, 23);
             this.btnSORegi.TabIndex = 1;
             this.btnSORegi.Text = "수요계획생성";
             this.btnSORegi.UseVisualStyleBackColor = true;
-            this.btnSORegi.Click += new System.EventHandler(this.btnSORegi_Click);
+
             // 
             // POManage
             // 
@@ -393,7 +380,7 @@
 
         #endregion
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpPlanDate;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel9;
@@ -413,7 +400,6 @@
         private System.Windows.Forms.Label label8;
         private JeanForm.JeansGridView dgvPO;
         private System.Windows.Forms.Button btnSORegi;
-        private System.Windows.Forms.Button btnPOUpLoad;
         private InDTP inDTP1;
     }
 }

@@ -18,33 +18,27 @@ namespace TUChair
     public partial class POUpLoad : Form//------------하는 중
     {
         DataTable poData = null;
-        List<string> salesID;
+        List<SalesIDVO> salesID;
 
         public POUpLoad()
         {
             InitializeComponent();
             CommonUtil.InitSettingGridView(dgvPO);
             dgvPO.AutoGenerateColumns = true;
-            dgvPO.IsAllCheckColumnHeader = true;
 
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "planDate", "planDate", true, 150, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "planDate", "planDate", true, 150, DataGridViewContentAlignment.MiddleCenter); //0
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "순번", "순번", true, 70, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "WORK_ORDER_ID", "WORK_ORDER_ID", true, 200, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "업체코드", "업체 CODE", true, 150, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "WORK_ORDER_ID", "WORK_ORDER_ID", true, 200, DataGridViewContentAlignment.MiddleCenter);//2
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "업체코드", "업체 CODE", true, 150, DataGridViewContentAlignment.MiddleCenter);//3
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "납품처", "납품처", true, 100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "SIZE", "SIZE", true, 130, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "품명", "품명", true, 120, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "계획수량합계", "계획수량합계", true, 100, DataGridViewContentAlignment.MiddleRight);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "납기일", "납기일", true, 150, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "품명", "품명", true, 120, DataGridViewContentAlignment.MiddleCenter);//6
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "계획수량합계", "계획수량합계", true, 100, DataGridViewContentAlignment.MiddleRight);//7
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "납기일", "납기일", true, 150, DataGridViewContentAlignment.MiddleCenter);//8
 
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "Sales_ID", "Sales_ID", false);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "Sales_ID", "Sales_ID", false,200);//9
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "입고P/NO", "입고P/NO", false, 120, DataGridViewContentAlignment.MiddleCenter);
-
-        }
-
-        private void btnPOUpLoad_Click(object sender, EventArgs e)
-        {
-
+            
         }
 
         private void POUpLoad_Load(object sender, EventArgs e)
@@ -109,10 +103,10 @@ namespace TUChair
 
         private bool CheckSalesID(string id)
         {
-            List<string> chk = (from check in salesID
-                                where check == id
-                                select check).ToList();
-            if (chk.Count > 0)
+            int chk = (from check in salesID
+                       where check.Sales_ID == id
+                       select check).Count();
+            if (chk > 0)
                 return true;
             else
                 return false;
@@ -148,13 +142,22 @@ namespace TUChair
                 {
                     for (int i = 0; i < dgvPO.Rows.Count; i++)
                     {
-                        upList[i].Sales_Plandate = Convert.ToDateTime(dgvPO.Rows[i].Cells[1].Value);
-                        upList[i].So_WorkOrderID = dgvPO.Rows[i].Cells[3].Value.ToString();
-                        upList[i].Com_Code = dgvPO.Rows[i].Cells[4].Value.ToString();
-                        upList[i].Item_Code = dgvPO.Rows[i].Cells[7].Value.ToString();
-                        upList[i].Sales_Qty = Convert.ToInt32(dgvPO.Rows[i].Cells[8].Value);
-                        upList[i].So_Duedate = Convert.ToDateTime(dgvPO.Rows[i].Cells[9].Value);
-                        upList[i].Sales_ID = dgvPO.Rows[i].Cells[10].Value.ToString();
+
+                        UpLoadVO upLoadVO = new UpLoadVO();
+                        upLoadVO.So_WorkOrderID = dgvPO.Rows[i].Cells[1].Value.ToString();
+                        upLoadVO.Com_Code = dgvPO.Rows[i].Cells[2].Value.ToString();
+                        upLoadVO.Item_Code = dgvPO.Rows[i].Cells[5].Value.ToString();
+                        upLoadVO.Sales_Qty = Convert.ToInt32(dgvPO.Rows[i].Cells[7].Value);
+                        upLoadVO.So_Duedate = Convert.ToDateTime(dgvPO.Rows[i].Cells[8].Value);
+                        if(upLoadVO.So_Duedate.DayOfWeek.ToString()=="saturday" ||upLoadVO.So_Duedate.DayOfWeek.ToString()=="sunday")
+                        { 
+                            MessageBox.Show("납기일은 주말이 될 수 없습니다.");
+                            return;
+                        }
+                        upLoadVO.Sales_Plandate = Convert.ToDateTime(dgvPO.Rows[i].Cells[9].Value);
+                        upLoadVO.Sales_ID = dgvPO.Rows[i].Cells[10].Value.ToString();
+                        upLoadVO.Modifier = LoginFrm.userName;
+                        upList.Add(upLoadVO);
                     }
                 }
                 else
@@ -166,17 +169,31 @@ namespace TUChair
             {
                 for (int i = 0; i < dgvPO.Rows.Count; i++)
                 {
-                    upList[i].Sales_Plandate = Convert.ToDateTime(dgvPO.Rows[i].Cells[1].Value);
-                    upList[i].So_WorkOrderID = dgvPO.Rows[i].Cells[3].Value.ToString();
-                    upList[i].Com_Code = dgvPO.Rows[i].Cells[4].Value.ToString();
-                    upList[i].Item_Code = dgvPO.Rows[i].Cells[7].Value.ToString();
-                    upList[i].Sales_Qty = Convert.ToInt32(dgvPO.Rows[i].Cells[8].Value);
-                    upList[i].So_Duedate = Convert.ToDateTime(dgvPO.Rows[i].Cells[9].Value);
-                    upList[i].Sales_ID = dgvPO.Rows[i].Cells[10].Value.ToString();
+                    UpLoadVO upLoadVO = new UpLoadVO();
+                    upLoadVO.So_WorkOrderID = dgvPO.Rows[i].Cells[1].Value.ToString();
+                    upLoadVO.Com_Code = dgvPO.Rows[i].Cells[2].Value.ToString();
+                    upLoadVO.Item_Code = dgvPO.Rows[i].Cells[5].Value.ToString();
+                    upLoadVO.Sales_Qty = Convert.ToInt32(dgvPO.Rows[i].Cells[7].Value);
+                    upLoadVO.So_Duedate = Convert.ToDateTime(dgvPO.Rows[i].Cells[8].Value);
+                    if (upLoadVO.So_Duedate.DayOfWeek.ToString() == "saturday" || upLoadVO.So_Duedate.DayOfWeek.ToString() == "sunday")
+                    {
+                        MessageBox.Show("납기일은 주말이 될 수 없습니다.");
+                        return;
+                    }
+                    upLoadVO.Sales_Plandate = Convert.ToDateTime(dgvPO.Rows[i].Cells[9].Value);
+                    upLoadVO.Sales_ID = dgvPO.Rows[i].Cells[10].Value.ToString();
+                    upLoadVO.Modifier = LoginFrm.userName;
+                    upList.Add(upLoadVO);
                 }
             }
             POSOService service = new POSOService();
             bool check = service.SetPOData(upList);
+            if(check)
+            {
+                MessageBox.Show("등록되었습니다", "등록완료");
+                poData = null;
+                dgvPO.DataSource = poData;
+            }
         }
     }
 }

@@ -180,6 +180,36 @@ namespace TUChairDAC
                 return null;
             }
         }
+
+        public List<MonthDeadLineVO> MonthSearch(string date, string type, string com) // 영업단가 관리 (완제품)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_WaitList";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@ThisMonth", (object)date ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Type", (object)type ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CCode", (object)com ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<MonthDeadLineVO> list = Helper.MeilingDataReaderMapToList<MonthDeadLineVO>(reader);
+                    cmd.Connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+
+                return null;
+            }
+        }
         #endregion
 
     }

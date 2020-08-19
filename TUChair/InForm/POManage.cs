@@ -1,10 +1,12 @@
 ﻿using DevExpress.DirectX.Common.Direct2D;
+using DevExpress.XtraReports.Design.Snapping;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 using TUChair.Service;
@@ -16,6 +18,7 @@ namespace TUChair
     public partial class POManage : TUChair.SearchCommomForm
     {
         List<POVO> list;
+        List<SOVO> sList;
         TUChairMain2 frm = new TUChairMain2();
 
         public POManage()
@@ -35,7 +38,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "생산납기일", "So_Duedate", true,150, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "주문수량", "So_Qty", true,100, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "출고수량", "So_ShipQty", true,100, DataGridViewContentAlignment.MiddleRight);
-
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "등록날짜", "Sales_Plandate", true, 100, DataGridViewContentAlignment.MiddleRight);
             LoadData();
         }
 
@@ -43,26 +46,12 @@ namespace TUChair
         {
             POSOService service = new POSOService();
             list = service.GetPOData();
+            sList = service.GetSOData();
             dgvPO.DataSource = list;
         }
-        //영업마스터생성 팝업
-        private void btnPOUpLoad_Click(object sender, EventArgs e) 
-        {
-            PORegi frm = new PORegi();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-        }
-        //수요계획생성 팝업
-        private void btnSORegi_Click(object sender, EventArgs e)
-        {
-            SORegi frm = new SORegi();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            if(frm.Check)
-            {
-                LoadData();
-            }
-        }
+
+
+        //콤보박스 바인딩용
         private void GetComboBinding()
         {
             List<string> cboList = (from code in list
@@ -102,7 +91,134 @@ namespace TUChair
             GetComboBinding();
             frm = (TUChairMain2)this.MdiParent;
             frm.New += New;
+            frm.Delete += Delete;
+            frm.Save += Save;
+            frm.Search += Search;
         }
+        //조건에 따른 검색
+        private void Search(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+             
+                List<POVO> searchList;
+
+                if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length < 1 && txtItem.Text.Trim().Length < 1)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate.Date == dtpPlanDate.Value.Date
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex != 0 && txtCusNumber.Text.Trim().Length < 1 && txtItem.Text.Trim().Length < 1)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.Text && search.Sales_Plandate.Date == dtpPlanDate.Value.Date
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex != 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length < 1)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.Text && search.Sales_Plandate.Date == dtpPlanDate.Value.Date
+                                  && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper())
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex != 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length > 0)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Com_Code == cboCustomer.Text && search.Sales_Plandate.Date == dtpPlanDate.Value.Date
+                                  && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper()) && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length < 1)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate.Date == dtpPlanDate.Value.Date && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper())
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length < 1 && txtItem.Text.Trim().Length > 0)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate.Date == dtpPlanDate.Value.Date && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  select search).ToList();
+                }
+                else if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length > 0 && txtItem.Text.Trim().Length > 0)
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate.Date == dtpPlanDate.Value.Date && search.So_PurchaseOrder.ToUpper().Contains(txtCusNumber.Text.ToUpper()) && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  select search).ToList();
+                }
+                else
+                {
+                    searchList = (from search in list
+                                  where (search.So_Duedate >= inDTP1.Start && search.So_Duedate <= inDTP1.End) && search.Sales_Plandate.Date == dtpPlanDate.Value.Date && search.Com_Code == cboCustomer.Text && search.Item_Code.ToUpper().Contains(txtItem.Text.ToUpper())
+                                  select search).ToList();
+                }
+                dgvPO.DataSource = searchList;
+            }
+        }
+
+        //수정
+        private void Save(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> chkList = Check();
+                if (chkList.Count < 1)
+                {
+                    SORegi frm = new SORegi();
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    if (frm.Check)
+                    {
+                        LoadData();
+                    }
+                }
+                else if (chkList.Count == 1)
+                {
+                    POSOService service = new POSOService();
+                    List<SOVO> soList = (from sL in sList
+                                         where sL.So_WorkOrderID == chkList[0]
+                                         select sL).ToList();
+                    SORegi frm = new SORegi(soList);
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    if (frm.Check)
+                    {
+                        LoadData();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("수정할 데이터를  하나만 선택하여주세요", "수정실패");
+                    return;
+                }
+            }
+        }
+
+        //삭제
+        private void Delete(object sender, EventArgs e)
+        {
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                List<string> chkList = Check();
+                if(chkList.Count<1)
+                {
+                    MessageBox.Show("삭제할 데이터를 선택하여 주세요", "삭제실패");
+                    return;
+                }
+                if(DialogResult.OK==(MessageBox.Show("정말 삭제하시겠습니까?","삭제확인",MessageBoxButtons.OKCancel)))
+                {
+                    string code = "'" + string.Join("','", chkList) + "'";
+                    POSOService service = new POSOService();
+                    if(service.DeleteSOInfo(code))
+                    {
+                        MessageBox.Show($"{code}이/가 삭제되었습니다.", "삭제완료");
+                        LoadData();
+                    }
+                }
+            }
+        }
+
         //조회
         private void New(object sender, EventArgs e)
         {
@@ -115,6 +231,9 @@ namespace TUChair
         private void POManage_FormClosing(object sender, FormClosingEventArgs e)
         {
             frm.New -= New;
+            frm.Delete -= Delete;
+            frm.Save -= Save;
+            frm.Search -= Search;
         }
     }
 }
