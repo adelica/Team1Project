@@ -642,9 +642,10 @@ on item.Item_Code = wo.Item_Code where Wo_State='지시'";
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = @"select [WorkOrderID], [Pro_ID], [Item_Code], [Plan_Qty], [Plan_Date], [Prd_Date],
+                    cmd.CommandText = @"select [WorkOrderID], [Pro_ID], wo.[Item_Code], item.Item_Type, [Plan_Qty], [Plan_Date], [Prd_Date],
 [Wo_State], [Wo_Order], [Plan_StartTime], [Plan_EndTime], [In_Qty_Main], [Out_Qty_Main], 
-[Prd_Qty], [Sales_ID], [Remark], [Up_Date], [Up_Emp], [Deduction] from [dbo].[WorkOrder]";
+[Prd_Qty], [Sales_ID], [Remark], [Up_Date], [Up_Emp], [Deduction] from [dbo].[WorkOrder] wo
+join [dbo].[Item] item on wo.Item_Code = item.Item_Code";
                    // cmd.CommandType = CommandType.StoredProcedure;
                   //  cmd.Parameters.AddWithValue("@P_Condition", condition);
                    // cmd.Parameters.AddWithValue("@P_Seperator", "@");
@@ -745,6 +746,61 @@ where item.Item_OutWarehouse = stock.Fact_Code";
             {
                 Debug.WriteLine(err.Message);
                 return null;
+            }
+
+        }
+        public bool rowMetrailDecount(string item,string inhouse,string outhouse,int outQTY)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"SP_rowmetraildecount";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@item ", item);
+                    cmd.Parameters.AddWithValue("@inhouse", inhouse);
+                    cmd.Parameters.AddWithValue("@outhouse", outhouse);
+                    cmd.Parameters.AddWithValue("@outQTY", outQTY);
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
+                throw err;
+            }
+
+        }
+        public bool itemDecount2(int workorderID, int Out_Qty_Main, int Prd_Qty, string Up_Emp)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(this.ConnectionString);
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"SP_UpdateWorkorder2";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@WorkOrderID ", workorderID);
+                    cmd.Parameters.AddWithValue("@Out_Qty_Main", Out_Qty_Main);
+                    cmd.Parameters.AddWithValue("@Prd_Qty ", Prd_Qty);
+                    cmd.Parameters.AddWithValue("@Up_Emp", Up_Emp);
+                  
+                    cmd.Connection.Open();
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
+                throw err;
             }
 
         }

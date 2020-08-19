@@ -21,8 +21,34 @@ namespace TUChair
             InitializeComponent();
         
             ComboBinding();
-            dtpDueDate.MinDate = DateTime.Now;
+            //dtpDueDate.MinDate = DateTime.Now;
+            txtShipQty.Enabled = false;
         }
+
+        public SORegi(List<SOVO> soList) : this()
+        {
+            SOVO soItem = soList[0];
+
+            txtWorkOrder.Text = soItem.So_WorkOrderID.ToString();
+            txtOther.Text = soItem.So_Other==null? "" : soItem.So_Other.ToString();
+            txtPurchaseOrder.Text = soItem.So_PurchaseOrder == "" ? "" : soItem.So_PurchaseOrder.ToString();
+            cboComCode.Text = soItem.Com_Code;
+            dtpDueDate.Value = soItem.So_Duedate;
+            txtShipQty.Text = soItem.So_ShipQty == 0 ? "" : soItem.So_ShipQty.ToString();
+            cboItemCode.Text = soItem.Item_Code;
+            txtQty.Text = soItem.So_Qty.ToString();
+
+            if (txtPurchaseOrder.Text.Trim().Length < 1)
+                txtPurchaseOrder.Enabled = true;
+            else
+                txtPurchaseOrder.Enabled = false;
+
+
+            txtWorkOrder.Enabled = false;
+            cboComCode.Enabled = false;
+
+        }
+
         public SOVO Item
         {
             get

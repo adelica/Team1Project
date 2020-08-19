@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.inDTP1 = new TUChair.InDTP();
+            this.dtpMaterialReq = new TUChair.InDTP();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -37,7 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.dgvMaterialReq = new System.Windows.Forms.DataGridView();
+            this.dgvMaterialReq = new JeanForm.JeansGridView();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -64,7 +68,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.inDTP1);
+            this.panel6.Controls.Add(this.dtpMaterialReq);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Location = new System.Drawing.Point(544, 28);
@@ -72,20 +76,20 @@
             this.panel6.Size = new System.Drawing.Size(366, 34);
             this.panel6.TabIndex = 1;
             // 
-            // inDTP1
+            // dtpMaterialReq
             // 
-            this.inDTP1.DateLimit = false;
-            this.inDTP1.End = new System.DateTime(2020, 9, 3, 0, 0, 0, 0);
-            this.inDTP1.endCustomfomat = null;
-            this.inDTP1.endfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.inDTP1.Location = new System.Drawing.Point(105, 2);
-            this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.inDTP1.Name = "inDTP1";
-            this.inDTP1.Size = new System.Drawing.Size(245, 26);
-            this.inDTP1.Start = new System.DateTime(2020, 7, 15, 0, 0, 0, 0);
-            this.inDTP1.startCustomfomat = null;
-            this.inDTP1.startfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.inDTP1.TabIndex = 1;
+            this.dtpMaterialReq.DateLimit = false;
+            this.dtpMaterialReq.End = new System.DateTime(2020, 9, 3, 0, 0, 0, 0);
+            this.dtpMaterialReq.endCustomfomat = null;
+            this.dtpMaterialReq.endfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpMaterialReq.Location = new System.Drawing.Point(105, 2);
+            this.dtpMaterialReq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpMaterialReq.Name = "dtpMaterialReq";
+            this.dtpMaterialReq.Size = new System.Drawing.Size(245, 26);
+            this.dtpMaterialReq.Start = new System.DateTime(2020, 7, 15, 0, 0, 0, 0);
+            this.dtpMaterialReq.startCustomfomat = null;
+            this.dtpMaterialReq.startfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpMaterialReq.TabIndex = 1;
             // 
             // label7
             // 
@@ -162,13 +166,35 @@
             // 
             // dgvMaterialReq
             // 
+            this.dgvMaterialReq.AllowUserToAddRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Beige;
+            this.dgvMaterialReq.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMaterialReq.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvMaterialReq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMaterialReq.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvMaterialReq.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMaterialReq.IsAllCheckColumnHeader = false;
             this.dgvMaterialReq.Location = new System.Drawing.Point(0, 0);
-            this.dgvMaterialReq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMaterialReq.Name = "dgvMaterialReq";
-            this.dgvMaterialReq.RowHeadersWidth = 51;
-            this.dgvMaterialReq.RowTemplate.Height = 27;
+            this.dgvMaterialReq.RowHeadersWidth = 30;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Bisque;
+            this.dgvMaterialReq.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvMaterialReq.RowTemplate.Height = 23;
+            this.dgvMaterialReq.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMaterialReq.Size = new System.Drawing.Size(1090, 425);
             this.dgvMaterialReq.TabIndex = 0;
             // 
@@ -179,6 +205,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MaterialRequirementManage";
             this.Text = "자재소요계획";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MaterialRequirementManage_FormClosing);
+            this.Load += new System.EventHandler(this.MaterialRequirementManage_Load);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -195,14 +223,14 @@
         #endregion
 
         private System.Windows.Forms.Panel panel6;
-        private InDTP inDTP1;
+        private InDTP dtpMaterialReq;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cboPlanID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dgvMaterialReq;
         private System.Windows.Forms.Button btnSearch;
+        private JeanForm.JeansGridView dgvMaterialReq;
     }
 }

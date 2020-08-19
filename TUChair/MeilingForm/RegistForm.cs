@@ -44,6 +44,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "작업지시번호", "WorkOrderID", true);//1
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "생산계획번호", "Pro_ID", true);//2
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "아이템코드", "Item_Code", true);//3
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "아이템타입", "Item_Type", true);//3
             //CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "아이템이름", "Item_Name", true);//4
             //CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "소진창고", "Item_InWarehouse", true);//5
             //CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "양품창고", "Item_OutWarehouse", true);//6
@@ -207,13 +208,13 @@ namespace TUChair
                 if (cnt == 1)
                 {
 
-                    RegistFormPopUp frm = new RegistFormPopUp();
+                    RegistFormPopUp  frm = new RegistFormPopUp();
                     frm.Owner = this;
                     //shiftPop.uptdic = updatedic;
                     int ID = Convert.ToInt32(jeansGridView1.Rows[row].Cells[1].Value);
                     frm.WorkOrderId = ID;
-
-
+                    string itemtype = jeansGridView1.Rows[row].Cells[4].Value.ToString();
+                    frm.itemType = itemtype;
 
                     frm.ShowDialog();
                     if (frm.ShowDialog() == DialogResult.OK)
