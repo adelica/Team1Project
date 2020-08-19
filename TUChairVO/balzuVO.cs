@@ -24,17 +24,17 @@ namespace TUChairVO
     }
     public class PbalzuVO
     {
-          public string     Com_Name             {get; set;}
+          public string      Com_Name             {get; set;}
           public string      Com_Type            {get; set;}
           public string      Item_Name           {get; set;}
-          public string     Item_Code           {get; set;}
+          public string      Item_Code           {get; set;}
           public string      Item_Size           {get; set;}
           public int         Qty                  {get; set;}
           public DateTime    duedate              {get; set;}
           public string      isbalzu              { get; set; }
-          public string     Com_CorporRegiNum    { get; set; }
-          public int? Price_Present { get; set; }
-          public int? price { get; set; }
+          public string      Com_CorporRegiNum    { get; set; }
+          public int?        Price_Present            { get; set; }
+          public int?        price                   { get; set; }
     
     }     
 }         
