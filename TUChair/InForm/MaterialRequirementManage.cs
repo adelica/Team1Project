@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using TUChair.Service;
+using TUChair.Util;
 
 namespace TUChair
 {
@@ -15,10 +16,14 @@ namespace TUChair
         public MaterialRequirementManage()
         {
             InitializeComponent();
+            CommonUtil.InitSettingGridView(dgvMaterialReq);
+            dgvMaterialReq.AutoGenerateColumns = true;
         }
 
         private void MaterialRequirementManage_Load(object sender, EventArgs e)
         {
+            GetComboBinding();
+            CommonUtil.CboSetting(cboPlanID);
             frm =(TUChairMain2)this.MdiParent;
             frm.Search += Search;
         }
@@ -26,15 +31,20 @@ namespace TUChair
         private void GetComboBinding()
         {
             MaterialRequirementService service = new MaterialRequirementService();
-            //List<string> list = service.GetComboBinding();
+            List<string> list = service.GetComboBinding();
+            foreach(var li in list)
+            {
+                cboPlanID.Items.Add(li);
+            }
         }
-
+        //검색
         private void Search(object sender, EventArgs e)
         {
-           if(((TUChairMain2)this.MdiParent).ActiveMdiChild==this)
+            if(((TUChairMain2)this.MdiParent).ActiveMdiChild==this)
             {
+                
                 MaterialRequirementService service = new MaterialRequirementService();
-                DataTable dt = service.MaterialSoyo(dtpMaterialReq.Start, dtpMaterialReq.End,cboPlanID.Text);
+                DataTable dt = service.MaterialSoyo(dtpMaterialReq.Start.ToShortDateString(), dtpMaterialReq.End.ToShortDateString(), cboPlanID.Text);
                 dgvMaterialReq.DataSource = dt;
             }
         }

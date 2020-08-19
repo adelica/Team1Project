@@ -10,16 +10,16 @@ namespace TUChair.Service
 {
     public class MaterialRequirementService
     {
-        internal DataTable MaterialSoyo(DateTime start, DateTime end, string planID)
+        internal DataTable MaterialSoyo(string start, string end, string planID)
         {
             MaterialRequirementDAC dac = new MaterialRequirementDAC();
             return dac.MaterialSoyo(start, end, planID);
         }
 
-        //internal List<string> GetComboBinding()
-        //{
-        //    MaterialRequirementDAC dac = new MaterialRequirementDAC();
-        //    return dac.GetComboBinding();
-        //}
+        internal List<string> GetComboBinding()
+        {
+            MaterialRequirementDAC dac = new MaterialRequirementDAC();
+            return dac.GetComboBinding();
+        }
     }
 }
