@@ -55,11 +55,6 @@ namespace TUChair.Service
             return dac.DeleteSOInfo(code);
         }
 
-        internal bool UpdateSO(List<POVO> soList)
-        {
-            POSODAC dac = new POSODAC();
-            return dac.UpdateSO(soList);
-        }
         //SO 정보
         internal List<SOVO> GetSOData()
         {

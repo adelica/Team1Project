@@ -121,19 +121,6 @@ namespace TUChairDAC
             }
         }
 
-        //S/O 업데이트
-        public bool UpdateSO(List<POVO> soList)
-        {
-            try
-            {
-                return true;
-            }
-            catch(Exception err)
-            {
-                return false;
-            }
-        }
-
         //엑셀등록한 영업마스터 DB에 등록
         public bool SetPOData(List<UpLoadVO> upList)
         {

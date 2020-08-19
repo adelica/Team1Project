@@ -129,6 +129,7 @@
     <Compile Include="MeilingForm\RowMetrialDecountPopUp.Designer.cs">
       <DependentUpon>RowMetrialDecountPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\MaterialRequirementService.cs" />
     <Compile Include="Service\POSOService.cs" />
     <Compile Include="WooForm\BOMPopUP.cs">
       <SubType>Form</SubType>

@@ -50,25 +50,7 @@ namespace TUChair
             dgvPO.DataSource = list;
         }
 
-        //영업마스터생성 팝업
-        private void btnPOUpLoad_Click(object sender, EventArgs e) 
-        {
-            PORegi frm = new PORegi();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-        }
 
-        //수요계획생성 팝업
-        private void btnSORegi_Click(object sender, EventArgs e)
-        {
-            SORegi frm = new SORegi();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            if(frm.Check)
-            {
-                LoadData();
-            }
-        }
         //콤보박스 바인딩용
         private void GetComboBinding()
         {
@@ -183,8 +165,13 @@ namespace TUChair
                 List<string> chkList = Check();
                 if (chkList.Count < 1)
                 {
-                    MessageBox.Show("수정할 데이터를 선택하여주세요", "수정실패");
-                    return;
+                    SORegi frm = new SORegi();
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    if (frm.Check)
+                    {
+                        LoadData();
+                    }
                 }
                 else if (chkList.Count == 1)
                 {
@@ -202,7 +189,7 @@ namespace TUChair
                 }
                 else
                 {
-                    MessageBox.Show("데이터를  하나만 선택하여주세요", "수정실패");
+                    MessageBox.Show("수정할 데이터를  하나만 선택하여주세요", "수정실패");
                     return;
                 }
             }

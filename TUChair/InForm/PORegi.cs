@@ -68,7 +68,7 @@ namespace TUChair
                     xlApp.Quit();
 
                     poData = dt;
-                    txtPlanID.Text = dtpDate.Value.Year.ToString() + dtpDate.Value.Month.ToString() + dtpDate.Value.Day.ToString() + dtpDate.Value.ToString("ddd");
+                    txtPlanID.Text = dtpDate.Value.Year.ToString() + dtpDate.Value.Month.ToString() + dtpDate.Value.Day.ToString() + "_P";
                 }
                 this.Cursor = cursor;
             }
@@ -108,7 +108,7 @@ namespace TUChair
         private void dtpDate_ValueChanged(object sender, EventArgs e)
         {
             if(txtFilePath.Text.Length>0)
-                txtPlanID.Text = dtpDate.Value.Year.ToString() + dtpDate.Value.Month.ToString() + dtpDate.Value.Day.ToString() + dtpDate.Value .ToString("ddd");
+                txtPlanID.Text = dtpDate.Value.Year.ToString() + dtpDate.Value.Month.ToString() + dtpDate.Value.Day.ToString() + "_P";
         }
     }
 }
