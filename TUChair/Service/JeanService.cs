@@ -20,6 +20,7 @@ namespace TUChair.Service
             UnitPriceDAC dac = new UnitPriceDAC();
             return dac.ProductUPBinding();
         }
+   
         public bool InsertOrUpdate(UnitPriceVO upv)
         {
             UnitPriceDAC dac = new UnitPriceDAC();
@@ -42,6 +43,11 @@ namespace TUChair.Service
         {
             UnitPriceDAC dac = new UnitPriceDAC();
             return dac.Search1(date, txt, cbo);
+        }
+        public List<MonthDeadLineVO> MonthSearch(string date, string type, string com)
+        {
+            UnitPriceDAC dac = new UnitPriceDAC();
+            return dac.MonthSearch(date, type,com );
         }
 
         #endregion
