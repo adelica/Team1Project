@@ -85,7 +85,7 @@ namespace TUChair
             if (check)
             {                
                dtpEnd.MinDate = dtpStart.Value;
-                if(dtpEnd.Value.AddDays(-60)<dtpStart.Value)
+                if(dtpEnd.Value>dtpStart.Value.AddDays(60))
                      dtpStart.Value = dtpEnd.Value.AddDays(-60);
             }
         }
