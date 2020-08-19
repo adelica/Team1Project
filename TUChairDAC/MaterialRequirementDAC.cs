@@ -55,5 +55,16 @@ namespace TUChairDAC
                 return null;
             }
         }
+
+        //public List<string> GetComboBinding()
+        //{
+        //   using (SqlCommand cmd = new SqlCommand())
+        //    {
+        //        cmd.CommandText = "select Sales_ID from SalesMaster";
+        //        cmd.Connection = new SqlConnection(this.ConnectionString);
+        //        cmd.Connection.Open();
+                
+        //    }
+        //}
     }
 }

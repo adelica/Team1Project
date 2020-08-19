@@ -23,6 +23,12 @@ namespace TUChair
             frm.Search += Search;
         }
 
+        private void GetComboBinding()
+        {
+            MaterialRequirementService service = new MaterialRequirementService();
+            //List<string> list = service.GetComboBinding();
+        }
+
         private void Search(object sender, EventArgs e)
         {
            if(((TUChairMain2)this.MdiParent).ActiveMdiChild==this)

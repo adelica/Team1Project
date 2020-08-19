@@ -15,5 +15,11 @@ namespace TUChair.Service
             MaterialRequirementDAC dac = new MaterialRequirementDAC();
             return dac.MaterialSoyo(start, end, planID);
         }
+
+        //internal List<string> GetComboBinding()
+        //{
+        //    MaterialRequirementDAC dac = new MaterialRequirementDAC();
+        //    return dac.GetComboBinding();
+        //}
     }
 }
