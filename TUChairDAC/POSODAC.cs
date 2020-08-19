@@ -41,6 +41,38 @@ namespace TUChairDAC
                 return null;
             }
         }
+
+        public bool ProductPlanRegi(string planID)
+        {
+            try
+            {
+                using(SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SP_ProductingPlan5";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Sales_ID", planID);
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+
+                    cmd.Connection.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SP_OutSorcingPlan";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                   
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Connection.Close();
+                    return true;
+                }
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+                return false;
+            }
+        }
+
         //SO정보 삭제
         public bool DeleteSOInfo(string code)
         {
@@ -86,19 +118,6 @@ namespace TUChairDAC
             {
                 _log.WriteError(err.Message);
                 return null;
-            }
-        }
-
-        //S/O 업데이트
-        public bool UpdateSO(List<POVO> soList)
-        {
-            try
-            {
-                return true;
-            }
-            catch(Exception err)
-            {
-                return false;
             }
         }
 

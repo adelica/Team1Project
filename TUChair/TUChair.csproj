@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InForm\ProductPlanRegi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InForm\ProductPlanRegi.Designer.cs">
+      <DependentUpon>ProductPlanRegi.cs</DependentUpon>
+    </Compile>
     <Compile Include="MeilingForm\DispensingMaterialsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,7 @@
     <Compile Include="MeilingForm\RowMetrialDecountPopUp.Designer.cs">
       <DependentUpon>RowMetrialDecountPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\MaterialRequirementService.cs" />
     <Compile Include="Service\POSOService.cs" />
     <Compile Include="WooForm\BOMPopUP.cs">
       <SubType>Form</SubType>
@@ -611,6 +618,9 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="InForm\ProductPlanRegi.resx">
+      <DependentUpon>ProductPlanRegi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\DispensingMaterialsForm.resx">
       <DependentUpon>DispensingMaterialsForm.cs</DependentUpon>
     </EmbeddedResource>
