@@ -129,6 +129,7 @@
     <Compile Include="MeilingForm\RowMetrialDecountPopUp.Designer.cs">
       <DependentUpon>RowMetrialDecountPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\JeanMagamService.cs" />
     <Compile Include="Service\MaterialRequirementService.cs" />
     <Compile Include="Service\POSOService.cs" />
     <Compile Include="WooForm\BOMPopUP.cs">
@@ -905,7 +906,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TUChairDAC\TUChairDAC.csproj">
-      <Project>{78D08B8B-D504-453C-A530-0F168698CB2F}</Project>
+      <Project>{78d08b8b-d504-453c-a530-0f168698cb2f}</Project>
       <Name>TUChairDAC</Name>
     </ProjectReference>
     <ProjectReference Include="..\TUChairVO\TUChairVO.csproj">
