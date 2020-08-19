@@ -16,7 +16,7 @@ namespace TUChair
     {
         List<MonthDeadLineVO> list;
         List<ComboItemVO> comboItems = null;
-        List<StockShift> Shiftlist;
+        List<MonthDLDetail> Detail;
 
         public MonthlyClosingByAccount()
         {
@@ -144,8 +144,13 @@ namespace TUChair
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
-            JeanServicePShift shift = new JeanServicePShift();
+            JeanMagamService magam = new JeanMagamService();
 
+            string date;
+            if (cboDate.SelectedIndex == 0)
+                date = string.Empty;
+            else
+                date = cboDate.Text;
             List<string> pList = new List<string>();
             for (int i = 0; i < jeansGridView1.Rows.Count; i++)
             {
@@ -159,8 +164,8 @@ namespace TUChair
             }
             if (pList.Count > 0)
             {
-                //Shiftlist = shift.StockBinding(string.Join(",", pList));
-                //jeansGridView2.DataSource = Shiftlist;
+                Detail = magam.MagamDetail(string.Join(",", pList), date);
+                jeansGridView2.DataSource = Detail;
             }
         }
     }
