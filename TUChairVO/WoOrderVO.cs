@@ -10,9 +10,9 @@ namespace TUChairVO
    {
         public int WorkOrderID { get; set; }
         public int Pro_ID { get; set; }
-        public string Item_Code { get; set; }
-        
-             public string Item_Name { get; set; }
+        public string Item_Code { get; set; }        
+        public string Item_Type { get; set; }
+        public string Item_Name { get; set; }
         public int Plan_Qty { get; set; }
         public DateTime Plan_Date { get; set; }
         public DateTime Prd_Date { get; set; }
