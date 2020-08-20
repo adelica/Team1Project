@@ -48,11 +48,12 @@
             // login
             // 
             this.login.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("login.BackgroundImage")));
+            this.login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.login.Controls.Add(this.panel2);
             this.login.Dock = System.Windows.Forms.DockStyle.Fill;
             this.login.Location = new System.Drawing.Point(0, 0);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(892, 564);
+            this.login.Size = new System.Drawing.Size(655, 434);
             this.login.TabIndex = 1;
             this.login.MouseDown += new System.Windows.Forms.MouseEventHandler(this.login_MouseDown);
             this.login.MouseMove += new System.Windows.Forms.MouseEventHandler(this.login_MouseMove);
@@ -70,7 +71,7 @@
             this.panel2.Controls.Add(this.btnLogin);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtPwd);
-            this.panel2.Location = new System.Drawing.Point(277, 120);
+            this.panel2.Location = new System.Drawing.Point(156, 58);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(371, 328);
             this.panel2.TabIndex = 46;
@@ -205,7 +206,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 564);
+            this.ClientSize = new System.Drawing.Size(655, 434);
             this.Controls.Add(this.login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
