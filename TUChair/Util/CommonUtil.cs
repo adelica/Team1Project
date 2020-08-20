@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,6 +30,21 @@ namespace TUChair.Util
             dgv.Columns.Add(gridCol);
 
         }
+        public static void AddNewchkColumnToDataGridView(DataGridView dgv, string headerText, string dataPropertyName, bool visibility, int colWidth = 60)
+        {
+            DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+            chk.HeaderText = headerText;
+            chk.Name = dataPropertyName;
+            chk.Width = colWidth;
+            chk.ReadOnly = false;
+            chk.DataPropertyName = dataPropertyName;
+            
+        //    chk.ValueType = typeof(bool);
+            chk.Visible = visibility;
+            dgv.Columns.Add(chk);
+        }
+
+
 
 
         public static void InitSettingGridView(DataGridView dgv)
@@ -103,5 +119,85 @@ namespace TUChair.Util
         {
             MessageBox.Show("필수 입력사항을 입력해주세요.", "등록실패");
         }
+        public static List<AuthorBooltypeVO> ChangeTypeAuthor(List<AuthorVO> author)
+        {
+            List<AuthorBooltypeVO> authorBooltypes = new List<AuthorBooltypeVO>();
+            foreach (var item in author)
+            {
+                AuthorBooltypeVO authorBool = new AuthorBooltypeVO();
+             
+               authorBool.Program_ID      = item.Program_ID             ;
+               authorBool.Program_Name    = item.Program_Name           ;
+               authorBool.Program_order   = item.Program_order          ;
+               authorBool.Module_ID       = item.Module_ID              ;
+               authorBool.Module_Name     = item.Module_Name            ;
+               authorBool.Method_Search   = item.Method_Search =="Y"? true : false          ;
+               authorBool.Method_New = item.Method_New == "Y"? true : false         ;
+               authorBool.Method_Save     = item.Method_Save   =="Y"? true : false         ;
+               authorBool.Method_Delete   = item.Method_Delete =="Y"? true : false         ;
+                authorBool.Method_Excel   = item.Method_Excel  == "Y" ? true : false        ;
+                authorBooltypes.Add(authorBool);
+            }
+            return authorBooltypes;
+        }
+        public static List<AuthorBooltypeVO> ChangeAuthorFromMethode(List<AuthorVO> author)
+        {
+            List<AuthorBooltypeVO> authorBooltypes = new List<AuthorBooltypeVO>();
+            string AppName = Assembly.GetEntryAssembly().GetName().Name;
+            foreach (var item in author)
+            {
+                AuthorBooltypeVO authorBool = new AuthorBooltypeVO();
+
+                authorBool.Program_ID = item.Program_ID;
+                authorBool.Program_Name = item.Program_Name;
+                authorBool.Program_order = item.Program_order;
+                authorBool.Module_ID = item.Module_ID;
+                authorBool.Module_Name = item.Module_Name;
+                authorBool.Method_Search = item.Method_Search == "Y" ? true : false;
+                authorBool.Method_New = item.Method_New == "Y" ? true : false;
+                authorBool.Method_Save = item.Method_Save == "Y" ? true : false;
+                authorBool.Method_Delete = item.Method_Delete == "Y" ? true : false;
+                authorBool.Method_Excel = item.Method_Excel == "Y" ? true : false;
+
+                Type frmType = Type.GetType($"{AppName}.{item.Program_ID}");
+                var saveflag=(frmType.GetMethod("Save", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var deleteflag = (frmType.GetMethod("Delete", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var newflag = (frmType.GetMethod("New", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var excelflag = (frmType.GetMethod("Excel", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var searchflag = (frmType.GetMethod("Search", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+
+                authorBool.Method_Search = (authorBool.Method_Search) & searchflag;
+                authorBool.Method_New = (authorBool.Method_New) & newflag;
+                authorBool.Method_Save = authorBool.Method_Save & saveflag;
+                authorBool.Method_Delete = authorBool.Method_Delete & deleteflag ;
+                authorBool.Method_Excel = authorBool.Method_Excel& excelflag;
+                authorBooltypes.Add(authorBool);
+            }
+            return authorBooltypes;
+        }
+
+        public static List<AuthorVO> ReChangeTypeAuthor(List<AuthorBooltypeVO> author)
+        {
+            List<AuthorVO> authorBooltypes = new List<AuthorVO>();
+            foreach (var item in author)
+            {
+                AuthorVO authorBool = new AuthorVO();
+                authorBool.Program_ID       = item.Program_ID;
+                authorBool.Program_Name         = item.Program_Name;
+                authorBool.Program_order    = item.Program_order;
+                authorBool.Module_ID        = item.Module_ID;
+                authorBool.Module_Name      = item.Module_Name;
+                authorBool.Method_Search     = item.Method_Search ? "Y" : "N";
+                authorBool.Method_New = item.Method_New ? "Y" : "N";
+                authorBool.Method_Save      = item.Method_Save ? "Y" : "N";
+                authorBool.Method_Delete    = item.Method_Delete ? "Y" : "N";
+                authorBool.Method_Excel      = item.Method_Excel  ? "Y" : "N";
+                authorBooltypes.Add(authorBool);
+            }
+            return authorBooltypes;
+        }
+
+
+
     }
 }
