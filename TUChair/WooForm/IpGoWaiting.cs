@@ -77,7 +77,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수량", "Vo_Quantity", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수입검사여부", "Item_Importins", true);
+            
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "발주상태", "Materail_Order_State", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "납기일자", "Vo_EndDate", true);
 
@@ -91,7 +91,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "단위", "Item_Unit", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "수량", "Vo_Quantity", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "수입검사여부", "Item_Importins", true);
+         
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "발주상태", "Materail_Order_State", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "납기일자", "Vo_EndDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "입고일자", "Vo_InDate", true);
@@ -101,12 +101,31 @@ namespace TUChair
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 5)
+            // int.Parse(textBox1.Text.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
+
+            int barID = 0;
             {
-                int barID = int.Parse(textBox1.Text.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
-                ItemService service1 = new ItemService();
-                service1.IpGoUpdate(barID);
-                bindbalzu();
+                int cnt = 0;
+                int row = 0;
+                jeansGridView1.EndEdit();
+                for (int i = 0; i < jeansGridView1.Rows.Count; i++)
+                {
+                    bool isbool = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                    if (isbool)
+                    { cnt++; row = i; }
+                }
+                barID = Convert.ToInt32(jeansGridView1.Rows[row].Cells[1].Value);
+                if (cnt > 1)
+                {
+                    MessageBox.Show("수정은 하나씩만 가능합니다.");
+                    return;
+                }
+                else
+                {
+                    ItemService service1 = new ItemService();
+                    service1.IpGoUpdate(barID);
+                    bindbalzu();
+                }
             }
         }
 
