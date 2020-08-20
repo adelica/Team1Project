@@ -141,6 +141,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "ShiftManageForm";
+            this.Text = "근무시간 관리";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShiftManageForm_FormClosing);
             this.Load += new System.EventHandler(this.ShiftManageForm_Load);
             this.panel3.ResumeLayout(false);

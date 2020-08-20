@@ -35,11 +35,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtFacName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.cboFacGroup = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -73,7 +71,6 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.txtFacName);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Location = new System.Drawing.Point(7, 29);
@@ -81,20 +78,10 @@
             this.panel5.Size = new System.Drawing.Size(336, 39);
             this.panel5.TabIndex = 0;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 5F);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(8, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(10, 7);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "■";
-            // 
             // txtFacName
             // 
-            this.txtFacName.Location = new System.Drawing.Point(122, 12);
+            this.txtFacName.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
+            this.txtFacName.Location = new System.Drawing.Point(122, 9);
             this.txtFacName.Name = "txtFacName";
             this.txtFacName.Size = new System.Drawing.Size(193, 21);
             this.txtFacName.TabIndex = 0;
@@ -102,16 +89,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(23, 16);
+            this.label2.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(22, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 12);
+            this.label2.Size = new System.Drawing.Size(81, 14);
             this.label2.TabIndex = 0;
-            this.label2.Text = "시설코드/명";
+            this.label2.Text = "◆ 시설코드/명";
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.cboFacGroup);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Location = new System.Drawing.Point(388, 29);
@@ -119,38 +105,28 @@
             this.panel4.Size = new System.Drawing.Size(261, 39);
             this.panel4.TabIndex = 1;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("굴림", 5F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(19, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(10, 7);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "■";
-            // 
             // cboFacGroup
             // 
             this.cboFacGroup.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cboFacGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFacGroup.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.cboFacGroup.FormattingEnabled = true;
-            this.cboFacGroup.ItemHeight = 12;
-            this.cboFacGroup.Location = new System.Drawing.Point(101, 12);
+            this.cboFacGroup.ItemHeight = 14;
+            this.cboFacGroup.Location = new System.Drawing.Point(101, 9);
             this.cboFacGroup.Name = "cboFacGroup";
-            this.cboFacGroup.Size = new System.Drawing.Size(148, 20);
+            this.cboFacGroup.Size = new System.Drawing.Size(148, 22);
             this.cboFacGroup.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(29, 16);
+            this.label3.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(28, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.Size = new System.Drawing.Size(54, 14);
             this.label3.TabIndex = 4;
-            this.label3.Text = "시설군";
+            this.label3.Text = "◆ 시설군";
             // 
             // panel3
             // 
@@ -167,10 +143,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 23);
+            this.label1.Size = new System.Drawing.Size(85, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "≡ 공장정의";
             // 
@@ -188,6 +164,7 @@
             // 
             // dgvFactory
             // 
+            this.dgvFactory.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
             this.dgvFactory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -283,7 +260,5 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 수정ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 삭제ToolStripMenuItem;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
     }
 }

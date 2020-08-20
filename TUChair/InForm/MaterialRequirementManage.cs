@@ -18,16 +18,10 @@ namespace TUChair
             InitializeComponent();
             CommonUtil.InitSettingGridView(dgvMaterialReq);
             dgvMaterialReq.AutoGenerateColumns = true;
-
-            CommonUtil.AddNewColumnToDataGridView(dgvMaterialReq, "품목", "품목", true, 200);
-            CommonUtil.AddNewColumnToDataGridView(dgvMaterialReq, "품명", "품명", true, 100, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvMaterialReq, "품목유형", "품목유형", true, 100, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvMaterialReq, "카테고리", "카테고리", true, 100, DataGridViewContentAlignment.MiddleCenter);
         }
 
         private void MaterialRequirementManage_Load(object sender, EventArgs e)
         {
-
             GetComboBinding();
             CommonUtil.CboSetting(cboPlanID);
             frm =(TUChairMain2)this.MdiParent;

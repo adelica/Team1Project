@@ -27,18 +27,18 @@ namespace TUChair
             CommonUtil.InitSettingGridView(dgvPO);
             dgvPO.IsAllCheckColumnHeader = true;
 
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "No.", "No", true, 50,DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객 WO", "So_WorkOrderID", true, 200,DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "No.", "No", true, 50, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객 WO", "So_WorkOrderID", true, 200, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객주문번호", "So_PurchaseOrder", true, 200, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객사코드", "Com_Code", true,120, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객사명", "Com_Name", true,100, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객사코드", "Com_Code", true, 120, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "고객사명", "Com_Name", true, 100, DataGridViewContentAlignment.MiddleCenter);
 
             CommonUtil.AddNewColumnToDataGridView(dgvPO, "품목", "Item_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "품명", "Item_Name", true,100, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "생산납기일", "So_Duedate", true,150, DataGridViewContentAlignment.MiddleCenter);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "주문수량", "So_Qty", true,100, DataGridViewContentAlignment.MiddleRight);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "출고수량", "So_ShipQty", true,100, DataGridViewContentAlignment.MiddleRight);
-            CommonUtil.AddNewColumnToDataGridView(dgvPO, "등록날짜", "Sales_Plandate", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "품명", "Item_Name", true, 100, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "생산납기일", "So_Duedate", true, 150, DataGridViewContentAlignment.MiddleCenter);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "주문수량", "So_Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(dgvPO, "출고수량", "So_ShipQty", true, 100, DataGridViewContentAlignment.MiddleRight);
+
             LoadData();
         }
 
@@ -47,17 +47,17 @@ namespace TUChair
             POSOService service = new POSOService();
             list = service.GetPOData();
             sList = service.GetSOData();
-            dgvPO.DataSource = list;
+            dgvPO.DataSource = sList;
         }
 
 
         //콤보박스 바인딩용
         private void GetComboBinding()
         {
-            List<string> cboList = (from code in list
+            List<string> cboList = (from code in sList
                                     select code.Com_Code).Distinct().ToList();
             cboCustomer.Items.Add("전체");
-            foreach(var list in cboList)
+            foreach (var list in cboList)
             {
                 cboCustomer.Items.Add(list);
             }
@@ -100,7 +100,7 @@ namespace TUChair
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-             
+
                 List<POVO> searchList;
 
                 if (cboCustomer.SelectedIndex == 0 && txtCusNumber.Text.Trim().Length < 1 && txtItem.Text.Trim().Length < 1)
@@ -201,16 +201,16 @@ namespace TUChair
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
                 List<string> chkList = Check();
-                if(chkList.Count<1)
+                if (chkList.Count < 1)
                 {
                     MessageBox.Show("삭제할 데이터를 선택하여 주세요", "삭제실패");
                     return;
                 }
-                if(DialogResult.OK==(MessageBox.Show("정말 삭제하시겠습니까?","삭제확인",MessageBoxButtons.OKCancel)))
+                if (DialogResult.OK == (MessageBox.Show("정말 삭제하시겠습니까?", "삭제확인", MessageBoxButtons.OKCancel)))
                 {
                     string code = "'" + string.Join("','", chkList) + "'";
                     POSOService service = new POSOService();
-                    if(service.DeleteSOInfo(code))
+                    if (service.DeleteSOInfo(code))
                     {
                         MessageBox.Show($"{code}이/가 삭제되었습니다.", "삭제완료");
                         LoadData();
@@ -222,7 +222,7 @@ namespace TUChair
         //조회
         private void New(object sender, EventArgs e)
         {
-          if(((TUChairMain2)this.MdiParent).ActiveMdiChild==this)
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
                 LoadData();
             }

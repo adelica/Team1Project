@@ -80,6 +80,7 @@ namespace TUChair
             list = service.DBConnectionTEST();
             jeansGridView1.DataSource = null;
             jeansGridView1.DataSource = list;
+            
         }
 
         private void ComboBinding()
@@ -107,7 +108,7 @@ namespace TUChair
             comboBox2.DataSource =new BindingSource(ComboDic,null);
             comboBox2.DisplayMember = "key";
             comboBox2.ValueMember = "value";
-            //comboBox2.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
            // comboBox2.Items.AddRange(FaciNameList.ToArray());
         }
 
