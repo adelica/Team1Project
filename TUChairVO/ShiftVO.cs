@@ -9,7 +9,7 @@ namespace TUChairVO
    public  class ShiftVO
     {
 
-        public string Shift_ID { get; set; }
+        public int Shift_ID { get; set; }
         public string Faci_Code { get; set; }
         public string Faci_Name { get; set; }
         public string Shift_StartTime { get; set; }

@@ -56,7 +56,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(15, 27);
+            this.label1.Location = new System.Drawing.Point(11, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 14);
             this.label1.TabIndex = 0;
@@ -86,7 +86,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(27, 138);
+            this.label4.Location = new System.Drawing.Point(22, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 14);
             this.label4.TabIndex = 0;
@@ -106,7 +106,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(27, 193);
+            this.label6.Location = new System.Drawing.Point(22, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 14);
             this.label6.TabIndex = 0;
@@ -116,7 +116,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(27, 302);
+            this.label7.Location = new System.Drawing.Point(29, 302);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 14);
             this.label7.TabIndex = 0;
@@ -126,7 +126,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(39, 401);
+            this.label8.Location = new System.Drawing.Point(51, 401);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 14);
             this.label8.TabIndex = 0;
@@ -135,7 +135,8 @@
             // txtDetail
             // 
             this.txtDetail.Enabled = false;
-            this.txtDetail.Location = new System.Drawing.Point(107, 297);
+            this.txtDetail.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
+            this.txtDetail.Location = new System.Drawing.Point(102, 297);
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.Size = new System.Drawing.Size(323, 84);
@@ -144,7 +145,8 @@
             // txtOther
             // 
             this.txtOther.Enabled = false;
-            this.txtOther.Location = new System.Drawing.Point(107, 401);
+            this.txtOther.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
+            this.txtOther.Location = new System.Drawing.Point(102, 401);
             this.txtOther.Multiline = true;
             this.txtOther.Name = "txtOther";
             this.txtOther.Size = new System.Drawing.Size(323, 79);
@@ -154,7 +156,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(27, 81);
+            this.label9.Location = new System.Drawing.Point(22, 81);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 14);
             this.label9.TabIndex = 0;
@@ -163,7 +165,8 @@
             // lblFacG_Code
             // 
             this.lblFacG_Code.AutoSize = true;
-            this.lblFacG_Code.Location = new System.Drawing.Point(107, 27);
+            this.lblFacG_Code.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
+            this.lblFacG_Code.Location = new System.Drawing.Point(102, 27);
             this.lblFacG_Code.Name = "lblFacG_Code";
             this.lblFacG_Code.Size = new System.Drawing.Size(48, 14);
             this.lblFacG_Code.TabIndex = 2;
@@ -172,7 +175,8 @@
             // lblFaci_Code
             // 
             this.lblFaci_Code.AutoSize = true;
-            this.lblFaci_Code.Location = new System.Drawing.Point(107, 81);
+            this.lblFaci_Code.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
+            this.lblFaci_Code.Location = new System.Drawing.Point(102, 81);
             this.lblFaci_Code.Name = "lblFaci_Code";
             this.lblFaci_Code.Size = new System.Drawing.Size(48, 14);
             this.lblFaci_Code.TabIndex = 2;
@@ -181,7 +185,8 @@
             // lblOut
             // 
             this.lblOut.AutoSize = true;
-            this.lblOut.Location = new System.Drawing.Point(105, 138);
+            this.lblOut.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
+            this.lblOut.Location = new System.Drawing.Point(100, 138);
             this.lblOut.Name = "lblOut";
             this.lblOut.Size = new System.Drawing.Size(48, 14);
             this.lblOut.TabIndex = 2;
@@ -190,7 +195,8 @@
             // lblBad
             // 
             this.lblBad.AutoSize = true;
-            this.lblBad.Location = new System.Drawing.Point(105, 193);
+            this.lblBad.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
+            this.lblBad.Location = new System.Drawing.Point(100, 193);
             this.lblBad.Name = "lblBad";
             this.lblBad.Size = new System.Drawing.Size(48, 14);
             this.lblBad.TabIndex = 2;
@@ -199,6 +205,7 @@
             // lblIn
             // 
             this.lblIn.AutoSize = true;
+            this.lblIn.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.lblIn.Location = new System.Drawing.Point(318, 138);
             this.lblIn.Name = "lblIn";
             this.lblIn.Size = new System.Drawing.Size(48, 14);
@@ -208,6 +215,7 @@
             // lblFaci_Name
             // 
             this.lblFaci_Name.AutoSize = true;
+            this.lblFaci_Name.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.lblFaci_Name.Location = new System.Drawing.Point(318, 81);
             this.lblFaci_Name.Name = "lblFaci_Name";
             this.lblFaci_Name.Size = new System.Drawing.Size(48, 14);
@@ -217,6 +225,7 @@
             // lblFacG_Name
             // 
             this.lblFacG_Name.AutoSize = true;
+            this.lblFacG_Name.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.lblFacG_Name.Location = new System.Drawing.Point(318, 27);
             this.lblFacG_Name.Name = "lblFacG_Name";
             this.lblFacG_Name.Size = new System.Drawing.Size(48, 14);
@@ -236,6 +245,7 @@
             // lblUseOrNot
             // 
             this.lblUseOrNot.AutoSize = true;
+            this.lblUseOrNot.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.lblUseOrNot.Location = new System.Drawing.Point(318, 193);
             this.lblUseOrNot.Name = "lblUseOrNot";
             this.lblUseOrNot.Size = new System.Drawing.Size(48, 14);
@@ -246,7 +256,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(26, 243);
+            this.label11.Location = new System.Drawing.Point(33, 243);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 14);
             this.label11.TabIndex = 0;
@@ -255,7 +265,8 @@
             // lblModifier
             // 
             this.lblModifier.AutoSize = true;
-            this.lblModifier.Location = new System.Drawing.Point(104, 243);
+            this.lblModifier.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
+            this.lblModifier.Location = new System.Drawing.Point(99, 243);
             this.lblModifier.Name = "lblModifier";
             this.lblModifier.Size = new System.Drawing.Size(48, 14);
             this.lblModifier.TabIndex = 2;
@@ -288,7 +299,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Name = "FacilityInfo";
             this.Text = "설비정보";
             this.ResumeLayout(false);

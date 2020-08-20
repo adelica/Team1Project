@@ -33,33 +33,33 @@ namespace TUChair
 
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "No.", "No", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "No.", "No", true,50);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true,140);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "창고코드", "Fact_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "참고이름", "Fact_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "창고타입", "Fact_Type", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "이동일자", "Insert_Date", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수량", "Qty", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수량", "Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Stock_Other", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true,50);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Stock_Other", true,200);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목타입", "Item_Type", true);
 
             jeansGridView2.IsAllCheckColumnHeader = true;
 
             CommonUtil.InitSettingGridView(jeansGridView2);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "No.", "No", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품목", "Item_Code", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "No.", "No", true, 50);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품목", "Item_Code", true,140);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품목타입", "Item_Type", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "현재창고", "Fact_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "현재고", "Qty", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "현재고", "Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동창고", "From_Fact", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동일자", "Shift_date", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동수량", "Shift_Qty", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "이동수량", "Shift_Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
             jeansGridView2.SelectionMode = DataGridViewSelectionMode.CellSelect;
             
             jeansGridView2.Columns[10].ReadOnly = false;
@@ -107,6 +107,11 @@ namespace TUChair
 
                     JeanServicePShift shift = new JeanServicePShift();
                     shift.ThisIsShift(Primary, Item, Fact, From_Fact, Modifier, Qty);
+                }
+                else
+                {
+                    MessageBox.Show("이동시킬 목록을 체크박스로 선택해주세요");
+                    return;
                 }
                 if (Convert.ToInt32(jeansGridView2.Rows[i].Cells[10].Value) == 0)
                 {
@@ -363,8 +368,8 @@ namespace TUChair
             int rowIndex = jeansGridView2.CurrentRow.Index;
             if ((int)jeansGridView2.Rows[rowIndex].Cells[7].Value < (int)jeansGridView2.Rows[rowIndex].Cells[10].Value)
             {
-                MessageBox.Show("이동수량은 현재고를 넘을수 없어");
-                jeansGridView2.Rows[rowIndex].Cells[9].Value = 0;
+                MessageBox.Show("이동수량은 현재고를 넘을수 없습니다.");
+                jeansGridView2.Rows[rowIndex].Cells[10].Value = 0;
                 return;
             }
         }

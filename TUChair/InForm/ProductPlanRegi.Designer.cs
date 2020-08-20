@@ -37,15 +37,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 28);
+            this.label1.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(9, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 12);
+            this.label1.Size = new System.Drawing.Size(57, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "planID";
+            this.label1.Text = "◆ planID";
             // 
             // txtPlanID
             // 
             this.txtPlanID.Enabled = false;
+            this.txtPlanID.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.txtPlanID.Location = new System.Drawing.Point(80, 24);
             this.txtPlanID.Name = "txtPlanID";
             this.txtPlanID.Size = new System.Drawing.Size(151, 21);
@@ -53,7 +55,8 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(37, 72);
+            this.btnInsert.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.btnInsert.Location = new System.Drawing.Point(33, 64);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
             this.btnInsert.TabIndex = 2;
@@ -63,7 +66,8 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(145, 72);
+            this.btnClose.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.btnClose.Location = new System.Drawing.Point(141, 64);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 2;
@@ -75,7 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 127);
+            this.ClientSize = new System.Drawing.Size(243, 106);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.txtPlanID);

@@ -127,6 +127,7 @@ namespace TUChair
                     rowMetrial.planQTY = planQTY;
                     rowMetrial.inhouse = inhouse;
                     rowMetrial.outhouse = outhouse;
+                    rowMetrial.StartPosition = FormStartPosition.CenterParent;
                     rowMetrial.ShowDialog();
                     DataBinding();
                 }

@@ -157,6 +157,7 @@ namespace TUChair
             {
                 using (waitFrm frm = new waitFrm(ExportOrderList))
                 {
+                    frm.StartPosition = FormStartPosition.CenterParent;
                     frm.ShowDialog(this);
                 }
             }
@@ -215,7 +216,7 @@ namespace TUChair
                     frm.WorkOrderId = ID;
                     string itemtype = jeansGridView1.Rows[row].Cells[4].Value.ToString();
                     frm.itemType = itemtype;
-
+                    frm.StartPosition = FormStartPosition.CenterParent;
                     frm.ShowDialog();
                     if (frm.ShowDialog() == DialogResult.OK)
                     {

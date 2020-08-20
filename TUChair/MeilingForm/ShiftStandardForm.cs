@@ -1,4 +1,5 @@
-﻿using JeanForm;
+﻿using DevExpress.XtraReports.UI;
+using JeanForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,17 +60,19 @@ namespace TUChair
             jeansGridView1.IsAllCheckColumnHeader = true;
 
             CommonUtil.InitSettingGridView(jeansGridView1);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "ShitID", "Shift_ID", true);
+ 
+
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "ShitID", "Shift_ID", true,60);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비코드", "Faci_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Faci_Name", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "설비명", "Faci_Name", true,140);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Shift_StartDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Shift_EndDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작시간", "Shift_StartTime", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료시간", "Shift_EndTime", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "투입인원", "Shift_InputPeople", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "투입인원", "Shift_InputPeople", true,70,DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Shift_UserOrNot", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Shift_Modifier", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "Shift_ModifierDate", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "Shift_ModifierDate", true,150);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "기타", "Shift_Others", true);
             jeansGridView1.Columns["Faci_Code"].Frozen = true;
         }
@@ -120,6 +123,7 @@ namespace TUChair
             {
                 using (waitFrm frm = new waitFrm(ExportOrderList))
                 {
+                    frm.StartPosition = FormStartPosition.CenterParent;
                     frm.ShowDialog(this);
                 }
             }
@@ -247,7 +251,7 @@ namespace TUChair
                     upInsert = "Update";
                    
                     ShiftVO shifti = new ShiftVO();
-                    shifti.Shift_ID = jeansGridView1.Rows[row].Cells[1].Value.ToString();
+                    shifti.Shift_ID =Convert.ToInt32(jeansGridView1.Rows[row].Cells[1].Value);
                     shifti.Faci_Code = jeansGridView1.Rows[row].Cells[2].Value.ToString();
                     shifti.Faci_Name = jeansGridView1.Rows[row].Cells[3].Value.ToString();                   
                     shifti.Shift_StartDate = Convert.ToDateTime(jeansGridView1.Rows[row].Cells[4].Value);
@@ -270,6 +274,7 @@ namespace TUChair
                     shiftPop.faciNameList = FaciNameList;
                     // shiftPop.sendshiftlist = shiftCbolist;
                     // shiftPop.sendlist = FaciCodeList;
+                    shiftPop.StartPosition = FormStartPosition.CenterParent;
                     shiftPop.ShowDialog();
                 }
             }

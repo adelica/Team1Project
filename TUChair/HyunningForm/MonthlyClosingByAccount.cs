@@ -28,23 +28,23 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체명", "Com_name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사업자번호", "CorporRegiNum", true);
             //CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "금액", "ALLPrice", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "매출 or 매입", "Type", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "금액", "ALLPrice", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "매출 or 매입", "Type", true, 80);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "마감", "YorN", true);
             jeansGridView1.Columns[6].Visible = false;
 
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "업체명", "Com_Name", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "납품업체명(도착지)", "Com_Name", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "납품업체명(도착지)", "Com_Name", true,140);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "입출고일", "Date", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "창고", "Fact_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "카테고리", "Category", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품목", "Item_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "규격", "Item_Size", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "수불량", "Qty", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "단가", "Price", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "금액", "AllPrice", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "수불량", "Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "단가", "Price", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "금액", "AllPrice", true, 100, DataGridViewContentAlignment.MiddleRight);
 
             dataLoad();
             string[] year = new string[25];
