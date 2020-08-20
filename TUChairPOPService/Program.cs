@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TUChair;
 
-namespace TUChair
+namespace TUChairPOPService
 {
     static class Program
     {
@@ -15,15 +15,9 @@ namespace TUChair
         [STAThread]
         static void Main()
         {
-            Process[] procs = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName);
-            if (procs.Length > 1)
-            {
-                MessageBox.Show(" 프로그램이 이미 실행되고 있습니다. \n다시 한 번 확인해 주시길 바랍니다.", "실행 중");
-                return;
-            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TUChairMain2());
+            Application.Run(new POPForm());
         }
     }
 }

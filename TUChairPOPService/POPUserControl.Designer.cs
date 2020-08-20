@@ -74,6 +74,7 @@
             this.btnServerStop.TabIndex = 1;
             this.btnServerStop.Text = "설비중지";
             this.btnServerStop.UseVisualStyleBackColor = true;
+            this.btnServerStop.Click += new System.EventHandler(this.btnServerStop_Click);
             // 
             // btnClientStart
             // 
@@ -83,6 +84,7 @@
             this.btnClientStart.TabIndex = 2;
             this.btnClientStart.Text = "연결받기";
             this.btnClientStart.UseVisualStyleBackColor = true;
+            this.btnClientStart.Click += new System.EventHandler(this.btnClientStart_Click);
             // 
             // btnclientStop
             // 
@@ -92,6 +94,7 @@
             this.btnclientStop.TabIndex = 3;
             this.btnclientStop.Text = "연결중지";
             this.btnclientStop.UseVisualStyleBackColor = true;
+            this.btnclientStop.Click += new System.EventHandler(this.btnclientStop_Click);
             // 
             // btnStatus
             // 
@@ -198,8 +201,9 @@
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(75, 23);
             this.btnLog.TabIndex = 19;
-            this.btnLog.Text = "로그보기";
+            this.btnLog.Text = "화면보기";
             this.btnLog.UseVisualStyleBackColor = true;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
             // 
             // label8
             // 

@@ -77,6 +77,9 @@
     <Reference Include="DevExpress.XtraReports.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v20.1.Extensions, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraWizard.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -84,6 +87,7 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -134,18 +138,6 @@
     </Compile>
     <Compile Include="MeilingForm\RowMetrialDecountPopUp.Designer.cs">
       <DependentUpon>RowMetrialDecountPopUp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="POPForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POPForm.Designer.cs">
-      <DependentUpon>POPForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="POPUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="POPUserControl.Designer.cs">
-      <DependentUpon>POPUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\JeanMagamService.cs" />
     <Compile Include="Service\MaterialRequirementService.cs" />
@@ -652,12 +644,6 @@
     <EmbeddedResource Include="MeilingForm\RowMetrialDecountPopUp.resx">
       <DependentUpon>RowMetrialDecountPopUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POPForm.resx">
-      <DependentUpon>POPForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POPUserControl.resx">
-      <DependentUpon>POPUserControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WooForm\BOMPopUP.resx">
       <DependentUpon>BOMPopUP.cs</DependentUpon>
     </EmbeddedResource>
@@ -939,6 +925,10 @@
     <ProjectReference Include="..\TUChairVO\TUChairVO.csproj">
       <Project>{86693719-2496-448E-B793-D9DC958823A4}</Project>
       <Name>TUChairVO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WInServerTask\WInServerTask.csproj">
+      <Project>{EF2AA022-557B-4274-93F9-B5B63DB899D8}</Project>
+      <Name>WInServerTask</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
