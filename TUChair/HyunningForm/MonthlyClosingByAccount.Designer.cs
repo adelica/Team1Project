@@ -122,6 +122,11 @@
             // 
             this.cboCom.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCom.FormattingEnabled = true;
+            this.cboCom.Items.AddRange(new object[] {
+            "선택",
+            "COM01",
+            "COM02",
+            "Tong"});
             this.cboCom.Location = new System.Drawing.Point(87, 1);
             this.cboCom.Name = "cboCom";
             this.cboCom.Size = new System.Drawing.Size(132, 27);
@@ -150,6 +155,10 @@
             // 
             this.cboType.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboType.FormattingEnabled = true;
+            this.cboType.Items.AddRange(new object[] {
+            "선택",
+            "매입",
+            "매출"});
             this.cboType.Location = new System.Drawing.Point(119, 3);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(132, 27);

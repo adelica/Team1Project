@@ -16,7 +16,7 @@ namespace TUChair
     {
         List<MonthDeadLineVO> list;
         List<ComboItemVO> comboItems = null;
-        List<StockShift> Shiftlist;
+        List<MonthDLDetail> Detail;
 
         public MonthlyClosingByAccount()
         {
@@ -48,7 +48,7 @@ namespace TUChair
 
             dataLoad();
             string[] year = new string[25];
-            year[0] = "==선택==";
+            year[0] = "선택";
             for (int i = 1; i < year.Length; i++)
             {
                 year[i] = DateTime.Now.AddMonths(-i+1).ToString("yyyy-MM");
@@ -56,6 +56,8 @@ namespace TUChair
             
             cboDate.DataSource = year;
             cboDate.SelectedIndex = 0;
+            cboType.SelectedIndex = 0;
+            cboCom.SelectedIndex = 0;
         }
 
         public void dataLoad()
@@ -76,7 +78,7 @@ namespace TUChair
         private void New(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("새로고침 할게없지롱");
+                dataLoad();
         }
         private void Search(object sender, EventArgs e)
         {
@@ -144,8 +146,13 @@ namespace TUChair
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
-            JeanServicePShift shift = new JeanServicePShift();
+            JeanMagamService magam = new JeanMagamService();
 
+            string date;
+            if (cboDate.SelectedIndex == 0)
+                date = string.Empty;
+            else
+                date = cboDate.Text;
             List<string> pList = new List<string>();
             for (int i = 0; i < jeansGridView1.Rows.Count; i++)
             {
@@ -159,8 +166,8 @@ namespace TUChair
             }
             if (pList.Count > 0)
             {
-                //Shiftlist = shift.StockBinding(string.Join(",", pList));
-                //jeansGridView2.DataSource = Shiftlist;
+                Detail = magam.MagamDetail("'" + string.Join("','", pList) + "'", date) ;
+                jeansGridView2.DataSource = Detail;
             }
         }
     }
