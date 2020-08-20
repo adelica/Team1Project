@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace TUChair
 {
     public partial class POPUserControl : UserControl
     {
-
         BackgroundWorker task;
-      
+        int task_proc_id;
 
         BackgroundWorker worker;
-      
+        frmATLTask frm;
         private string woOderID;
 
         public string WoOderID
@@ -46,6 +46,7 @@ namespace TUChair
             get { return lblIP.Text; }
             set { lblIP.Text = value; }
         }
+
         private string port;
 
         public string Port
@@ -53,6 +54,7 @@ namespace TUChair
             get { return lblPort.Text; }
             set { lblPort.Text = value; }
         }
+
         private string item;
 
         public string Item
@@ -60,6 +62,7 @@ namespace TUChair
             get { return lblItem.Text; }
             set { lblItem.Text = value; }
         }
+
         private string palnQTY;
 
         public string PlanQTY
@@ -122,6 +125,7 @@ namespace TUChair
         public POPUserControl()
         {
             InitializeComponent();
+            IsTask = false;
         }
 
         private void btnServerStart_Click(object sender, EventArgs e)
@@ -140,7 +144,79 @@ namespace TUChair
 
         private void Task_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            throw new NotImplementedException();
+            string path = $"WinServerTask{TaskID.Replace("task", "")}.exe";
+
+            try
+            {
+                Process proc = Process.Start(path, $"{TaskID} {IP} {Port}"); // 던질 파라미터
+                proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                task_proc_id = proc.Id;
+                IsTask = true;
+            }
+            catch (Exception err)
+            {
+                foreach (var process in Process.GetProcesses())
+                {
+                    if (process.ProcessName == path)
+                        process.Kill();
+                }
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void btnServerStop_Click(object sender, EventArgs e)
+        {
+            string path = $"WinServerTask{TaskID.Replace("task", "")}";
+            foreach (var process in Process.GetProcesses())
+            {
+                if (process.Id == task_proc_id)
+                {
+                    process.Kill();
+                    IsTask = false;
+                }
+            }
+        }
+
+        private void btnClientStart_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                worker = new BackgroundWorker();
+                worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+                worker.RunWorkerAsync();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            frm = new frmATLTask(TaskID, IP, Port);
+            frm.Show();
+            IsTaskEnable = true;
+            frm.Hide();
+        }
+
+        private void btnclientStop_Click(object sender, EventArgs e)
+        {
+            frm.bExit = true;
+            frm.Close();
+            worker.Dispose();
+            IsTaskEnable = false;
+        }
+
+        private void btnLog_Click(object sender, EventArgs e)//화면보기
+        {
+            try
+            {
+                frm.Show();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
         }
     }
 }

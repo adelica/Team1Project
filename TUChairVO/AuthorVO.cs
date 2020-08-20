@@ -41,7 +41,15 @@ namespace TUChairVO
         public string Program_Name           { get; set; }
         public string Program_Explanation    { get; set; }
         public int Program_order          { get; set; }
-    } 
+    }
+    public class AuthorGroupVO
+    {
+        public int       AuthorGroup_ID                  { get; set; }
+        public string    AuthorGroup_Name             { get; set; }
+        public string    AuthorGroup_Explanation      { get; set; }
+        public int       AuthorGroup_Order               { get; set; }
+        public string    AuthorGroup_UseOrNot          { get; set; }
+    }
 }     
       
       
