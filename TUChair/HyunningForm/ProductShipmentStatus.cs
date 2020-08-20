@@ -32,9 +32,9 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "Item_name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "납기일", "So_Duedate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출하일자", "So_OutDate", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "현재단가", "Price", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "주문수량", "So_Qty", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "총 출하 수량", "So_ProQty", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "현재단가", "Price", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "주문수량", "So_Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "총 출하 수량", "So_ProQty", true, 100, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출하처리자", "Modifier", true);
             DataLoad();
 

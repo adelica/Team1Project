@@ -27,7 +27,7 @@ namespace TUChair
             CommonUtil.InitSettingGridView(jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "고객주문번호", "So_PurchaseOrder", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "납기일", "So_Duedate", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "작업지시번호", "So_WorkOrderID", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "작업지시번호", "So_WorkOrderID", true,150);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "고객사코드", "Com_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "고객사", "Com_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "도착지코드", "Com_Code", true);
@@ -35,11 +35,11 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "고객사 품목", "Item_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "Item_name", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "현재단가", "Price", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "주문수량", "So_Qty", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출하된 수량", "So_ProQty", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출하 수량", "Out_Unit", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "재고 수량", "Fact_Qty", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "현재단가", "Price", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "주문수량", "So_Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출하된 수량", "So_ProQty", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출하 수량", "Out_Unit", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "재고 수량", "Fact_Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
             jeansGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
 
             jeansGridView1.Columns[14].ReadOnly = false;

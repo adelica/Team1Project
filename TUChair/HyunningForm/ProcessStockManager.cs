@@ -30,14 +30,14 @@ namespace TUChair
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "창고코드", "Fact_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "창고", "Fact_Name", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true,140);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목타입", "Item_Type", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "재고", "Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Stock_Other", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "이동날자", "Insert_Date", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Stock_Other", true,200);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "이동날자", "Insert_Date", true,200);
 
 
             commonService service = new commonService();
