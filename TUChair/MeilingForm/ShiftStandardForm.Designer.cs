@@ -110,6 +110,7 @@
             // 
             // jeansGridView1
             // 
+            this.jeansGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Beige;
             this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.jeansGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -150,6 +151,7 @@
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ShiftStandardForm";
+            this.Text = "근무시간 관리";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShiftStandardForm_FormClosing);
             this.Load += new System.EventHandler(this.ShiftStandardForm_Load);
             this.panel3.ResumeLayout(false);

@@ -322,6 +322,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "DispensingMaterialsForm";
+            this.Text = "자재불출";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DispensingMaterialsForm_FormClosing);
             this.Load += new System.EventHandler(this.DispensingMaterialsForm_Load);
             this.panel1.ResumeLayout(false);

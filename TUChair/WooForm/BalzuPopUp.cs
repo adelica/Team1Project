@@ -49,7 +49,9 @@ namespace TUChair
 
             CommonUtil.InitSettingGridView(dgvbalzu);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
+            CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "회사코드", "Com_Code", false);
             CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "회사명", "Com_Name", true);
+
             CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "회사타입", "Com_Type", true);
             CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "사업자등록번호", "Com_CorporRegiNum", true);
             CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "품목명", "Item_Name", true);
@@ -62,71 +64,59 @@ namespace TUChair
 
             CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "발주여부", "isbalzu", true);
 
+            bindingData();
+        }
+
+        private void bindingData()
+        {
             balzuService service1 = new balzuService();
-            listbalzu= service1.GetBalzuItemList(this.planID);
+            listbalzu = service1.GetBalzuItemList(this.planID);
             List<PbalzuVO> list = (from item in listbalzu
                                    where item.isbalzu == "N"
                                    select item).ToList();
-
-
+            dgvbalzu.DataSource = null;
             dgvbalzu.DataSource = list;
-
-
         }
 
         private void btnFInsert_Click(object sender, EventArgs e)
         {
-            int cnt = 0;
-            int row = 0;
+            List<balzuVO> balzus = new List<balzuVO>();
             dgvbalzu.EndEdit();
-            for (int i = 0; i < dgvbalzu.Rows.Count; i++)
+            List<int> sb = new List<int>();
+            dgvbalzu.EndEdit();
+            for (int i = 0; i < dgvbalzu.RowCount; i++)
             {
-                bool isbool = Convert.ToBoolean(dgvbalzu.Rows[i].Cells["chk"].Value);
-                if (isbool)
-                { cnt++; row = i; }
+                bool isn = Convert.ToBoolean(dgvbalzu.Rows[i].Cells["chk"].Value);
+                if (isn)
+                {
+                    sb.Add(i);
+                }
             }
-            string userID = ((TUChairMain2)this.MdiParent).userInfoVO.CUser_ID;
-             if (cnt > 1)
+            if (sb.Count < 1)
             {
-                MessageBox.Show("수정은 하나씩만 가능합니다.");
+                MessageBox.Show("발주할 항목을 선택해주세요");
                 return;
             }
-            else
             {
-                //balzuVO pItem = new balzuVO();
-                //pItem.Item_Code = dgvbalzu.Rows[row].Cells[2].Value.ToString();
-                //pItem.Item_Importins = dgvbalzu.Rows[row].Cells[10].Value == null ? "" : dgvbalzu.Rows[row].Cells[10].Value.ToString();
-                //pItem.Item_InWarehouse = dgvbalzu.Rows[row].Cells[7].Value == null ? "" : dgvbalzu.Rows[row].Cells[7].Value.ToString();
-                //pItem.Item_Manager = dgvbalzu.Rows[row].Cells[13].Value == null ? "" : dgvbalzu.Rows[row].Cells[13].Value.ToString();
-                //pItem.Item_Name = dgvbalzu.Rows[row].Cells[3].Value == null ? "" : dgvbalzu.Rows[row].Cells[3].Value.ToString();
-                //pItem.Item_OrderComp = dgvbalzu.Rows[row].Cells[6].Value == null ? "" : dgvbalzu.Rows[row].Cells[6].Value.ToString();
-                //pItem.Item_Other = dgvbalzu.Rows[row].Cells[18].Value == null ? "" : dgvbalzu.Rows[row].Cells[18].Value.ToString();
-                //pItem.Item_OutWarehouse = dgvbalzu.Rows[row].Cells[8].Value == null ? "" : dgvbalzu.Rows[row].Cells[8].Value.ToString();
-                //pItem.Item_Processins = dgvbalzu.Rows[row].Cells[11].Value == null ? "" : dgvbalzu.Rows[row].Cells[11].Value.ToString();
-                //pItem.Item_SafeQuantity = Convert.ToInt32(dgvbalzu.Rows[row].Cells[9].Value);
-                //pItem.Item_Shipmentins = dgvbalzu.Rows[row].Cells[12].Value == null ? "" : dgvbalzu.Rows[row].Cells[12].Value.ToString();
-                //pItem.Item_Size = dgvbalzu.Rows[row].Cells[4].Value == null ? "" : dgvbalzu.Rows[row].Cells[4].Value.ToString();
-                //pItem.Item_Type = dgvbalzu.Rows[row].Cells[1].Value == null ? "" : dgvbalzu.Rows[row].Cells[1].Value.ToString();
-                //pItem.Item_Unit = dgvbalzu.Rows[row].Cells[5].Value == null ? "" : dgvbalzu.Rows[row].Cells[5].Value.ToString();
-                //pItem.Item_UserOrNot = dgvbalzu.Rows[row].Cells[17].Value == null ? "" : dgvbalzu.Rows[row].Cells[17].Value.ToString();
-                //pItem.Item_OutSourcing = dgvbalzu.Rows[row].Cells[16].Value == null ? "" : dgvbalzu.Rows[row].Cells[16].Value.ToString();
-
-                //ItemPopUp frm = new ItemPopUp(userID);
-                //frm.Item = pItem;
-
-                //Com_Name
-                //Com_Type
-                //Item_Name
-                //Item_Code
-                //Item_Size
-
-                //Qty
-                //duedate
-                //isbalzu
-                //Com_CorporRegiNum
-                //Price_Present
-                //price
-
+                foreach (var row in sb)
+                {
+                    balzuVO pItem = new balzuVO();
+                    pItem.Com_Code                  = dgvbalzu.Rows[row].Cells[1].Value == null ? "" : dgvbalzu.Rows[row].Cells[1].Value.ToString(); ;
+                    pItem.Materail_Order_State      = "미입고";
+                    pItem.Item_Name                 = dgvbalzu.Rows[row].Cells[5].Value == null ? "" : dgvbalzu.Rows[row].Cells[5].Value.ToString();
+                    pItem.Item_Code                 = dgvbalzu.Rows[row].Cells[6].Value == null ? "" : dgvbalzu.Rows[row].Cells[6].Value.ToString();
+                    pItem.Item_Size                 = dgvbalzu.Rows[row].Cells[7].Value == null ? "" : dgvbalzu.Rows[row].Cells[7].Value.ToString();
+                    pItem.Vo_Quantity               = Convert.ToInt32(dgvbalzu.Rows[row].Cells[8].Value);
+                    pItem.Vo_EndDate                = dgvbalzu.Rows[row].Cells[9].Value == null ? "" : dgvbalzu.Rows[row].Cells[9].Value.ToString();
+                    pItem.Vo_Price                  = Convert.ToInt32(dgvbalzu.Rows[row].Cells[10].Value);
+                    balzus.Add(pItem);
+                }
+                balzuService service = new balzuService();
+                if (service.InsertBalzu(balzus))
+                {
+                    MessageBox.Show("발주되었습니다.");
+                    bindingData();
+                };
 
             }
         }

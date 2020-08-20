@@ -15,5 +15,17 @@ namespace TUChair.Service
             commonDAC dAC = new commonDAC();
           return dAC.getCommonCode(condition);
         }
+
+        public List<ProgramVO> GetAllMenu()
+        {
+            commonDAC dAC = new commonDAC();
+            return dAC.GetAllMenu();
+        }
+
+        internal List<AuthorVO> Getauthor(int authorityGroupNum)
+        {
+            commonDAC dAC = new commonDAC();
+            return dAC.Getauthor(authorityGroupNum);
+        }
     }
 }

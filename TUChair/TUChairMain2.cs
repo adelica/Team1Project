@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 //using System.Web.Services.Description;
 using System.Windows.Forms;
 using TUChair.Service;
+using TUChair.Util;
 using TUChairVO;
 using Timer = System.Windows.Forms.Timer;
 
@@ -37,6 +38,7 @@ namespace TUChair
         List<int> intevalMax = null;
         List<int> menulist = new List<int>();
         List<AuthorVO> author = null;
+        List<AuthorBooltypeVO> authorbool = null;
         List<string> testlist = new List<string>();
         Point point = new Point(0, 0);
         Button pribtn = null;
@@ -186,10 +188,11 @@ namespace TUChair
                     authorVO = authorVO1[0];
                     authorVO.Module_ID = 9;
                     authorVO.Module_Name = "즐겨찾기";
-                    authorVO.Program_order = 0;
-
+                    authorVO.Program_order = -1;
+                    authorVO.Module_order = -1;
+                    
                     author = (from A in author
-                              orderby A.Program_order
+                              orderby A.Module_order
                               select A).ToList();
                 }
             }
@@ -310,15 +313,22 @@ namespace TUChair
             string progText = author.Program_Name;
             string progName = author.Program_ID;
             OpenOrCreateForm(progName, progText);
+            authorbool = CommonUtil.ChangeAuthorFromMethode(this.author);
+            var authority = authorbool.Find(a => a.Program_ID == progName);
             if (this.ActiveMdiChild != null)
             {
-                var openform = this.ActiveMdiChild.GetType();
-                var saveflag = (openform.GetMethod("Save", BindingFlags.NonPublic | BindingFlags.Instance) != null);
-                var deleteflag = (openform.GetMethod("Delete", BindingFlags.NonPublic | BindingFlags.Instance) != null);
-                var newflag = (openform.GetMethod("New", BindingFlags.NonPublic | BindingFlags.Instance) != null);
-                var excelflag = (openform.GetMethod("Excel", BindingFlags.NonPublic | BindingFlags.Instance) != null);
-                var searchflag = (openform.GetMethod("Search", BindingFlags.NonPublic | BindingFlags.Instance) != null);
-               
+                //var openform = this.ActiveMdiChild.GetType();
+                //var saveflag = (openform.GetMethod("Save", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                //var deleteflag = (openform.GetMethod("Delete", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                //var newflag = (openform.GetMethod("New", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                //var excelflag = (openform.GetMethod("Excel", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                //var searchflag = (openform.GetMethod("Search", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var saveflag = authority.Method_Save;
+                var deleteflag = authority.Method_Delete;
+                var newflag = authority.Method_New;
+                var excelflag = authority.Method_Excel;
+                var searchflag = authority.Method_Search;
+
                 Enablebutton(newflag, searchflag, saveflag, excelflag, deleteflag);
             }
         }
@@ -467,7 +477,7 @@ namespace TUChair
                 if (imageRect.Contains(e.Location))
                 {
                     this.ActiveMdiChild.Close();
-                    //tabForms.TabPages.RemoveAt(i);                    
+                    //tabForms.TabPages.RemoveAt(i);
                     break;
                 }
             }
