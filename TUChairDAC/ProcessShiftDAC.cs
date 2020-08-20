@@ -20,8 +20,7 @@ namespace TUChairDAC
 				                        [Qty],[Item_Size],[Item_Unit] ,[Stock_Other],Item_Type
                                 from [dbo].[Stock] s left join [dbo].[Item] i on s.[Item_Code] = i.[Item_Code] 
 													 left join [dbo].[Factory] f on s.[Fact_Code] = f.[Fact_Code]
-                                where [Insert_Date] is null and [Stock_Other] is null and Item_Type <> '완제품'
-";
+                                where [Insert_Date] is null and [Stock_Other] is null ";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
