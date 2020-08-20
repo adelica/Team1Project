@@ -111,19 +111,19 @@ namespace TUChair
                     else
                     {
                         AuthorGroupVO pItem = new AuthorGroupVO();
-                        pItem.AuthorGroup_ID = Convert.ToInt32(jeansGridView1.Rows[row].Cells[2].Value);
-                        pItem.AuthorGroup_Name = jeansGridView1.Rows[row].Cells[10].Value.ToString();
-                        pItem.AuthorGroup_Explanation = jeansGridView1.Rows[row].Cells[7].Value.ToString();
-                        pItem.AuthorGroup_Order = Convert.ToInt32(jeansGridView1.Rows[row].Cells[13].Value);
+                        pItem.AuthorGroup_ID = Convert.ToInt32(jeansGridView1.Rows[row].Cells[1].Value);
+                        pItem.AuthorGroup_Name = jeansGridView1.Rows[row].Cells[2].Value.ToString();
+                        pItem.AuthorGroup_Explanation = jeansGridView1.Rows[row].Cells[3].Value.ToString();
+                        pItem.AuthorGroup_Order = Convert.ToInt32(jeansGridView1.Rows[row].Cells[4].Value);
                         pItem.AuthorGroup_UseOrNot
-                            = jeansGridView1.Rows[row].Cells[3].Value.ToString();
+                            = jeansGridView1.Rows[row].Cells[5].Value.ToString();
 
-                        //ItemPopUp frm = new ItemPopUp(userID);
-                        //frm.Item = pItem;
-                        //if (frm.ShowDialog() == DialogResult.OK)
-                        //{
-                        //    BindingData();
-                        //}
+                        AuthorGroupPopUp frm = new AuthorGroupPopUp();
+                        frm.Author = pItem;
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            BindingData();
+                        }
                     }
                 }
             }

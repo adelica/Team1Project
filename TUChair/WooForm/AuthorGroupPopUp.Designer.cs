@@ -29,38 +29,38 @@
         private void InitializeComponent()
         {
             this.label8 = new System.Windows.Forms.Label();
-            this.txtPriceP = new System.Windows.Forms.TextBox();
-            this.cboItemCode = new System.Windows.Forms.ComboBox();
+            this.txtauthoGroupName = new System.Windows.Forms.TextBox();
+            this.cboUseorNOt = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.txtUnitOther = new System.Windows.Forms.TextBox();
+            this.txtOther = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numOrder = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.txtUnitOther);
+            this.panel4.Controls.Add(this.txtOther);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.label12);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.numOrder);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.txtPriceP);
-            this.panel2.Controls.Add(this.cboItemCode);
+            this.panel2.Controls.Add(this.txtauthoGroupName);
+            this.panel2.Controls.Add(this.cboUseorNOt);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label28);
@@ -68,6 +68,7 @@
             // btnInsert
             // 
             this.btnInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnCancel
             // 
@@ -84,24 +85,24 @@
             this.label8.TabIndex = 93;
             this.label8.Text = "■";
             // 
-            // txtPriceP
+            // txtauthoGroupName
             // 
-            this.txtPriceP.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtPriceP.Location = new System.Drawing.Point(195, 56);
-            this.txtPriceP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPriceP.Name = "txtPriceP";
-            this.txtPriceP.Size = new System.Drawing.Size(178, 29);
-            this.txtPriceP.TabIndex = 96;
+            this.txtauthoGroupName.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtauthoGroupName.Location = new System.Drawing.Point(195, 56);
+            this.txtauthoGroupName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtauthoGroupName.Name = "txtauthoGroupName";
+            this.txtauthoGroupName.Size = new System.Drawing.Size(178, 29);
+            this.txtauthoGroupName.TabIndex = 96;
             // 
-            // cboItemCode
+            // cboUseorNOt
             // 
-            this.cboItemCode.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cboItemCode.FormattingEnabled = true;
-            this.cboItemCode.Location = new System.Drawing.Point(193, 135);
-            this.cboItemCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cboItemCode.Name = "cboItemCode";
-            this.cboItemCode.Size = new System.Drawing.Size(178, 27);
-            this.cboItemCode.TabIndex = 92;
+            this.cboUseorNOt.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cboUseorNOt.FormattingEnabled = true;
+            this.cboUseorNOt.Location = new System.Drawing.Point(193, 135);
+            this.cboUseorNOt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboUseorNOt.Name = "cboUseorNOt";
+            this.cboUseorNOt.Size = new System.Drawing.Size(178, 27);
+            this.cboUseorNOt.TabIndex = 92;
             // 
             // label7
             // 
@@ -136,14 +137,14 @@
             this.label28.TabIndex = 94;
             this.label28.Text = "사용여부";
             // 
-            // txtUnitOther
+            // txtOther
             // 
-            this.txtUnitOther.Location = new System.Drawing.Point(123, 16);
-            this.txtUnitOther.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUnitOther.Multiline = true;
-            this.txtUnitOther.Name = "txtUnitOther";
-            this.txtUnitOther.Size = new System.Drawing.Size(267, 105);
-            this.txtUnitOther.TabIndex = 91;
+            this.txtOther.Location = new System.Drawing.Point(123, 16);
+            this.txtOther.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOther.Multiline = true;
+            this.txtOther.Name = "txtOther";
+            this.txtOther.Size = new System.Drawing.Size(267, 105);
+            this.txtOther.TabIndex = 91;
             // 
             // label11
             // 
@@ -187,12 +188,12 @@
             this.label3.TabIndex = 97;
             this.label3.Text = "권한그룹순서";
             // 
-            // numericUpDown1
+            // numOrder
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(193, 218);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(180, 25);
-            this.numericUpDown1.TabIndex = 99;
+            this.numOrder.Location = new System.Drawing.Point(193, 218);
+            this.numOrder.Name = "numOrder";
+            this.numOrder.Size = new System.Drawing.Size(180, 25);
+            this.numOrder.TabIndex = 99;
             // 
             // AuthorGroupPopUp
             // 
@@ -207,7 +208,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOrder)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,15 +216,15 @@
         #endregion
 
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtPriceP;
-        private System.Windows.Forms.ComboBox cboItemCode;
+        private System.Windows.Forms.TextBox txtauthoGroupName;
+        private System.Windows.Forms.ComboBox cboUseorNOt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox txtUnitOther;
+        private System.Windows.Forms.TextBox txtOther;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numOrder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
     }

@@ -22,5 +22,11 @@ namespace TUChair.Service
             AuthorDAC dac = new AuthorDAC();
             return dac.GetAllAuthorGroup();
         }
+
+        internal bool SaveAuthorGroup(AuthorGroupVO author)
+        {
+            AuthorDAC dac = new AuthorDAC();
+            return dac.SaveAuthorGroup(author);
+        }
     }
 }
