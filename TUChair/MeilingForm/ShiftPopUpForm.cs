@@ -65,7 +65,7 @@ namespace TUChair
             if (uporInsert == "Update")
             {
                 txtShiftID.ReadOnly = true;
-                txtShiftID.Text = Shift.Shift_ID;
+                txtShiftID.Text =Shift.Shift_ID.ToString();
                 cboShift.Items.AddRange(faciNameList.ToArray());
                 cboShift.SelectedItem = Shift.Faci_Name;
                 txtStartTime.Text = Shift.Shift_StartTime;

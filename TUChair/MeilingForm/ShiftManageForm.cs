@@ -79,6 +79,7 @@ namespace TUChair
             {
                 using (waitFrm frm = new waitFrm(ExportOrderList))
                 {
+                    frm.StartPosition = FormStartPosition.CenterParent;
                     frm.ShowDialog(this);
                 }
             }
