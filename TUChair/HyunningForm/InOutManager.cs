@@ -29,13 +29,13 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "카테고리", "Category", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "From창고", "From_Fact", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "창고", "Fact_Code", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true,160);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목형태", "Item_Type", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수불량", "Shift_Qty", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단가", "Price_Present", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "금액", "Price", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수불량", "Shift_Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단가", "Price_Present", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "금액", "Price", true, 100, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "등록자", "Modifier", true);
 
 

@@ -31,10 +31,10 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "고객사 품목", "Item_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "d_Item_Code", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "Item_name", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "주문수량", "So_Qty", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출하수량", "So_ProQty", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "현재단가", "Price", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "매출확정금액", "total", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "주문수량", "So_Qty", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "출하수량", "So_ProQty", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "현재단가", "Price", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "매출확정금액", "total", true, 140, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "마감처리자", "Modifier", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "납기일자", "So_Duedate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "마감일자", "So_OutDate", true);

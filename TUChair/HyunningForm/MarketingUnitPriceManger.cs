@@ -24,20 +24,20 @@ namespace TUChair
                 dtpDate.Value = DateTime.Now;
                 CommonUtil.InitSettingGridView(jeansGridView1);
                 // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
-                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "PriceNO", "PriceNO", true);
+                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "PriceNO", "PriceNO", true,80);
                 CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체코드", "Com_Code", true);
                 CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "업체명", "Com_Name", true);
-                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true);
+                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "Item_Code", true,140);
                 CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "Item_Name", true);
                 CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
-                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
-                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "현재단가", "Price_Present", true);
-                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "이전단가", "Price_transfer", true);
+                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true,50);
+                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "현재단가", "Price_Present", true, 100, DataGridViewContentAlignment.MiddleRight);
+                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "이전단가", "Price_transfer", true, 100, DataGridViewContentAlignment.MiddleRight);
                 CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일", "Price_StartDate", true);
                 CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "종료일", "Price_EndDate", true);
                 CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용유무", "Price_UserOrNot", true);
                 CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정자", "Modifier", true);
-                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "ModifierDate", true);
+                CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수정일", "ModifierDate", true, 180);
                 CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비고", "Unit_Other", true);
 
             commonService service = new commonService();
