@@ -48,7 +48,7 @@ namespace TUChair
 
             dataLoad();
             string[] year = new string[25];
-            year[0] = "==선택==";
+            year[0] = "선택";
             for (int i = 1; i < year.Length; i++)
             {
                 year[i] = DateTime.Now.AddMonths(-i+1).ToString("yyyy-MM");
@@ -56,6 +56,8 @@ namespace TUChair
             
             cboDate.DataSource = year;
             cboDate.SelectedIndex = 0;
+            cboType.SelectedIndex = 0;
+            cboCom.SelectedIndex = 0;
         }
 
         public void dataLoad()
@@ -164,7 +166,7 @@ namespace TUChair
             }
             if (pList.Count > 0)
             {
-                Detail = magam.MagamDetail(string.Join(",", pList), date);
+                Detail = magam.MagamDetail("'" + string.Join("','", pList) + "'", date) ;
                 jeansGridView2.DataSource = Detail;
             }
         }
