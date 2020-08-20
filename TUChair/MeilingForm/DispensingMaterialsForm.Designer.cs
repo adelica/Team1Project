@@ -53,6 +53,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -64,6 +65,7 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,11 +75,9 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.SetChildIndex(this.label1, 0);
-            this.panel2.Controls.SetChildIndex(this.button1, 0);
-            this.panel2.Controls.SetChildIndex(this.button2, 0);
+            this.panel2.Controls.SetChildIndex(this.panel9, 0);
             // 
             // label1
             // 
@@ -299,7 +299,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(980, 9);
+            this.button1.Location = new System.Drawing.Point(155, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 23);
             this.button1.TabIndex = 6;
@@ -309,7 +309,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(880, 9);
+            this.button2.Location = new System.Drawing.Point(56, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 23);
             this.button2.TabIndex = 7;
@@ -317,11 +317,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // panel9
+            // 
+            this.panel9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel9.Controls.Add(this.button2);
+            this.panel9.Controls.Add(this.button1);
+            this.panel9.Location = new System.Drawing.Point(835, 5);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(252, 30);
+            this.panel9.TabIndex = 8;
+            // 
             // DispensingMaterialsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "DispensingMaterialsForm";
+            this.Text = "자재불출";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DispensingMaterialsForm_FormClosing);
             this.Load += new System.EventHandler(this.DispensingMaterialsForm_Load);
             this.panel1.ResumeLayout(false);
@@ -340,6 +351,7 @@
             this.panel7.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -363,5 +375,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel9;
     }
 }

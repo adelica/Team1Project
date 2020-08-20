@@ -248,6 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "WorkOrderStatusForm";
+            this.Text = "작업지시현황";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WorkOrderStatusForm_FormClosed);
             this.Load += new System.EventHandler(this.WorkOrderStatusForm_Load);
             this.panel3.ResumeLayout(false);

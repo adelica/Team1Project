@@ -447,6 +447,7 @@ namespace TUChair
                 {
                     //TabPage 생성자에 Text를 넘길때 공백을 추가로 넣어서 이미지와 붙지 않게
                     TabPage tp = new TabPage(this.ActiveMdiChild.Text + "    ");
+                    tp.Name = this.ActiveMdiChild.Text;
                     tp.Tag = this.ActiveMdiChild;
                     tp.Parent = tabForms;
                     tabForms.SelectedTab = tp;
@@ -454,9 +455,15 @@ namespace TUChair
                     this.ActiveMdiChild.Tag = tp;
                     this.ActiveMdiChild.FormClosed += new FormClosedEventHandler(ActiveMdiChild_FormClosed);
                 }
+                else
+                {
+                    tabForms.SelectedTab = tabForms.TabPages[this.ActiveMdiChild.Text];
+                }
+
                 if (!tabForms.Visible) tabForms.Visible = true;
             }
         }
+
         private void ActiveMdiChild_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((sender as Form).Tag as TabPage).Dispose();
@@ -483,6 +490,7 @@ namespace TUChair
             }
         }
         #endregion
+
         private void ShowMethod(List<AuthorVO> authors, string programName)
         { 
             

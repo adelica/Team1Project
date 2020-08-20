@@ -54,7 +54,7 @@ namespace TUChair
                 }
             }
         }
-
+                                                                                                                                                                                                                                                                                                                                                                            
         private void ShiftPopUpForm_Load(object sender, EventArgs e)
         {
             string[] UseOrNot = new string[2] { "사용", "미사용" };

@@ -12,7 +12,7 @@ using System.Runtime.Remoting.Messaging;
 
 namespace TUChairDAC
 {
-    public class POSODAC:ConnectionAccess
+    public class POSODAC : ConnectionAccess
     {
         //콤보박스 바인딩용 아이템코드, 회사코드 받아오기
         public DataSet ItemCode()
@@ -46,7 +46,7 @@ namespace TUChairDAC
         {
             try
             {
-                using(SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.CommandText = "SP_ProductingPlan5";
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -59,14 +59,14 @@ namespace TUChairDAC
 
                     cmd.CommandText = "SP_OutSorcingPlan";
                     cmd.CommandType = CommandType.StoredProcedure;
-                   
+
                     cmd.ExecuteNonQuery();
 
                     cmd.Connection.Close();
                     return true;
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 MessageBox.Show(err.Message);
                 return false;
@@ -91,7 +91,7 @@ namespace TUChairDAC
                     return true;
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 _log.WriteError(err.Message);
                 return false;
@@ -102,9 +102,13 @@ namespace TUChairDAC
         {
             try
             {
-                using(SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "select * from SalesOrder";
+                    cmd.CommandText = @"select so.So_WorkOrderID, So_PurchaseOrder, so.Com_Code, Com_Name, so.Item_Code, Item_Name, So_Duedate, So_Qty, So_ShipQty, So_Other
+                                                      from SalesOrder so inner  join Company c on so.Com_Code = c.Com_Code
+                                                         inner  join Item i on so.Item_Code = i.Item_Code";
+
+
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -114,7 +118,7 @@ namespace TUChairDAC
                     return list;
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 _log.WriteError(err.Message);
                 return null;
@@ -126,7 +130,7 @@ namespace TUChairDAC
         {
             try
             {
-                using(SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.CommandText = "SP_SetSalesMaster";
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -144,21 +148,21 @@ namespace TUChairDAC
                         cmd.Parameters.Clear();
                         cmd.Parameters.AddWithValue("@Sales_ID", upList[i].Sales_ID);
                         cmd.Parameters.AddWithValue("@Com_Code", upList[i].Com_Code);
-                        cmd.Parameters.AddWithValue("@Sales_Qty", upList[i].Sales_Qty);                  
+                        cmd.Parameters.AddWithValue("@Sales_Qty", upList[i].Sales_Qty);
                         cmd.Parameters.AddWithValue("@Item_Code", upList[i].Item_Code);
                         cmd.Parameters.AddWithValue("@So_WorkOrderID", upList[i].So_WorkOrderID);
                         cmd.Parameters.AddWithValue("@So_Duedate", upList[i].So_Duedate);
                         cmd.Parameters.AddWithValue("@Modifier", upList[i].Modifier);
-                    
+
                         cmd.ExecuteNonQuery();
-                        
+
                     }
                     cmd.Connection.Close();
 
                 }
                 return true;
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 _log.WriteError(err.Message);
                 return false;
@@ -169,7 +173,7 @@ namespace TUChairDAC
         {
             try
             {
-                using(SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.CommandText = @"Select Sales_ID from SalesMaster";
                     cmd.Connection = new SqlConnection(this.ConnectionString);
@@ -181,7 +185,7 @@ namespace TUChairDAC
                     return list;
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 _log.WriteError(err.Message);
                 return null;
@@ -192,7 +196,7 @@ namespace TUChairDAC
         {
             try
             {
-                using(SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.CommandText = @"select so.So_WorkOrderID, So_PurchaseOrder, so.Com_Code, Com_Name, so.Item_Code, Item_Name, So_Duedate, So_Qty, So_ShipQty, Sales_Plandate
                                                         from SalesOrder so inner join Company c on so.Com_Code=c.Com_Code
@@ -201,15 +205,15 @@ namespace TUChairDAC
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.Connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
-                     List<POVO> list = Helper.DataReaderMapToList<POVO>(reader);
+                    List<POVO> list = Helper.DataReaderMapToList<POVO>(reader);
                     cmd.Connection.Close();
 
                     return list;
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
-               _log.WriteError(err.Message);
+                _log.WriteError(err.Message);
                 return null;
             }
         }
@@ -239,7 +243,7 @@ namespace TUChairDAC
                     return true;
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 _log.WriteError(err.Message);
                 return false;

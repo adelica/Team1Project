@@ -75,7 +75,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(998, 9);
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button2.Location = new System.Drawing.Point(1010, 9);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 53;
@@ -217,6 +218,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "RawMaterialDeliveryForm";
+            this.Text = "원자재불출";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RawMaterialDeliveryForm_FormClosing);
             this.Load += new System.EventHandler(this.RawMaterialDeliveryForm_Load);
             this.panel3.ResumeLayout(false);
