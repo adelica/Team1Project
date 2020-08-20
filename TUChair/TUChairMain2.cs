@@ -683,7 +683,7 @@ namespace TUChair
         }
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            OpenorCreateForm<UpdateWorkOrder>();
+
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
