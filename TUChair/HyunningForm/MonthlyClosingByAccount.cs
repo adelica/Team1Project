@@ -78,7 +78,7 @@ namespace TUChair
         private void New(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("새로고침 할게없지롱");
+                dataLoad();
         }
         private void Search(object sender, EventArgs e)
         {
