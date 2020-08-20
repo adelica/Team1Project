@@ -116,5 +116,21 @@ namespace TUChair
         {
             this.Close();
         }
+
+        private void login_MouseMove(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+                return;
+
+            s.Parent.Left = this.Left + (e.X - ((Point)s.Tag).X);
+            s.Parent.Top = this.Top + (e.Y - ((Point)s.Tag).Y);
+        }
+
+        private void login_MouseDown(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            s.Tag = new Point(e.X, e.Y);
+        }
     }
 }
