@@ -60,9 +60,10 @@
             // btnPOUpLoad
             // 
             this.btnPOUpLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPOUpLoad.Location = new System.Drawing.Point(736, 8);
+            this.btnPOUpLoad.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
+            this.btnPOUpLoad.Location = new System.Drawing.Point(755, 8);
             this.btnPOUpLoad.Name = "btnPOUpLoad";
-            this.btnPOUpLoad.Size = new System.Drawing.Size(128, 23);
+            this.btnPOUpLoad.Size = new System.Drawing.Size(109, 23);
             this.btnPOUpLoad.TabIndex = 8;
             this.btnPOUpLoad.Text = "영업마스터생성";
             this.btnPOUpLoad.UseVisualStyleBackColor = true;
@@ -71,6 +72,7 @@
             // btnDownload
             // 
             this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDownload.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.btnDownload.Location = new System.Drawing.Point(873, 8);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(100, 23);
@@ -82,6 +84,7 @@
             // btnExcel
             // 
             this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcel.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.btnExcel.Location = new System.Drawing.Point(980, 8);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(85, 23);

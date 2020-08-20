@@ -33,16 +33,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtCom_Code = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtCom_CorporRegiNum = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtCom_Name = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.cboCom_Type = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -77,55 +73,37 @@
             // 
             // txtCom_Code
             // 
+            this.txtCom_Code.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.txtCom_Code.Location = new System.Drawing.Point(109, 3);
             this.txtCom_Code.Name = "txtCom_Code";
             this.txtCom_Code.Size = new System.Drawing.Size(208, 21);
             this.txtCom_Code.TabIndex = 0;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 5F);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(5, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(10, 7);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "■";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(16, 7);
+            this.label7.Location = new System.Drawing.Point(5, 6);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 12);
+            this.label7.Size = new System.Drawing.Size(68, 14);
             this.label7.TabIndex = 10;
-            this.label7.Text = "업체 코드";
+            this.label7.Text = "◆ 업체 코드";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(16, 7);
+            this.label2.Location = new System.Drawing.Point(5, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 12);
+            this.label2.Size = new System.Drawing.Size(98, 14);
             this.label2.TabIndex = 10;
-            this.label2.Text = "사업자등록번호";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("굴림", 5F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(5, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(10, 7);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "■";
+            this.label2.Text = "◆ 사업자등록번호";
             // 
             // txtCom_CorporRegiNum
             // 
+            this.txtCom_CorporRegiNum.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.txtCom_CorporRegiNum.Location = new System.Drawing.Point(109, 3);
             this.txtCom_CorporRegiNum.Name = "txtCom_CorporRegiNum";
             this.txtCom_CorporRegiNum.Size = new System.Drawing.Size(208, 21);
@@ -134,26 +112,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(18, 7);
+            this.label4.Location = new System.Drawing.Point(7, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.Size = new System.Drawing.Size(54, 14);
             this.label4.TabIndex = 10;
-            this.label4.Text = "업체명";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("굴림", 5F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(7, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(10, 7);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "■";
+            this.label4.Text = "◆ 업체명";
             // 
             // txtCom_Name
             // 
+            this.txtCom_Name.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.txtCom_Name.Location = new System.Drawing.Point(88, 3);
             this.txtCom_Name.Name = "txtCom_Name";
             this.txtCom_Name.Size = new System.Drawing.Size(208, 21);
@@ -162,37 +131,27 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(19, 8);
+            this.label6.Location = new System.Drawing.Point(8, 6);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(65, 14);
             this.label6.TabIndex = 10;
-            this.label6.Text = "업체타입";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("굴림", 5F);
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(8, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(10, 7);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "■";
+            this.label6.Text = "◆ 업체타입";
             // 
             // cboCom_Type
             // 
+            this.cboCom_Type.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.cboCom_Type.FormattingEnabled = true;
-            this.cboCom_Type.Location = new System.Drawing.Point(99, 4);
+            this.cboCom_Type.Location = new System.Drawing.Point(99, 3);
             this.cboCom_Type.Name = "cboCom_Type";
-            this.cboCom_Type.Size = new System.Drawing.Size(162, 20);
+            this.cboCom_Type.Size = new System.Drawing.Size(162, 22);
             this.cboCom_Type.TabIndex = 2;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.txtCom_Name);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.label5);
             this.panel4.Location = new System.Drawing.Point(382, 15);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(299, 27);
@@ -202,7 +161,6 @@
             // 
             this.panel5.Controls.Add(this.cboCom_Type);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.label9);
             this.panel5.Location = new System.Drawing.Point(717, 15);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(274, 27);
@@ -212,7 +170,6 @@
             // 
             this.panel6.Controls.Add(this.txtCom_CorporRegiNum);
             this.panel6.Controls.Add(this.label2);
-            this.panel6.Controls.Add(this.label3);
             this.panel6.Location = new System.Drawing.Point(11, 58);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(322, 27);
@@ -222,7 +179,6 @@
             // 
             this.panel7.Controls.Add(this.txtCom_Code);
             this.panel7.Controls.Add(this.label7);
-            this.panel7.Controls.Add(this.label8);
             this.panel7.Location = new System.Drawing.Point(11, 15);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(322, 27);
@@ -294,12 +250,8 @@
         private System.Windows.Forms.ComboBox cboCom_Type;
         private System.Windows.Forms.TextBox txtCom_CorporRegiNum;
         private System.Windows.Forms.TextBox txtCom_Name;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCom_Code;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;

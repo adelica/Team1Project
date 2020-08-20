@@ -35,23 +35,18 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.inDTP1 = new TUChair.InDTP();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.cboCustomer = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtItem = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dtpPlanDate = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.txtCusNumber = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.dgvPO = new JeanForm.JeansGridView();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -98,7 +93,6 @@
             // 
             this.panel4.Controls.Add(this.inDTP1);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.label8);
             this.panel4.Location = new System.Drawing.Point(17, 25);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(366, 34);
@@ -122,29 +116,18 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(19, 11);
+            this.label7.Location = new System.Drawing.Point(17, 7);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.Size = new System.Drawing.Size(76, 14);
             this.label7.TabIndex = 13;
-            this.label7.Text = "고객납기일";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 5F);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(8, 13);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(10, 7);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "■";
+            this.label7.Text = "◆ 고객납기일";
             // 
             // panel8
             // 
             this.panel8.Controls.Add(this.cboCustomer);
             this.panel8.Controls.Add(this.label10);
-            this.panel8.Controls.Add(this.label11);
             this.panel8.Location = new System.Drawing.Point(405, 25);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(312, 34);
@@ -153,39 +136,29 @@
             // cboCustomer
             // 
             this.cboCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCustomer.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.cboCustomer.FormattingEnabled = true;
             this.cboCustomer.Location = new System.Drawing.Point(99, 8);
             this.cboCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCustomer.Name = "cboCustomer";
-            this.cboCustomer.Size = new System.Drawing.Size(208, 20);
+            this.cboCustomer.Size = new System.Drawing.Size(208, 22);
             this.cboCustomer.TabIndex = 1;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(19, 11);
+            this.label10.Location = new System.Drawing.Point(17, 7);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 12);
+            this.label10.Size = new System.Drawing.Size(54, 14);
             this.label10.TabIndex = 13;
-            this.label10.Text = "고객사";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("굴림", 5F);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(8, 13);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(10, 7);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "■";
+            this.label10.Text = "◆ 고객사";
             // 
             // panel9
             // 
             this.panel9.Controls.Add(this.txtItem);
             this.panel9.Controls.Add(this.label12);
-            this.panel9.Controls.Add(this.label13);
             this.panel9.Location = new System.Drawing.Point(17, 79);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(366, 34);
@@ -193,6 +166,7 @@
             // 
             // txtItem
             // 
+            this.txtItem.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.txtItem.Location = new System.Drawing.Point(110, 7);
             this.txtItem.Name = "txtItem";
             this.txtItem.Size = new System.Drawing.Size(233, 21);
@@ -201,29 +175,18 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(19, 11);
+            this.label12.Location = new System.Drawing.Point(17, 7);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 12);
+            this.label12.Size = new System.Drawing.Size(43, 14);
             this.label12.TabIndex = 13;
-            this.label12.Text = "품목";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("굴림", 5F);
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(8, 13);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(10, 7);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "■";
+            this.label12.Text = "◆ 품목";
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.dtpPlanDate);
             this.panel10.Controls.Add(this.label14);
-            this.panel10.Controls.Add(this.label15);
             this.panel10.Location = new System.Drawing.Point(405, 79);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(312, 34);
@@ -242,29 +205,18 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(19, 11);
+            this.label14.Location = new System.Drawing.Point(17, 7);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 12);
+            this.label14.Size = new System.Drawing.Size(54, 14);
             this.label14.TabIndex = 13;
-            this.label14.Text = "등록일";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("굴림", 5F);
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(8, 13);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(10, 7);
-            this.label15.TabIndex = 14;
-            this.label15.Text = "■";
+            this.label14.Text = "◆ 등록일";
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.txtCusNumber);
             this.panel12.Controls.Add(this.label18);
-            this.panel12.Controls.Add(this.label19);
             this.panel12.Location = new System.Drawing.Point(741, 25);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(335, 34);
@@ -272,6 +224,7 @@
             // 
             // txtCusNumber
             // 
+            this.txtCusNumber.Font = new System.Drawing.Font("나눔고딕", 8.999999F);
             this.txtCusNumber.Location = new System.Drawing.Point(121, 7);
             this.txtCusNumber.Name = "txtCusNumber";
             this.txtCusNumber.Size = new System.Drawing.Size(208, 21);
@@ -280,23 +233,13 @@
             // label18
             // 
             this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(19, 11);
+            this.label18.Location = new System.Drawing.Point(17, 7);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(77, 12);
+            this.label18.Size = new System.Drawing.Size(87, 14);
             this.label18.TabIndex = 13;
-            this.label18.Text = "고객주문번호";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("굴림", 5F);
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(8, 13);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(10, 7);
-            this.label19.TabIndex = 14;
-            this.label19.Text = "■";
+            this.label18.Text = "◆ 고객주문번호";
             // 
             // dgvPO
             // 
@@ -367,22 +310,17 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.DateTimePicker dtpPlanDate;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TextBox txtItem;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox txtCusNumber;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.ComboBox cboCustomer;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private JeanForm.JeansGridView dgvPO;
         private InDTP inDTP1;
     }
