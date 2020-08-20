@@ -19,7 +19,7 @@ namespace TUChairDAC
                 using (SqlConnection conn = new SqlConnection(this.ConnectionString))
                 {
                     DataTable dt = new DataTable();
-                    string sql = @"select REPLICATE('0',5-len(convert(nvarchar(20),Vo_ID)))+convert(varchar(20), Vo_ID) as Vo_ID,  V.Vo_ID as ID, c.Com_Name, Materail_Order_State,i.Item_Name, i.Item_Code,i.Item_Size,i.Item_Unit,i.Item_Importins, Vo_Quantity, Vo_EndDate, Vo_StarDate, Vo_InDate
+                    string sql = @"select REPLICATE('0',5-len(convert(nvarchar(20),Vo_ID)))+convert(varchar(20), Vo_ID) as Vo_ID,  V.Vo_ID as ID, c.Com_Name, Materail_Order_State,i.Item_Name, i.Item_Code,i.Item_Size,i.Item_Unit, Vo_Quantity, Vo_EndDate, Vo_StarDate, Vo_InDate
 from VendorOrder V inner join Company c on v.Com_Code=c.Com_Code inner join Item i on v.Item_Code=i.Item_Code
 where Vo_StarDate >= 2020-06-01 and   Materail_Order_State ='미입고'";
                     
@@ -32,6 +32,50 @@ where Vo_StarDate >= 2020-06-01 and   Materail_Order_State ='미입고'";
             }
             catch (Exception err)
             {
+                throw err;
+            }
+        }
+
+        public bool InsertBalzu(List<balzuVO> balzus)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = @"insert into [dbo].[VendorOrder]([Com_Code], [Materail_Order_State], [Item_Code], [Vo_Quantity], [Vo_EndDate], [Vo_StarDate], [Vo_Price])
+			values(
+  @Com_Code
+, @Materail_Order_State
+, @Item_Code
+, @Vo_Quantity
+, @Vo_EndDate
+, getdate()
+, @Vo_Price   )  ";
+                    int isflag=0; 
+                    foreach (var balzu in balzus)
+                    {
+                        var date =  DateTime.Parse(balzu.Vo_EndDate);
+                        cmd.Parameters.AddWithValue("@Com_Code", balzu.Com_Code);
+                        cmd.Parameters.AddWithValue("@Materail_Order_State", balzu.Materail_Order_State);
+                        cmd.Parameters.AddWithValue("@Item_Code", balzu.Item_Code);
+                        cmd.Parameters.AddWithValue("@Vo_Quantity", balzu.Vo_Quantity);
+                        cmd.Parameters.AddWithValue("@Vo_EndDate", date);
+                        cmd.Parameters.AddWithValue("@Vo_Price", balzu.Vo_Price);
+
+                        cmd.Connection.Open();
+                        var rowsAffected = cmd.ExecuteNonQuery();
+                         isflag= rowsAffected;
+                        cmd.Connection.Close();
+                        cmd.Parameters.Clear();
+                    }
+
+                    return isflag > 0;
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
                 throw err;
             }
         }
@@ -119,7 +163,7 @@ select b.Com_Name,b.Com_Type,b.Item_Name,b.Item_Code,b.Item_Size,b.Qty,b.Com_Cor
                 using (SqlConnection conn = new SqlConnection(this.ConnectionString))
                 {
                     DataTable dt = new DataTable();
-                    string sql = @"select REPLICATE('0',5-len(convert(nvarchar(20),Vo_ID)))+convert(varchar(20), Vo_ID) as Vo_ID,  V.Vo_ID as ID, c.Com_Name, Materail_Order_State,i.Item_Name, i.Item_Code,i.Item_Size,i.Item_Unit,i.Item_Importins, Vo_Quantity, Vo_EndDate, Vo_StarDate, Vo_InDate
+                    string sql = @"select REPLICATE('0',5-len(convert(nvarchar(20),Vo_ID)))+convert(varchar(20), Vo_ID) as Vo_ID,  V.Vo_ID as ID, c.Com_Name, Materail_Order_State,i.Item_Name, i.Item_Code,i.Item_Size,i.Item_Unit, Vo_Quantity, Vo_EndDate, Vo_StarDate, Vo_InDate
 from VendorOrder V inner join Company c on v.Com_Code=c.Com_Code inner join Item i on v.Item_Code=i.Item_Code
 where Vo_StarDate >= 2020-06-01 and   Materail_Order_State ='입고'";
 

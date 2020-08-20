@@ -21,6 +21,7 @@ namespace TUChair
         public BalzuManager()
         {
             InitializeComponent();
+            jeansGridView1.AutoGenerateColumns = true;
         }
 
         private void BalzuManager_Load(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace TUChair
 
         private void New(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            jeansGridView1.DataSource = null;
         }
 
         private void Delete(object sender, EventArgs e)
@@ -65,7 +66,8 @@ namespace TUChair
             }
             balzuService service = new balzuService();
             dt = service.GetBalzuItem(cboplanID.Text,inDTP1.Start,inDTP1.End);
-            dataGridView1.DataSource = dt;
+            jeansGridView1.DataSource = null; 
+            jeansGridView1.DataSource = dt;
         }
 
         private void Save(object sender, EventArgs e)

@@ -108,57 +108,60 @@ namespace TUChair
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                int cnt = 0;
-                int row = 0;
-                jeansGridView1.EndEdit();
-                for (int i = 0; i < jeansGridView1.Rows.Count; i++)
                 {
-                    bool isbool = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
-                    if (isbool)
-                    { cnt++; row = i; }
-                }
-                string userID = ((TUChairMain2)this.MdiParent).userInfoVO.CUser_ID;
-                if (cnt == 0)
-                {
-                    ItemPopUp frm = new ItemPopUp(userID);
-                   if( frm.ShowDialog()==DialogResult.OK)
+                    int cnt = 0;
+                    int row = 0;
+                    jeansGridView1.EndEdit();
+                    for (int i = 0; i < jeansGridView1.Rows.Count; i++)
                     {
-                        BindingData();
+                        bool isbool = Convert.ToBoolean(jeansGridView1.Rows[i].Cells["chk"].Value);
+                        if (isbool)
+                        { cnt++; row = i; }
                     }
-                }
-                else if (cnt > 1)
-                {
-                    MessageBox.Show("수정은 하나씩만 가능합니다.");
-                    return;
-                }
-                else
-                {
-                    ItemVO pItem = new ItemVO();
-                     pItem.Item_Code                 = jeansGridView1.Rows[row].Cells[2].Value.ToString();
-                     pItem.Item_Importins          =  jeansGridView1.Rows[row].Cells[10].Value      ==null ? "" : jeansGridView1.Rows[row].Cells[10].Value.ToString();
-                     pItem.Item_InWarehouse        =  jeansGridView1.Rows[row].Cells[7].Value          ==null ? "" : jeansGridView1.Rows[row].Cells[7].Value.ToString();
-                     pItem.Item_Manager            =  jeansGridView1.Rows[row].Cells[13].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[13].Value.ToString();
-                     pItem.Item_Name               =  jeansGridView1.Rows[row].Cells[3].Value          ==null ? "" : jeansGridView1.Rows[row].Cells[3].Value.ToString();
-                     pItem.Item_OrderComp          =  jeansGridView1.Rows[row].Cells[6].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[6].Value.ToString();
-                     pItem.Item_Other              =  jeansGridView1.Rows[row].Cells[18].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[18].Value.ToString();
-                     pItem.Item_OutWarehouse       =  jeansGridView1.Rows[row].Cells[8].Value          ==null ? "" : jeansGridView1.Rows[row].Cells[8].Value.ToString();
-                     pItem.Item_Processins         =  jeansGridView1.Rows[row].Cells[11].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[11].Value.ToString();
-                    pItem.Item_SafeQuantity         = Convert.ToInt32(jeansGridView1.Rows[row].Cells[9].Value);     
-                     pItem.Item_Shipmentins        =  jeansGridView1.Rows[row].Cells[12].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[12].Value.ToString();
-                     pItem.Item_Size               =  jeansGridView1.Rows[row].Cells[4].Value        ==null ? "" : jeansGridView1.Rows[row].Cells[4].Value.ToString();
-                     pItem.Item_Type               =  jeansGridView1.Rows[row].Cells[1].Value        ==null ? "" : jeansGridView1.Rows[row].Cells[1].Value.ToString();
-                     pItem.Item_Unit               =  jeansGridView1.Rows[row].Cells[5].Value         ==null ? "" : jeansGridView1.Rows[row].Cells[5].Value.ToString();
-                     pItem.Item_UserOrNot          =  jeansGridView1.Rows[row].Cells[17].Value           ==null ? "" : jeansGridView1.Rows[row].Cells[17].Value.ToString();
-                     pItem.Item_OutSourcing        = jeansGridView1.Rows[row].Cells[16].Value        == null ? "" : jeansGridView1.Rows[row].Cells[16].Value.ToString();
+                    string userID = ((TUChairMain2)this.MdiParent).userInfoVO.CUser_ID;
+                    if (cnt == 0)
+                    {
+                        ItemPopUp frm = new ItemPopUp(userID);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            BindingData();
+                        }
+                    }
+                    else if (cnt > 1)
+                    {
+                        MessageBox.Show("수정은 하나씩만 가능합니다.");
+                        return;
+                    }
+                    else
+                    {
+                        ItemVO pItem = new ItemVO();
+                        pItem.Item_Code = jeansGridView1.Rows[row].Cells[2].Value.ToString();
+                        pItem.Item_Importins = jeansGridView1.Rows[row].Cells[10].Value == null ? "" : jeansGridView1.Rows[row].Cells[10].Value.ToString();
+                        pItem.Item_InWarehouse = jeansGridView1.Rows[row].Cells[7].Value == null ? "" : jeansGridView1.Rows[row].Cells[7].Value.ToString();
+                        pItem.Item_Manager = jeansGridView1.Rows[row].Cells[13].Value == null ? "" : jeansGridView1.Rows[row].Cells[13].Value.ToString();
+                        pItem.Item_Name = jeansGridView1.Rows[row].Cells[3].Value == null ? "" : jeansGridView1.Rows[row].Cells[3].Value.ToString();
+                        pItem.Item_OrderComp = jeansGridView1.Rows[row].Cells[6].Value == null ? "" : jeansGridView1.Rows[row].Cells[6].Value.ToString();
+                        pItem.Item_Other = jeansGridView1.Rows[row].Cells[18].Value == null ? "" : jeansGridView1.Rows[row].Cells[18].Value.ToString();
+                        pItem.Item_OutWarehouse = jeansGridView1.Rows[row].Cells[8].Value == null ? "" : jeansGridView1.Rows[row].Cells[8].Value.ToString();
+                        pItem.Item_Processins = jeansGridView1.Rows[row].Cells[11].Value == null ? "" : jeansGridView1.Rows[row].Cells[11].Value.ToString();
+                        pItem.Item_SafeQuantity = Convert.ToInt32(jeansGridView1.Rows[row].Cells[9].Value);
+                        pItem.Item_Shipmentins = jeansGridView1.Rows[row].Cells[12].Value == null ? "" : jeansGridView1.Rows[row].Cells[12].Value.ToString();
+                        pItem.Item_Size = jeansGridView1.Rows[row].Cells[4].Value == null ? "" : jeansGridView1.Rows[row].Cells[4].Value.ToString();
+                        pItem.Item_Type = jeansGridView1.Rows[row].Cells[1].Value == null ? "" : jeansGridView1.Rows[row].Cells[1].Value.ToString();
+                        pItem.Item_Unit = jeansGridView1.Rows[row].Cells[5].Value == null ? "" : jeansGridView1.Rows[row].Cells[5].Value.ToString();
+                        pItem.Item_UserOrNot = jeansGridView1.Rows[row].Cells[17].Value == null ? "" : jeansGridView1.Rows[row].Cells[17].Value.ToString();
+                        pItem.Item_OutSourcing = jeansGridView1.Rows[row].Cells[16].Value == null ? "" : jeansGridView1.Rows[row].Cells[16].Value.ToString();
 
-                    ItemPopUp frm = new ItemPopUp(userID);
-                    frm.Item = pItem;
-                    if (frm.ShowDialog() == DialogResult.OK)
-                    {
-                        BindingData();
+                        ItemPopUp frm = new ItemPopUp(userID);
+                        frm.Item = pItem;
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            BindingData();
+                        }
                     }
                 }
-            }
+
+                }
 
         }
         private void New(object sender, EventArgs e)

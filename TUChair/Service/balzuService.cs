@@ -41,5 +41,11 @@ namespace TUChair.Service
             balzuDAC dac = new balzuDAC();
             return dac.GetBalzuItemList(planID);
         }
+
+        internal bool InsertBalzu(List<balzuVO> balzus)
+        {
+            balzuDAC dac = new balzuDAC();
+            return dac.InsertBalzu(balzus);
+        }
     }
 }
