@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginFrm));
             this.login = new System.Windows.Forms.Panel();
+            this.chkSave = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -43,6 +44,7 @@
             // 
             // login
             // 
+            this.login.Controls.Add(this.chkSave);
             this.login.Controls.Add(this.label3);
             this.login.Controls.Add(this.checkBox1);
             this.login.Controls.Add(this.txtID);
@@ -57,6 +59,17 @@
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(449, 295);
             this.login.TabIndex = 1;
+            // 
+            // chkSave
+            // 
+            this.chkSave.AutoSize = true;
+            this.chkSave.Location = new System.Drawing.Point(324, 136);
+            this.chkSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chkSave.Name = "chkSave";
+            this.chkSave.Size = new System.Drawing.Size(89, 19);
+            this.chkSave.TabIndex = 13;
+            this.chkSave.Text = "사번저장";
+            this.chkSave.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -117,6 +130,7 @@
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "취소";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // txtPwd
             // 
@@ -150,6 +164,10 @@
             this.Name = "LoginFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TUChair에 오신것을 환영합니다.";
+            this.Activated += new System.EventHandler(this.LoginFrm_Activated);
+            this.Deactivate += new System.EventHandler(this.LoginFrm_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginFrm_FormClosing);
+            this.Load += new System.EventHandler(this.LoginFrm_Load);
             this.login.ResumeLayout(false);
             this.login.PerformLayout();
             this.ResumeLayout(false);
@@ -167,5 +185,6 @@
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox chkSave;
     }
 }

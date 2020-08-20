@@ -27,5 +27,11 @@ namespace TUChair.Service
             LoginDAC dac = new LoginDAC();
             return dac.InsertMark(marks, UID);
         }
+
+        internal bool InsertAuthor(List<AuthorVO> author)
+        {
+            LoginDAC dac = new LoginDAC();
+            return dac.InsertAuthor(author);
+        }
     }
 }

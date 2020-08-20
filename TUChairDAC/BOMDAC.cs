@@ -38,6 +38,36 @@ from [dbo].[vm_Bom2] order by [sortOrder] ";
             }
         }
 
+        public List<BOMVO> SearchBOM(DateTime value, string text, string selectedValue)
+        {
+			try
+			{
+				SqlConnection strConn = new SqlConnection(this.ConnectionString);
+
+				using (SqlCommand cmd = new SqlCommand())
+				{
+					cmd.Connection = strConn;
+					cmd.CommandText = @"SP_SearchBOM";
+					cmd.CommandType = CommandType.StoredProcedure;
+					cmd.Parameters.AddWithValue("@P_Item_Code", text);
+					cmd.Parameters.AddWithValue("@P_DateT", value);
+					cmd.Parameters.AddWithValue("@P_BOMType", selectedValue);
+					cmd.Connection.Open();
+					SqlDataReader reader = cmd.ExecuteReader();
+					List<BOMVO> list = Helper.MeilingDataReaderMapToList<BOMVO>(reader);
+					cmd.Connection.Close();
+
+					return list;
+				}
+			}
+			catch (Exception err)
+			{
+				_log.WriteError(err.Message, err);
+				throw err;
+
+			}
+		}
+
         public bool DeleteBOM(string condition)
 		{
 			try

@@ -59,7 +59,7 @@
             // label1
             // 
             this.label1.Size = new System.Drawing.Size(51, 29);
-            this.label1.Text = "권한";
+            this.label1.Text = "메뉴";
             // 
             // panel3
             // 
@@ -96,6 +96,7 @@
             this.cboauthgroup.Size = new System.Drawing.Size(250, 32);
             this.cboauthgroup.TabIndex = 8;
             this.cboauthgroup.SelectedIndexChanged += new System.EventHandler(this.cboauthgroup_SelectedIndexChanged);
+            this.cboauthgroup.SelectedValueChanged += new System.EventHandler(this.cboauthgroup_SelectedValueChanged);
             // 
             // label7
             // 
