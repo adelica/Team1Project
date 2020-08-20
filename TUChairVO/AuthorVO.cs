@@ -28,7 +28,7 @@ namespace TUChairVO
         public int    Module_ID         { get; set; }
         public string   Module_Name       { get; set; }
         public bool   Method_Search     { get; set; }
-        public bool Method_New { get; set; }
+        public bool   Method_New     { get; set; }
         public bool   Method_Save    { get; set; }
         public bool   Method_Delete     { get; set; }
         public bool   Method_Excel      { get; set; }

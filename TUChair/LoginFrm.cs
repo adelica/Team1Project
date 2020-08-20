@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TUChair.Properties;
 using TUChair.Service;
 using TUChairVO;
 
@@ -58,7 +59,62 @@ namespace TUChair
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            if (checkBox1.Checked)
+            {
+                txtPwd.PasswordChar = '\0';
+            }
+            else
+            {
+                txtPwd.PasswordChar = '*';
+            }
+        }
 
+        private void LoginFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (chkSave.Checked)
+            {
+                Settings.Default["loginID"] = txtID.Text;
+                Settings.Default["IsChk"] = chkSave.Checked;
+                Settings.Default.Save();
+            }
+            else
+            {
+                Settings.Default["loginID"] = "";
+                Settings.Default["IsChk"] = chkSave.Checked;
+                Settings.Default.Save();
+            }
+        }
+
+        private void LoginFrm_Activated(object sender, EventArgs e)
+        {
+            txtID.Text = Settings.Default["loginID"].ToString();
+            chkSave.Checked = Settings.Default.IsChk;
+        }
+
+        private void LoginFrm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginFrm_Deactivate(object sender, EventArgs e)
+        {
+            if (chkSave.Checked)
+            {
+                Settings.Default["loginID"] = txtID.Text;
+                Settings.Default["IsChk"] = chkSave.Checked;
+                Settings.Default.Save();
+            }
+            else
+            {
+                Settings.Default["loginID"] = "";
+                Settings.Default["IsChk"] = chkSave.Checked;
+                Settings.Default.Save();
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -31,18 +31,21 @@ namespace TUChair
             frm.New += New;
             frm.Excel += Excel;
             commonService service = new commonService();
-            comboItems = service.getCommonCode("@사용여부@BOM");
+            comboItems = service.getCommonCode("@사용여부@BOM@Item");
+
+
+
 
             List<ComboItemVO> cList = (from item in comboItems
-                                       where item.CodeType == "사용여부"
-                                       orderby item.CodeNm descending
-                                       select item).ToList();
-            CommonUtil.ComboBinding(cboUseOrNot, cList);
-       
-            cList = (from item in comboItems
                      where item.CodeType == "BOM"
                      select item).ToList();
             CommonUtil.ComboBinding(cboBOMType, cList);
+
+            cList = (from item in comboItems
+                     where item.CodeType == "Item"
+                     select item).ToList();
+            CommonUtil.ComboBinding(cboitem, cList,"");
+
 
             dtpDate.Value = DateTime.Now;
 
@@ -56,9 +59,9 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "INFO", true,200);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품목", "ItemCode", true,200);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "타입", "Item_Type", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "소요량", "BOM_Require", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "소요량", "BOM_Require", true,60,DataGridViewContentAlignment.MiddleRight);
 
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "레벨", "Lvl", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "레 벨", "Lvl", true,60, DataGridViewContentAlignment.MiddleRight);
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "시작일자", "BOM_StartDate", true);
 
@@ -128,7 +131,16 @@ namespace TUChair
 
         private void Search(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (cboitem.Text.Length < 1)
+            {
+                MessageBox.Show("품목을 선택해주세요.");
+                return;
+            }
+            BOMService service = new BOMService();
+            BOM= service.SearchBOM(dtpDate.Value, cboitem.SelectedValue.ToString(), cboBOMType.SelectedValue.ToString());
+            jeansGridView1.DataSource = null;
+            jeansGridView1.DataSource = BOM;
+
         }
 
         private void Save(object sender, EventArgs e)

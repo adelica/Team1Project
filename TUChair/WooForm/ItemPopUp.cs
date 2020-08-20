@@ -45,7 +45,7 @@ namespace TUChair
                 pItem.Item_Unit          =           cboUnit.Text;
                 pItem.Item_UserOrNot         =      cboUseorNot.Text;
                 pItem.Item_OutSourcing   = cboOutsorching.Text;
-         
+                pItem.Item_LeadTime = (int)numLeadTime.Value;
 
                 //pItem.
                 item = pItem;
@@ -68,6 +68,7 @@ namespace TUChair
                 cboUnit.Text = value.Item_Unit;
                 cboUseorNot.Text = value.Item_UserOrNot;
                 cboOutsorching.Text = value.Item_OutSourcing;
+                numLeadTime.Value = value.Item_LeadTime;
             }
         }
         public ItemPopUp()

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TUChairVO;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace TUChairDAC
 {
@@ -33,6 +34,44 @@ namespace TUChairDAC
             }
             catch (Exception err)
             {
+                throw err;
+            }
+        }
+
+        public bool InsertAuthor(List<AuthorVO> author)
+        {
+            try
+            {
+                SqlConnection strConn = new SqlConnection(this.ConnectionString);
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = strConn;
+                    cmd.CommandText = @"SP_UpsertAutor";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    int rowsAffected = 0;
+                    foreach (var item in author)
+                    {
+                        cmd.Parameters.AddWithValue("@P_AuthorGroup_ID", item.Module_ID);
+                        cmd.Parameters.AddWithValue("@P_Program_ID", item.Program_ID);
+                        cmd.Parameters.AddWithValue("@P_Method_Search", item.Method_Search);
+                        cmd.Parameters.AddWithValue("@P_Method_New", item.Method_New);
+                        cmd.Parameters.AddWithValue("@P_Method_Save", item.Method_Save);
+                        cmd.Parameters.AddWithValue("@P_Method_Delete", item.Method_Delete);
+                        cmd.Parameters.AddWithValue("@P_Method_Excel", item.Method_Excel);
+                        cmd.Connection.Open();
+                         rowsAffected = cmd.ExecuteNonQuery();
+                        cmd.Connection.Close();
+                        cmd.Parameters.Clear();
+                    }
+                   
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception err)
+            {
+                _log.WriteError(err.Message, err);
                 throw err;
             }
         }

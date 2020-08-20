@@ -27,6 +27,7 @@ namespace TUChairVO
       public string  Item_UserOrNot         {get; set;}
       public string  Item_Other              {get; set;}
        public string Item_OutSourcing     { get; set; }
+        public int   Item_LeadTime          { get; set; }
     }
 
     public class ItemCodeVO

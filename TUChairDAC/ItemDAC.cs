@@ -24,7 +24,7 @@ namespace TUChairDAC
                     cmd.CommandText = @"select Item_Code, Item_Name, Item_Size, Item_Type
      , Item_OrderComp, Item_InWarehouse, Item_OutWarehouse, Item_SafeQuantity
      , Item_Unit, Item_Importins, Item_Processins, Item_Shipmentins
-    , Item_Manager, Item_Modifier, Item_ModiflyDate, Item_UserOrNot, Item_Other,Item_OutSourcing
+    , Item_Manager, Item_Modifier, Item_ModiflyDate, Item_UserOrNot, Item_Other,Item_OutSourcing,Item_LeadTime
 from
 Item";
                     cmd.Connection.Open();
@@ -109,7 +109,9 @@ Using(
 			,  @Item_Manager         as	Item_Manager	
 			,  @Item_UserOrNot       as	Item_UserOrNot	  
 			,  @Item_Other           as	Item_Other		  
-			,  @Item_OutSourcing    as	Item_OutSourcing  )
+			,  @Item_OutSourcing    as	Item_OutSourcing 
+			,  @Item_LeadTime		as   Item_LeadTime
+	)
 as S
 on (T.Item_Code=S.Item_Code)
 When matched Then 
@@ -132,6 +134,8 @@ When matched Then
 		, T.Item_UserOrNot	   =	s.Item_UserOrNot	
 		, T.Item_Other		   =	s.Item_Other		
 		, T.Item_OutSourcing   =	s.Item_OutSourcing
+		, T.Item_LeadTime      =    s.Item_LeadTime
+
 when not matched then
  insert  (
 		 item_Code	
@@ -151,7 +155,9 @@ when not matched then
 		,Item_ModiflyDate
 		,Item_UserOrNot	  
 		,Item_Other		  
-		,Item_OutSourcing )
+		,Item_OutSourcing
+		,Item_LeadTime
+)
 	values 
 	(  
 	   s.Item_Code
@@ -171,7 +177,8 @@ when not matched then
 	 ,getdate()
 	 , s.Item_UserOrNot	  
 	 , s.Item_Other		  
-	 , s.Item_OutSourcing ); ";
+	 , s.Item_OutSourcing
+	 , s.Item_LeadTime	); ";
                     cmd.Parameters.AddWithValue("@Item_Code",            item.Item_Code    );
                     cmd.Parameters.AddWithValue("@Item_Name",            item.Item_Name           );
                     cmd.Parameters.AddWithValue("@Item_Size",            item.Item_Size		    );
@@ -189,6 +196,7 @@ when not matched then
 					cmd.Parameters.AddWithValue("@Item_UserOrNot",       item.Item_UserOrNot	  	);
 					cmd.Parameters.AddWithValue("@Item_Other",			 item.Item_Other		  	);
 					cmd.Parameters.AddWithValue("@Item_OutSourcing",	 item.Item_OutSourcing);
+					cmd.Parameters.AddWithValue("@Item_LeadTime", item.Item_LeadTime);
 					cmd.Connection.Open();
                     var rowsAffected = cmd.ExecuteNonQuery();
                     cmd.Connection.Close();

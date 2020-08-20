@@ -27,5 +27,11 @@ namespace TUChair.Service
             BOMDAC dac = new BOMDAC();
             return dac.DeleteBOM(condition);
         }
+
+        internal List<BOMVO> SearchBOM(DateTime value, string text, string selectedValue)
+        {
+            BOMDAC dac = new BOMDAC();
+            return dac.SearchBOM(value, text, selectedValue);
+        }
     }
 }

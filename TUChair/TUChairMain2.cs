@@ -171,6 +171,8 @@ namespace TUChair
         }
         private void LoginMenuBInding()
         {
+            if (userInfoVO == null)
+                return;
             LoginService service = new LoginService();
             author = service.GetAuthorInfo(userInfoVO.AuthorGroup_ID);
             if (userInfoVO.CUser_Mark != "")
@@ -717,6 +719,21 @@ namespace TUChair
                 form.Close();
             }
             //tabForms.TabPages.Clear();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void 선ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in this.MdiChildren)
+            {
+                if (form == this.ActiveMdiChild)
+                    continue;
+                form.Close();
+            }
         }
     }
     public class ReadEventArgs : EventArgs

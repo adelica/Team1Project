@@ -175,6 +175,28 @@ namespace TUChair.Util
             }
             return authorBooltypes;
         }
+        public static List<AuthorBooltypeVO> ChangeAuthorFromMethode(List<AuthorBooltypeVO> author)
+        {
+            List<AuthorBooltypeVO> authorBooltypes = new List<AuthorBooltypeVO>();
+            string AppName = Assembly.GetEntryAssembly().GetName().Name;
+            foreach (var item in author)
+            {
+                Type frmType = Type.GetType($"{AppName}.{item.Program_ID}");
+                var saveflag = (frmType.GetMethod("Save", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var deleteflag = (frmType.GetMethod("Delete", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var newflag = (frmType.GetMethod("New", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var excelflag = (frmType.GetMethod("Excel", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+                var searchflag = (frmType.GetMethod("Search", BindingFlags.NonPublic | BindingFlags.Instance) != null);
+
+                item.Method_Search = (item.Method_Search) & searchflag;
+                item.Method_New = (item.Method_New) & newflag;
+                item.Method_Save = item.Method_Save & saveflag;
+                item.Method_Delete = item.Method_Delete & deleteflag;
+                item.Method_Excel = item.Method_Excel & excelflag;
+                authorBooltypes.Add(item);
+            }
+            return authorBooltypes;
+        }
 
         public static List<AuthorVO> ReChangeTypeAuthor(List<AuthorBooltypeVO> author)
         {
