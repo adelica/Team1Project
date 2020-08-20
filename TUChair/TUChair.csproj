@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WooForm\AuthoGroupManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WooForm\AuthoGroupManager.Designer.cs">
+      <DependentUpon>AuthoGroupManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="WooForm\AuthorManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -637,6 +643,9 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="WooForm\AuthoGroupManager.resx">
+      <DependentUpon>AuthoGroupManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WooForm\AuthorManager.resx">
       <DependentUpon>AuthorManager.cs</DependentUpon>
     </EmbeddedResource>

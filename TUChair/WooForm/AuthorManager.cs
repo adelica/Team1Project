@@ -82,31 +82,59 @@ namespace TUChair
 
         private void New(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
+            {
+                jeansGridView2.DataSource = null;
+                authorgropID = 0;
+                cboauthgroup.SelectedIndex = 0;
+                author = null;
+            }
         }
 
         private void Save(object sender, EventArgs e)
         {
-            if (authorgropID == 0)
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                MessageBox.Show("권한그룹을 선택하여 주세요.");
-                return;
-            }
-            if (jeansGridView2.DataSource == null)
-            {
-                MessageBox.Show("선택된 메뉴가 없습니다.");
-                return;
-            }
-            try
-            {
-                LoginService service = new LoginService();
-                author = CommonUtil.ReChangeTypeAuthor(authority);
-                if (service.InsertAuthor(author))
-                    BindAuthor();
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
+                if (authorgropID == 0)
+                {
+                    MessageBox.Show("권한그룹을 선택하여 주세요.");
+                    return;
+                }
+                if (jeansGridView2.DataSource == null)
+                {
+                    MessageBox.Show("선택된 메뉴가 없습니다.");
+                    return;
+                }
+                try
+                {
+                    jeansGridView2.EndEdit();
+                    List<AuthorBooltypeVO> authorBooltypes = new List<AuthorBooltypeVO>();
+                    LoginService service = new LoginService();
+                    for (int i = 0; i < jeansGridView2.RowCount; i++)
+                    {
+                        AuthorBooltypeVO authorVO = new AuthorBooltypeVO();
+                        authorVO.Program_ID = jeansGridView2.Rows[i].Cells[1].Value.ToString();
+                        authorVO.Program_Name = jeansGridView2.Rows[i].Cells[2].Value.ToString();
+                        authorVO.Module_ID = authorgropID;
+                        authorVO.Method_New = (bool)jeansGridView2.Rows[i].Cells[3].Value;
+                        authorVO.Method_Save = (bool)jeansGridView2.Rows[i].Cells[5].Value;
+                        authorVO.Method_Search = (bool)jeansGridView2.Rows[i].Cells[4].Value;
+                        authorVO.Method_Delete = (bool)jeansGridView2.Rows[i].Cells[6].Value;
+                        authorVO.Method_Excel = (bool)jeansGridView2.Rows[i].Cells[7].Value;
+                        authorBooltypes.Add(authorVO);
+                    }
+                    author = CommonUtil.ReChangeTypeAuthor(authorBooltypes);
+                    if (service.InsertAuthor(author))
+                    {
+                        MessageBox.Show("저장되었습니다.");
+                        author = null;
+                        BindAuthor();
+                    }
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
             }
         }
 
@@ -160,15 +188,14 @@ namespace TUChair
                     else
                     {
                         AuthorBooltypeVO authorVO = new AuthorBooltypeVO();
-                            authorVO.Program_ID = programID;
-                        authorVO.Program_Name = programName;
-                        authorVO.Module_ID = authorgropID;
-                        authorVO.Method_New = true;
-                        authorVO.Method_Search  =true  ;
-                        authorVO.Method_New     =true  ;
-                        authorVO.Method_Save    =true  ;
-                        authorVO.Method_Delete  =true  ;
-                        authorVO.Method_Excel = true;
+                            authorVO.Program_ID      = programID;
+                        authorVO.Program_Name           = programName;
+                        authorVO.Module_ID              = authorgropID;
+                        authorVO.Method_New             = true;
+                        authorVO.Method_Save            =true  ;
+                        authorVO.Method_Search          =true  ;
+                        authorVO.Method_Delete          =true  ;
+                        authorVO.Method_Excel           = true;
                         sb.Add(authorVO);
                     }
                 }
@@ -194,7 +221,6 @@ namespace TUChair
              }
             else
             {
-
                 string num = cboauthgroup.SelectedValue.ToString();
                 authorgropID = (int.Parse(num));
                 BindAuthor();

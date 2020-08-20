@@ -46,8 +46,15 @@ namespace TUChairDAC
 
                 using (SqlCommand cmd = new SqlCommand())
                 {
+                    cmd.CommandText = @"delete from [Author] where [AuthorGroup_ID]= @P_AuthorGroup_ID";
                     cmd.Connection = strConn;
-                    cmd.CommandText = @"SP_UpsertAutor";
+                    cmd.Parameters.AddWithValue("@P_AuthorGroup_ID", author[0].Module_ID);
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                    cmd.Parameters.Clear();
+
+                    cmd.CommandText = @"SP_UpsertAutor2";
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                     int rowsAffected = 0;
