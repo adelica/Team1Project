@@ -129,6 +129,18 @@
     <Compile Include="MeilingForm\RowMetrialDecountPopUp.Designer.cs">
       <DependentUpon>RowMetrialDecountPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="POPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPForm.Designer.cs">
+      <DependentUpon>POPForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPUserControl.Designer.cs">
+      <DependentUpon>POPUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service\JeanMagamService.cs" />
     <Compile Include="Service\MaterialRequirementService.cs" />
     <Compile Include="Service\POSOService.cs" />
@@ -630,6 +642,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MeilingForm\RowMetrialDecountPopUp.resx">
       <DependentUpon>RowMetrialDecountPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPForm.resx">
+      <DependentUpon>POPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPUserControl.resx">
+      <DependentUpon>POPUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WooForm\BOMPopUP.resx">
       <DependentUpon>BOMPopUP.cs</DependentUpon>
