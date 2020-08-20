@@ -26,6 +26,7 @@ namespace TUChair
 
         private void BalzuManager_Load(object sender, EventArgs e)
         {
+           
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
             frm.Save += Save;
             frm.Search += Search;
@@ -40,6 +41,8 @@ namespace TUChair
                                        orderby item.CodeNm ascending
                                        select item).ToList();
             CommonUtil.ComboBinding(cboplanID, cList);
+
+            inDTP1.Start = DateTime.Now;
         }
 
         private void Excel(object sender, EventArgs e)
