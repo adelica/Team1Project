@@ -40,7 +40,6 @@
             this.cboPlanID = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.dgvMaterialReq = new JeanForm.JeansGridView();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,12 +55,11 @@
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(144, 29);
+            this.label1.Size = new System.Drawing.Size(113, 23);
             this.label1.Text = "≡ 자재소요계획";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.TabIndex = 2;
@@ -71,10 +69,9 @@
             this.panel6.Controls.Add(this.dtpMaterialReq);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.label8);
-            this.panel6.Location = new System.Drawing.Point(622, 35);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel6.Location = new System.Drawing.Point(544, 28);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(418, 42);
+            this.panel6.Size = new System.Drawing.Size(366, 34);
             this.panel6.TabIndex = 1;
             // 
             // dtpMaterialReq
@@ -83,10 +80,10 @@
             this.dtpMaterialReq.End = new System.DateTime(2020, 9, 3, 0, 0, 0, 0);
             this.dtpMaterialReq.endCustomfomat = null;
             this.dtpMaterialReq.endfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpMaterialReq.Location = new System.Drawing.Point(120, 2);
+            this.dtpMaterialReq.Location = new System.Drawing.Point(105, 2);
             this.dtpMaterialReq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpMaterialReq.Name = "dtpMaterialReq";
-            this.dtpMaterialReq.Size = new System.Drawing.Size(280, 32);
+            this.dtpMaterialReq.Size = new System.Drawing.Size(245, 26);
             this.dtpMaterialReq.Start = new System.DateTime(2020, 7, 15, 0, 0, 0, 0);
             this.dtpMaterialReq.startCustomfomat = null;
             this.dtpMaterialReq.startfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -96,9 +93,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(22, 14);
+            this.label7.Location = new System.Drawing.Point(19, 11);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 15);
+            this.label7.Size = new System.Drawing.Size(30, 12);
             this.label7.TabIndex = 13;
             this.label7.Text = "Date";
             // 
@@ -107,9 +104,9 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("굴림", 5F);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(9, 16);
+            this.label8.Location = new System.Drawing.Point(8, 13);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 9);
+            this.label8.Size = new System.Drawing.Size(10, 7);
             this.label8.TabIndex = 14;
             this.label8.Text = "■";
             // 
@@ -118,29 +115,28 @@
             this.panel4.Controls.Add(this.cboPlanID);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(63, 35);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel4.Location = new System.Drawing.Point(55, 28);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(373, 42);
+            this.panel4.Size = new System.Drawing.Size(326, 34);
             this.panel4.TabIndex = 0;
             // 
             // cboPlanID
             // 
             this.cboPlanID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPlanID.FormattingEnabled = true;
-            this.cboPlanID.Location = new System.Drawing.Point(123, 10);
+            this.cboPlanID.Location = new System.Drawing.Point(108, 8);
             this.cboPlanID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboPlanID.Name = "cboPlanID";
-            this.cboPlanID.Size = new System.Drawing.Size(237, 23);
+            this.cboPlanID.Size = new System.Drawing.Size(208, 20);
             this.cboPlanID.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(22, 14);
+            this.label4.Location = new System.Drawing.Point(19, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 15);
+            this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 13;
             this.label4.Text = "PlanID";
             // 
@@ -149,25 +145,15 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("굴림", 5F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(9, 16);
+            this.label5.Location = new System.Drawing.Point(8, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(13, 9);
+            this.label5.Size = new System.Drawing.Size(10, 7);
             this.label5.TabIndex = 14;
             this.label5.Text = "■";
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(1133, 76);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(91, 32);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.Text = "조회";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
             // dgvMaterialReq
             // 
+            this.dgvMaterialReq.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
             this.dgvMaterialReq.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -190,20 +176,19 @@
             this.dgvMaterialReq.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMaterialReq.IsAllCheckColumnHeader = false;
             this.dgvMaterialReq.Location = new System.Drawing.Point(0, 0);
-            this.dgvMaterialReq.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvMaterialReq.Name = "dgvMaterialReq";
             this.dgvMaterialReq.RowHeadersWidth = 30;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
             this.dgvMaterialReq.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvMaterialReq.RowTemplate.Height = 23;
             this.dgvMaterialReq.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaterialReq.Size = new System.Drawing.Size(1246, 531);
+            this.dgvMaterialReq.Size = new System.Drawing.Size(1090, 425);
             this.dgvMaterialReq.TabIndex = 0;
             // 
             // MaterialRequirementManage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.ClientSize = new System.Drawing.Size(1275, 752);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MaterialRequirementManage";
             this.Text = "자재소요계획";
@@ -232,7 +217,6 @@
         private System.Windows.Forms.ComboBox cboPlanID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnSearch;
         private JeanForm.JeansGridView dgvMaterialReq;
     }
 }

@@ -39,6 +39,14 @@ namespace TUChairVO
           public int?        Price_Present            { get; set; }
           public int?        price                   { get; set; }
     
-    }     
+    }
+    public class StockVO
+    {
+        public string  Fact_Code     { get; set; }
+        public string  Item_Code     { get; set; }
+        public string  Insert_Date   { get; set; }
+        public string  Qty           { get; set; }
+        public string  Stock_Other   { get; set; }
+    }
 }         
           
