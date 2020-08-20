@@ -47,9 +47,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tabForms = new TUChair.ucTabControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.모두닫기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabForms = new TUChair.ucTabControl();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -230,20 +230,6 @@
             this.panel2.Size = new System.Drawing.Size(1924, 79);
             this.panel2.TabIndex = 11;
             // 
-            // tabForms
-            // 
-            this.tabForms.ContextMenuStrip = this.contextMenuStrip1;
-            this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabForms.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabForms.Location = new System.Drawing.Point(149, 79);
-            this.tabForms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabForms.Name = "tabForms";
-            this.tabForms.SelectedIndex = 0;
-            this.tabForms.Size = new System.Drawing.Size(1775, 28);
-            this.tabForms.TabIndex = 4;
-            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
-            this.tabForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabForms_MouseDown);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -258,6 +244,20 @@
             this.모두닫기ToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.모두닫기ToolStripMenuItem.Text = "모두 닫기";
             this.모두닫기ToolStripMenuItem.Click += new System.EventHandler(this.모두닫기ToolStripMenuItem_Click);
+            // 
+            // tabForms
+            // 
+            this.tabForms.ContextMenuStrip = this.contextMenuStrip1;
+            this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabForms.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabForms.Location = new System.Drawing.Point(149, 79);
+            this.tabForms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabForms.Name = "tabForms";
+            this.tabForms.SelectedIndex = 0;
+            this.tabForms.Size = new System.Drawing.Size(1775, 28);
+            this.tabForms.TabIndex = 4;
+            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
+            this.tabForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabForms_MouseDown);
             // 
             // TUChairMain2
             // 
