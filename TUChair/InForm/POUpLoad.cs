@@ -149,7 +149,7 @@ namespace TUChair
                         upLoadVO.Item_Code = dgvPO.Rows[i].Cells[5].Value.ToString();
                         upLoadVO.Sales_Qty = Convert.ToInt32(dgvPO.Rows[i].Cells[7].Value);
                         upLoadVO.So_Duedate = Convert.ToDateTime(dgvPO.Rows[i].Cells[8].Value);
-                        if(upLoadVO.So_Duedate.DayOfWeek.ToString()=="saturday" ||upLoadVO.So_Duedate.DayOfWeek.ToString()=="sunday")
+                        if(upLoadVO.So_Duedate.DayOfWeek.ToString()=="Saturday" ||upLoadVO.So_Duedate.DayOfWeek.ToString()=="Sunday")
                         { 
                             MessageBox.Show("납기일은 주말이 될 수 없습니다.");
                             return;
@@ -175,11 +175,11 @@ namespace TUChair
                     upLoadVO.Item_Code = dgvPO.Rows[i].Cells[5].Value.ToString();
                     upLoadVO.Sales_Qty = Convert.ToInt32(dgvPO.Rows[i].Cells[7].Value);
                     upLoadVO.So_Duedate = Convert.ToDateTime(dgvPO.Rows[i].Cells[8].Value);
-                    if (upLoadVO.So_Duedate.DayOfWeek.ToString() == "saturday" || upLoadVO.So_Duedate.DayOfWeek.ToString() == "sunday")
-                    {
-                        MessageBox.Show("납기일은 주말이 될 수 없습니다.");
-                        return;
-                    }
+                    //if (upLoadVO.So_Duedate.DayOfWeek.ToString() == "Saturday" || upLoadVO.So_Duedate.DayOfWeek.ToString() == "Sunday")
+                    //{
+                    //    MessageBox.Show("납기일은 주말이 될 수 없습니다.");
+                    //    return;
+                    //}
                     upLoadVO.Sales_Plandate = Convert.ToDateTime(dgvPO.Rows[i].Cells[9].Value);
                     upLoadVO.Sales_ID = dgvPO.Rows[i].Cells[10].Value.ToString();
                     upLoadVO.Modifier = LoginFrm.userName;
