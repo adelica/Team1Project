@@ -32,9 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.button1 = new System.Windows.Forms.Button();
             this.jeansGridView1 = new JeanForm.JeansGridView();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.inDTP1 = new TUChair.InDTP();
@@ -66,25 +64,11 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Location = new System.Drawing.Point(16, 123);
-            this.panel2.Controls.SetChildIndex(this.label1, 0);
-            this.panel2.Controls.SetChildIndex(this.button1, 0);
-            this.panel2.Controls.SetChildIndex(this.button2, 0);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel4);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(903, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "조회";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // jeansGridView1
             // 
@@ -119,15 +103,6 @@
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jeansGridView1.Size = new System.Drawing.Size(1090, 425);
             this.jeansGridView1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(999, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "엑셀";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -259,8 +234,6 @@
 
         #endregion
         private JeanForm.JeansGridView jeansGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.ComboBox comboBox1;
