@@ -80,7 +80,8 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(974, 9);
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button4.Location = new System.Drawing.Point(981, 7);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(102, 23);
             this.button4.TabIndex = 29;
