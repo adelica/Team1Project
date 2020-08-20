@@ -293,7 +293,6 @@ namespace TUChair
                     conn.Close();
                     this.Log.WriteInfo("DB접속 해제");
                 }
-
                 Thread.Sleep(1000);
 
                 this.Log.WriteInfo("DB접속 시작");

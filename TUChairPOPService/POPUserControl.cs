@@ -93,13 +93,13 @@ namespace TUChair
                 {
                     btnServerStart.Enabled = false;
                     btnServerStop.Enabled = true;
-                  
+
                 }
                 else
                 {
                     btnServerStart.Enabled = true;
                     btnServerStop.Enabled = false;
-                   
+
                 }
             }
         }
