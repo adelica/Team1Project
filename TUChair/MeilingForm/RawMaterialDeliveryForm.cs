@@ -48,7 +48,6 @@ namespace TUChair
         private void Setcolumn()
         {
             jeansGridView1.IsAllCheckColumnHeader = true;
-
             CommonUtil.InitSettingGridView(jeansGridView1);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "작업지시번호", "WorkOrderID", true);//1
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "계획시작일", "Plan_StartTime", true);//2

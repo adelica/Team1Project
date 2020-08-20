@@ -238,6 +238,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Name = "ProductionPlanningForm";
+            this.Text = "생산계획";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProductionPlanningForm_FormClosing);
             this.Load += new System.EventHandler(this.ProductionPlanningForm_Load);
             this.panel3.ResumeLayout(false);
