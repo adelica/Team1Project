@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUChairVO", "TUChairVO\TUCh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUChaiAPI", "TUChaiAPI\TUChaiAPI.csproj", "{A2E15DD9-867B-410E-9DF1-B8EFC88F029A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WInServerTask", "WInServerTask\WInServerTask.csproj", "{EF2AA022-557B-4274-93F9-B5B63DB899D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUChairPOPService", "TUChairPOPService\TUChairPOPService.csproj", "{7F2C73E7-4E47-4E5F-B708-D97CA38280AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,22 @@ Global
 		{A2E15DD9-867B-410E-9DF1-B8EFC88F029A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A2E15DD9-867B-410E-9DF1-B8EFC88F029A}.Release|x86.ActiveCfg = Release|Any CPU
 		{A2E15DD9-867B-410E-9DF1-B8EFC88F029A}.Release|x86.Build.0 = Release|Any CPU
+		{EF2AA022-557B-4274-93F9-B5B63DB899D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF2AA022-557B-4274-93F9-B5B63DB899D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF2AA022-557B-4274-93F9-B5B63DB899D8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EF2AA022-557B-4274-93F9-B5B63DB899D8}.Debug|x86.Build.0 = Debug|Any CPU
+		{EF2AA022-557B-4274-93F9-B5B63DB899D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF2AA022-557B-4274-93F9-B5B63DB899D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF2AA022-557B-4274-93F9-B5B63DB899D8}.Release|x86.ActiveCfg = Release|Any CPU
+		{EF2AA022-557B-4274-93F9-B5B63DB899D8}.Release|x86.Build.0 = Release|Any CPU
+		{7F2C73E7-4E47-4E5F-B708-D97CA38280AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F2C73E7-4E47-4E5F-B708-D97CA38280AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F2C73E7-4E47-4E5F-B708-D97CA38280AF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7F2C73E7-4E47-4E5F-B708-D97CA38280AF}.Debug|x86.Build.0 = Debug|Any CPU
+		{7F2C73E7-4E47-4E5F-B708-D97CA38280AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F2C73E7-4E47-4E5F-B708-D97CA38280AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F2C73E7-4E47-4E5F-B708-D97CA38280AF}.Release|x86.ActiveCfg = Release|Any CPU
+		{7F2C73E7-4E47-4E5F-B708-D97CA38280AF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

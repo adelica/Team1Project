@@ -20,7 +20,7 @@ namespace TUChair
 
         private void POPForm_Load(object sender, EventArgs e)
         {
-          //  List<taskItem> tasks = ConfigurationManager.GetSection("taskList") as List<taskItem>;
+          //List<taskItem> tasks = ConfigurationManager.GetSection("taskList") as List<taskItem>;
             string IP = "127.0.0.1";
             int[] Port = { 5000, 5100, 5200, 5300, 5400 };
             string[] taskID = { "task01", "task02","task03","task04","task05" };
