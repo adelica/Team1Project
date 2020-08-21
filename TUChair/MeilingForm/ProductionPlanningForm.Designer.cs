@@ -34,23 +34,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.jeansGridView1 = new JeanForm.JeansGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.inDTP1 = new TUChair.InDTP();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.cboplanID = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.inDTP1 = new TUChair.InDTP();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).BeginInit();
             this.panel4.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -68,6 +68,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel4);
             // 
             // jeansGridView1
@@ -106,49 +107,12 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.panel7);
             this.panel4.Controls.Add(this.panel11);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1090, 99);
+            this.panel4.Size = new System.Drawing.Size(737, 99);
             this.panel4.TabIndex = 12;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.inDTP1);
-            this.panel8.Controls.Add(this.label4);
-            this.panel8.Location = new System.Drawing.Point(728, 4);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(357, 34);
-            this.panel8.TabIndex = 35;
-            // 
-            // inDTP1
-            // 
-            this.inDTP1.DateLimit = false;
-            this.inDTP1.End = new System.DateTime(2020, 9, 3, 0, 0, 0, 0);
-            this.inDTP1.endCustomfomat = null;
-            this.inDTP1.endfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.inDTP1.Location = new System.Drawing.Point(81, 4);
-            this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.inDTP1.Name = "inDTP1";
-            this.inDTP1.Size = new System.Drawing.Size(237, 26);
-            this.inDTP1.Start = new System.DateTime(2020, 7, 15, 0, 0, 0, 0);
-            this.inDTP1.startCustomfomat = null;
-            this.inDTP1.startfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.inDTP1.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(12, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 19);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "◆ 기간";
             // 
             // panel7
             // 
@@ -208,6 +172,41 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "◆ planID";
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.inDTP1);
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Location = new System.Drawing.Point(743, 2);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(328, 34);
+            this.panel8.TabIndex = 36;
+            // 
+            // inDTP1
+            // 
+            this.inDTP1.DateLimit = false;
+            this.inDTP1.End = new System.DateTime(2020, 9, 3, 0, 0, 0, 0);
+            this.inDTP1.endCustomfomat = null;
+            this.inDTP1.endfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.inDTP1.Location = new System.Drawing.Point(81, 4);
+            this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inDTP1.Name = "inDTP1";
+            this.inDTP1.Size = new System.Drawing.Size(237, 26);
+            this.inDTP1.Start = new System.DateTime(2020, 7, 15, 0, 0, 0, 0);
+            this.inDTP1.startCustomfomat = null;
+            this.inDTP1.startfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.inDTP1.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(12, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 19);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "◆ 기간";
+            // 
             // ProductionPlanningForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -222,12 +221,12 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -36,6 +36,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.inDTP1 = new TUChair.InDTP();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).BeginInit();
             this.panel8.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel11.SuspendLayout();
             this.SuspendLayout();
@@ -62,9 +64,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel8);
-            this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel11);
             // 
             // jeansGridView1
             // 
@@ -106,9 +107,9 @@
             // 
             this.panel8.Controls.Add(this.inDTP1);
             this.panel8.Controls.Add(this.label4);
-            this.panel8.Location = new System.Drawing.Point(729, 10);
+            this.panel8.Location = new System.Drawing.Point(741, 18);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(357, 34);
+            this.panel8.Size = new System.Drawing.Size(341, 34);
             this.panel8.TabIndex = 38;
             // 
             // inDTP1
@@ -137,14 +138,23 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "◆ 기간";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel7);
+            this.panel4.Controls.Add(this.panel11);
+            this.panel4.Location = new System.Drawing.Point(1, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(734, 93);
+            this.panel4.TabIndex = 39;
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.comboBox1);
             this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(4, 10);
+            this.panel7.Location = new System.Drawing.Point(8, 15);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(357, 34);
-            this.panel7.TabIndex = 37;
+            this.panel7.TabIndex = 39;
             // 
             // comboBox1
             // 
@@ -170,10 +180,10 @@
             // 
             this.panel11.Controls.Add(this.cboplanID);
             this.panel11.Controls.Add(this.label10);
-            this.panel11.Location = new System.Drawing.Point(366, 10);
+            this.panel11.Location = new System.Drawing.Point(370, 15);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(357, 34);
-            this.panel11.TabIndex = 36;
+            this.panel11.TabIndex = 38;
             // 
             // cboplanID
             // 
@@ -209,6 +219,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel11.ResumeLayout(false);
@@ -222,6 +233,7 @@
         private System.Windows.Forms.Panel panel8;
         private InDTP inDTP1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;

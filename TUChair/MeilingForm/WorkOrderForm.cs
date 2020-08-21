@@ -80,6 +80,7 @@ namespace TUChair
 
         private void DataBinding()
         {
+           
             MeilingService service = new MeilingService();
             list = service.WorkOderselect();
             jeansGridView1.DataSource = null;
@@ -109,6 +110,7 @@ namespace TUChair
         {           
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
+               
                 DataBinding();
             }
         }
@@ -191,7 +193,7 @@ namespace TUChair
                     }
                 }
             }
-            MessageBox.Show(String.Join(" and ", sb));
+            //MessageBox.Show(String.Join(" and ", sb));
             return String.Join(" and ", sb);
         }
 
