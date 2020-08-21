@@ -96,16 +96,21 @@ namespace TUChair
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                string sg = GetSearchCondition(panel4);
-                if (sg.Length < 1)
-                    return;
                 MeilingService service = new MeilingService();
                 DataTable dt = new DataTable();
-
-                dt = service.ProductPlansearchPivot(inDTP1.Start, inDTP1.End, sg);
-                jeansGridView1.AutoGenerateColumns = true;
-                jeansGridView1.DataSource = null;
-                jeansGridView1.DataSource = dt;
+                string sg = GetSearchCondition(panel4);
+               // MessageBox.Show(sg);
+                if (comboBox1.SelectedIndex==-1||cboplanID.SelectedIndex==-1)
+                {
+                    dt = service.ProductPlanPivot(inDTP1.Start, inDTP1.End);
+                }
+                else
+                {
+                    dt = service.ProductPlansearchPivot(inDTP1.Start, inDTP1.End, sg);
+                }
+                    jeansGridView1.AutoGenerateColumns = true;
+                    jeansGridView1.DataSource = null;
+                    jeansGridView1.DataSource = dt;
             }
         }
         private string GetSearchCondition(Panel panel1)
@@ -136,7 +141,7 @@ namespace TUChair
                     }
                 }
             }
-            MessageBox.Show(String.Join(" and ", sb));
+           // MessageBox.Show(String.Join(" and ", sb));
             return String.Join(" and ", sb);
            
         }

@@ -27,12 +27,12 @@ namespace TUChair
             frm.Excel += Excel;
             jeansGridView1.IsAllCheckColumnHeader = true;
             jeansGridView1.RowHeadersVisible = false;
-            inDTP1.startfomat = DateTimePickerFormat.Custom;
-            inDTP1.endfomat = DateTimePickerFormat.Custom;
-            inDTP1.startCustomfomat = " ";
-            inDTP1.endCustomfomat = " ";
-            inDTP1.Start = new DateTime(int.Parse("2020"), int.Parse("08"), int.Parse("28"));
-            inDTP1.End = new DateTime(int.Parse("2020"), int.Parse("09"), int.Parse("02"));
+            //inDTP1.startfomat = DateTimePickerFormat.Custom;
+            //inDTP1.endfomat = DateTimePickerFormat.Custom;
+            //inDTP1.startCustomfomat = " ";
+            //inDTP1.endCustomfomat = " ";
+            //inDTP1.Start = new DateTime(int.Parse("2020"), int.Parse("08"), int.Parse("28"));
+            //inDTP1.End = new DateTime(int.Parse("2020"), int.Parse("09"), int.Parse("02"));
 
             DataBinding();
             ComboBinding(comboBox1, 3);
@@ -69,22 +69,29 @@ namespace TUChair
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
-                string sg = GetSearchCondition(panel1);
-                if (sg.Length < 1)
-                    return;
                 MeilingService service = new MeilingService();
                 DataTable dt = new DataTable();
+                string sg = GetSearchCondition(panel4);
+               // MessageBox.Show(sg);
+                if (comboBox1.SelectedIndex==-1||cboplanID.SelectedIndex==-1)
+                {
+                    dt = service.OutPlanPivot(inDTP1.Start, inDTP1.End);
+                }
+                else
+                {
 
-                dt = service.OutPlansearchPivot(inDTP1.Start, inDTP1.End, sg);
+
+                    dt = service.OutPlansearchPivot(inDTP1.Start, inDTP1.End, sg);
+                }
                 jeansGridView1.AutoGenerateColumns = true;
                 jeansGridView1.DataSource = null;
                 jeansGridView1.DataSource = dt;
             }
         }
-        private string GetSearchCondition(Panel panel1)
+        private string GetSearchCondition(Panel panel4)
         {
             List<string> sb = new List<string>();
-            foreach (Control Pitem in panel1.Controls)
+            foreach (Control Pitem in panel4.Controls)
             {
                 foreach (Control item in Pitem.Controls)
                 {
@@ -109,7 +116,7 @@ namespace TUChair
                     }
                 }
             }
-            MessageBox.Show(String.Join(" and ", sb));
+           // MessageBox.Show(String.Join(" and ", sb));
             return String.Join(" and ", sb);
 
         }
