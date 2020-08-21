@@ -10,11 +10,16 @@ using System.Windows.Forms;
 using TUChair.Service;
 using TUChair.Util;
 using TUChair.WooForm;
+using TUChairVO;
 
 namespace TUChair
 {
     public partial class IpGoWaiting : TUChair.SearchTwoGridForm
     {
+
+        List<balzuVO> blazus = null;
+        List<ComboItemVO> comboItems = null;
+
         public IpGoWaiting()
         {
             InitializeComponent();
@@ -64,6 +69,25 @@ namespace TUChair
         }
         private void IpGoWaiting_Load(object sender, EventArgs e)
         {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save += Save;
+            frm.Search += Search;
+            frm.Delete += Delete;
+            frm.New += New;
+            
+            commonService service = new commonService();
+            comboItems = service.getCommonCode("협력사@User@사용여부@반제품@원자재");
+
+            List<ComboItemVO> cList = (from item in comboItems
+                                       where item.CodeType == "협력사"
+                                       select item).ToList();
+            CommonUtil.ComboBinding(cboCom, cList, "선택");
+
+            cList = (from item in comboItems
+                     where item.CodeType == "반제품" || item.CodeType=="원자재"
+                     select item).ToList();
+            CommonUtil.ReComboBinding(cboItem, cList, "선택");
+
             ((TUChairMain2)this.MdiParent).Readed += Readed_BarCode;
             jeansGridView1.IsAllCheckColumnHeader = true;
             CommonUtil.InitSettingGridView(jeansGridView1);
@@ -100,6 +124,26 @@ namespace TUChair
             bindbalzu();
         }
 
+        private void New(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Delete(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Search(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Save(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             // int.Parse(textBox1.Text.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
@@ -116,20 +160,23 @@ namespace TUChair
                     { cnt++; row = i; }
                 }
                 barID = Convert.ToInt32(jeansGridView1.Rows[row].Cells[1].Value);
+                string modifier = ((TUChairMain2)this.MdiParent).userInfoVO.CUser_ID;
                 if (cnt > 1)
                 {
-                    MessageBox.Show("수정은 하나씩만 가능합니다.");
+                    MessageBox.Show("입고처리는 하나씩만 가능합니다.");
                     return;
                 }
                 else
                 {
                     ItemService service1 = new ItemService();
-                    service1.IpGoUpdate(barID);
+                   if( service1.IpGoUpdate(barID, modifier))
+                    {
+                        MessageBox.Show("입고완료되었습니다.");
+                    }
                     bindbalzu();
                 }
             }
         }
-
         private void bindbalzu()
         {
             balzuService service = new balzuService();

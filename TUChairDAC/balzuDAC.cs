@@ -26,7 +26,7 @@ namespace TUChairDAC
 , Vo_StarDate
 , Vo_InDate
 , [Vo_Price]
-from VendorOrder V inner join Company c on v.Com_Code=c.Com_Code inner join Item i on v.Item_Code=i.Item_Code
+from VendorOrder V left outer  join Company c on v.Com_Code=c.Com_Code inner join Item i on v.Item_Code=i.Item_Code
  where Materail_Order_State ='미입고'";
                     
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
@@ -106,7 +106,7 @@ from VendorOrder V inner join Company c on v.Com_Code=c.Com_Code inner join Item
 		,s.So_Price
 		,s.So_Qty*vb.BOM_Require Qty
 
-		, (select [dbo].[GetItemDueDate2](s.So_Duedate,s.So_Qty*BOM_Require,vb.Item_Code,vb.Item_Top_Code)) as duedate
+		, (select [dbo].[GetItemDueDateforWeekandyield](s.So_Duedate,s.So_Qty,vb.Item_Code,vb.Item_Top_Code)) as duedate
 		from vm_Bom vb left outer join  (select *from bor where BOR_UseOrNot = '사용') br on vb.Item_Code=br.Item_Code  
 inner join (select so.Item_Code,so.So_Price,so.So_Qty,so.So_Duedate,sm.Com_Code from SalesOrder so 
 inner join SalesMaster sm on so.Sales_ID=sm.Sales_ID where so.Sales_ID=@planID) s on vb.Item_Top_Code=s.Item_Code 
@@ -176,7 +176,7 @@ select b.Com_Name,b.Com_Type,b.Item_Name,b.Item_Code,b.Item_Size,b.Qty,b.Com_Cor
 , Vo_StarDate
 , Vo_InDate
 , [Vo_Price]
-from VendorOrder V inner join Company c on v.Com_Code=c.Com_Code inner join Item i on v.Item_Code=i.Item_Code
+from VendorOrder V left outer join Company c on v.Com_Code=c.Com_Code inner join Item i on v.Item_Code=i.Item_Code
  where Materail_Order_State ='입고'";
 
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);

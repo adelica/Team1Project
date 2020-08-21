@@ -43,7 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnFInsert = new System.Windows.Forms.Button();
-            this.btnBar = new System.Windows.Forms.Button();
             this.dgvFacility = new JeanForm.JeansGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -138,7 +137,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.btnFInsert);
-            this.panel4.Controls.Add(this.btnBar);
             this.panel4.Controls.Add(this.dgvFacility);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Location = new System.Drawing.Point(455, 8);
@@ -157,18 +155,6 @@
             this.btnFInsert.Text = "등록";
             this.btnFInsert.UseVisualStyleBackColor = true;
             this.btnFInsert.Click += new System.EventHandler(this.btnFInsert_Click);
-            // 
-            // btnBar
-            // 
-            this.btnBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBar.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnBar.Location = new System.Drawing.Point(449, 26);
-            this.btnBar.Name = "btnBar";
-            this.btnBar.Size = new System.Drawing.Size(86, 23);
-            this.btnBar.TabIndex = 3;
-            this.btnBar.Text = "바코드 출력";
-            this.btnBar.UseVisualStyleBackColor = true;
-            this.btnBar.Click += new System.EventHandler(this.btnBar_Click);
             // 
             // dgvFacility
             // 
@@ -275,7 +261,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 수정ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 삭제ToolStripMenuItem;
-        private System.Windows.Forms.Button btnBar;
         private System.Windows.Forms.Button btnFInsert;
     }
 }

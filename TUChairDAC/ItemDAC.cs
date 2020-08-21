@@ -43,18 +43,20 @@ Item";
             }
         }
 
-		public void IpGoUpdate(int barID)
+		public bool IpGoUpdate(int barID, string modifier)
 		{
 			using (SqlCommand cmd = new SqlCommand())
 			{
 				cmd.Connection = new SqlConnection(this.ConnectionString);
-				cmd.CommandText = @"update VendorOrder set Materail_Order_State='입고', Vo_InDate= getdate() where Vo_ID=@barID";
-				cmd.Parameters.AddWithValue("@barID", barID);
-
+				cmd.CommandText = @"SP_StockInsertfromBalzu";
+				cmd.CommandType = CommandType.StoredProcedure;
+				cmd.Parameters.AddWithValue("@Vo_ID", barID);
+				cmd.Parameters.AddWithValue("@Modifier", modifier);
 				cmd.Connection.Open();
 				var rowsAffected = cmd.ExecuteNonQuery();
 				cmd.Connection.Close();
 
+				return rowsAffected > 0;
 			}
 		}
 		public bool DeleteItem(string condition)
