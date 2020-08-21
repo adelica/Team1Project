@@ -43,11 +43,11 @@ namespace TUChair
             jeansGridView1.IsAllCheckColumnHeader = true;
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹아이디", "AuthorGroup_ID", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹아이디", "AuthorGroup_ID", true, 100, DataGridViewContentAlignment.MiddleCenter);
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹명", "AuthorGroup_Name", true, 200);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹설명", "AuthorGroup_Explanation", true, 250);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹순서", "AuthorGroup_Order", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹순서", "AuthorGroup_Order", true, 100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용여부", "AuthorGroup_UseOrNot", true);
 
             BindingData();
