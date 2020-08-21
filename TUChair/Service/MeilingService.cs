@@ -152,5 +152,6 @@ namespace TUChair.Service
             WorkOrderDAC dac = new WorkOrderDAC();
             return dac.itemDecount2(workorderID, Out_Qty_Main, Prd_Qty, Up_Emp);
         }
+       
     }
 }

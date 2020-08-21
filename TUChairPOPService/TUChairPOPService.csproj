@@ -123,5 +123,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TUChairDAC\TUChairDAC.csproj">
+      <Project>{78D08B8B-D504-453C-A530-0F168698CB2F}</Project>
+      <Name>TUChairDAC</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
