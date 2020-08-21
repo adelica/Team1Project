@@ -204,6 +204,7 @@ namespace TUChair
 
         private void ReadDataDisplay(object sender, ReadDataEventAgrs e)
         {
+          
             string[] datas = e.Data.Split('|');
 
             if (datas.Length < 5)
@@ -211,6 +212,13 @@ namespace TUChair
 
             txtProQTY.Text = (int.Parse(txtProQTY.Text == "" ? "0" : txtProQTY.Text) + int.Parse(datas[3])).ToString();
             txtBadQTY.Text = (int.Parse(txtBadQTY.Text == "" ? "0" : txtBadQTY.Text) + int.Parse(datas[4])).ToString();
+            if (int.Parse(txtPlanQTY.Text) <= int.Parse(txtProQTY.Text))
+            {
+                txtProQTY.Text = txtBadQTY.Text = txtWoID.Text = "";
+                
+               
+                return;
+            }
         }
 
         private void btnclientStop_Click(object sender, EventArgs e)

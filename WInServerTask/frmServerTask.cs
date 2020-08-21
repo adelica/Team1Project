@@ -59,7 +59,7 @@ namespace WInServerTask
         private void timer1_Elapsed(object sender, ElapsedEventArgs e)
         {
             //|20200817 12:01:20 Task|7|65|4|0|
-            string msg = $"{STX}|{DateTime.Now.ToString("yyyyMMdd HH:mm:ss")}Task|{PGM_ID.Replace("task", "").TrimStart('0')}|{rnd.Next(1, 10)}|{rnd.Next(1, 5)}|{rnd.Next(0, 2)}|{ETX}";
+            string msg = $"{STX}|{DateTime.Now.ToString("yyyyMMdd HH:mm:ss")}Task|{PGM_ID.Replace("task", "").TrimStart('0')}|{rnd.Next(1, 10)}|{rnd.Next(0, 2)}|{rnd.Next(0, 2)}|{ETX}";
             byte[] buff = Encoding.ASCII.GetBytes(msg);
 
             stream.Write(buff, 0, buff.Length);
