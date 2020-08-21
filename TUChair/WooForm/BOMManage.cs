@@ -29,7 +29,7 @@ namespace TUChair
             frm.Search += Search;
             frm.Delete += Delete;
             frm.New += New;
-            frm.Excel += Excel;
+          
             commonService service = new commonService();
             comboItems = service.getCommonCode("@사용여부@BOM@Item");
 
@@ -84,13 +84,10 @@ namespace TUChair
             frm.Search -= Search;
             frm.Delete -= Delete;
             frm.New -= New;
-            frm.Excel -= Excel;
+         
         }
 
-        private void Excel(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         private void New(object sender, EventArgs e)
         {

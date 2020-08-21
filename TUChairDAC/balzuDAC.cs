@@ -106,7 +106,7 @@ from VendorOrder V left outer  join Company c on v.Com_Code=c.Com_Code inner joi
 		,s.So_Price
 		,s.So_Qty*vb.BOM_Require Qty
 
-		, (select [dbo].[GetItemDueDate2](s.So_Duedate,s.So_Qty*BOM_Require,vb.Item_Code,vb.Item_Top_Code)) as duedate
+		, (select [dbo].[GetItemDueDateforWeekandyield](s.So_Duedate,s.So_Qty,vb.Item_Code,vb.Item_Top_Code)) as duedate
 		from vm_Bom vb left outer join  (select *from bor where BOR_UseOrNot = '사용') br on vb.Item_Code=br.Item_Code  
 inner join (select so.Item_Code,so.So_Price,so.So_Qty,so.So_Duedate,sm.Com_Code from SalesOrder so 
 inner join SalesMaster sm on so.Sales_ID=sm.Sales_ID where so.Sales_ID=@planID) s on vb.Item_Top_Code=s.Item_Code 
@@ -114,7 +114,7 @@ inner join [dbo].[Company] cp on s.Com_Code=cp.Com_Code
 inner join item i on i.Item_Code = vb.Item_Code
 where vb.Item_Type='원자재')
 
-select b.Com_Name,b.Com_Type,b.Item_Name,b.Item_Code,b.Item_Size,b.Qty,b.Com_CorporRegiNum,b.duedate,p.Price_Present,b.Qty*p.Price_Present as Price,case when v.Vo_ID is Null then 'N' else 'Y' end as isbalzu from balzu b left outer join  (select top(1) Price_Present, Item_Code from [dbo].[UnitPrice] order by Price_StartDate desc) p on b.Item_Code=p.Item_Code
+select b.Com_Name,b.Com_Type,b.Item_Name,b.Item_Code,b.Item_Size,b.Qty,b.Com_CorporRegiNum,b.duedate,p.Price_Present,b.Qty*p.Price_Present as Price,case when v.Vo_ID is Null then 'N' else 'Y' end as isbalzu from balzu b left outer join  (select top(100) Price_Present, Item_Code from [dbo].[UnitPrice] order by Price_StartDate desc) p on b.Item_Code=p.Item_Code
 						left outer join [dbo].[VendorOrder] v on b.Item_Code=v.Item_Code and b.duedate = v.Vo_EndDate
 
 ";

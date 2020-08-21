@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using TUChairDAC;
 
 namespace TUChair
 {
@@ -18,6 +19,7 @@ namespace TUChair
 
         BackgroundWorker worker;
         frmATLTask frm;
+     
         private string woOderID;
 
         public string WoOderID
@@ -91,7 +93,7 @@ namespace TUChair
             {
                 if (value) //task 실행중
                 {
-                    btnServerStart.Enabled = false;
+                   // btnServerStart.Enabled = false;
                     btnServerStop.Enabled = true;
 
                 }
@@ -99,7 +101,6 @@ namespace TUChair
                 {
                     btnServerStart.Enabled = true;
                     btnServerStop.Enabled = false;
-
                 }
             }
         }
@@ -110,7 +111,7 @@ namespace TUChair
             {
                 if (value)
                 {
-                    btnClientStart.Enabled = false;
+                   // btnClientStart.Enabled = false;
                     btnclientStop.Enabled = true;
                     btnStatus.BackColor = Color.Green;
                 }
@@ -140,6 +141,7 @@ namespace TUChair
             {
                 MessageBox.Show(err.Message);
             }
+        
         }
 
         private void Task_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -197,6 +199,26 @@ namespace TUChair
             frm.Show();
             IsTaskEnable = true;
             frm.Hide();
+            frm.ReadData += ReadDataDisplay;       
+        }
+
+        private void ReadDataDisplay(object sender, ReadDataEventAgrs e)
+        {
+          
+            string[] datas = e.Data.Split('|');
+
+            if (datas.Length < 5)
+                return;
+
+            txtProQTY.Text = (int.Parse(txtProQTY.Text == "" ? "0" : txtProQTY.Text) + int.Parse(datas[3])).ToString();
+            txtBadQTY.Text = (int.Parse(txtBadQTY.Text == "" ? "0" : txtBadQTY.Text) + int.Parse(datas[4])).ToString();
+            if (int.Parse(txtPlanQTY.Text) <= int.Parse(txtProQTY.Text))
+            {
+                txtProQTY.Text = txtBadQTY.Text = txtWoID.Text = "";
+                
+               
+                return;
+            }
         }
 
         private void btnclientStop_Click(object sender, EventArgs e)
@@ -217,6 +239,12 @@ namespace TUChair
             {
                 MessageBox.Show(err.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)//지시량 확인 
+        {
+            POPDAC dac = new POPDAC();
+            PlanQTY =   dac.selectPlanQTY(Convert.ToInt32(240)).ToString();
         }
     }
 }
