@@ -58,7 +58,7 @@
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(51, 29);
+            this.label1.Size = new System.Drawing.Size(40, 23);
             this.label1.Text = "메뉴";
             // 
             // panel3
@@ -66,34 +66,34 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.Controls.Add(this.jeansGridView1);
-            this.panel3.Location = new System.Drawing.Point(14, 209);
-            this.panel3.Size = new System.Drawing.Size(693, 533);
+            this.panel3.Location = new System.Drawing.Point(12, 167);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Size = new System.Drawing.Size(607, 427);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.jeansGridView2);
-            this.panel4.Location = new System.Drawing.Point(826, 209);
-            this.panel4.Size = new System.Drawing.Size(437, 533);
+            this.panel4.Location = new System.Drawing.Point(723, 167);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Size = new System.Drawing.Size(383, 427);
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.cboauthgroup);
             this.panel7.Controls.Add(this.label7);
             this.panel7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(25, 36);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel7.Location = new System.Drawing.Point(22, 29);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(392, 49);
+            this.panel7.Size = new System.Drawing.Size(343, 39);
             this.panel7.TabIndex = 15;
             // 
             // cboauthgroup
             // 
             this.cboauthgroup.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboauthgroup.FormattingEnabled = true;
-            this.cboauthgroup.Location = new System.Drawing.Point(124, 10);
-            this.cboauthgroup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboauthgroup.Location = new System.Drawing.Point(108, 8);
             this.cboauthgroup.Name = "cboauthgroup";
-            this.cboauthgroup.Size = new System.Drawing.Size(250, 32);
+            this.cboauthgroup.Size = new System.Drawing.Size(219, 27);
             this.cboauthgroup.TabIndex = 8;
             this.cboauthgroup.SelectedIndexChanged += new System.EventHandler(this.cboauthgroup_SelectedIndexChanged);
             this.cboauthgroup.SelectedValueChanged += new System.EventHandler(this.cboauthgroup_SelectedValueChanged);
@@ -102,9 +102,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(14, 13);
+            this.label7.Location = new System.Drawing.Point(12, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 24);
+            this.label7.Size = new System.Drawing.Size(84, 19);
             this.label7.TabIndex = 6;
             this.label7.Text = "◆ 권한그룹명";
             // 
@@ -133,13 +133,14 @@
             this.jeansGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jeansGridView1.IsAllCheckColumnHeader = false;
             this.jeansGridView1.Location = new System.Drawing.Point(0, 0);
+            this.jeansGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jeansGridView1.Name = "jeansGridView1";
             this.jeansGridView1.RowHeadersWidth = 30;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
             this.jeansGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jeansGridView1.RowTemplate.Height = 27;
             this.jeansGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView1.Size = new System.Drawing.Size(691, 531);
+            this.jeansGridView1.Size = new System.Drawing.Size(605, 425);
             this.jeansGridView1.TabIndex = 0;
             // 
             // jeansGridView2
@@ -167,13 +168,14 @@
             this.jeansGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jeansGridView2.IsAllCheckColumnHeader = false;
             this.jeansGridView2.Location = new System.Drawing.Point(0, 0);
+            this.jeansGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jeansGridView2.Name = "jeansGridView2";
             this.jeansGridView2.RowHeadersWidth = 30;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.Bisque;
             this.jeansGridView2.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.jeansGridView2.RowTemplate.Height = 27;
             this.jeansGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jeansGridView2.Size = new System.Drawing.Size(435, 531);
+            this.jeansGridView2.Size = new System.Drawing.Size(381, 425);
             this.jeansGridView2.TabIndex = 0;
             // 
             // btnInsert
@@ -183,10 +185,9 @@
             this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsert.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnInsert.ForeColor = System.Drawing.Color.LavenderBlush;
-            this.btnInsert.Location = new System.Drawing.Point(736, 387);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnInsert.Location = new System.Drawing.Point(644, 310);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(60, 36);
+            this.btnInsert.Size = new System.Drawing.Size(52, 29);
             this.btnInsert.TabIndex = 8;
             this.btnInsert.Text = ">";
             this.btnInsert.UseVisualStyleBackColor = false;
@@ -199,10 +200,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button1.ForeColor = System.Drawing.Color.LavenderBlush;
-            this.button1.Location = new System.Drawing.Point(736, 546);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Location = new System.Drawing.Point(644, 437);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 36);
+            this.button1.Size = new System.Drawing.Size(52, 29);
             this.button1.TabIndex = 9;
             this.button1.Text = "<";
             this.button1.UseVisualStyleBackColor = false;
@@ -210,13 +210,15 @@
             // 
             // AuthorManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1275, 752);
+            this.ClientSize = new System.Drawing.Size(1116, 602);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnInsert);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AuthorManager";
             this.Text = "AuthorManager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuthorManager_FormClosing);
             this.Load += new System.EventHandler(this.AuthorManager_Load);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.panel2, 0);

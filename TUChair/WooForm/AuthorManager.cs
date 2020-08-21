@@ -242,5 +242,12 @@ namespace TUChair
         {
 
         }
+
+        private void AuthorManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save -= Save;
+            frm.New -= New;
+        }
     }
 }
