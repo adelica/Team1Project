@@ -15,7 +15,7 @@ using TUChair.Service;
 
 namespace TUChair
 {
-    public partial class POUpLoad : Form//------------하는 중
+    public partial class POUpLoad : Form
     {
         DataTable poData = null;
         List<SalesIDVO> salesID;
