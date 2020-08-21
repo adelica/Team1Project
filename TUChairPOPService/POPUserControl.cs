@@ -199,6 +199,18 @@ namespace TUChair
             frm.Show();
             IsTaskEnable = true;
             frm.Hide();
+            frm.ReadData += ReadDataDisplay;       
+        }
+
+        private void ReadDataDisplay(object sender, ReadDataEventAgrs e)
+        {
+            string[] datas = e.Data.Split('|');
+
+            if (datas.Length < 5)
+                return;
+
+            txtProQTY.Text = (int.Parse(txtProQTY.Text == "" ? "0" : txtProQTY.Text) + int.Parse(datas[3])).ToString();
+            txtBadQTY.Text = (int.Parse(txtBadQTY.Text == "" ? "0" : txtBadQTY.Text) + int.Parse(datas[4])).ToString();
         }
 
         private void btnclientStop_Click(object sender, EventArgs e)
