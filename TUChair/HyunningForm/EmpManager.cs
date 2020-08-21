@@ -31,6 +31,7 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "이름", "CUser_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "비밀번호", "CUser_PWD", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용여부", "CUser_UseOrNot", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한이름", "AuthorGroup_Explanation", true);
             DataLoad();
         }
 

@@ -16,9 +16,9 @@ namespace TUChairDAC
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select CUser_ID, AuthorGroup_ID, CUser_Name, 
-                                case when CUser_ID is not null then '********' end CUser_PWD, CUser_UseOrNot
-                                from CUser ";
+                string sql = @"select CUser_ID, u.AuthorGroup_ID AuthorGroup_ID, CUser_Name, 
+                                case when CUser_ID is not null then '********' end CUser_PWD, CUser_UseOrNot , AuthorGroup_Explanation
+                                from CUser u left join AuthorGroup ag on u.AuthorGroup_ID = ag.AuthorGroup_ID ";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
@@ -39,15 +39,19 @@ namespace TUChairDAC
         {
             try
             {
-                SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"select CUser_ID, AuthorGroup_ID, CUser_Name, 
-                                case when CUser_ID is not null then '********' end CUser_PWD, CUser_UseOrNot
-                                from CUser ";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlCommand cmd = new SqlCommand())
                 {
-                    conn.Open();
+                    cmd.Connection = new SqlConnection(this.ConnectionString);
+                    cmd.CommandText = "SP_EmpSearch";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@ID", (object)id ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Name", (object)name ?? DBNull.Value);
+
+                    cmd.Connection.Open();
+
                     SqlDataReader reader = cmd.ExecuteReader();
-                    List<EmpVO> list = Helper.DataReaderMapToList<EmpVO>(reader);
+                    List<EmpVO> list = Helper.MeilingDataReaderMapToList<EmpVO>(reader);
                     cmd.Connection.Close();
                     return list;
                 }
@@ -58,14 +62,14 @@ namespace TUChairDAC
 
                 return null;
             }
-            
+
         }
         public bool Update(string id, string name, string pwd, string AuthorID, string UseOrNot)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"update cuser set  AuthorGroup_ID = @AuthorID, CUser_Name = @name, CUser_PWD = @pwd ,CUser_UseOrNot = @UseOrNot from CUser_ID = @id";
+                string sql = @"update cuser set  AuthorGroup_ID = @AuthorID, CUser_Name = @name, CUser_PWD = @pwd ,CUser_UseOrNot = @UseOrNot where CUser_ID = @id";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@id", id);

@@ -32,6 +32,8 @@ namespace TUChair.HyunningForm
                 if (service.Update(txtID.Text, txtName.Text,txtPWD.Text, cboAuthorID.Text,cboUseOrNot.Text))
                 {
                     MessageBox.Show("수정 되였습니다");
+                    this.Close();
+
                 }
                 else
                 {
@@ -43,7 +45,8 @@ namespace TUChair.HyunningForm
                 EmpService service = new EmpService();
                 if (service.Insert(txtID.Text, txtName.Text, txtPWD.Text, cboAuthorID.Text, cboUseOrNot.Text))
                 {
-                    MessageBox.Show("수정 되였습니다");
+                    MessageBox.Show("가입성공");
+                    this.Close();
                 }
                 else
                 {

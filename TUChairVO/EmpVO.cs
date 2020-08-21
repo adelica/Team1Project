@@ -13,5 +13,8 @@ namespace TUChairVO
         public string CUser_Name { get; set; }
         public string CUser_PWD { get; set; }
         public string CUser_UseOrNot { get; set; }
+        public string AuthorGroup_Explanation { get; set; }
+
+        
     }
 }

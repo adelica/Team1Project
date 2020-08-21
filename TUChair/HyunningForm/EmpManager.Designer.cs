@@ -33,20 +33,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.jeansGridView1 = new JeanForm.JeansGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.jeansGridView1 = new JeanForm.JeansGridView();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -85,8 +85,63 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1090, 44);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.txtName);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Location = new System.Drawing.Point(366, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(357, 36);
+            this.panel5.TabIndex = 11;
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.txtName.Location = new System.Drawing.Point(110, 6);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(158, 27);
+            this.txtName.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 19);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "◆ 이름";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.txtID);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(357, 36);
+            this.panel4.TabIndex = 10;
+            // 
+            // txtID
+            // 
+            this.txtID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.txtID.Location = new System.Drawing.Point(110, 6);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(158, 27);
+            this.txtID.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 19);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "◆ 사번";
+            // 
             // jeansGridView1
             // 
+            this.jeansGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
             this.jeansGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -118,60 +173,6 @@
             this.jeansGridView1.Size = new System.Drawing.Size(1090, 480);
             this.jeansGridView1.TabIndex = 0;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.txtID);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(357, 36);
-            this.panel4.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 19);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "◆ 사번(ID)";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.txtName);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(366, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(357, 36);
-            this.panel5.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 19);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "◆ 이름";
-            // 
-            // txtID
-            // 
-            this.txtID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.txtID.Location = new System.Drawing.Point(110, 6);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(158, 27);
-            this.txtID.TabIndex = 7;
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.txtName.Location = new System.Drawing.Point(110, 6);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(158, 27);
-            this.txtName.TabIndex = 8;
-            // 
             // EmpManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -185,11 +186,11 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
