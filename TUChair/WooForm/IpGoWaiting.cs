@@ -70,10 +70,7 @@ namespace TUChair
         private void IpGoWaiting_Load(object sender, EventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-            frm.Save += Save;
-            frm.Search += Search;
-            frm.Delete += Delete;
-            frm.New += New;
+          
             
             commonService service = new commonService();
             comboItems = service.getCommonCode("협력사@User@사용여부@반제품@원자재");
@@ -100,8 +97,8 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "품명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "단위", "Item_Unit", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수량", "Vo_Quantity", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "가격", "Vo_Price", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "수량", "Vo_Quantity", true,60, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "가격", "Vo_Price", true,100,DataGridViewContentAlignment.MiddleRight);
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "발주상태", "Materail_Order_State", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "납기일자", "Vo_EndDate", true);
@@ -115,8 +112,8 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "품명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "규격", "Item_Size", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "단위", "Item_Unit", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "수량", "Vo_Quantity", true);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "가격", "Vo_Price", true);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "수량", "Vo_Quantity", true,60, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "가격", "Vo_Price", true,100, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "발주상태", "Materail_Order_State", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "납기일자", "Vo_EndDate", true);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView2, "입고일자", "Vo_InDate", true);
@@ -124,25 +121,7 @@ namespace TUChair
             bindbalzu();
         }
 
-        private void New(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Delete(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Search(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Save(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         private void button2_Click(object sender, EventArgs e)
         {

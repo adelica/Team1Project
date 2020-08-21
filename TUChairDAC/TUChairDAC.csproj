@@ -67,6 +67,7 @@
     <Compile Include="MagamDAC.cs" />
     <Compile Include="MaterialRequirementDAC.cs" />
     <Compile Include="MonthDeadLineVO.cs" />
+    <Compile Include="POPDAC.cs" />
     <Compile Include="POSODAC.cs" />
     <Compile Include="ProcessShiftDAC.cs" />
     <Compile Include="ProductClosingDAC.cs" />

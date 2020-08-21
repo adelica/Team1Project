@@ -25,11 +25,7 @@ namespace TUChair
 
         private void AuthoGroupManager_Load(object sender, EventArgs e)
         {
-            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-            frm.Save += Save;
-            frm.Search += Search;
-            frm.Delete += Delete;
-            frm.New += New;
+           
 
             commonService service = new commonService();
             comboItems = service.getCommonCode("AuthorGroup@사용여부");
@@ -47,11 +43,11 @@ namespace TUChair
             jeansGridView1.IsAllCheckColumnHeader = true;
             CommonUtil.InitSettingGridView(jeansGridView1);
             // CommonUtil.DataGridViewCheckBoxSet("", jeansGridView1);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹아이디", "AuthorGroup_ID", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹아이디", "AuthorGroup_ID", true, 100, DataGridViewContentAlignment.MiddleCenter);
 
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹명", "AuthorGroup_Name", true, 200);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹설명", "AuthorGroup_Explanation", true, 250);
-            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹순서", "AuthorGroup_Order", true, 100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "권한그룹순서", "AuthorGroup_Order", true, 100, DataGridViewContentAlignment.MiddleCenter);
             CommonUtil.AddNewColumnToDataGridView(jeansGridView1, "사용여부", "AuthorGroup_UseOrNot", true);
 
             BindingData();
@@ -65,11 +61,6 @@ namespace TUChair
             jeansGridView1.DataSource = authorGroups;
         }
 
-        private void Search(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void Delete(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -77,7 +68,7 @@ namespace TUChair
 
         private void New(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            BindingData();
         }
 
         private void Save(object sender, EventArgs e)
@@ -131,11 +122,25 @@ namespace TUChair
 
         private void AuthoGroupManager_FormClosing(object sender, FormClosingEventArgs e)
         {
+            
+        }
+
+        private void AuthoGroupManager_Deactivate(object sender, EventArgs e)
+        {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
             frm.Save -= Save;
-            frm.Search -= Search;
+
             frm.Delete -= Delete;
             frm.New -= New;
+        }
+
+        private void AuthoGroupManager_Activated(object sender, EventArgs e)
+        {
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save += Save;
+
+            frm.Delete += Delete;
+            frm.New += New;
         }
     }
 }

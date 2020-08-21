@@ -53,6 +53,7 @@
             this.lblTaskID = new System.Windows.Forms.Label();
             this.lableT = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             this.btnServerStart.Name = "btnServerStart";
             this.btnServerStart.Size = new System.Drawing.Size(75, 23);
             this.btnServerStart.TabIndex = 0;
-            this.btnServerStart.Text = "설비가동";
+            this.btnServerStart.Text = "서버가동";
             this.btnServerStart.UseVisualStyleBackColor = true;
             this.btnServerStart.Click += new System.EventHandler(this.btnServerStart_Click);
             // 
@@ -72,7 +73,7 @@
             this.btnServerStop.Name = "btnServerStop";
             this.btnServerStop.Size = new System.Drawing.Size(75, 23);
             this.btnServerStop.TabIndex = 1;
-            this.btnServerStop.Text = "설비중지";
+            this.btnServerStop.Text = "서버중지";
             this.btnServerStop.UseVisualStyleBackColor = true;
             this.btnServerStop.Click += new System.EventHandler(this.btnServerStop_Click);
             // 
@@ -82,7 +83,7 @@
             this.btnClientStart.Name = "btnClientStart";
             this.btnClientStart.Size = new System.Drawing.Size(75, 23);
             this.btnClientStart.TabIndex = 2;
-            this.btnClientStart.Text = "연결받기";
+            this.btnClientStart.Text = "연결가동";
             this.btnClientStart.UseVisualStyleBackColor = true;
             this.btnClientStart.Click += new System.EventHandler(this.btnClientStart_Click);
             // 
@@ -131,7 +132,7 @@
             // 
             // txtPlanQTY
             // 
-            this.txtPlanQTY.Location = new System.Drawing.Point(100, 65);
+            this.txtPlanQTY.Location = new System.Drawing.Point(100, 23);
             this.txtPlanQTY.Name = "txtPlanQTY";
             this.txtPlanQTY.Size = new System.Drawing.Size(124, 21);
             this.txtPlanQTY.TabIndex = 10;
@@ -139,7 +140,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 66);
+            this.label3.Location = new System.Drawing.Point(35, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 9;
@@ -147,7 +148,7 @@
             // 
             // txtProQTY
             // 
-            this.txtProQTY.Location = new System.Drawing.Point(98, 30);
+            this.txtProQTY.Location = new System.Drawing.Point(100, 62);
             this.txtProQTY.Name = "txtProQTY";
             this.txtProQTY.Size = new System.Drawing.Size(124, 21);
             this.txtProQTY.TabIndex = 12;
@@ -155,7 +156,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 30);
+            this.label4.Location = new System.Drawing.Point(37, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 11;
@@ -283,11 +284,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "생산추이";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(355, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 23);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "지시량 확인";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // POPUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblTaskID);
             this.Controls.Add(this.lableT);
@@ -343,5 +355,6 @@
         private System.Windows.Forms.Label lblTaskID;
         private System.Windows.Forms.Label lableT;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

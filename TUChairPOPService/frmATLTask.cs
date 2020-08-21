@@ -19,6 +19,7 @@ namespace TUChair
 {
     public partial class frmATLTask : Form
     {
+        public event ThreadATLTask.ReadDataEvent ReadData;
         public bool bExit = false;
 
         string PGM_ID;
@@ -321,6 +322,9 @@ namespace TUChair
                 this.Invoke((MethodInvoker)(() => ListBox1.SelectedIndex = ListBox1.Items.Count - 1));
             }
             txtReadATL.Invoke((MethodInvoker)delegate { txtReadATL.Text = e.Data.Trim(); });
+
+            if (ReadData != null)
+                ReadData(null, e);
         }
 
         private void timSocket_Connect_Tick_1(object sender, EventArgs e)

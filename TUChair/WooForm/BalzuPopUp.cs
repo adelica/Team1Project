@@ -57,10 +57,10 @@ namespace TUChair
             CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "품목명", "Item_Name", true);
             CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "품목", "Item_Code", true, 200);
             CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "규격", "Item_Size", true, 200);
-            CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "수량", "Qty", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "수량", "Qty", true,100, DataGridViewContentAlignment.MiddleRight);
             CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "납기일", "duedate", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "단가", "Price_Present", true);
-            CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "총금액", "Price", true);
+            CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "단가", "Price_Present", true,100, DataGridViewContentAlignment.MiddleRight);
+            CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "총금액", "Price", true,100, DataGridViewContentAlignment.MiddleRight);
 
             CommonUtil.AddNewColumnToDataGridView(dgvbalzu, "발주여부", "isbalzu", true);
 

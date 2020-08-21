@@ -38,7 +38,7 @@ on s.Faci_Code = f.Faci_Code";
                 return null;
             }
         }
-        public bool InsertShiftInfo(string Shift_ID, string Fac_Code, string Shift_StartTime, string Shift_EndTime, DateTime Shift_StartDate, DateTime Shift_EndDate, int Shift_InputPeople = 0, string Shift_UserOrNot = null, string Shift_Modifier = null,
+        public bool InsertShiftInfo(string Fac_Code, string Shift_StartTime, string Shift_EndTime, DateTime Shift_StartDate, DateTime Shift_EndDate, int Shift_InputPeople = 0, string Shift_UserOrNot = null, string Shift_Modifier = null,
             DateTime? Shift_ModifierDate = null, string Shift_Others = null)
         {
             try
@@ -46,12 +46,12 @@ on s.Faci_Code = f.Faci_Code";
                 Shift_ModifierDate = DateTime.Now;
 
                 SqlConnection conn = new SqlConnection(this.ConnectionString);
-                string sql = @"insert into [dbo].[Shift]([Shift_ID], [Faci_Code], [Shift_StartTime], [Shift_EndTime], [Shift_StartDate], [Shift_EndDate], [Shift_InputPeople], [Shift_UserOrNot], [Shift_Modifier], [Shift_ModifierDate], [Shift_Others])
-                 values (@Shift_ID,(select [Faci_Code] from [dbo].[Facility] where [Faci_Name]=@Faci_Code),@Shift_StartTime,@Shift_EndTime,        @Shift_StartDate,@Shift_EndDate,@Shift_InputPeople,@Shift_UserOrNot,@Shift_Modifier,
+                string sql = @"insert into [dbo].[Shift]([Faci_Code], [Shift_StartTime], [Shift_EndTime], [Shift_StartDate], [Shift_EndDate], [Shift_InputPeople], [Shift_UserOrNot], [Shift_Modifier], [Shift_ModifierDate], [Shift_Others])
+                 values ((select [Faci_Code] from [dbo].[Facility] where [Faci_Name]=@Faci_Code),@Shift_StartTime,@Shift_EndTime,        @Shift_StartDate,@Shift_EndDate,@Shift_InputPeople,@Shift_UserOrNot,@Shift_Modifier,
                          @Shift_ModifierDate,@Shift_Others) ";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Shift_ID", Shift_ID);
+                   // cmd.Parameters.AddWithValue("@Shift_ID", Shift_ID);
                     cmd.Parameters.AddWithValue("@Faci_Code", Fac_Code);
                     cmd.Parameters.AddWithValue("@Shift_StartTime", Shift_StartTime);
                     cmd.Parameters.AddWithValue("@Shift_EndTime", Shift_EndTime);
