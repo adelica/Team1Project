@@ -70,5 +70,13 @@ namespace TUChair
                 }
             }
         }
+
+        private void BalzuManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            TUChairMain2 frm = (TUChairMain2)this.MdiParent;
+            frm.Save -= Save;
+            frm.Search -= Search;
+        }
     }
 }

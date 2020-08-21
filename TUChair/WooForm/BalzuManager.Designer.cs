@@ -170,6 +170,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "BalzuManager";
             this.Text = "BalzuManager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BalzuManager_FormClosing);
             this.Load += new System.EventHandler(this.BalzuManager_Load);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

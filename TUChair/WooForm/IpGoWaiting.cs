@@ -64,7 +64,15 @@ namespace TUChair
         {
             if (textBox1.Text.Length > 5)
             {
-                //button2.PerformClick();
+              int  barID = int.Parse(textBox1.Text.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
+                
+                string modifier = ((TUChairMain2)this.MdiParent).userInfoVO.CUser_ID;
+                ItemService service1 = new ItemService();
+                if (service1.IpGoUpdate(barID, modifier))
+                {
+                    MessageBox.Show("입고완료되었습니다.");
+                }
+                bindbalzu();
             }
         }
         private void IpGoWaiting_Load(object sender, EventArgs e)
@@ -125,7 +133,7 @@ namespace TUChair
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // int.Parse(textBox1.Text.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
+           
 
             int barID = 0;
             {
