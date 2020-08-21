@@ -109,7 +109,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HyunningForm\EmpManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HyunningForm\EmpManager.Designer.cs">
+      <DependentUpon>EmpManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HyunningForm\EmpManagerPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HyunningForm\EmpManagerPopUp.Designer.cs">
+      <DependentUpon>EmpManagerPopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service\AuthorService.cs" />
+    <Compile Include="Service\EmpService.cs" />
     <Compile Include="WooForm\AuthoGroupManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -642,6 +655,12 @@
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\ServiceHelp.cs" />
+    <EmbeddedResource Include="HyunningForm\EmpManager.resx">
+      <DependentUpon>EmpManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HyunningForm\EmpManagerPopUp.resx">
+      <DependentUpon>EmpManagerPopUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WooForm\AuthoGroupManager.resx">
       <DependentUpon>AuthoGroupManager.cs</DependentUpon>
     </EmbeddedResource>

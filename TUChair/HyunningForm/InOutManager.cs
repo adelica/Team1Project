@@ -145,7 +145,22 @@ namespace TUChair
         private void Excel(object sender, EventArgs e)
         {
             if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
-                MessageBox.Show("엑셀만들어");
+            {
+                using (waitFrm frm = new waitFrm(ExportOrderList))
+                {
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog(this);
+                }
+            }
+        }
+        private void ExportOrderList()
+        {
+            string sResult = ExcelExportImport.ExportToDataGridView<InOutVo>(
+                (List<InOutVo>)jeansGridView1.DataSource, "");
+            if (sResult.Length > 0)
+            {
+                MessageBox.Show(sResult);
+            }
         }
 
         private void InOutManager_Load(object sender, EventArgs e)
