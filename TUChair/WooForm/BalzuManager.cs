@@ -60,13 +60,15 @@ namespace TUChair
 
         private void Save(object sender, EventArgs e)
         {
-            BalzuPopUp frm = new BalzuPopUp(cboplanID.Text);
-            
-            if (frm.ShowDialog() == DialogResult.OK)
+            if (((TUChairMain2)this.MdiParent).ActiveMdiChild == this)
             {
+                BalzuPopUp frm = new BalzuPopUp(cboplanID.Text);
 
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+
+                }
             }
-
         }
     }
 }
