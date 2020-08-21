@@ -128,11 +128,11 @@ namespace TUChair
 
                         JeanServicePShift shift = new JeanServicePShift();
                         shift.ShiftProduct(Item, Fact, Modifier, Qty, primary);
-                    }
                     if (Convert.ToInt32(jeansGridView1.Rows[i].Cells[9].Value) == 0)
                     {
                         MessageBox.Show("이동 수량을 입력해주세요");
                         return;
+                    }
                     }
                 }
                 MessageBox.Show("공정이동이 완료되었습니다.");
