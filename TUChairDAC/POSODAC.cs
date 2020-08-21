@@ -83,6 +83,9 @@ namespace TUChairDAC
                     cmd.Connection = new SqlConnection(this.ConnectionString);
                     cmd.CommandText = @"DELETE FROM SalesOrder Where So_WorkOrderID IN (" + code + ")";
 
+                    //cmd.Parameters.AddWithValue("@code", code);
+                   // cmd.CommandType = CommandType.StoredProcedure;
+
                     cmd.Connection.Open();
                     cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
