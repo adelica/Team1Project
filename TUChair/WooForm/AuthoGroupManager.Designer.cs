@@ -181,6 +181,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1275, 752);
             this.Name = "AuthoGroupManager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuthoGroupManager_FormClosing);
             this.Load += new System.EventHandler(this.AuthoGroupManager_Load);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

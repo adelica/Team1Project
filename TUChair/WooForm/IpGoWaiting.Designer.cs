@@ -43,15 +43,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.inDTP1 = new TUChair.InDTP();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.cboCom = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.cboItem = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.cboCom = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.inDTP1 = new TUChair.InDTP();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -59,9 +59,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -229,6 +229,66 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1246, 51);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.cboItem);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Location = new System.Drawing.Point(833, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(408, 41);
+            this.panel7.TabIndex = 20;
+            // 
+            // cboItem
+            // 
+            this.cboItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboItem.FormattingEnabled = true;
+            this.cboItem.Location = new System.Drawing.Point(69, 4);
+            this.cboItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboItem.Name = "cboItem";
+            this.cboItem.Size = new System.Drawing.Size(250, 32);
+            this.cboItem.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(14, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 24);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "◆ 품목";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.cboCom);
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Location = new System.Drawing.Point(418, 4);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(408, 41);
+            this.panel9.TabIndex = 22;
+            // 
+            // cboCom
+            // 
+            this.cboCom.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCom.FormattingEnabled = true;
+            this.cboCom.Location = new System.Drawing.Point(79, 4);
+            this.cboCom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboCom.Name = "cboCom";
+            this.cboCom.Size = new System.Drawing.Size(250, 32);
+            this.cboCom.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(14, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 24);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "◆ 업체";
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.inDTP1);
@@ -245,7 +305,7 @@
             this.inDTP1.End = new System.DateTime(2020, 8, 13, 15, 33, 31, 13);
             this.inDTP1.endCustomfomat = null;
             this.inDTP1.endfomat = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.inDTP1.Location = new System.Drawing.Point(127, 5);
+            this.inDTP1.Location = new System.Drawing.Point(94, 6);
             this.inDTP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inDTP1.Name = "inDTP1";
             this.inDTP1.Size = new System.Drawing.Size(278, 30);
@@ -264,66 +324,6 @@
             this.label7.Size = new System.Drawing.Size(74, 24);
             this.label7.TabIndex = 6;
             this.label7.Text = "◆ 납기일";
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.cboCom);
-            this.panel9.Controls.Add(this.label6);
-            this.panel9.Location = new System.Drawing.Point(418, 4);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(408, 41);
-            this.panel9.TabIndex = 22;
-            // 
-            // cboCom
-            // 
-            this.cboCom.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboCom.FormattingEnabled = true;
-            this.cboCom.Location = new System.Drawing.Point(136, 4);
-            this.cboCom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cboCom.Name = "cboCom";
-            this.cboCom.Size = new System.Drawing.Size(250, 32);
-            this.cboCom.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(14, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 24);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "◆ 업체";
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.cboItem);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Location = new System.Drawing.Point(833, 4);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(408, 41);
-            this.panel7.TabIndex = 20;
-            // 
-            // cboItem
-            // 
-            this.cboItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboItem.FormattingEnabled = true;
-            this.cboItem.Location = new System.Drawing.Point(139, 4);
-            this.cboItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cboItem.Name = "cboItem";
-            this.cboItem.Size = new System.Drawing.Size(250, 32);
-            this.cboItem.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(14, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 24);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "◆ 품목";
             // 
             // IpGoWaiting
             // 
@@ -349,12 +349,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jeansGridView2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
