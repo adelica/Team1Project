@@ -70,10 +70,7 @@ namespace TUChair
         private void IpGoWaiting_Load(object sender, EventArgs e)
         {
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
-            frm.Save += Save;
-            frm.Search += Search;
-            frm.Delete += Delete;
-            frm.New += New;
+          
             
             commonService service = new commonService();
             comboItems = service.getCommonCode("협력사@User@사용여부@반제품@원자재");
@@ -124,25 +121,7 @@ namespace TUChair
             bindbalzu();
         }
 
-        private void New(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Delete(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Search(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Save(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         private void button2_Click(object sender, EventArgs e)
         {

@@ -114,7 +114,7 @@ inner join [dbo].[Company] cp on s.Com_Code=cp.Com_Code
 inner join item i on i.Item_Code = vb.Item_Code
 where vb.Item_Type='원자재')
 
-select b.Com_Name,b.Com_Type,b.Item_Name,b.Item_Code,b.Item_Size,b.Qty,b.Com_CorporRegiNum,b.duedate,p.Price_Present,b.Qty*p.Price_Present as Price,case when v.Vo_ID is Null then 'N' else 'Y' end as isbalzu from balzu b left outer join  (select top(1) Price_Present, Item_Code from [dbo].[UnitPrice] order by Price_StartDate desc) p on b.Item_Code=p.Item_Code
+select b.Com_Name,b.Com_Type,b.Item_Name,b.Item_Code,b.Item_Size,b.Qty,b.Com_CorporRegiNum,b.duedate,p.Price_Present,b.Qty*p.Price_Present as Price,case when v.Vo_ID is Null then 'N' else 'Y' end as isbalzu from balzu b left outer join  (select top(100) Price_Present, Item_Code from [dbo].[UnitPrice] order by Price_StartDate desc) p on b.Item_Code=p.Item_Code
 						left outer join [dbo].[VendorOrder] v on b.Item_Code=v.Item_Code and b.duedate = v.Vo_EndDate
 
 ";
