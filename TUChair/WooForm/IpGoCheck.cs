@@ -44,8 +44,8 @@ namespace TUChair.WooForm
                 int barID = int.Parse(textBox1.Text.Trim().Replace("\r", "").Replace("\n", "").TrimStart('0'));
 
                 ItemService service = new ItemService();
-
-                service.IpGoUpdate(barID);
+                string modifier = ((TUChairMain2)this.MdiParent).userInfoVO.CUser_ID;
+                service.IpGoUpdate(barID, modifier);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

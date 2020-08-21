@@ -26,7 +26,7 @@ namespace TUChairDAC
 , Vo_StarDate
 , Vo_InDate
 , [Vo_Price]
-from VendorOrder V inner join Company c on v.Com_Code=c.Com_Code inner join Item i on v.Item_Code=i.Item_Code
+from VendorOrder V left outer  join Company c on v.Com_Code=c.Com_Code inner join Item i on v.Item_Code=i.Item_Code
  where Materail_Order_State ='미입고'";
                     
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
@@ -176,7 +176,7 @@ select b.Com_Name,b.Com_Type,b.Item_Name,b.Item_Code,b.Item_Size,b.Qty,b.Com_Cor
 , Vo_StarDate
 , Vo_InDate
 , [Vo_Price]
-from VendorOrder V inner join Company c on v.Com_Code=c.Com_Code inner join Item i on v.Item_Code=i.Item_Code
+from VendorOrder V left outer join Company c on v.Com_Code=c.Com_Code inner join Item i on v.Item_Code=i.Item_Code
  where Materail_Order_State ='입고'";
 
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);

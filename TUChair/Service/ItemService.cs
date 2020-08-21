@@ -34,11 +34,11 @@ namespace TUChair.Service
             return dac.DeleteItem(condition);
         }
 
-        internal void IpGoUpdate(int barID)
+        internal bool IpGoUpdate(int barID, string modifier)
         {
 
             ItemDAC dac = new ItemDAC();
-             dac.IpGoUpdate(barID);
+           return  dac.IpGoUpdate(barID, modifier);
         }
     }
 }
