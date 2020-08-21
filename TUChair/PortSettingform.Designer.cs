@@ -53,14 +53,16 @@
             // 
             this.panel4.Controls.Add(this.textBox1);
             this.panel4.Controls.Add(this.label6);
-            this.panel4.Location = new System.Drawing.Point(0, 234);
-            this.panel4.Size = new System.Drawing.Size(359, 145);
+            this.panel4.Location = new System.Drawing.Point(0, 293);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel4.Size = new System.Drawing.Size(410, 181);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Size = new System.Drawing.Size(359, 228);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel2.Size = new System.Drawing.Size(410, 285);
             // 
             // btnInsert
             // 
@@ -84,9 +86,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(37, 10);
+            this.groupBox1.Location = new System.Drawing.Point(42, 12);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(284, 184);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(325, 230);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
@@ -100,9 +104,10 @@
             "Xon/Xoff",
             "request to send",
             "request to send xon/xoff"});
-            this.cbHandShake.Location = new System.Drawing.Point(145, 143);
+            this.cbHandShake.Location = new System.Drawing.Point(166, 179);
+            this.cbHandShake.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbHandShake.Name = "cbHandShake";
-            this.cbHandShake.Size = new System.Drawing.Size(121, 24);
+            this.cbHandShake.Size = new System.Drawing.Size(138, 28);
             this.cbHandShake.TabIndex = 9;
             // 
             // cbParity
@@ -115,9 +120,10 @@
             "even",
             "mark",
             "space"});
-            this.cbParity.Location = new System.Drawing.Point(145, 114);
+            this.cbParity.Location = new System.Drawing.Point(166, 142);
+            this.cbParity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbParity.Name = "cbParity";
-            this.cbParity.Size = new System.Drawing.Size(121, 24);
+            this.cbParity.Size = new System.Drawing.Size(138, 28);
             this.cbParity.TabIndex = 8;
             // 
             // cbDataSize
@@ -128,9 +134,10 @@
             "8",
             "7",
             "6"});
-            this.cbDataSize.Location = new System.Drawing.Point(145, 85);
+            this.cbDataSize.Location = new System.Drawing.Point(166, 106);
+            this.cbDataSize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbDataSize.Name = "cbDataSize";
-            this.cbDataSize.Size = new System.Drawing.Size(121, 24);
+            this.cbDataSize.Size = new System.Drawing.Size(138, 28);
             this.cbDataSize.TabIndex = 7;
             // 
             // cbBaudRate
@@ -143,94 +150,98 @@
             "38400",
             "19200",
             "9600"});
-            this.cbBaudRate.Location = new System.Drawing.Point(145, 56);
+            this.cbBaudRate.Location = new System.Drawing.Point(166, 70);
+            this.cbBaudRate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbBaudRate.Name = "cbBaudRate";
-            this.cbBaudRate.Size = new System.Drawing.Size(121, 24);
+            this.cbBaudRate.Size = new System.Drawing.Size(138, 28);
             this.cbBaudRate.TabIndex = 6;
             // 
             // cbComPort
             // 
             this.cbComPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbComPort.FormattingEnabled = true;
-            this.cbComPort.Location = new System.Drawing.Point(145, 27);
+            this.cbComPort.Location = new System.Drawing.Point(166, 34);
+            this.cbComPort.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbComPort.Name = "cbComPort";
-            this.cbComPort.Size = new System.Drawing.Size(121, 24);
+            this.cbComPort.Size = new System.Drawing.Size(138, 28);
             this.cbComPort.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(23, 145);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(26, 181);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 19);
+            this.label5.Size = new System.Drawing.Size(118, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "handshake";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(23, 25);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(26, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 19);
+            this.label1.Size = new System.Drawing.Size(49, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "port";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(23, 115);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(26, 144);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 19);
+            this.label4.Size = new System.Drawing.Size(65, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "parity";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(22, 55);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(25, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 19);
+            this.label2.Size = new System.Drawing.Size(97, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "baudrate";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(21, 85);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(24, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 19);
+            this.label3.Size = new System.Drawing.Size(99, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "data size";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(37, 31);
+            this.textBox1.Location = new System.Drawing.Point(42, 39);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(284, 95);
+            this.textBox1.Size = new System.Drawing.Size(324, 118);
             this.textBox1.TabIndex = 10;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(33, 9);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(38, 11);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(176, 19);
+            this.label6.Size = new System.Drawing.Size(207, 25);
             this.label6.TabIndex = 9;
             this.label6.Text = "연결여부 확인 (Receive)";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(246, 200);
+            this.button1.Location = new System.Drawing.Point(281, 250);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 19);
+            this.button1.Size = new System.Drawing.Size(86, 24);
             this.button1.TabIndex = 11;
             this.button1.Text = "연결";
             this.button1.UseVisualStyleBackColor = true;
@@ -238,11 +249,12 @@
             // 
             // PortSettingform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 450);
+            this.ClientSize = new System.Drawing.Size(413, 562);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "PortSettingform";
-            this.Text = "PortSettingform";
+            this.Text = "바코드세팅";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PortSettingform_FormClosing);
             this.Load += new System.EventHandler(this.PortSetting_Load);
             this.panel1.ResumeLayout(false);
