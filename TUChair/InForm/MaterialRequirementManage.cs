@@ -23,7 +23,7 @@ namespace TUChair
         private void MaterialRequirementManage_Load(object sender, EventArgs e)
         {
             GetComboBinding();
-            CommonUtil.CboSetting(cboPlanID);
+            //CommonUtil.CboSetting(cboPlanID);
             frm =(TUChairMain2)this.MdiParent;
             frm.Search += Search;
         }
