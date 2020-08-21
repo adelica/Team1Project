@@ -30,9 +30,7 @@ namespace TUChair
             TUChairMain2 frm = (TUChairMain2)this.MdiParent;
             frm.Save += Save;
             frm.Search += Search;
-            frm.Delete += Delete;
-            frm.New += New;
-            frm.Excel += Excel;
+            
             commonService service = new commonService();
             comboItems = service.getCommonCode("@PlanID@사용여부");
 
@@ -45,20 +43,7 @@ namespace TUChair
             inDTP1.Start = DateTime.Now;
         }
 
-        private void Excel(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void New(object sender, EventArgs e)
-        {
-            jeansGridView1.DataSource = null;
-        }
-
-        private void Delete(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+    
 
         private void Search(object sender, EventArgs e)
         {
