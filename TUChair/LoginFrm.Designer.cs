@@ -124,6 +124,7 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(270, 20);
             this.txtID.TabIndex = 0;
+            this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_KeyPress);
             // 
             // panel3
             // 
@@ -201,6 +202,7 @@
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(270, 20);
             this.txtPwd.TabIndex = 1;
+            this.txtPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_KeyPress);
             // 
             // LoginFrm
             // 

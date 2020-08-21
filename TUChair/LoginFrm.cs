@@ -132,5 +132,6 @@ namespace TUChair
             var s = sender as Panel;
             s.Tag = new Point(e.X, e.Y);
         }
+
     }
 }
